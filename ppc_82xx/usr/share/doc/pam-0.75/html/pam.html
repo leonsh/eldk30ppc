@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM System Administrators' Guide</TITLE>
+ <LINK HREF="pam-1.html" REL=next>
+
+
+</HEAD>
+<BODY>
+<A HREF="pam-1.html">Next</A>
+Previous
+Contents
+<HR>
+<H1>The Linux-PAM System Administrators' Guide</H1>
+
+<H2>Andrew G. Morgan, <CODE>morgan@kernel.org</CODE></H2>DRAFT v0.75 2001/03/18
+<HR>
+<EM>This manual documents what a system-administrator needs to know about
+the <B>Linux-PAM</B> library. It covers the correct syntax of the
+PAM configuration file and discusses strategies for maintaining a
+secure system.</EM>
+<HR>
+<P>
+<H2><A NAME="toc1">1.</A> <A HREF="pam-1.html">Introduction</A></H2>
+
+<P>
+<H2><A NAME="toc2">2.</A> <A HREF="pam-2.html">Some comments on the text</A></H2>
+
+<P>
+<H2><A NAME="toc3">3.</A> <A HREF="pam-3.html">Overview</A></H2>
+
+<UL>
+<LI><A NAME="toc3.1">3.1</A> <A HREF="pam-3.html#ss3.1">Getting started</A>
+</UL>
+<P>
+<H2><A NAME="toc4">4.</A> <A HREF="pam-4.html">The Linux-PAM configuration file</A></H2>
+
+<UL>
+<LI><A NAME="toc4.1">4.1</A> <A HREF="pam-4.html#ss4.1">Configuration file syntax</A>
+<LI><A NAME="toc4.2">4.2</A> <A HREF="pam-4.html#ss4.2">Directory based configuration</A>
+<LI><A NAME="toc4.3">4.3</A> <A HREF="pam-4.html#ss4.3">Generic optional arguments</A>
+<LI><A NAME="toc4.4">4.4</A> <A HREF="pam-4.html#ss4.4">Example configuration file entries</A>
+</UL>
+<P>
+<H2><A NAME="toc5">5.</A> <A HREF="pam-5.html">Security issues of Linux-PAM</A></H2>
+
+<UL>
+<LI><A NAME="toc5.1">5.1</A> <A HREF="pam-5.html#ss5.1">If something goes wrong</A>
+<LI><A NAME="toc5.2">5.2</A> <A HREF="pam-5.html#ss5.2">Avoid having a weak `other' configuration</A>
+</UL>
+<P>
+<H2><A NAME="toc6">6.</A> <A HREF="pam-6.html">A reference guide for available modules</A></H2>
+
+<UL>
+<LI><A NAME="toc6.1">6.1</A> <A HREF="pam-6.html#ss6.1">The access module</A>
+<LI><A NAME="toc6.2">6.2</A> <A HREF="pam-6.html#ss6.2">Chroot</A>
+<LI><A NAME="toc6.3">6.3</A> <A HREF="pam-6.html#ss6.3">Cracklib pluggable password strength-checker</A>
+<LI><A NAME="toc6.4">6.4</A> <A HREF="pam-6.html#ss6.4">The locking-out module</A>
+<LI><A NAME="toc6.5">6.5</A> <A HREF="pam-6.html#ss6.5">Set/unset environment variables</A>
+<LI><A NAME="toc6.6">6.6</A> <A HREF="pam-6.html#ss6.6">The filter module</A>
+<LI><A NAME="toc6.7">6.7</A> <A HREF="pam-6.html#ss6.7">Anonymous access module</A>
+<LI><A NAME="toc6.8">6.8</A> <A HREF="pam-6.html#ss6.8">The group access module</A>
+<LI><A NAME="toc6.9">6.9</A> <A HREF="pam-6.html#ss6.9">Add issue file to user prompt</A>
+<LI><A NAME="toc6.10">6.10</A> <A HREF="pam-6.html#ss6.10">The Kerberos 4 module.</A>
+<LI><A NAME="toc6.11">6.11</A> <A HREF="pam-6.html#ss6.11">The last login module</A>
+<LI><A NAME="toc6.12">6.12</A> <A HREF="pam-6.html#ss6.12">The resource limits module</A>
+<LI><A NAME="toc6.13">6.13</A> <A HREF="pam-6.html#ss6.13">The list-file module</A>
+<LI><A NAME="toc6.14">6.14</A> <A HREF="pam-6.html#ss6.14">The mail module</A>
+<LI><A NAME="toc6.15">6.15</A> <A HREF="pam-6.html#ss6.15">Create home directories on initial login</A>
+<LI><A NAME="toc6.16">6.16</A> <A HREF="pam-6.html#ss6.16">Output the motd file</A>
+<LI><A NAME="toc6.17">6.17</A> <A HREF="pam-6.html#ss6.17">The no-login module</A>
+<LI><A NAME="toc6.18">6.18</A> <A HREF="pam-6.html#ss6.18">The promiscuous module</A>
+<LI><A NAME="toc6.19">6.19</A> <A HREF="pam-6.html#ss6.19">The Password-Database module</A>
+<LI><A NAME="toc6.20">6.20</A> <A HREF="pam-6.html#ss6.20">The RADIUS session module</A>
+<LI><A NAME="toc6.21">6.21</A> <A HREF="pam-6.html#ss6.21">The rhosts module</A>
+<LI><A NAME="toc6.22">6.22</A> <A HREF="pam-6.html#ss6.22">The root access module</A>
+<LI><A NAME="toc6.23">6.23</A> <A HREF="pam-6.html#ss6.23">The securetty module</A>
+<LI><A NAME="toc6.24">6.24</A> <A HREF="pam-6.html#ss6.24">The login counter (tallying) module</A>
+<LI><A NAME="toc6.25">6.25</A> <A HREF="pam-6.html#ss6.25">Time control</A>
+<LI><A NAME="toc6.26">6.26</A> <A HREF="pam-6.html#ss6.26">The Unix Password module</A>
+<LI><A NAME="toc6.27">6.27</A> <A HREF="pam-6.html#ss6.27">The userdb module</A>
+<LI><A NAME="toc6.28">6.28</A> <A HREF="pam-6.html#ss6.28">Warning logger module</A>
+<LI><A NAME="toc6.29">6.29</A> <A HREF="pam-6.html#ss6.29">The wheel module</A>
+</UL>
+<P>
+<H2><A NAME="toc7">7.</A> <A HREF="pam-7.html">Files</A></H2>
+
+<P>
+<H2><A NAME="toc8">8.</A> <A HREF="pam-8.html">See also</A></H2>
+
+<P>
+<H2><A NAME="toc9">9.</A> <A HREF="pam-9.html">Notes</A></H2>
+
+<P>
+<H2><A NAME="toc10">10.</A> <A HREF="pam-10.html">Author/acknowledgments</A></H2>
+
+<P>
+<H2><A NAME="toc11">11.</A> <A HREF="pam-11.html">Bugs/omissions</A></H2>
+
+<P>
+<H2><A NAME="toc12">12.</A> <A HREF="pam-12.html">Copyright information for this document</A></H2>
+
+<HR>
+<A HREF="pam-1.html">Next</A>
+Previous
+Contents
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+isapnp.o: isapnp.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/dma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/isapnp.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h)
+isapnp_proc.o: isapnp_proc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/isapnp.h
+quirks.o: quirks.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/isapnp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h

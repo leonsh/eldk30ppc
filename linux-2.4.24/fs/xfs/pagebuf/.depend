@@ -1,0 +1,29 @@
+page_buf.o: page_buf.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/stddef.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/fs/xfs/support/ktrace.h \
+   /home/jhan/linux-2.4.241q/fs/xfs/support/debug.h \
+   /home/jhan/linux-2.4.241q/fs/xfs/support/kmem.h \
+   page_buf.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+page_buf.h: \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/uio.h
+	@touch page_buf.h
+.PRECIOUS:	page_buf.h \
+

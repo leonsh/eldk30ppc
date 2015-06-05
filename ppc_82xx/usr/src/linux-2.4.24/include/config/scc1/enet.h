@@ -1,0 +1,1 @@
+#undef  CONFIG_SCC1_ENET

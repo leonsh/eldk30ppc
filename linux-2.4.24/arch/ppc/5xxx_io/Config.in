@@ -1,0 +1,19 @@
+#
+# MPC5xxx on-chip I/O options
+#
+mainmenu_option next_comment
+comment 'MPC5xxx I/O Options'
+
+# Ethernet
+dep_bool 'FEC Ethernet' CONFIG_PPC_5xxx_FEC $CONFIG_NET_ETHERNET
+dep_bool '  Use MDIO for PHY configuration' CONFIG_USE_MDIO $CONFIG_PPC_5xxx_FEC
+dep_bool '  Use USE Motorola BestComm API Implementation' CONFIG_BESTCOMM_API $CONFIG_PPC_5xxx_FEC
+dep_bool '    Generic PHY support' CONFIG_FEC_GENERIC_PHY $CONFIG_USE_MDIO
+dep_bool '    Support LXT971 PHY' CONFIG_FEC_LXT971 $CONFIG_USE_MDIO
+
+# Serial.
+bool 'PSC serial support' CONFIG_PPC_5xxx_PSC
+dep_bool '  PSC Console support' CONFIG_PPC_5xxx_PSC_CONSOLE $CONFIG_PPC_5xxx_PSC
+define_bool CONFIG_SERIAL_CONSOLE $CONFIG_PPC_5xxx_PSC_CONSOLE
+
+endmenu

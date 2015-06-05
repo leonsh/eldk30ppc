@@ -1,0 +1,47 @@
+tpam_commands.o: tpam_commands.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/isdn/tpam.h \
+   tpam.h
+tpam_crcpc.o: tpam_crcpc.c \
+   tpam.h
+tpam.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/isdnif.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h
+	@touch tpam.h
+tpam_hdlc.o: tpam_hdlc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   tpam.h
+tpam_main.o: tpam_main.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   tpam.h
+tpam_memory.o: tpam_memory.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   tpam.h
+tpam_nco.o: tpam_nco.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   tpam.h
+tpam_queues.o: tpam_queues.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   tpam.h
+.PRECIOUS:	tpam.h \
+

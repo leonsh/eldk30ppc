@@ -1,0 +1,144 @@
+i2o_block.o: i2o_block.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/major.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stat.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/file.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioctl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/i2o.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkpg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hdreg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/notifier.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/reboot.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/completion.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blk.h
+i2o_config.o: i2o_config.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/i2o.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/miscdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h
+i2o_core.o: i2o_core.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/i2o.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/completion.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/reboot.h \
+   i2o_lan.h
+i2o_lan.o: i2o_lan.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/etherdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fddidevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/trdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fcdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_arp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/i2o.h \
+   i2o_lan.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/net/fc.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tr.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/fddi.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/anylan.h)
+i2o_lan.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fddidevice.h
+	@touch i2o_lan.h
+i2o_pci.o: i2o_pci.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/i2o.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtrr.h)
+i2o_proc.o: i2o_proc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/i2o.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   i2o_lan.h
+i2o_scsi.o: i2o_scsi.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/prefetch.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/dma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blk.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/i2o.h \
+   ../../scsi/scsi.h \
+   ../../scsi/hosts.h \
+   ../../scsi/sd.h \
+   i2o_scsi.h \
+   ../../scsi/scsi_module.c
+i2o_scsi.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kdev_t.h
+	@touch i2o_scsi.h
+.PRECIOUS:	i2o_lan.h \
+	i2o_scsi.h \
+

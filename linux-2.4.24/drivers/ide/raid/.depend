@@ -1,0 +1,73 @@
+ataraid.o: ataraid.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/asm/semaphore.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/kdev_t.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   ataraid.h
+ataraid.h: \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/semaphore.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+	@touch ataraid.h
+hptraid.o: hptraid.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   ataraid.h \
+   hptraid.h
+pdcraid.o: pdcraid.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   ataraid.h \
+   pdcraid.h
+silraid.o: silraid.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   ataraid.h \
+   silraid.h
+.PRECIOUS:	ataraid.h \
+

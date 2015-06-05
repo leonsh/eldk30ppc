@@ -1,0 +1,50 @@
+sticon.o: sticon.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tty.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/console.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/console_struct.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vt_kern.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/selection.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   sticore.h
+sticore.o: sticore.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/font.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgalloc.h \
+   sticore.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/fb.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pci.h)
+sticore.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgalloc.h
+	@touch sticore.h
+stifb.o: stifb.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tty.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fb.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/selection.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/fbcon.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/fbcon-cfb8.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/fbcon-cfb32.h \
+   sticore.h
+.PRECIOUS:	sticore.h \
+

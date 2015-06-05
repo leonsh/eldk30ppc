@@ -1,0 +1,435 @@
+ambassador.o: ambassador.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   ambassador.h
+ambassador.h: \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/ambassador/debug.h)
+	@touch ambassador.h
+atmdev_init.o: atmdev_init.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/zatm.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/nicstar.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/ambassador.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/horizon.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/fore200e.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/lanai.h)
+atmtcp.o: atmtcp.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm_tcp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h
+eni.o: eni.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/uio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm_eni.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   tonga.h \
+   midway.h \
+   suni.h \
+   eni.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/tune/burst.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/burst/rx/16w.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/burst/rx/8w.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/burst/rx/4w.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/burst/rx/2w.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/burst/tx/16w.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/burst/tx/8w.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/burst/tx/4w.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/eni/burst/tx/2w.h)
+eni.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   midway.h
+	@touch eni.h
+firestream.o: firestream.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/uio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/capability.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   firestream.h
+fore200e.o: fore200e.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/capability.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm_suni.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/segment.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/dma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/fore200e/sba.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   fore200e.h \
+   suni.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/fore200e/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/fore200e/pca.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/fore200e/tx/retry.h)
+fore200e.h: \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/fore200e/sba.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/fore200e/pca.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h
+	@touch fore200e.h
+he.o: he.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   he.h \
+   suni.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm_he.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ia64/sgi/sn2.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tsra.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tsrb.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tsrc.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tsrd.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tpdrq/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rcmabr.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbps/bufsize.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbps/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbps/thresh.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbpl/bufsize.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbpl/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbpl/thresh.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbrq/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbrq/thresh.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tbrq/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tbrq/thresh.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irq/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irq/thresh.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/default/vcibits.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/default/vpibits.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tmabr.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tpdba.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/numtpds.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/he/use/suni.h)
+he.h: \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irq/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tpdrq/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbrq/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tbrq/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbpl/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rbps/size.h)
+	@touch he.h
+horizon.o: horizon.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/uio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   horizon.h
+horizon.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/horizon/debug.h)
+	@touch horizon.h
+idt77105.o: idt77105.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/capability.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm_idt77105.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/param.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   idt77105.h
+idt77105.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmioc.h
+	@touch idt77105.h
+idt77252.o: idt77252.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/idt77252/use/suni.h) \
+   suni.h \
+   idt77252.h \
+   idt77252_tables.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/idt77252/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/idt77252/rcv/all.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/idt77252/send/idle.h)
+idt77252.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/idt77252/debug.h)
+	@touch idt77252.h
+iphase.o: iphase.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/uio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   iphase.h \
+   suni.h
+iphase.h: \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/ia/debug.h)
+	@touch iphase.h
+lanai.o: lanai.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h)
+nicstar.o: nicstar.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   nicstar.h \
+   nicstarmac.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/nicstar/use/suni.h) \
+   suni.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/nicstar/use/idt77105.h) \
+   idt77105.h \
+   nicstarmac.c
+nicstar.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/uio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm_nicstar.h
+	@touch nicstar.h
+suni.o: suni.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/capability.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm_suni.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/param.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   suni.h
+suni.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmioc.h
+	@touch suni.h
+uPD98402.o: uPD98402.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   uPD98402.h
+zatm.o: zatm.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/uio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm_zatm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/capability.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   uPD98401.h \
+   uPD98402.h \
+   zeprom.h \
+   zatm.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/zatm/exact/ts.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/zatm/debug.h)
+zatm.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/atmdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sonet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/atm/zatm/exact/ts.h)
+	@touch zatm.h
+.PRECIOUS:	ambassador.h \
+	eni.h \
+	fore200e.h \
+	he.h \
+	horizon.h \
+	idt77105.h \
+	idt77252.h \
+	iphase.h \
+	nicstar.h \
+	suni.h \
+	zatm.h \
+

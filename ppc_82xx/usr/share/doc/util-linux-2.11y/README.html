@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!-- $Id: README.html,v 1.4 2001/08/05 15:44:35 mrsam Exp $ -->
+  <title>The IDE-floppy utility</title>
+  <meta name="MSSmartTagsPreventParsing" content="TRUE">
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+
+<!-- Copyright 2001 Double Precision, Inc.  See COPYING for -->
+ <!-- distribution information. -->
+
+
+<h1>The floppy formatting utility</h1>
+
+<p>This utility program low-level formats floppy disks. This utility is
+capable of formatting floppies in LS-120 "Superdisk" ATAPI IDE drives, in
+addition to the standard floppy controller drives. At this time, LS-120
+support requires a patch to the Linux kernel:</p>
+
+<p>The patch file <code>linux-2.4.0.patch.txt</code> is for kernel 2.4.0.</p>
+
+<p>The patch file <code>linux-2.4.0-0.96.patch.txt</code> is for the 0.96
+version of ide-floppy.c</p>
+
+<p>The patch file <code>linux-2.4.7.patch.txt</code> is for kernel 2.4.7.</p>
+
+<p>The patch file <code>linux-2.4.7-ac3.patch.txt</code> is for kernel
+2.4.7-ac3.</p>
+
+<p>The patch file <code>linux-2.2.16.patch.txt</code> is for kernel 2.2.16
+(and 2.2.17, probably).</p>
+
+<p>Please don't ask me how to apply kernel patches.  If you know how to build
+and compile the Linux kernel, you know how to apply kernel patches.</p>
+
+<p>The floppy utility can still be used without applying these patches.
+You'll just get a jazzed-up version of fdformat.</p>
+
+<p><b>WARNING:</b> Do not attempt to format 120 mb super-floppies.  There's
+nothing in the floppy utility that blocks any attempt to issue a request to
+format a disk, if the floppy drive claims it can do so.  Some LS-120 drives
+claim to be able to format 120 mb super-floppies, even though these disk are
+factory-formatted, AND CANNOT be user-formatted.  An attempt to do so will
+permanently destroy the superfloppy disk.</p>
+
+<h2>Compiling</h2>
+
+<p>To compile this floppy utility you need to install the libpopt library. It
+is a small library used to parse command line arguments.  It is included in
+most Linux distributions by default.  If you don't have it, grab it from
+<code><a
+href="ftp://ftp.redhat.com/pub/redhat/code/popt">ftp://ftp.redhat.com/pub/redhat/code/popt</a></code>
+and install it.</p>
+
+<p>You will also need to have the <a href="http://www.gtk.org">GTK
+toolkit</a> installed in order to compile the GTK front end to the floppy
+utility. Without the GTK toolkit only the command-line utility will be
+compiled and installed.</p>
+
+<p>Compiling the floppy utility is straightforward:</p>
+<pre>./configure
+make
+make install (if you care, you can simply run it from the current directory
+too).</pre>
+
+<p>That's it.  By default, floppy will install in
+<code>/usr/local/bin</code>, and use <code>/usr/local/etc/floppy</code> as
+its configuration file.  The configure script accepts the usual options:</p>
+<ul>
+  <li><code>--prefix=/usr</code>
+     -- installs <code>/usr/bin/floppy</code>, and uses
+    <code>/usr/etc/floppy</code></li>
+  <li><code>--sysconfdir=/etc</code>
+     -- use <code>/etc/floppy</code> as the configuration file</li>
+</ul>
+
+<p>Therefore:</p>
+
+<p><code>--prefix=/usr --sysconfdir=/etc</code></p>
+
+<p>This configuration installs <code>/usr/bin/floppy</code>, and uses
+<code>/etc/floppy</code> as its configuration file.</p>
+
+<p>The floppy utility can also be built by RPM:</p>
+
+<p><code>rpm -ta floppy-0.12.tar.gz</code></p>
+
+<p>Please see the <a href="floppy.html">installed manual page</a> for
+instructions on using the floppy utility.</p>
+</body>
+</html>

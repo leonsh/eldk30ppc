@@ -1,0 +1,64 @@
+adapter.o: adapter.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/etherdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mii.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac.h \
+   xemac_i.h
+xemac.o: xemac.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h
+xemac_g.o: xemac_g.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xemac.h
+xemac.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xpacket_fifo_v1_00_b.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xdma_channel.h
+	@touch xemac.h
+xemac_i.h: \
+   xemac.h \
+   xemac_l.h
+	@touch xemac_i.h
+xemac_intr.o: xemac_intr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h
+xemac_intr_dma.o: xemac_intr_dma.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbuf_descriptor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xdma_channel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h
+xemac_intr_fifo.o: xemac_intr_fifo.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h
+xemac_l.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xemac_l.h
+xemac_options.o: xemac_options.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+xemac_phy.o: xemac_phy.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+.PRECIOUS:	xemac.h \
+	xemac_i.h \
+	xemac_l.h \
+

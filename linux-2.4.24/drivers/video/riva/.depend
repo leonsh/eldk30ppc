@@ -1,0 +1,40 @@
+accel.o: accel.c \
+   rivafb.h
+fbdev.o: fbdev.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   rivafb.h \
+   nvreg.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h)
+rivafb.h: \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   riva_hw.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h)
+	@touch rivafb.h
+riva_hw.o: riva_hw.c \
+   riva_hw.h \
+   riva_tbl.h
+riva_hw.h: \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+	@touch riva_hw.h
+.PRECIOUS:	rivafb.h \
+	riva_hw.h \
+

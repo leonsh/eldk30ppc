@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Application Developers' Guide: Porting legacy applications</TITLE>
+ <LINK HREF="pam_appl-7.html" REL=next>
+ <LINK HREF="pam_appl-5.html" REL=previous>
+ <LINK HREF="pam_appl.html#toc6" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_appl-7.html">Next</A>
+<A HREF="pam_appl-5.html">Previous</A>
+<A HREF="pam_appl.html#toc6">Contents</A>
+<HR>
+<H2><A NAME="s6">6.</A> <A HREF="pam_appl.html#toc6">Porting legacy applications</A></H2>
+
+<P>The following is extracted from an email.  I'll tidy it up later.</P>
+
+<P>The point of PAM is that the application is not supposed to have any
+idea how the attached authentication modules will choose to
+authenticate the user.  So all they can do is provide a conversation
+function that will talk directly to the user(client) on the modules'
+behalf.</P>
+
+<P>Consider the case that you plug a retinal scanner into the login
+program.  In this situation the user would be prompted: "please look
+into the scanner".  No username or password would be needed - all this
+information could be deduced from the scan and a database lookup.  The
+point is that the retinal scanner is an ideal task for a "module".</P>
+
+<P>While it is true that a pop-daemon program is designed with the POP
+protocol in mind and no-one ever considered attaching a retinal
+scanner to it, it is also the case that the "clean" PAM'ification of
+such a daemon would allow for the possibility of a scanner module
+being be attached to it.  The point being that the "standard"
+pop-authentication protocol(s) [which will be needed to satisfy
+inflexible/legacy clients] would be supported by inserting an
+appropriate pam_qpopper module(s).  However, having rewritten popd
+once in this way any new protocols can be implemented in-situ.</P>
+
+<P>One simple test of a ported application would be to insert the
+<CODE>pam_permit</CODE> module and see if the application demands you type a
+password...  In such a case, <CODE>xlock</CODE> would fail to lock the
+terminal - or would at best be a screen-saver, ftp would give password
+free access to all etc..  Neither of these is a very secure thing to
+do, but they do illustrate how much flexibility PAM puts in the hands
+of the local admin.</P>
+
+<P>The key issue, in doing things correctly, is identifying what is part
+of the authentication procedure (how many passwords etc..) the
+exchange protocol (prefixes to prompts etc., numbers like 331 in the
+case of ftpd) and what is part of the service that the application
+delivers.  PAM really needs to have total control in the
+authentication "procedure", the conversation function should only
+deal with reformatting user prompts and extracting responses from raw
+input.</P>
+
+<HR>
+<A HREF="pam_appl-7.html">Next</A>
+<A HREF="pam_appl-5.html">Previous</A>
+<A HREF="pam_appl.html#toc6">Contents</A>
+</BODY>
+</HTML>

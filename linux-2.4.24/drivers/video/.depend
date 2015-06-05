@@ -1,0 +1,2002 @@
+acornfb.o: acornfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   acornfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/a5k.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cpu/32.h)
+amifb.o: amifb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigaints.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-afb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-ilbm.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/amiga/ocs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/amiga/ecs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/amiga/aga.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gsp/resolver.h)
+atafb.o: atafb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-iplan2p2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-iplan2p4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-iplan2p8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h
+aty128fb.o: aty128fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h) \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/pci-bridge.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nvram.h) \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/adb/pmu.h) \
+   /home/jhan/linux-2.4.241q/include/linux/adb.h \
+   /home/jhan/linux-2.4.241q/include/linux/pmu.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pmac/backlight.h) \
+   /home/jhan/linux-2.4.241q/include/asm/backlight.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bootx/text.h) \
+   /home/jhan/linux-2.4.241q/include/asm/btext.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   aty128.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pmac/pbook.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cntl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/memsize.h)
+au1100fb.o: au1100fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   au1100fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/pb1100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/db1100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/hydrogen3.h)
+au1100fb.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/hyd1100.h)
+	@touch au1100fb.h
+bt431.h: \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h
+	@touch bt431.h
+bt455.h: \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h
+	@touch bt455.h
+bwtwofb.o: bwtwofb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sun4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sun3.h)
+cgfourteenfb.o: cgfourteenfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+cgsixfb.o: cgsixfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+cgthreefb.o: cgthreefb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+chipsfb.o: chipsfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/pci-bridge.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pmac/backlight.h) \
+   /home/jhan/linux-2.4.241q/include/asm/backlight.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pmac/pbook.h) \
+   /home/jhan/linux-2.4.241q/include/linux/adb.h \
+   /home/jhan/linux-2.4.241q/include/linux/pmu.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h
+clgenfb.o: clgenfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/zorro.h) \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/amiga.h) \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h) \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   clgenfb.h \
+   vga.h
+controlfb.o: controlfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/adb.h \
+   /home/jhan/linux-2.4.241q/include/linux/cuda.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/btext.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h \
+   controlfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/adb/cuda.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nvram.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bootx/text.h)
+creatorfb.o: creatorfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h
+cvisionppc.h: \
+   pm2fb.h
+	@touch cvisionppc.h
+cyber2000fb.o: cyber2000fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   cyber2000fb.h
+cyber2000fb.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/debug/ll.h)
+	@touch cyber2000fb.h
+cyberfb.o: cyberfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   cyberfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h
+dn_accel.h: \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h
+	@touch dn_accel.h
+dn_cfb4.o: dn_cfb4.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigaints.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   dn_accel.h
+dn_cfb8.o: dn_cfb8.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigaints.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   dn_accel.h
+dnfb.o: dnfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigaints.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   dn_accel.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h
+dummycon.o: dummycon.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kdev_t.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/console_struct.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h
+epson1355fb.o: epson1355fb.c \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/superh.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/e1355/reg/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/e1355/fb/base.h)
+epson1356fb.o: epson1356fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/tlb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/video/e1356fb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soc/au1x00.h) \
+   epson1356fb.h
+epson1356fb.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pb1000/crt.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pb1000/ntsc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pb1000/tft.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pb1500/crt.h)
+	@touch epson1356fb.h
+fbcmap.o: fbcmap.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+fbcon-afb.o: fbcon-afb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-afb.h
+fbcon.o: fbcon.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/amiga.h) \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigaints.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atari.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/apus.h) \
+   /home/jhan/linux-2.4.241q/include/asm/machdep.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/vga/planes.h) \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/linux_logo.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mac.h \
+   /home/jhan/linux-2.4.241q/include/video/font.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/mac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/fontwidth8/only.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb16.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb24.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb32.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sbus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb8.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/afb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/ilbm.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/iplan2p2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/iplan2p4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/iplan2p8.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/mfb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/hga.h)
+fbcon-cfb16.o: fbcon-cfb16.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h
+fbcon-cfb24.o: fbcon-cfb24.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h
+fbcon-cfb2.o: fbcon-cfb2.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h
+fbcon-cfb32.o: fbcon-cfb32.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h
+fbcon-cfb4.o: fbcon-cfb4.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h
+fbcon-cfb8.o: fbcon-cfb8.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+fbcon-hga.o: fbcon-hga.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-hga.h
+fbcon-ilbm.o: fbcon-ilbm.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-ilbm.h
+fbcon-iplan2p2.o: fbcon-iplan2p2.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-iplan2p2.h
+fbcon-iplan2p4.o: fbcon-iplan2p4.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-iplan2p4.h
+fbcon-iplan2p8.o: fbcon-iplan2p8.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-iplan2p8.h
+fbcon-mac.o: fbcon-mac.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mac.h
+fbcon-mfb.o: fbcon-mfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h
+fbcon-sti.o: fbcon-sti.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/asm/types.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   sti/sticore.h
+fbcon-vga.o: fbcon-vga.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-vga.h
+fbcon-vga-planes.o: fbcon-vga-planes.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_buffer.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-vga-planes.h
+fbgen.o: fbgen.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h
+fbmem.o: fbmem.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/mman.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kmod.h) \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/apus.h) \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sbus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/retinaz3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/amiga.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/cyber.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/cyber2000.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pm2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pm3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/clgen.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/aty.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/aty128.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/neomagic.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/virge.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/riva.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/radeon.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/intel.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/control.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/platinum.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/valkyrie.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/ct65550.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/imstt.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/s3trio.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/fm2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sis.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/trident.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/voodoo1.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/rpx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/of.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/vesa.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/3dfx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sgivw.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/acorn.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/atari.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/mac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/hga.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/iga.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/apollo.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/q40.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/tga.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/hp300.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/g364.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sa1100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sun3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/hit.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/tx3912.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/e1355.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/e1356.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pvr2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pmag/aa.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pmag/ba.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pmagb/b.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/maxine.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/au1100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/ibmlcdc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/vga16.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sti.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gsp/resolver.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/virtual.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sun3.h)
+fbmon.o: fbmon.c \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h
+fm2fb.o: fm2fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h
+font_6x11.o: font_6x11.c \
+   /home/jhan/linux-2.4.241q/include/video/font.h
+font_8x16.o: font_8x16.c \
+   /home/jhan/linux-2.4.241q/include/video/font.h
+font_8x8.o: font_8x8.c \
+   /home/jhan/linux-2.4.241q/include/video/font.h
+font_acorn_8x8.o: font_acorn_8x8.c \
+   /home/jhan/linux-2.4.241q/include/video/font.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/acorn.h)
+font_pearl_8x8.o: font_pearl_8x8.c \
+   /home/jhan/linux-2.4.241q/include/video/font.h
+fonts.o: fonts.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/apus.h) \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/video/font.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/font/8x8.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/font/8x16.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/font/6x11.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/mac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/sbus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/font/sun8x16.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/font/sun12x22.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb8.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb16.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb24.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb32.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/font/acorn/8x8.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/font/pearl/8x8.h)
+font_sun12x22.o: font_sun12x22.c \
+   /home/jhan/linux-2.4.241q/include/video/font.h
+font_sun8x16.o: font_sun8x16.c \
+   /home/jhan/linux-2.4.241q/include/video/font.h
+g364fb.o: g364fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+hgafb.o: hgafb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/vga.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-hga.h \
+   /home/jhan/linux-2.4.241q/include/linux/linux_logo.h
+hitfb.o: hitfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/nubus.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hd64461/iobase.h)
+hpfb.o: hpfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/dio.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+ibmlcdfb.o: ibmlcdfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/wrapper.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/ibm4xx.h \
+   ibmlcd.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/405lp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arctic2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/beech.h)
+ibmlcd.h: \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/semaphore.h \
+   /home/jhan/linux-2.4.241q/include/asm/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/ibm4xx.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h
+	@touch ibmlcd.h
+ibmlcds.o: ibmlcds.c \
+   ibmlcd.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/autoconf.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/beech.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arctic2.h)
+igafb.o: igafb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   iga.h
+imsttfb.o: imsttfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc.h) \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/pci-bridge.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nvram.h)
+leofb.o: leofb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+lynxfb.o: lynxfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h
+macfb.o: macfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/nubus.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h
+macmodes.o: macmodes.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h
+maxinefb.o: maxinefb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   maxinefb.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+mdacon.o: mdacon.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/console_struct.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_buffer.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/vga.h
+modedb.o: modedb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/console_struct.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h
+neofb.o: neofb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   neofb.h
+neofb.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h)
+	@touch neofb.h
+newport_con.o: newport_con.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/console_struct.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/video/newport.h \
+   /home/jhan/linux-2.4.241q/include/asm/linux_logo.h \
+   /home/jhan/linux-2.4.241q/include/video/font.h
+offb.o: offb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bootx/text.h) \
+   /home/jhan/linux-2.4.241q/include/asm/bootx.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h
+p9100fb.o: p9100fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   p9100.h
+platinumfb.o: platinumfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h \
+   platinumfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nvram.h)
+pm2fb.o: pm2fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   pm2fb.h \
+   cvisionppc.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pm2/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pm2/cvppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pm2/fifo/disconnect.h)
+pm3fb.o: pm3fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/of.h) \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   pm3fb.h
+pm3fb.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/of.h)
+	@touch pm3fb.h
+pmag-aa-fb.o: pmag-aa-fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   bt455.h \
+   bt431.h
+pmag-ba-fb.o: pmag-ba-fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   pmag-ba-fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+pmagb-b-fb.o: pmagb-b-fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   pmagb-b-fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+promcon.o: promcon.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/console_struct.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dummy/console.h)
+pvr2fb.o: pvr2fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sh/dreamcast.h) \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/pvr2/debug.h)
+q40fb.o: q40fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h
+radeonfb.o: radeonfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h) \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/pci-bridge.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nvram.h) \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pmac/backlight.h) \
+   /home/jhan/linux-2.4.241q/include/asm/backlight.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bootx/text.h) \
+   /home/jhan/linux-2.4.241q/include/asm/btext.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/adb/pmu.h) \
+   /home/jhan/linux-2.4.241q/include/linux/adb.h \
+   /home/jhan/linux-2.4.241q/include/linux/pmu.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   radeon.h \
+   /home/jhan/linux-2.4.241q/include/linux/radeonfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pmac/pbook.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/aper/0/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/aper/size.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/memsize.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/memsize/mask.h)
+retz3fb.o: retz3fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   retz3fb.h
+rpxfb.o: rpxfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/bootmem.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/8xx_immap.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8xx.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h) \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/rpx/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/rpx/lcd/nec.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/rpx/lcd/sharp.h)
+S3triofb.o: S3triofb.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/s3blit.h
+sa1100fb.o: sa1100fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   sa1100fb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/assabet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/h3600.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ipaq/h3100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/brutus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/cerf.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cerf/lcd/72/a.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cerf/lcd/57/a.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cerf/lcd/38/a.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cerf/lcd/38/b.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/freebird.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/graphicsclient.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/huw/webpanel.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/omnimeter.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/pangolin.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/stork.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/xp860.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/lart.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cpu/freq.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h)
+sa1100fb.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cpu/freq.h)
+	@touch sa1100fb.h
+sbusfb.o: sbusfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/creator.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/cgsix.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/cgthree.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/tcx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/leo.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/bwtwo.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/cgfourteen.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/p9100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sun4.h)
+sgivwfb.o: sgivwfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   sgivwfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h)
+skeletonfb.o: skeletonfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h
+sstfb.o: sstfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   sstfb.h
+sun3fb.o: sun3fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sun3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sun3x.h) \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/cgsix.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/bwtwo.h)
+tcxfb.o: tcxfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/video/sbusfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h
+tdfxfb.o: tdfxfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h
+tgafb.o: tgafb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   tgafb.h
+tridentfb.o: tridentfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   tridentfb.h
+tx3912fb.o: tx3912fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   tx3912fb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/mfb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb8.h)
+tx3912fb.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nino/4mb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nino/8mb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fbcon/cfb2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nino/16mb.h)
+	@touch tx3912fb.h
+valkyriefb.o: valkyriefb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/adb.h \
+   /home/jhan/linux-2.4.241q/include/linux/cuda.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h \
+   valkyriefb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/adb/cuda.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nvram.h)
+valkyriefb.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mac.h)
+	@touch valkyriefb.h
+vesafb.o: vesafb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mac.h
+vfb.o: vfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-mfb.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb2.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h
+vga16fb.o: vga16fb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-vga-planes.h \
+   vga.h
+vgacon.o: vgacon.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/console_struct.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dummy/console.h)
+vga.h: \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/amiga.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vga.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h
+	@touch vga.h
+virgefb.o: virgefb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   virgefb.h
+xilinxfb.o: xilinxfb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/wrapper.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/xilinx/rotate.h)
+.PRECIOUS:	au1100fb.h \
+	bt431.h \
+	bt455.h \
+	cvisionppc.h \
+	cyber2000fb.h \
+	dn_accel.h \
+	epson1356fb.h \
+	ibmlcd.h \
+	neofb.h \
+	pm3fb.h \
+	sa1100fb.h \
+	tx3912fb.h \
+	valkyriefb.h \
+	vga.h \
+

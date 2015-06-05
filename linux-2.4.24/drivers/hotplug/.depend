@@ -1,0 +1,191 @@
+acpiphp_core.o: acpiphp_core.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   pci_hotplug.h \
+   acpiphp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hotplug/pci/acpi/module.h)
+acpiphp_glue.o: acpiphp_glue.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/semaphore.h \
+   pci_hotplug.h \
+   acpiphp.h
+acpiphp.h: \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   pci_hotplug.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h
+	@touch acpiphp.h
+acpiphp_pci.o: acpiphp_pci.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   pci_hotplug.h \
+   acpiphp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ia64.h)
+acpiphp_res.o: acpiphp_res.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/fcntl.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   pci_hotplug.h \
+   acpiphp.h
+cpqphp_core.o: cpqphp_core.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   cpqphp.h \
+   cpqphp_nvram.h
+cpqphp_ctrl.o: cpqphp_ctrl.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   cpqphp.h
+cpqphp.h: \
+   pci_hotplug.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hotplug/pci/compaq/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+	@touch cpqphp.h
+cpqphp_nvram.o: cpqphp_nvram.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   cpqphp.h \
+   cpqphp_nvram.h
+cpqphp_nvram.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hotplug/pci/compaq/nvram.h)
+	@touch cpqphp_nvram.h
+cpqphp_pci.o: cpqphp_pci.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   cpqphp.h \
+   cpqphp_nvram.h
+cpqphp_proc.o: cpqphp_proc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   cpqphp.h
+ibmphp_core.o: ibmphp_core.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   ibmphp.h
+ibmphp_ebda.o: ibmphp_ebda.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   ibmphp.h
+ibmphp.h: \
+   pci_hotplug.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hotplug/pci/ibm/module.h)
+	@touch ibmphp.h
+ibmphp_hpc.o: ibmphp_hpc.c \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/time.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   ibmphp.h
+ibmphp_pci.o: ibmphp_pci.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   ibmphp.h
+ibmphp_res.o: ibmphp_res.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   ibmphp.h
+pci_hotplug_core.o: pci_hotplug_core.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/dnotify.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   pci_hotplug.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hotplug/pci/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+pci_hotplug_util.o: pci_hotplug_util.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   pci_hotplug.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hotplug/pci/module.h)
+.PRECIOUS:	acpiphp.h \
+	cpqphp.h \
+	cpqphp_nvram.h \
+	ibmphp.h \
+

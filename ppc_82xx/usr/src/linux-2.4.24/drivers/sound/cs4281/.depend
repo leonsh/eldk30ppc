@@ -1,0 +1,32 @@
+cs4281m.o: cs4281m.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/list.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sound.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/soundcard.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/dma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wrapper.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/hardirq.h \
+   cs4281_hwdefs.h \
+   cs4281_wrapper.h \
+   cs4281pm-24.h \
+   cs4281pm-24.c
+cs4281pm-24.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pm.h \
+   cs4281pm.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pm.h)
+	@touch cs4281pm-24.h
+.PRECIOUS:	cs4281pm-24.h \
+

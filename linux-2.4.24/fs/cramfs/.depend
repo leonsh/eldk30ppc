@@ -1,0 +1,16 @@
+inode.o: inode.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/cramfs_fs.h \
+   /home/jhan/linux-2.4.241q/include/asm/semaphore.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+uncompress.o: uncompress.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/zlib.h

@@ -1,0 +1,165 @@
+g450_pll.o: g450_pll.c \
+   g450_pll.h \
+   matroxfb_DAC1064.h
+g450_pll.h: \
+   matroxfb_base.h
+	@touch g450_pll.h
+i2c-matroxfb.o: i2c-matroxfb.c \
+   matroxfb_base.h \
+   matroxfb_maven.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-bit.h
+matroxfb_accel.o: matroxfb_accel.c \
+   matroxfb_accel.h \
+   matroxfb_DAC1064.h \
+   matroxfb_Ti3026.h \
+   matroxfb_misc.h
+matroxfb_accel.h: \
+   matroxfb_base.h
+	@touch matroxfb_accel.h
+matroxfb_base.o: matroxfb_base.c \
+   matroxfb_base.h \
+   matroxfb_misc.h \
+   matroxfb_accel.h \
+   matroxfb_DAC1064.h \
+   matroxfb_Ti3026.h \
+   matroxfb_maven.h \
+   matroxfb_crtc2.h \
+   matroxfb_g450.h \
+   /home/jhan/linux-2.4.241q/include/linux/matroxfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/32mb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/multihead.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/millenium.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/mystique.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/g100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nvram.h)
+matroxfb_base.h: \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/fb.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/linux/selection.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   /home/jhan/linux-2.4.241q/include/video/fbcon.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb4.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb8.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb16.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb24.h \
+   /home/jhan/linux-2.4.241q/include/video/fbcon-cfb32.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/compat/xpmac.h) \
+   /home/jhan/linux-2.4.241q/include/asm/vc_ioctl.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc.h) \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/pci-bridge.h \
+   /home/jhan/linux-2.4.241q/include/video/macmodes.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/mystique.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/g100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/millenium.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/32mb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/multihead.h)
+	@touch matroxfb_base.h
+matroxfb_crtc2.o: matroxfb_crtc2.c \
+   matroxfb_maven.h \
+   matroxfb_crtc2.h \
+   matroxfb_misc.h \
+   matroxfb_DAC1064.h \
+   /home/jhan/linux-2.4.241q/include/linux/matroxfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+matroxfb_crtc2.h: \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-bit.h \
+   matroxfb_base.h
+	@touch matroxfb_crtc2.h
+matroxfb_DAC1064.o: matroxfb_DAC1064.c \
+   matroxfb_DAC1064.h \
+   matroxfb_misc.h \
+   matroxfb_accel.h \
+   g450_pll.h \
+   /home/jhan/linux-2.4.241q/include/linux/matroxfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/g450.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/mystique.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/g100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/32mb.h)
+matroxfb_DAC1064.h: \
+   matroxfb_base.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/mystique.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/g100.h)
+	@touch matroxfb_DAC1064.h
+matroxfb_g450.o: matroxfb_g450.c \
+   matroxfb_base.h \
+   matroxfb_misc.h \
+   matroxfb_DAC1064.h \
+   g450_pll.h \
+   /home/jhan/linux-2.4.241q/include/linux/matroxfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/div64.h
+matroxfb_g450.h: \
+   matroxfb_base.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/g450.h)
+	@touch matroxfb_g450.h
+matroxfb_maven.o: matroxfb_maven.c \
+   matroxfb_maven.h \
+   matroxfb_misc.h \
+   matroxfb_DAC1064.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/matroxfb.h \
+   /home/jhan/linux-2.4.241q/include/asm/div64.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+matroxfb_maven.h: \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-bit.h \
+   matroxfb_base.h
+	@touch matroxfb_maven.h
+matroxfb_misc.o: matroxfb_misc.c \
+   matroxfb_misc.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/matroxfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/multihead.h)
+matroxfb_misc.h: \
+   matroxfb_base.h
+	@touch matroxfb_misc.h
+matroxfb_proc.o: matroxfb_proc.c \
+   matroxfb_base.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+matroxfb_Ti3026.o: matroxfb_Ti3026.c \
+   matroxfb_Ti3026.h \
+   matroxfb_misc.h \
+   matroxfb_accel.h \
+   /home/jhan/linux-2.4.241q/include/linux/matroxfb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/millenium.h)
+matroxfb_Ti3026.h: \
+   matroxfb_base.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fb/matrox/millenium.h)
+	@touch matroxfb_Ti3026.h
+.PRECIOUS:	g450_pll.h \
+	matroxfb_accel.h \
+	matroxfb_base.h \
+	matroxfb_crtc2.h \
+	matroxfb_DAC1064.h \
+	matroxfb_g450.h \
+	matroxfb_maven.h \
+	matroxfb_misc.h \
+	matroxfb_Ti3026.h \
+

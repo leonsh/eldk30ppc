@@ -1,0 +1,1 @@
+#undef  CONFIG_FEC_DP83846A

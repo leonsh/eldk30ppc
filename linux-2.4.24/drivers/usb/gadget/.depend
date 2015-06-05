@@ -1,0 +1,93 @@
+ether.o: ether.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/uts.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/linux/usb_ch9.h \
+   /home/jhan/linux-2.4.241q/include/linux/usb_gadget.h \
+   /home/jhan/linux-2.4.241q/include/linux/random.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/ethtool.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/usb/eth/net2280.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/usb/eth/pxa2xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/usb/eth/sa1100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/usb/eth/goku.h)
+net2280.o: net2280.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/usb_ch9.h \
+   /home/jhan/linux-2.4.241q/include/linux/usb_gadget.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   net2280.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/not/coherent/cache.h)
+usbstring.o: usbstring.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/usb_ch9.h \
+   /home/jhan/linux-2.4.241q/include/linux/usb_gadget.h
+zero.o: zero.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/uts.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/linux/usb_ch9.h \
+   /home/jhan/linux-2.4.241q/include/linux/usb_gadget.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/usb/zero/net2280.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/usb/zero/pxa2xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/usb/zero/sa1100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/usb/zero/goku.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/source/sink.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/loopback.h)

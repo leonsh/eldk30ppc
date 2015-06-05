@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><!--
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+              This file is generated from xml source: DO NOT EDIT
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      --><title>Binding - Apache HTTP Server</title><link href="./style/manual.css" type="text/css" rel="stylesheet"/></head><body><blockquote><div align="center"><img src="./images/sub.gif" alt="[APACHE DOCUMENTATION]"/><h3>Apache HTTP Server Version 2.0</h3></div><h1 align="center">Binding</h1>
+    <p>Configuring Apache to listen on specific addresses and ports.</p>
+  <ul><li><a href="#overview">Overview</a></li><li><a href="#ipv6">Special IPv6 Considerations</a></li><li><a href="#virtualhost">How This Works With Virtual Hosts</a></li></ul><hr/><p><strong>See also </strong></p><ul><li><a href="vhosts/">Virtual Hosts</a></li><li><a href="dns-caveats.html">DNS Issues</a></li></ul><h2><a name="overview">Overview</a></h2>
+    
+    
+    <table border="1"><tr><td valign="top"><strong>Related Modules</strong><br/><br/><code><a href="./mod/core.html">core</a></code><br/><code><a href="./mod/mpm_common.html">mpm_common</a></code><br/></td><td valign="top"><strong>Related Directives</strong><br/><br/><a href="./mod/core.html#virtualhost" class="directive"><code class="directive">VirtualHost</code></a><br/><a href="./mod/mpm_common.html#listen" class="directive"><code class="directive">Listen</code></a><br/></td></tr></table>
+    
+    
+    <p>When Apache starts, it binds to some port and address on
+    the local machine and waits for incoming requests. By default,
+    it listens to all addresses on the machine.  However, it needs to
+    be told to listen on specific ports, or to listen on only selected 
+    addresses, or a combination. This is often combined with the 
+    Virtual Host feature which determines how Apache responds to 
+    different IP addresses, hostnames and ports.</p>
+
+    <p>The <a href="./mod/mpm_common.html#listen" class="directive"><code class="directive">Listen</code></a>
+    directive tells the server to accept
+    incoming requests only on the specified port or
+    address-and-port combinations. If only a port number is
+    specified in the <a href="./mod/mpm_common.html#listen" class="directive"><code class="directive">Listen</code></a>
+    directive, the server
+    listens to the given port on all interfaces. If an IP address
+    is given as well as a port, the server will listen on the given
+    port and interface. Multiple Listen directives may be used to
+    specify a number of addresses and ports to listen on. The
+    server will respond to requests from any of the listed
+    addresses and ports.</p>
+
+    <p>For example, to make the server accept connections on both
+    port 80 and port 8000, use:</p>
+
+    <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code>
+      Listen 80<br>
+      Listen 8000
+    </code></td></tr></table></blockquote>
+
+    <p>To make the server accept connections on two specified
+    interfaces and port numbers, use</p>
+
+    <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code>
+      Listen 192.170.2.1:80<br>
+      Listen 192.170.2.5:8000
+    </code></td></tr></table></blockquote>
+
+    <p>IPv6 addresses must be surrounded in square brackets, as in the
+    following example:</p>
+
+    <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code>
+      Listen [fe80::a00:20ff:fea7:ccea]:80
+    </code></td></tr></table></blockquote>
+  <h2><a name="ipv6">Special IPv6 Considerations</a></h2>
+    
+
+    <p>When APR supports IPv6, Apache will create IPv6-capable listening
+    sockets by default (i.e., when no IP address is specified on the
+    Listen directive).  In other words, when APR supports IPv6,</p>
+
+    <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code>
+      Listen 80
+    </code></td></tr></table></blockquote>
+
+    <p>is equivalent to</p>
+
+    <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code>
+      Listen [::]:80
+    </code></td></tr></table></blockquote>
+
+    <p>When APR does not support IPv6,</p>
+
+    <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code>
+      Listen 80
+    </code></td></tr></table></blockquote>
+
+    <p>is equivalent to</p>
+
+    <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code>
+      Listen 0.0.0.0:80
+    </code></td></tr></table></blockquote>
+
+    <p>On some platforms, such as NetBSD, binding to the IPv6 wildcard address 
+    ("::") does not allow Apache to accept connections on IPv4 interfaces.
+    In this situation, multiple Listen directives are required, as shown
+    below:</p>
+
+    <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code>
+      Listen 0.0.0.0:80<br>
+      Listen [::]:0
+    </code></td></tr></table></blockquote>
+
+    <p>Apache does not currently detect this, so the Listen statements must
+    be edited manually by the administrator.</p>
+  <h2><a name="virtualhost">How This Works With Virtual Hosts</a></h2>
+    
+
+    <p>Listen does not implement Virtual Hosts. It only tells the
+    main server what addresses and ports to listen to. If no
+    <a href="./mod/core.html#virtualhost" class="directive"><code class="directive">&lt;VirtualHost&gt;</code></a>
+    directives are used, the server will behave
+    the same for all accepted requests. However,
+    <a href="./mod/core.html#virtualhost" class="directive"><code class="directive">&lt;VirtualHost&gt;</code></a>
+    can be used to specify a different behavior
+    for one or more of the addresses and ports. To implement a
+    VirtualHost, the server must first be told to listen to the
+    address and port to be used. Then a
+    <a href="./mod/core.html#virtualhost" class="directive"><code class="directive">&lt;VirtualHost&gt;</code></a> section
+    should be created for a specified address and port to set the
+    behavior of this virtual host. Note that if the
+    <a href="./mod/core.html#virtualhost" class="directive"><code class="directive">&lt;VirtualHost&gt;</code></a>
+    is set for an address and port that the
+    server is not listening to, it cannot be accessed.</p>
+  <hr/></blockquote><h3 align="center">Apache HTTP Server Version 2.0</h3><a href="./"><img src="./images/index.gif" alt="Index"/></a><a href="./"><img src="./images/home.gif" alt="Home"/></a></body></html>

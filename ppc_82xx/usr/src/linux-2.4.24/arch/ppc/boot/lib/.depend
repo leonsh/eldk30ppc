@@ -1,0 +1,6 @@
+div64.o: div64.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h
+zlib.o: zlib.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/zlib.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h

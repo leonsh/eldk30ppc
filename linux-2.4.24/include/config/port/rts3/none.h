@@ -1,0 +1,1 @@
+#define CONFIG_PORT_RTS3_NONE 1

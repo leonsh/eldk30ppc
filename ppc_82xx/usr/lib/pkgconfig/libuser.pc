@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libuser
+Description: A user and group account administration library.
+Version: 0.51.7
+Libs: -L${libdir} -luser -lcrypt 
+Requires: glib-2.0 gobject-2.0 gmodule-2.0
+Cflags: -I${includedir}

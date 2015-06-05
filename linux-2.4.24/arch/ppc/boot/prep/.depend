@@ -1,0 +1,27 @@
+head.o: head.S \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/cache.h
+kbd.o: kbd.c \
+   /home/jhan/linux-2.4.241q/include/linux/keyboard.h
+misc.o: misc.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/residual.h \
+   /home/jhan/linux-2.4.241q/include/linux/threads.h \
+   /home/jhan/linux-2.4.241q/include/linux/elf.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci_ids.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/mmu.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/mpc10x.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/of1275.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/zlib.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cmdline.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/vga/console.h)
+vreset.o: vreset.c \
+   iso_font.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h

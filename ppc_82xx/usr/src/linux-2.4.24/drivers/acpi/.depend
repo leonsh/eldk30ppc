@@ -1,0 +1,247 @@
+ac.o: ac.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+acpi_ksyms.o: acpi_ksyms.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/acpi.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/interpreter.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/bus.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/pci.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/ec.h)
+asus_acpi.o: asus_acpi.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h
+battery.o: battery.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+blacklist.o: blacklist.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/acpi.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h
+bus.o: bus.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/list.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/x86.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acinterp.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ldm.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/ec.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pm.h)
+button.o: button.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+ec.o: ec.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/actypes.h
+fan.o: fan.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+numa.o: numa.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/acpi.h
+osl.o: osl.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/nmi.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/efi.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/efi.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ia64.h)
+pci_bind.o: pci_bind.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/acpi.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+pci_irq.o: pci_irq.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/acpi.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/x86/io/apic.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/iosapic.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/x86.h)
+pci_link.o: pci_link.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+pci_root.o: pci_root.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/acpi.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+power.o: power.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+processor.o: processor.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/smp.h)
+system.o: system.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sysrq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/x86.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/acpi/sleep.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mc146818rtc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/hw_irq.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pm.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/magic/sysrq.h)
+tables.o: tables.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/acpi.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bootmem.h
+thermal.o: thermal.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/compatmac.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+toshiba_acpi.o: toshiba_acpi.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h
+utils.o: utils.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_bus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/acpi/acpi_drivers.h

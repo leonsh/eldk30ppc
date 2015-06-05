@@ -1,0 +1,1 @@
+#undef  CONFIG_ALL_PPC

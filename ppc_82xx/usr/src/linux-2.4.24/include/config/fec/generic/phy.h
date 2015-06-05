@@ -1,0 +1,1 @@
+#undef  CONFIG_FEC_GENERIC_PHY

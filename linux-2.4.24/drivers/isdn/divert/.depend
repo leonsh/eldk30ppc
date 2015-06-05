@@ -1,0 +1,27 @@
+divert_init.o: divert_init.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   isdn_divert.h
+divert_procfs.o: divert_procfs.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/isdnif.h \
+   isdn_divert.h
+isdn_divert.o: isdn_divert.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   isdn_divert.h
+isdn_divert.h: \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/isdnif.h \
+   /home/jhan/linux-2.4.241q/include/linux/isdn_divertif.h
+	@touch isdn_divert.h
+.PRECIOUS:	isdn_divert.h \
+

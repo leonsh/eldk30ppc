@@ -1,0 +1,196 @@
+bootmem.o: bootmem.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel_stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/bootmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/mmzone.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+filemap.o: filemap.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/shm.h \
+   /home/jhan/linux-2.4.241q/include/linux/mman.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/file.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/iobuf.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/mman.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h
+highmem.o: highmem.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h
+memory.o: memory.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/mman.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/iobuf.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/tlb.h
+mlock.o: mlock.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/shm.h \
+   /home/jhan/linux-2.4.241q/include/linux/mman.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h
+mmap.o: mmap.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/shm.h \
+   /home/jhan/linux-2.4.241q/include/linux/mman.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/file.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/personality.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h
+mprotect.o: mprotect.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/shm.h \
+   /home/jhan/linux-2.4.241q/include/linux/mman.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h
+mremap.o: mremap.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/shm.h \
+   /home/jhan/linux-2.4.241q/include/linux/mman.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h
+numa.o: numa.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/bootmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/mmzone.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/discontigmem.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/numa.h)
+oom_kill.o: oom_kill.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/timex.h
+page_alloc.o: page_alloc.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/bootmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/discontigmem.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/highmem.h)
+page_io.o: page_io.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel_stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h
+shmem.o: shmem.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/file.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/div64.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/tmpfs.h)
+slab.o: slab.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/compiler.h \
+   /home/jhan/linux-2.4.241q/include/linux/seq_file.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/debug/slab.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/smp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+swap.o: swap.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel_stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h
+swapfile.o: swapfile.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel_stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/shm.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h
+swap_state.o: swap_state.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel_stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h
+vmalloc.o: vmalloc.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h
+vmscan.o: vmscan.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel_stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/swapctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/file.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/quota.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/oom/killer.h)

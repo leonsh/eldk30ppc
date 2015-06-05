@@ -1,0 +1,29 @@
+checksum.o: checksum.S \
+   /home/jhan/linux-2.4.241q/include/linux/sys.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h
+dec_and_lock.o: dec_and_lock.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/atomic.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h
+div64.o: div64.S \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h
+locks.o: locks.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+strcase.o: strcase.c \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h
+string.o: string.S \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/cache.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/8xx.h)

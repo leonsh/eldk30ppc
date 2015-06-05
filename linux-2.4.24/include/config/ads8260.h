@@ -1,0 +1,1 @@
+#undef  CONFIG_ADS8260

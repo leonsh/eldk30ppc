@@ -1,0 +1,38 @@
+bitmap.o: bitmap.c \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/minix_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h
+dir.o: dir.c \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/minix_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h
+file.o: file.c \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/minix_fs.h
+inode.o: inode.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/minix_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/highuid.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h
+itree_v1.o: itree_v1.c \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/minix_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   itree_common.c
+itree_v2.o: itree_v2.c \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/minix_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   itree_common.c
+namei.o: namei.c \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/minix_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h

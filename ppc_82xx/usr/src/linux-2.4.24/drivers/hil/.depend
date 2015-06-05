@@ -1,0 +1,68 @@
+hil_kbd.o: hil_kbd.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hil.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/input.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h
+hilkbd.o: hilkbd.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci_ids.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/input.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hil.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/parisc.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/hp300.h)
+hil_mlc.o: hil_mlc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hil_mlc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/list.h
+hil_ptr.o: hil_ptr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hil.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/input.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h
+hp_sdc.o: hp_sdc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hp_sdc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hil.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h
+hp_sdc_mlc.o: hp_sdc_mlc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hil_mlc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hp_sdc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h
+hp_sdc_rtc.o: hp_sdc_rtc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hp_sdc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/miscdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/rtc.h

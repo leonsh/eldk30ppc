@@ -1,0 +1,33 @@
+eth.o: eth.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/linux/in.h \
+   /home/jhan/linux-2.4.241q/include/linux/inet.h \
+   /home/jhan/linux-2.4.241q/include/linux/ip.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/net/dst.h \
+   /home/jhan/linux-2.4.241q/include/net/arp.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/net/ipv6.h \
+   /home/jhan/linux-2.4.241q/include/net/ip.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/checksum.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/inet.h)
+pe2.o: pe2.c \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/net/datalink.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/in.h
+sysctl_net_ether.o: sysctl_net_ether.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h

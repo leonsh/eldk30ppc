@@ -1,0 +1,250 @@
+440_mmu.o: 440_mmu.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/signal.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mman.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/swap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stddef.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bootmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/highmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/prom.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu_context.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/smp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/setup.h
+44x_mmu.o: 44x_mmu.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/signal.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mman.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/swap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stddef.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bootmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/highmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/prom.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu_context.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/smp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/setup.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ibm44x.h \
+   mmu_decl.h \
+   mem_pieces.h
+4xx_mmu.o: 4xx_mmu.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/signal.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mman.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/swap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stddef.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bootmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/highmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/prom.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu_context.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/smp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/setup.h
+cachemap.o: cachemap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/signal.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mman.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/swap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stddef.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bootmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/highmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/prom.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/hardirq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu_context.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/smp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   mmu_decl.h
+extable.o: extable.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/modules.h)
+fault.o: fault.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/signal.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mman.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/highmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu_context.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/xmon.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/kgdb.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/4xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/booke.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/6xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/8xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/eth.h)
+hashtable.o: hashtable.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/cputable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/smp.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ppc64bridge.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/power4.h)
+init.o: init.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stddef.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bootmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/highmem.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/blk/dev/initrd.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blk.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/prom.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu_context.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/smp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/btext.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/tlb.h \
+   mem_pieces.h \
+   mmu_decl.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pin/tlb.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/all/ppc.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/highmem.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/smp.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/bootx/text.h)
+mem_pieces.o: mem_pieces.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stddef.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blk.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   mem_pieces.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/apus.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/all/ppc.h)
+mem_pieces.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/prom.h
+	@touch mem_pieces.h
+mmu_context.o: mmu_context.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu_context.h
+mmu_decl.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/8xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/4xx.h)
+	@touch mmu_decl.h
+pgtable.o: pgtable.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   mmu_decl.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/lowmem/size.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/smp.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/6xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/power3.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pte/64bit.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/highmem.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/440.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/kgdb.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/xmon.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/bdi/switch.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ppc/std/mmu.h)
+ppc_mmu.o: ppc_mmu.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/prom.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   mmu_decl.h \
+   mem_pieces.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ppc64bridge.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/smp.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/kgdb.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/power4.h)
+tlb.o: tlb.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   mmu_decl.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/smp.h)
+.PRECIOUS:	mem_pieces.h \
+	mmu_decl.h \
+

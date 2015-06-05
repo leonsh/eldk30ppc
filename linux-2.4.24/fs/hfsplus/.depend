@@ -1,0 +1,87 @@
+bfind.o: bfind.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   hfsplus_fs.h
+bnode.o: bnode.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/swap.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+brec.o: brec.c \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+btree.o: btree.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/asm/div64.h \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+catalog.o: catalog.c \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+dir.o: dir.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/random.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+extents.o: extents.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+hfsplus_fs.h: \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   hfsplus_raw.h
+	@touch hfsplus_fs.h
+hfsplus_raw.h: \
+   /home/jhan/linux-2.4.241q/include/linux/types.h
+	@touch hfsplus_raw.h
+inode.o: inode.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+options.o: options.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   hfsplus_fs.h
+super.o: super.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/vfs.h \
+   hfsplus_fs.h
+tables.o: tables.c \
+   hfsplus_fs.h
+unicode.o: unicode.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/nls.h \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+wrapper.o: wrapper.c \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   hfsplus_fs.h \
+   hfsplus_raw.h
+.PRECIOUS:	hfsplus_fs.h \
+	hfsplus_raw.h \
+

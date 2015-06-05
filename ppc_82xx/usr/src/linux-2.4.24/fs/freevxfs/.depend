@@ -1,0 +1,72 @@
+vxfs_bmap.o: vxfs_bmap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   vxfs.h \
+   vxfs_inode.h
+vxfs_fshead.o: vxfs_fshead.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   vxfs.h \
+   vxfs_inode.h \
+   vxfs_extern.h \
+   vxfs_fshead.h
+vxfs.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   vxfs_kcompat.h
+	@touch vxfs.h
+vxfs_immed.o: vxfs_immed.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pagemap.h \
+   vxfs.h \
+   vxfs_inode.h
+vxfs_inode.o: vxfs_inode.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pagemap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   vxfs.h \
+   vxfs_inode.h \
+   vxfs_extern.h
+vxfs_kcompat.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h
+	@touch vxfs_kcompat.h
+vxfs_lookup.o: vxfs_lookup.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/highmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pagemap.h \
+   vxfs.h \
+   vxfs_dir.h \
+   vxfs_inode.h \
+   vxfs_extern.h
+vxfs_olt.o: vxfs_olt.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   vxfs.h \
+   vxfs_olt.h
+vxfs_subr.o: vxfs_subr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pagemap.h \
+   vxfs_kcompat.h \
+   vxfs_extern.h
+vxfs_super.o: vxfs_super.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stat.h \
+   vxfs.h \
+   vxfs_extern.h \
+   vxfs_dir.h \
+   vxfs_inode.h
+.PRECIOUS:	vxfs.h \
+	vxfs_kcompat.h \
+

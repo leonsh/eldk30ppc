@@ -1,0 +1,38 @@
+irnet.h: \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ppp_defs.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_ppp.h \
+   /home/jhan/linux-2.4.241q/include/linux/ppp_channel.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/iriap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irias_object.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irttp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/discovery.h
+	@touch irnet.h
+irnet_irda.o: irnet_irda.c \
+   irnet_irda.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+irnet_irda.h: \
+   irnet.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+	@touch irnet_irda.h
+irnet_ppp.o: irnet_ppp.c \
+   irnet_ppp.h
+irnet_ppp.h: \
+   irnet.h
+	@touch irnet_ppp.h
+.PRECIOUS:	irnet.h \
+	irnet_irda.h \
+	irnet_ppp.h \
+

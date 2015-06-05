@@ -1,0 +1,52 @@
+xspi_adapter.o: xspi_adapter.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xspi.h \
+   xspi_i.h \
+   xspi_ioctl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/devfs_fs_kernel.h
+xspi.o: xspi.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xspi.h \
+   xspi_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+xspi_g.o: xspi_g.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xspi.h
+xspi.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xstatus.h
+	@touch xspi.h
+xspi_i.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xspi_l.h
+	@touch xspi_i.h
+xspi_ioctl.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioctl.h
+	@touch xspi_ioctl.h
+xspi_l.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xspi_l.h
+xspi_options.o: xspi_options.c \
+   xspi.h \
+   xspi_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+xspi_stats.o: xspi_stats.c \
+   xspi.h \
+   xspi_i.h
+.PRECIOUS:	xspi.h \
+	xspi_i.h \
+	xspi_ioctl.h \
+	xspi_l.h \
+

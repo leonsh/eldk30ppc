@@ -1,0 +1,439 @@
+#!/usr/bin/expect
+
+set BOARD [lindex $argv 0]
+
+set HOST [exec hostname]
+
+set U_BOOT  "/tftpboot/$BOARD/u-boot.srec"
+set KERNEL  "/tftpboot/$BOARD/uImage"
+set RAMDISK "/tftpboot/$BOARD/uRamdisk"
+
+set HISTORY "/home/wd/TQM/HISTORY"
+
+set TQM82xx_BAUDRATE	9600
+set TQM8xxL_BAUDRATE	115k
+set CPU86_BAUDRATE	9600
+set PORT		S1
+
+if [string match xpert* $HOST] {
+	set SERVER_IP	"192.168.3.1"
+	set TARGET_IP	"192.168.3.100"
+	set NETMASK	"255.255.255.0"
+} else {
+	set SERVER_IP	"10.0.0.14"
+	set TARGET_IP	"10.0.0.99"
+	set NETMASK	"255.0.0.0"
+}
+
+# Verify existence of images
+if [file exists $U_BOOT] {
+	# ok
+} else {
+	puts "File $U_BOOT missing"
+	exit 1
+}
+
+if [file exists $KERNEL] {
+	# ok
+} else {
+	puts "File $KERNEL missing"
+	exit 1
+}
+
+if [file exists $RAMDISK] {
+	# ok
+} else {
+	puts "File $RAMDISK missing"
+	exit 1
+}
+
+set timeout 60
+
+if [string match TQM8255* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM82xx_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match TQM8260* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM82xx_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match TQM8265* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM82xx_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match TQM8??L* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match TQM8??M* $BOARD] {
+	set KERNEL_ADDR "40080000"
+	set KERNEL_END  "4017FFFF"
+	set INITRD_ADDR "40180000"
+	set INITRD_END  "403FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match CPU86 $BOARD] {
+	set KERNEL_ADDR "FF040000"
+	set KERNEL_END  "FF0FFFFF"
+	set INITRD_ADDR "FF100000"
+	set INITRD_END  "FF1FFFFF"
+	set HOSTNAME	"cpu86"
+
+	spawn "connect" $BOARD
+
+	expect -exact "--------------------------------------------------"
+} elseif [string match SM850 $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"sm850"
+
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match FPS8??L* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+
+	expect "Connected."
+} else {
+	puts "Unknown Board \"$BOARD\""
+	exit 1
+}
+
+sleep 0.5
+send -- "\r"
+sleep 0.2
+send -- "\r"
+sleep 0.2
+send -- "\r"
+
+expect "MON:>"
+
+if [string match TQM8260* $BOARD] {
+	puts "Reading TQM8260 Board ID data..."
+	send -- "read 4003FF00 4003FF2F\r"
+} else {
+	puts "Reading TQM8xxL Board ID data..."
+	send -- "read 4001FFC0 4001FFEF\r"
+}
+expect -re ".*read\[^\r]*(\r\n)+(.*)\r\nMON:>"
+
+set tmp $expect_out(2,string)
+
+# remove addresses
+regsub -all {[0-9a-fA-F]+:  } $tmp {} tmp
+
+# remove ASCII dump and join lines
+regsub -all {  ................[\r\n]+} $tmp { } tmp
+
+###puts "\nSTRING: >>$tmp<<"
+
+set ascii ""
+
+for {set i 0} {$i < [string length $tmp]} {incr i 3} {
+	set val [string range $tmp $i [expr $i+1]]
+	scan $val {%x} num
+	if {$num == 0} {
+		break
+	}
+	set c [format "%c" $num]
+	##puts "Index $i: Value: $val Char: $c"
+	append ascii $c
+}
+
+###puts "\nASCII: \"$ascii\"\n"
+
+regsub {([^ ]+ +[^ ]+) +([^ ]+)(.*)} $ascii {\1 \3} serial
+regsub {[^ ]+ +[^ ]+ +([^ ]+).*} $ascii {\1} ethaddr
+
+# Format ethernet address
+set ethaddr [string toupper $ethaddr]
+regsub {(..)(..)(..)(..)(..)(..)} $ethaddr {\1:\2:\3:\4:\5:\6} ethaddr
+
+puts "\nSerial#: \"$serial\"  Ethaddr: \"$ethaddr\""
+
+set fd [open $HISTORY a 0644]
+set timestamp [clock format [clock seconds] ]
+puts $fd "$timestamp $BOARD\t\"$serial\"  \"$ethaddr\""
+close $fd
+
+# Sanity check
+if [string match TQM* $serial] {
+	# ok
+} else {
+	puts "Unknown board ID - Cowardly refusing to install"
+	exit 1
+}
+
+send "protect 1234\r"
+expect "MON:>"
+
+send "erase 40000000 4003FFFF\r"
+expect "MON:>"
+
+set timeout 60
+
+###send "load c0100000 ram\r"
+send "load 0 flash\r"
+expect -re "Ready.*\.\.\."
+
+set send_slow {1 .001}
+
+set timeout 300
+send "~"
+sleep 0.5
+send ">"
+sleep 0.5
+send "$U_BOOT\r"
+expect "connected"
+
+send "\r"
+expect "MON:>"
+
+send "~"
+sleep 0.5
+send "."
+expect eof
+
+if [string match TQM8260* $BOARD] {
+	spawn "cu" "$PORT@$TQM82xx_BAUDRATE"
+} else {
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+}
+expect "Connected."
+
+puts "\n\n"
+puts "\t####################################################################"
+puts "\t####################################################################"
+puts "\t###                                                             ####"
+puts "\t###  Reset board to boot U-Boot                                 ####"
+puts "\t###                                                             ####"
+puts "\t####################################################################"
+puts "\t####################################################################"
+
+set timeout -1
+expect "CPU:"
+send "\r"
+
+sleep 1
+set timeout 2
+expect "=>"
+set timeout 10
+set send_slow {1 .01}
+
+# Make sure we get the command output on the serial line
+send -s "setenv stdout serial\r"
+expect "=>"
+send -s "setenv stdout serial\r"
+expect "=>"
+send -s "setenv stdout serial\r"
+expect "=>"
+send -s "setenv stdout serial\r"
+expect "=>"
+
+# Now start...
+set send_slow {1 .001}
+set timeout 120
+
+send -s "printenv baudrate\r"
+expect "=>"
+
+send -s "setenv serial# $serial\r"
+expect "=>"
+
+send -s "setenv ethaddr $ethaddr\r"
+expect "=>"
+
+send -s "saveenv\r"
+expect "=>"
+
+send -s "era $KERNEL_ADDR $KERNEL_END\r"
+expect "=>"
+
+send -s "setenv preboot echo\\;echo Type \"run flash_nfs\" to mount root filesystem over NFS\\;echo\r"
+expect "=>"
+
+send -s "setenv nfsargs setenv bootargs root=/dev/nfs rw nfsroot=\\\$(serverip):\\\$(rootpath)\r"
+expect "=>"
+
+send -s "setenv ramargs setenv bootargs root=/dev/ram rw\r"
+expect "=>"
+
+send -s "setenv addip setenv bootargs \\\$(bootargs) ip=\\\$(ipaddr):\\\$(serverip):\\\$(gatewayip):\\\$(netmask):\\\$(hostname):\\\$(netdev):off panic=1\r"
+expect "=>"
+
+send -s "setenv flash_nfs run nfsargs addip\\\;bootm \\\$(kernel_addr)\r"
+expect "=>"
+
+send -s "setenv preboot echo\\\;echo Type \"run flash_nfs\" to mount root filesystem over NFS\\\;echo\r"
+expect "=>"
+
+send -s "setenv kernel_addr $KERNEL_ADDR\r"
+expect "=>"
+
+send -s "setenv ipaddr   $TARGET_IP\r"
+expect "=>"
+send -s "setenv netmask  $NETMASK\r"
+expect "=>"
+send -s "setenv netdev   eth0\r"
+expect "=>"
+send -s "setenv hostname $HOSTNAME\r"
+expect "=>"
+send -s "setenv serverip $SERVER_IP\r"
+expect "=>"
+send -s "setenv clocks_in_mhz\r"
+expect "=>"
+
+if [string match TQM8260* $BOARD] {
+	send -s "setenv rootpath /opt/eldk/ppc_82xx\r"
+} else {
+	send -s "setenv rootpath /opt/eldk/ppc_8xx\r"
+}
+expect "=>"
+
+send -s "tftp 100000 $KERNEL\r"
+expect "=>"
+
+send -s "cp.b 100000 \$(kernel_addr) \$(filesize)\r"
+expect "=>"
+
+send -s "era $INITRD_ADDR $INITRD_END\r"
+expect "=>"
+
+send -s "setenv flash_self run ramargs addip\\\;bootm \\\$(kernel_addr) \\\$(ramdisk_addr)\r"
+expect "=>"
+
+send -s "setenv ramdisk_addr $INITRD_ADDR\r"
+expect "=>"
+
+send -s "tftp 100000 $RAMDISK\r"
+expect "=>"
+
+send -s "cp.b 100000 \$(ramdisk_addr) \$(filesize)\r"
+expect "=>"
+
+send -s "setenv bootcmd run flash_self\r"
+expect "=>"
+
+send -s "setenv dnsip\r"
+expect "=>"
+
+send -s "setenv filesize\r"
+expect "=>"
+
+send -s "setenv bootfile\r"
+expect "=>"
+
+send -s "saveenv\r"
+expect "=>"
+
+set DATE [exec date -u +%m%d%H%M%Y.%S]
+send -s "date $DATE\r"
+expect "=>"
+
+send -s "reset\r"
+
+#################################################################
+##
+## Test "SELF" Environment
+##
+#################################################################
+
+# Wait for SELF to come up :-)
+expect "Linux version"
+expect "Application running"
+
+sleep 4
+set timeout 1
+expect "# "
+
+set timeout 10
+
+send -s "\r"
+expect "# "
+
+set timeout 60
+
+send -s "date\r"
+expect "# "
+
+# Long timeout needed for slow baudrate systems
+set timeout 150
+send -s "ls -l /bin /sbin /etc /dev\r"
+expect "# "
+
+send -s "ping 10.0.0.1\r"
+expect "# "
+
+send "reboot\r"
+
+#################################################################
+##
+## Test NFS Environment
+##
+#################################################################
+
+# Wait for PREBOOT message
+expect "mount root filesystem over NFS"
+# Send Break character
+send -s "\r"
+expect "=>"
+
+send -s "run flash_nfs\r"
+
+# Wait for Linux to come up :-)
+set timeout 120
+expect "login:"
+
+set send_slow {1 .01}
+
+send -s "root\r"
+expect "# "
+
+send -s "/sbin/ifconfig lo 127.0.0.1\r"
+expect "# "
+
+send -s "mount\r"
+expect "# "
+
+send -s "date\r"
+expect "# "
+
+send -s "ls -l /bin\r"
+expect "# "
+
+interact

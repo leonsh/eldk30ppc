@@ -1,0 +1,73 @@
+ataraid.o: ataraid.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkpg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/genhd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioctl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kdev_t.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/swap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   ataraid.h
+ataraid.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkpg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/genhd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioctl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h
+	@touch ataraid.h
+hptraid.o: hptraid.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkpg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/genhd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioctl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   ataraid.h \
+   hptraid.h
+pdcraid.o: pdcraid.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkpg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/genhd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioctl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   ataraid.h \
+   pdcraid.h
+silraid.o: silraid.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkpg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/genhd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioctl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   ataraid.h \
+   silraid.h
+.PRECIOUS:	ataraid.h \
+

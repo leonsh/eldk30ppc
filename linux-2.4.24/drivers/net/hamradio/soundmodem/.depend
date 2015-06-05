@@ -1,0 +1,78 @@
+sm_afsk1200.o: sm_afsk1200.c \
+   sm.h \
+   sm_tbl_afsk1200.h
+sm_afsk2400_7.o: sm_afsk2400_7.c \
+   sm.h \
+   sm_tbl_afsk2400_7.h
+sm_afsk2400_8.o: sm_afsk2400_8.c \
+   sm.h \
+   sm_tbl_afsk2400_8.h
+sm_afsk2666.o: sm_afsk2666.c \
+   sm.h \
+   sm_tbl_afsk2666.h
+sm.o: sm.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   sm.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/afsk1200.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/afsk2400/7.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/afsk2400/8.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/afsk2666.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/psk4800.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/hapn4800.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/fsk9600.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/sbc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/soundmodem/wss.h)
+smdma.h: \
+   sm.h
+	@touch smdma.h
+sm_fsk9600.o: sm_fsk9600.c \
+   sm.h \
+   sm_tbl_fsk9600.h
+sm.h: \
+   /home/jhan/linux-2.4.241q/include/linux/hdlcdrv.h \
+   /home/jhan/linux-2.4.241q/include/linux/soundmodem.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h
+	@touch sm.h
+sm_hapn4800.o: sm_hapn4800.c \
+   sm.h \
+   sm_tbl_hapn4800.h
+sm_psk4800.o: sm_psk4800.c \
+   sm.h \
+   sm_tbl_psk4800.h
+sm_sbc.o: sm_sbc.c \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/soundmodem.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   sm.h \
+   smdma.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+sm_wss.o: sm_wss.c \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/soundmodem.h \
+   sm.h \
+   smdma.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+.PRECIOUS:	smdma.h \
+	sm.h \
+

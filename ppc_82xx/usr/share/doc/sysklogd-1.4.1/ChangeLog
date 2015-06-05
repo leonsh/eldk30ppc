@@ -1,0 +1,190 @@
+2002-06-17  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/ChangeLog, sysklogd.spec.in:
+	1.4.1rh-9
+	
+	* Makefile, sysklogd.spec.in:
+	don't strip binaries
+
+2002-04-17  Bill Nottingham  <notting@redhat.com>
+
+	* sysklogd.spec.in: add bug note
+
+	* sysklogd.spec.in: bump rev
+
+	* klogd.c: revert loglevel behavior
+
+2002-03-13  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/ChangeLog, sysklogd.spec.in:
+	1.4.1rh-7
+
+	* redhat/syslog.init: provide LSB facility
+
+2002-03-12  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/ChangeLog, sysklogd.spec.in:
+	1.4.1rh-6
+
+	* sysklogd.spec.in:
+	don't *require* logrotate, but conflict with older versions
+
+	* ksym.c: fix fd leak (#52901)
+
+	* redhat/syslog:
+	switch to -x; we have kksymoops
+
+2002-03-08  Bill Nottingham  <notting@redhat.com>
+
+	* Makefile: don't strip binaries
+
+2001-08-15  Bill Nottingham  <notting@redhat.com>
+
+	* Makefile, sysklogd.spec.in, syslogd.c:
+	use LFS for log files
+
+2001-08-14  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/ChangeLog, sysklogd.spec.in:
+	bump release
+
+	* redhat/syslog.conf.rhs:
+	fix comments in config file (#51678)
+
+2001-08-03  Bill Nottingham  <notting@redhat.com>
+
+	* sysklogd.spec.in:
+	- fix %preun for the case when it's not running (#50123)
+	- require version of logrotate that implements sharedscripts (#50794)
+
+2001-07-09  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/syslog.log: use sharedscripts
+
+	* sysklogd.8, sysklogd.spec.in, syslog.c, syslogd.c, klogd.c:
+	merge in 1.4.1 changes
+
+	* syslogd.c, version.h, sysklogd.8, syslog.c, klogd.8, klogd.c, CHANGES:
+	import sysklogd-1.4.1
+
+2001-02-07  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/syslog.init: use $0
+
+2001-02-06  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/syslog.init:
+	fix so it gets picked up for translation
+
+2001-01-23  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/syslog.init, sysklogd.spec.in:
+	switch to new new i18n stuff
+
+2001-01-19  Bill Nottingham  <notting@redhat.com>
+
+	* sysklogd.spec.in: typo
+
+	* redhat/syslog, redhat/syslog.init, sysklogd.spec.in:
+	allow arbitrary options in /etc/sysconfig/syslog
+
+	* redhat/syslog.init:
+	tweak translatable strings
+
+2001-01-18  Bill Nottingham  <notting@redhat.com>
+
+	* klogd.c:
+	don't loop endlessly on embedded '\0'
+
+2001-01-15  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/syslog.init: i18n-ize
+
+2000-12-30  Bill Nottingham  <notting@redhat.com>
+
+	* syslogd.c: add -x in usage, fix its invcation
+
+	* redhat/syslog.init, sysklogd.8, syslogd.c:
+	disable name lookups on incoming messages when started with -x
+
+2000-12-18  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/ChangeLog, sysklogd.spec.in:
+	1.4-3
+
+	* ksym_mod.c, module.h:
+	fix build with new kernel headers; include our *own* module.h
+
+	* sysklogd.spec.in: 1.4-3
+
+	* redhat/syslog.init:
+	read /etc/sysconfig/syslog for MARK, NETWORK_LOGGING parameters. From Mike Harris <mharris@redhat.com>
+
+	* Makefile:
+	don't set owner on man pages on install
+
+2000-12-12  Bill Nottingham  <notting@redhat.com>
+
+	* redhat/syslog.init:
+	start klogd with -2 to print two copies of oops info
+
+2000-12-11  Bill Nottingham  <notting@redhat.com>
+
+	* Makefile:
+	remove tarball, klogd, syslogd on make clean
+
+	* Makefile, sysklogd.spec.in:
+	name tarballs sysklogd-%{version}rh.tar.gz, to distinguish them
+
+	* sysklogd.spec.in:
+	include CHANGES, our ChangeLog, there is no more lsm file
+
+	* sysklogd.spec.in:
+	support for building cvs tarball
+
+	* Makefile, redhat/ChangeLog:
+	add ChangeLog, Makefile support for generating it
+
+	* syslog_tst.c:
+	(sysklogd-1.3-security.patch) Fix format string errors.
+
+	* syslogd.c:
+	(sysklogd-baddir.patch) Don't loop with EBADF if a bad option is passed to -a
+
+	* klogd.c:
+	(sysklogd-ksyms.patch) Don't attempt symbol lookups if initializing the symbol table fails.
+
+	* syslog.c:
+	(sysklogd-dgram.patch) Use datagram sockets by default
+
+	* klogd.c:
+	(sysklogd-nullterm.patch) Make sure buffer is null terminated
+
+	* klogd.c:
+	(sysklogd-1.3-alphafoo.patch) Support for building on Red Hat Linux 4.2 for Alpha (with special glibc))
+
+	* ksym.c:
+	(sysklogd-1.3-sparc.patch) Support for SPARC register dumps/oopses
+
+	* syslogd.c:
+	(sysklogd-1.3-utmp-process.patch) only log utmp stuff that's USER_PROCESS (from Chris Adams <cadams@ro.com>)
+
+	* Makefile:
+	(sysklogd-1.3-rh.patch) Makefile tweaks - optflags, use
+
+	* syslogd.c:
+	(sysklogd-1.3-alpha.patch) Fix build on alpha
+
+	* redhat/syslog.init, redhat/syslog.log, redhat/syslog.conf.rhs:
+	add RH specific files
+
+	* Makefile: fix up tag stuff
+
+	* Makefile, sysklogd.spec.in:
+	check in make archive stuff, specfile
+
+	* ANNOUNCE, CHANGES, COPYING, INSTALL, kernel.patch, klogd.8, klogd.c, klogd.h, ksym.c, ksym_mod.c, ksyms.h, Makefile, MANIFEST, modutils.patch, NEWS, oops.c, oops_test.c, pidfile.c, pidfile.h, README.1st, README.linux, sysklogd.8, syslog.c, syslog.conf, syslog.conf.5, syslogd.8, syslogd.c, syslog_tst.c, syslog-tst.conf, version.h:
+	initial import of sysklogd-1.4
+
+	* ANNOUNCE, CHANGES, COPYING, INSTALL, kernel.patch, klogd.8, klogd.c, klogd.h, ksym.c, ksym_mod.c, ksyms.h, Makefile, MANIFEST, modutils.patch, NEWS, oops.c, oops_test.c, pidfile.c, pidfile.h, README.1st, README.linux, sysklogd.8, syslog.c, syslog.conf, syslog.conf.5, syslogd.8, syslogd.c, syslog_tst.c, syslog-tst.conf, version.h:
+	New file.

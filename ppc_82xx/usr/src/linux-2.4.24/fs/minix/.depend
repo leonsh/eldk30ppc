@@ -1,0 +1,38 @@
+bitmap.o: bitmap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/minix_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/locks.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bitops.h
+dir.o: dir.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/minix_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pagemap.h
+file.o: file.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/minix_fs.h
+inode.o: inode.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/minix_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/locks.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/highuid.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h
+itree_v1.o: itree_v1.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/minix_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/locks.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   itree_common.c
+itree_v2.o: itree_v2.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/minix_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/locks.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   itree_common.c
+namei.o: namei.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/minix_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pagemap.h

@@ -1,0 +1,27 @@
+head.o: head.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/cache.h
+kbd.o: kbd.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/keyboard.h
+misc.o: misc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/residual.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/threads.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/elf.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci_ids.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/mpc10x.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/of1275.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/zlib.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/cmdline.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/serial/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/vga/console.h)
+vreset.o: vreset.c \
+   iso_font.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h

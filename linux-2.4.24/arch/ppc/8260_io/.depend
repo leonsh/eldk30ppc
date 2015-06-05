@@ -1,0 +1,165 @@
+commproc.o: commproc.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/param.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/bootmem.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/immap_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_8260.h
+cpm_spi.o: cpm_spi.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/immap_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_spi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cpm/spi/bdsize.h)
+enet.o: enet.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/immap_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h
+fcc_enet.o: fcc_enet.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/immap_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_8260.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/use/mdio.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/onu8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/olc8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm826.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/db/cr826/j30x/on.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cpu86.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/iphase4539.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/tqm8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/est8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ads8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fcc1/enet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fcc2/enet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fcc3/enet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fcc/lxt970.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fcc/lxt971.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fcc/qs6612.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fcc/amd79c873.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fcc/dm9131.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/rpx6.h)
+uart.o: uart.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/signal.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty_flip.h \
+   /home/jhan/linux-2.4.241q/include/linux/serial.h \
+   /home/jhan/linux-2.4.241q/include/linux/serialP.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fcntl.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/immap_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/magic/sysrq.h) \
+   /home/jhan/linux-2.4.241q/include/linux/sysrq.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/console.h) \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/cts/control/scc1.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/rts/control/scc1.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/cd/control/scc1.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/dtr/control/scc1.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/cts/control/scc2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/rts/control/scc2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/cd/control/scc2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/dtr/control/scc2.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/cts/control/scc3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/rts/control/scc3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/cd/control/scc3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/dtr/control/scc3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/cts/control/scc4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/rts/control/scc4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/cd/control/scc4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uart/dtr/control/scc4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dtr1/pin.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dtr2/pin.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dtr3/pin.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dtr4/pin.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scc/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/console/port.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm826.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kgdb/ttys1.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/olc8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/onu8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scc1/enet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scc2/enet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scc3/enet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scc4/enet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kgdb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hard/pps.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kgdb/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/use/serial2/kgdb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/xmon.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/devfs/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cts1/pin.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cts2/pin.h)

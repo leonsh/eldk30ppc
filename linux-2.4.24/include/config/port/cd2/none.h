@@ -1,0 +1,1 @@
+#define CONFIG_PORT_CD2_NONE 1

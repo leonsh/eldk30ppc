@@ -1,0 +1,3 @@
+ifeq (i2c-core.o i2c-dev.o i2c-proc.o i2c-algo-8260.o i2c-pm826.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += i2c.o
+endif

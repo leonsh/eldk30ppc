@@ -1,0 +1,238 @@
+adapter.h: \
+   sys.h \
+   idi.h \
+   divas.h \
+   pc.h
+	@touch adapter.h
+bri.o: bri.c \
+   eicon.h \
+   sys.h \
+   idi.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   dsp_defs.h \
+   adapter.h \
+   uxio.h
+common.o: common.c \
+   eicon.h \
+   sys.h \
+   idi.h \
+   constant.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   uxio.h
+divas.h: \
+   sys.h
+	@touch divas.h
+Divas_mod.o: Divas_mod.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   adapter.h \
+   uxio.h \
+   idi.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pci.h)
+dsp_defs.h: \
+   dspdids.h
+	@touch dsp_defs.h
+eicon_dsp.h: \
+   dsp_defs.h
+	@touch eicon_dsp.h
+eicon.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/major.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/segment.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/signal.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mman.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ctype.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/isdn.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/isdnif.h \
+   eicon_isa.h \
+   idi.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/tty/fax.h) \
+   eicon_pci.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mca.h) \
+   eicon_idi.h
+	@touch eicon.h
+eicon_idi.o: eicon_idi.c \
+   eicon.h \
+   eicon_idi.h \
+   eicon_dsp.h \
+   uxio.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/tty/fax.h)
+eicon_idi.h: \
+   pc.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/tty/fax.h)
+	@touch eicon_idi.h
+eicon_io.o: eicon_io.c \
+   eicon.h \
+   uxio.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/drv/eicon/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/drv/eicon/isa.h)
+eicon_isa.o: eicon_isa.c \
+   eicon.h \
+   eicon_isa.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/drv/eicon/isa.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mca.h)
+eicon_isa.h: \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mca.h)
+	@touch eicon_isa.h
+eicon_mod.o: eicon_mod.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mca.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mca.h \
+   eicon.h \
+   ../avmb1/capicmd.h \
+   adapter.h \
+   uxio.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/drv/eicon/isa.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/drv/eicon/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/tty/fax.h)
+eicon_pci.o: eicon_pci.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   eicon.h \
+   eicon_pci.h \
+   adapter.h \
+   uxio.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/isdn/drv/eicon/pci.h)
+fourbri.o: fourbri.c \
+   sys.h \
+   idi.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   dsp_defs.h \
+   constant.h \
+   adapter.h \
+   uxio.h
+fpga.o: fpga.c \
+   sys.h \
+   idi.h \
+   uxio.h
+idi.o: idi.c \
+   idi.h \
+   adapter.h \
+   pc.h \
+   pr_pc.h \
+   sys.h \
+   uxio.h
+idi.h: \
+   sys.h
+	@touch idi.h
+kprintf.o: kprintf.c \
+   eicon.h \
+   sys.h \
+   /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include/stdarg.h \
+   divas.h \
+   divalog.h \
+   uxio.h
+lincfg.o: lincfg.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/segment.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   sys.h \
+   idi.h \
+   constant.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   adapter.h \
+   uxio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h
+linchr.o: linchr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   adapter.h \
+   divas.h \
+   divalog.h
+linio.o: linio.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   uxio.h
+linsys.o: linsys.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   sys.h \
+   divas.h \
+   adapter.h \
+   divalog.h \
+   uxio.h
+log.o: log.c \
+   sys.h \
+   idi.h \
+   divas.h \
+   adapter.h \
+   divalog.h \
+   uxio.h
+pri.o: pri.c \
+   sys.h \
+   idi.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   dsp_defs.h \
+   adapter.h \
+   uxio.h
+sys.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h
+	@touch sys.h
+uxio.h: \
+   sys.h \
+   adapter.h
+	@touch uxio.h
+xlog.o: xlog.c \
+   sys.h \
+   idi.h \
+   pc.h \
+   pc_maint.h \
+   divalog.h \
+   adapter.h \
+   uxio.h
+.PRECIOUS:	adapter.h \
+	divas.h \
+	dsp_defs.h \
+	eicon_dsp.h \
+	eicon.h \
+	eicon_idi.h \
+	eicon_isa.h \
+	idi.h \
+	sys.h \
+	uxio.h \
+

@@ -1,0 +1,27 @@
+iph5526.o: iph5526.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_arp.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/fcdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/blk.h \
+   ../../scsi/sd.h \
+   ../../scsi/scsi.h \
+   ../../scsi/hosts.h \
+   ../../fc4/fcp.h \
+   tach.h \
+   tach_structs.h \
+   iph5526_ip.h \
+   iph5526_scsi.h \
+   iph5526_novram.c

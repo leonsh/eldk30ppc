@@ -1,0 +1,23 @@
+dir.o: dir.c \
+   /home/jhan/linux-2.4.241q/include/linux/efs_fs.h
+file.o: file.c \
+   /home/jhan/linux-2.4.241q/include/linux/efs_fs.h
+inode.o: inode.c \
+   /home/jhan/linux-2.4.241q/include/linux/efs_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/efs_fs_sb.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h
+namei.o: namei.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/efs_fs.h
+super.o: super.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/locks.h \
+   /home/jhan/linux-2.4.241q/include/linux/efs_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/efs_vh.h \
+   /home/jhan/linux-2.4.241q/include/linux/efs_fs_sb.h
+symlink.o: symlink.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/efs_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h

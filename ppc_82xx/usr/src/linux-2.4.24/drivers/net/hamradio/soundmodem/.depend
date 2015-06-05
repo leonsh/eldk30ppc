@@ -1,0 +1,78 @@
+sm_afsk1200.o: sm_afsk1200.c \
+   sm.h \
+   sm_tbl_afsk1200.h
+sm_afsk2400_7.o: sm_afsk2400_7.c \
+   sm.h \
+   sm_tbl_afsk2400_7.h
+sm_afsk2400_8.o: sm_afsk2400_8.c \
+   sm.h \
+   sm_tbl_afsk2400_8.h
+sm_afsk2666.o: sm_afsk2666.c \
+   sm.h \
+   sm_tbl_afsk2666.h
+sm.o: sm.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/parport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   sm.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/afsk1200.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/afsk2400/7.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/afsk2400/8.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/afsk2666.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/psk4800.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/hapn4800.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/fsk9600.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/sbc.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/soundmodem/wss.h)
+smdma.h: \
+   sm.h
+	@touch smdma.h
+sm_fsk9600.o: sm_fsk9600.c \
+   sm.h \
+   sm_tbl_fsk9600.h
+sm.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hdlcdrv.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/soundmodem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/parport.h
+	@touch sm.h
+sm_hapn4800.o: sm_hapn4800.c \
+   sm.h \
+   sm_tbl_hapn4800.h
+sm_psk4800.o: sm_psk4800.c \
+   sm.h \
+   sm_tbl_psk4800.h
+sm_sbc.o: sm_sbc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/dma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/soundmodem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   sm.h \
+   smdma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h
+sm_wss.o: sm_wss.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/dma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/soundmodem.h \
+   sm.h \
+   smdma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h
+.PRECIOUS:	smdma.h \
+	sm.h \
+

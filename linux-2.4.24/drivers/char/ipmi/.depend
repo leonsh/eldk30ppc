@@ -1,0 +1,70 @@
+ipmi_devintf.o: ipmi_devintf.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ipmi.h \
+   /home/jhan/linux-2.4.241q/include/asm/semaphore.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h
+ipmi_kcs_intf.o: ipmi_kcs_intf.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/high/res/timers.h) \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/ipmi_smi.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   ipmi_kcs_sm.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ipmi/kcs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/interpreter.h) \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi.h \
+   /home/jhan/linux-2.4.241q/include/acpi/actypes.h \
+   /home/jhan/linux-2.4.241q/include/acpi/actbl.h
+ipmi_kcs_sm.o: ipmi_kcs_sm.c \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/string.h \
+   ipmi_kcs_sm.h
+ipmi_msghandler.o: ipmi_msghandler.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/rwsem.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ipmi.h \
+   /home/jhan/linux-2.4.241q/include/linux/ipmi_smi.h \
+   /home/jhan/linux-2.4.241q/include/linux/notifier.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ipmi/panic/event.h)
+ipmi_watchdog.o: ipmi_watchdog.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/ipmi.h \
+   /home/jhan/linux-2.4.241q/include/linux/ipmi_smi.h \
+   /home/jhan/linux-2.4.241q/include/linux/watchdog.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/rwsem.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/notifier.h \
+   /home/jhan/linux-2.4.241q/include/linux/nmi.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86/local/apic.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/watchdog/nowayout.h)

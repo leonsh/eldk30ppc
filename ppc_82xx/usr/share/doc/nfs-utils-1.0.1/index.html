@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>NFS server in Linux: Past, Present and Future</TITLE>
+<META NAME="description" CONTENT="NFS server in Linux: Past, Present and Future">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif_gr.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif_gr.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+ HREF="node1.html">Introduction</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<P>
+<H1 ALIGN="CENTER">NFS server in Linux: Past, Present and Future</H1>
+<P ALIGN="CENTER"><STRONG>Hongjiu Lu 
+<BR>
+<TT>hjl@valinux.com</TT> 
+<BR>
+<FONT SIZE="-1">VA Linux Systems</FONT> 
+<BR>
+<FONT SIZE="-1">Sunnyvale, CA, USA</FONT>
+</STRONG></P>
+
+<P>
+
+<H3>Abstract:</H3>
+<DIV>
+In this paper, we discuss the NFS server implementation in Linux. We
+exam the history of NFS server in Linux. We describe the implementation
+a Linux-based NFS server solution for enterprise, focusing on
+interoperability and performance measurement.
+</DIV>
+<P>
+
+<P>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+ HREF="node1.html">Introduction</A>
+<LI><A NAME="tex2html4"
+ HREF="node2.html">Overview</A>
+<UL>
+<LI><A NAME="tex2html5"
+ HREF="node3.html">The User-Space NFS Server</A>
+<LI><A NAME="tex2html6"
+ HREF="node4.html">The Kernel-Space NFS Server</A>
+</UL>
+<LI><A NAME="tex2html7"
+ HREF="node5.html">Interoperability</A>
+<UL>
+<LI><A NAME="tex2html8"
+ HREF="node6.html">File Handle</A>
+<LI><A NAME="tex2html9"
+ HREF="node7.html">The Kernel-Space NFS Server</A>
+<LI><A NAME="tex2html10"
+ HREF="node8.html">File Handle in Kernel-Space NFS Server</A>
+<LI><A NAME="tex2html11"
+ HREF="node9.html">Other Considerations</A>
+<LI><A NAME="tex2html12"
+ HREF="node10.html">Results</A>
+</UL>
+<LI><A NAME="tex2html13"
+ HREF="node11.html">Performance</A>
+<UL>
+<LI><A NAME="tex2html14"
+ HREF="node12.html">The User-Space NFS Server</A>
+<LI><A NAME="tex2html15"
+ HREF="node13.html">The Kernel-Space NFS Server</A>
+<UL>
+<LI><A NAME="tex2html16"
+ HREF="node14.html">Light Load</A>
+<LI><A NAME="tex2html17"
+ HREF="node15.html">Moderate Load</A>
+<LI><A NAME="tex2html18"
+ HREF="node16.html">Heavy Load</A>
+<LI><A NAME="tex2html19"
+ HREF="node17.html">Other Factors</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html20"
+ HREF="node18.html">Future Development</A>
+<LI><A NAME="tex2html21"
+ HREF="node19.html">Conclusion</A>
+<LI><A NAME="tex2html22"
+ HREF="node20.html">Bibliography</A>
+<LI><A NAME="tex2html23"
+ HREF="node21.html">Solaris Clients with Linux Kernel-Space NFS server</A>
+<UL>
+<LI><A NAME="tex2html24"
+ HREF="node22.html">Solaris 7/Sparc client</A>
+<LI><A NAME="tex2html25"
+ HREF="node23.html">Solaris 7/x86 client</A>
+</UL>
+<LI><A NAME="tex2html26"
+ HREF="node24.html">Linux Client with Linux Kernel-Space NFS server</A>
+<LI><A NAME="tex2html27"
+ HREF="node25.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

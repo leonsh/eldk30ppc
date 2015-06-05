@@ -1,0 +1,178 @@
+chrpmap.o: chrpmap.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h
+embed_config.o: embed_config.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/8xx.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc8xx.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/8260.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc8260.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/immap_8260.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/40x.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/405gp.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/np405h.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/np405l.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mbx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/am8xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rpxlite.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rpxclassic.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rpx6.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ep405.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rmu.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/bseip.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/fads.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/est8260.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/sbs8260.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ads8260.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/willow.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/xilinx/ml300.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ibm/openbios.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ash.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/beech.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/evb405ep.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/stb03xxx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/redwood/5.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/redwood/6.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/arctic2.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serial_reg.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rainier.h)
+gt64260_iic.o: gt64260_iic.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/gt64260_defs.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/reg/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/orig/reg/base.h)
+gt64260_tty.o: gt64260_tty.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serialP.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serial_reg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/serial.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/gt64260_defs.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/reg/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/orig/reg/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/brg/clk/rate.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/serial/console/baud.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/clksrc.h)
+head.o: head.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/cache.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ibm/openbios.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/force.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ppmc260.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mbx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/rpx6.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/est8260.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/am8xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/6xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/8xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/redwood/4.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260.h)
+hxeb100-cpu1.o: hxeb100-cpu1.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/hxeb100.h
+iic.o: iic.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc8xx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/commproc.h
+legacy.o: legacy.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h
+m8260_tty.o: m8260_tty.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc8260.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/cpm_8260.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/scc/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ads8260.h)
+m8xx_tty.o: m8xx_tty.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc8xx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/commproc.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mbx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/fads.h)
+misc-44x.o: misc-44x.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ibm4xx.h
+misc-cpci690.o: misc-cpci690.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h
+misc-embedded.o: misc-embedded.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/elf.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ibm4xx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc8xx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc8260.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/residual.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/zlib.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/serial/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/vga/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/cmdline/bool.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/cmdline.h)
+misc-ev64260.o: misc-ev64260.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/cache.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/gt64260_defs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/ev64260.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/reg/base.h)
+misc-gt64260.o: misc-gt64260.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/cache.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/gt64260_defs.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/orig/reg/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/reg/base.h)
+misc-hxeb100.o: misc-hxeb100.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/hxeb100.h
+misc-ppmc260.o: misc-ppmc260.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/ppmc260.h
+misc-spruce.o: misc-spruce.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/elf.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/zlib.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/cmdline.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/serial/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/vga/console.h)
+mpc5xxx_tty.o: mpc5xxx_tty.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc5xxx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/serial.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/uboot.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppcboot.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ppc/5xxx/psc/console/port.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ppc/5xxx/ipbfreq.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ppc/5xxx/psc/console/baud.h)
+pumaA_tty.o: pumaA_tty.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serialP.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serial_reg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/serial.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/gt64260_defs.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/new/reg/base.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gt64260/orig/reg/base.h)

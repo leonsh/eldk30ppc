@@ -1,0 +1,45 @@
+adapter.o: adapter.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/blk.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xsysace.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+xsysace.o: xsysace.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xsysace.h \
+   xsysace_l.h
+xsysace_compactflash.o: xsysace_compactflash.c \
+   xsysace.h \
+   xsysace_l.h
+xsysace_g.o: xsysace_g.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xsysace.h
+xsysace.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   xsysace_l.h
+	@touch xsysace.h
+xsysace_intr.o: xsysace_intr.c \
+   xsysace.h \
+   xsysace_l.h
+xsysace_jtagcfg.o: xsysace_jtagcfg.c \
+   xsysace.h \
+   xsysace_l.h
+xsysace_l.o: xsysace_l.c \
+   xsysace_l.h
+xsysace_l.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xsysace_l.h
+.PRECIOUS:	xsysace.h \
+	xsysace_l.h \
+

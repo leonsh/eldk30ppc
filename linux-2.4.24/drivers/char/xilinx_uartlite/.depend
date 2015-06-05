@@ -1,0 +1,52 @@
+xuartlite.o: xuartlite.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xuartlite.h \
+   xuartlite_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+xuartlite_g.o: xuartlite_g.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xuartlite.h
+xuartlite.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h
+	@touch xuartlite.h
+xuartlite_i.h: \
+   xuartlite.h \
+   xuartlite_l.h
+	@touch xuartlite_i.h
+xuartlite_intr.o: xuartlite_intr.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xuartlite.h \
+   xuartlite_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+xuartlite_l.o: xuartlite_l.c \
+   xuartlite_l.h
+xuartlite_l.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xuartlite_l.h
+xuartlite_serial.o: xuartlite_serial.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/serial.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/serialP.h \
+   /home/jhan/linux-2.4.241q/include/linux/generic_serial.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty_flip.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   xuartlite.h \
+   xuartlite_i.h \
+   xuartlite_serial.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/xilinx/uartlite/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/devfs/fs.h)
+.PRECIOUS:	xuartlite.h \
+	xuartlite_i.h \
+	xuartlite_l.h \
+

@@ -1,0 +1,36 @@
+adapter.o: adapter.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ibm_ocp_gpio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xgpio.h \
+   xgpio_i.h
+xgpio.o: xgpio.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xgpio.h \
+   xgpio_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h
+xgpio_g.o: xgpio_g.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xgpio.h
+xgpio.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   xgpio_l.h
+	@touch xgpio.h
+xgpio_i.h: \
+   xgpio.h
+	@touch xgpio_i.h
+xgpio_l.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xgpio_l.h
+.PRECIOUS:	xgpio.h \
+	xgpio_i.h \
+	xgpio_l.h \
+

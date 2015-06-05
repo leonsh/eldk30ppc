@@ -1,0 +1,61 @@
+e100_config.o: e100_config.c \
+   e100_config.h
+e100_config.h: \
+   e100.h
+	@touch e100_config.h
+e100_eeprom.o: e100_eeprom.c \
+   e100.h
+e100.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/etherdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/version.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/reboot.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/unaligned.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ethtool.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/inetdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bitops.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_vlan.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mii.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pm.h)
+	@touch e100.h
+e100_main.o: e100_main.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/checksum.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tcp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/udp.h \
+   e100.h \
+   e100_ucode.h \
+   e100_config.h \
+   e100_phy.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pm.h)
+e100_phy.o: e100_phy.c \
+   e100_phy.h
+e100_phy.h: \
+   e100.h
+	@touch e100_phy.h
+e100_test.o: e100_test.c \
+   e100_phy.h \
+   e100_config.h
+.PRECIOUS:	e100_config.h \
+	e100.h \
+	e100_phy.h \
+

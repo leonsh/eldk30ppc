@@ -1,0 +1,4 @@
+
+This directory holds Apache 2.0 module-specific configuration files;
+any files in this directory which have the ".conf" extension will be
+processed as Apache configuration files.

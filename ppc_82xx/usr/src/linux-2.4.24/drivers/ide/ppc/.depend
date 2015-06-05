@@ -1,0 +1,113 @@
+cpci405ide.o: cpci405ide.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hdreg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h
+mpc5xxx_ide.o: mpc5xxx_ide.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc5xxx.h \
+   mpc5xxx_ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/drivers/ide/ide_modes.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/blk/dev/ide/mpc5xxx/mdma.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/blk/dev/ide/mpc5xxx/udma.h)
+mpc5xxx_ide.h: \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/blk/dev/ide/mpc5xxx/mdma.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/blk/dev/ide/mpc5xxx/udma.h)
+	@touch mpc5xxx_ide.h
+mpc5xxx_ide_iops.o: mpc5xxx_ide_iops.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc5xxx.h \
+   mpc5xxx_ide.h
+mpc8xx.o: mpc8xx.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stddef.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/unistd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ptrace.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/user.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/a.out.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tty.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/major.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/reboot.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blk.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ioport.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/bootmem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mpc8xx.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/residual.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pgtable.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/8xx_immap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/drivers/ide/ide_modes.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ide/8xx/pccard.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ide/8xx/direct.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tqm850l.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ide/ext/direct.h)
+pmac.o: pmac.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/notifier.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/reboot.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/prom.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/dbdma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mediabay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pci-bridge.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/machdep.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/pmac_feature.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/sections.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pmac/pbook.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/adb.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/drivers/ide/ide_modes.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/drivers/ide/ide-timing.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/blk/dev/idedma/pmac.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/blk/dev/ide/pmac/ata100first.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/blk/dev/idedma/pmac/auto.h)
+swarm.o: swarm.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ide.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h
+.PRECIOUS:	mpc5xxx_ide.h \
+

@@ -1,0 +1,13 @@
+chrpmain.o: chrpmain.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/of1275.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h
+coffmain.o: coffmain.c \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/zlib.h
+start.o: start.c \
+   /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include/stdarg.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/of1275.h

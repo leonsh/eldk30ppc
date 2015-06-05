@@ -1,0 +1,99 @@
+debug.o: debug.c \
+   debug.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h
+debug.h: \
+   /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include/stdarg.h
+	@touch debug.h
+kmem.o: kmem.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   time.h \
+   kmem.h
+kmem.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h
+	@touch kmem.h
+ktrace.o: ktrace.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/fs/xfs/xfs_types.h \
+   kmem.h \
+   spin.h \
+   debug.h \
+   ktrace.h
+ktrace.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/fs/xfs/support/spin.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/xfs/trace.h)
+	@touch ktrace.h
+move.o: move.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/fs/xfs/xfs_types.h \
+   debug.h \
+   move.h
+move.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/uio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h
+	@touch move.h
+mrlock.o: mrlock.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/current.h \
+   mrlock.h
+mrlock.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h
+	@touch mrlock.h
+mutex.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h
+	@touch mutex.h
+qsort.o: qsort.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h
+sema.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/atomic.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h
+	@touch sema.h
+spin.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h
+	@touch spin.h
+sv.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h
+	@touch sv.h
+time.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h
+	@touch time.h
+uuid.o: uuid.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/fs/xfs/xfs.h \
+   time.h \
+   uuid.h \
+   kmem.h \
+   debug.h \
+   mutex.h
+.PRECIOUS:	debug.h \
+	kmem.h \
+	ktrace.h \
+	move.h \
+	mrlock.h \
+	mutex.h \
+	sema.h \
+	spin.h \
+	sv.h \
+	time.h \
+

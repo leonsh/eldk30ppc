@@ -1,0 +1,45 @@
+adapter.o: adapter.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/hdreg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkpg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blk.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xsysace.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h)
+xsysace.o: xsysace.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xsysace.h \
+   xsysace_l.h
+xsysace_compactflash.o: xsysace_compactflash.c \
+   xsysace.h \
+   xsysace_l.h
+xsysace_g.o: xsysace_g.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xsysace.h
+xsysace.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   xsysace_l.h
+	@touch xsysace.h
+xsysace_intr.o: xsysace_intr.c \
+   xsysace.h \
+   xsysace_l.h
+xsysace_jtagcfg.o: xsysace_jtagcfg.c \
+   xsysace.h \
+   xsysace_l.h
+xsysace_l.o: xsysace_l.c \
+   xsysace_l.h
+xsysace_l.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xsysace_l.h
+.PRECIOUS:	xsysace.h \
+	xsysace_l.h \
+

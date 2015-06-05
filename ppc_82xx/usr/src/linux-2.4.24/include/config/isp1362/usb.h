@@ -1,0 +1,1 @@
+#undef  CONFIG_ISP1362_USB

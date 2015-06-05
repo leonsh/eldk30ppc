@@ -1,0 +1,13 @@
+chrpmain.o: chrpmain.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/of1275.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h
+coffmain.o: coffmain.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/zlib.h
+start.o: start.c \
+   /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include/stdarg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/of1275.h

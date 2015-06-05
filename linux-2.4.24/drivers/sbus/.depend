@@ -1,0 +1,21 @@
+dvma.o: dvma.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sun4.h)
+sbus.o: sbus.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sparc32.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sun/auxio.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sun4.h)

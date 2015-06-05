@@ -1,0 +1,34 @@
+#! /bin/sh
+
+[ -x /etc/rc.d/init.d/isdn ] || exit 0
+
+. /etc/pcmcia/shared
+
+cd /etc/sysconfig/network-scripts
+interfaces=`ls ifcfg-ippp* ifcfg-isdn* 2>/dev/null | \
+            LANG=C egrep -v '(rpmsave|rpmorig|rpmnew)' | \
+            LANG=C egrep -v '(~|\.bak)$' | \
+            LANG=C egrep 'ifcfg-[a-z0-9]+$' | \
+            sed 's/^ifcfg-//g'`
+
+case "$ACTION" in
+'start')
+    /etc/rc.d/init.d/isdn start
+    for i in $interfaces ; do
+        [ -f ifcfg-$i ] && . ifcfg-$i
+        if [ "$TYPE" = "ISDN" -a "$ONBOOT" = "yes" ]; then
+            ifup $i >/dev/null 2>&1 && touch /var/lock/subsys/isdn
+        fi
+    done
+    ;;
+'stop')
+    /etc/rc.d/init.d/isdn stop
+    for i in $interfaces ; do
+        [ -f ifcfg-$i ] && . ifcfg-$i
+        [ "$TYPE" = "ISDN" ] && ifdown $i >/dev/null 2>&1
+    done
+    rm -f /var/lock/subsys/isdn
+    ;;
+esac
+
+exit 0

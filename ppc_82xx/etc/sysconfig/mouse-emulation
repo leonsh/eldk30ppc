@@ -1,0 +1,20 @@
+# The following variables are used at startup
+# by /etc/init.d/mouse-emulation to set
+# whether mouse button emulation should be
+# used. If so, it provides which keys to bind
+# mouse button 2 and button 3 functionality to.
+#
+# To change the defaults, use the 'showkey'
+# command from the console to determine the
+# keycode "number" to replace the values
+# below with. 
+
+# Enable Mouse Button Emulation? (default: yes)
+EMULATION=yes
+
+# Mouse Button 2 (default: F10)
+BUTTON_2=68
+
+# Mouse Button 3 (default: F11)
+BUTTON_3=87
+

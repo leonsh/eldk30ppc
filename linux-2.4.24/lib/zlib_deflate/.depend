@@ -1,0 +1,11 @@
+deflate.o: deflate.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/zutil.h \
+   defutil.h
+deflate_syms.o: deflate_syms.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/zlib.h
+deftree.o: deftree.c \
+   /home/jhan/linux-2.4.241q/include/linux/zutil.h \
+   defutil.h

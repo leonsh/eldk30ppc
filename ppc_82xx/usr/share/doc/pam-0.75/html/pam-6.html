@@ -1,0 +1,3258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM System Administrators' Guide: A reference guide for available modules</TITLE>
+ <LINK HREF="pam-7.html" REL=next>
+ <LINK HREF="pam-5.html" REL=previous>
+ <LINK HREF="pam.html#toc6" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam-7.html">Next</A>
+<A HREF="pam-5.html">Previous</A>
+<A HREF="pam.html#toc6">Contents</A>
+<HR>
+<H2><A NAME="s6">6.</A> <A HREF="pam.html#toc6">A reference guide for available modules</A></H2>
+
+<P>Here, we collect together some descriptions of the various modules
+available for <B>Linux-PAM</B>.  In general these modules should be
+freely available.  Where this is not the case, it will be indicated.</P>
+
+<P>Also please note the comments contained in the section 
+<A HREF="pam-2.html#text-conventions">on text conventions above</A> when copying
+the examples listed below.</P>
+
+
+<H2><A NAME="ss6.1">6.1</A> <A HREF="pam.html#toc6.1">The access module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_access</CODE></P>
+
+
+<DT><B><B>Author[s]:</B></B><DD><P>Alexei Nogin &lt;alexei@nogin.dnttm.ru&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>account</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>Requires a configuration file. By default 
+<CODE>/etc/security/access.conf</CODE> is used but this can be overridden. </P>
+
+<DT><B><B>Network aware:</B></B><DD><P>Through <CODE>PAM_TTY</CODE> if set, otherwise attempts getting tty name of
+the stdin file descriptor with <CODE>ttyname()</CODE>.  Standard
+gethostname(), <CODE>yp_get_default_domain()</CODE>, <CODE>gethostbyname()</CODE>
+calls.  <B>NIS</B> is used for netgroup support.</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>Provides logdaemon style login access control.</P>
+
+<H3>Account component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>accessfile=<I>/path/to/file.conf</I></CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>This module provides logdaemon style login access control based on
+login names and on host (or domain) names, internet addresses (or
+network numbers), or on terminal line names in case of non-networked
+logins. Diagnostics are reported through <CODE>syslog(3)</CODE>.  Wietse
+Venema's <CODE>login_access.c</CODE> from <EM>logdaemon-5.6</EM> is used with
+several changes by A. Nogin.</P>
+
+<P> 
+The behavior of this module can be modified with the following 
+arguments: 
+<UL>
+<LI><CODE>accessfile=/path/to/file.conf</CODE> - 
+indicate an alternative <EM>access</EM> configuration file to override 
+the default. This can be useful when different services need different 
+access lists. 
+ </LI>
+</UL>
+ </P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>Use of module is recommended, for example, on administrative machines
+such as <B>NIS</B> servers and mail servers where you need several accounts
+active but don't want them all to have login capability.</P>
+<P>For <CODE>/etc/pam.d</CODE> style configurations where your modules live
+in <CODE>/lib/security</CODE>, start by adding the following line to
+<CODE>/etc/pam.d/login</CODE>, <CODE>/etc/pam.d/rlogin</CODE>,
+<CODE>/etc/pam.d/rsh</CODE> and <CODE>/etc/pam.d/ftp</CODE>:</P>
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+account  required       /lib/security/pam_access.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>Note that use of this module is not effective unless your system ignores
+<CODE>.rhosts</CODE> files.  See the the pam_rhosts_auth documentation.</P>
+<P>A sample <CODE>access.conf</CODE> configuration file is included with the
+distribution.</P>
+
+</DL>
+</P>
+
+<H2><A NAME="ss6.2">6.2</A> <A HREF="pam.html#toc6.2">Chroot</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_chroot</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Bruce Campbell &lt;brucec@humbug.org.au&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author; proposed on 20/11/96 - email for status</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>account; session; authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD><P>Unwritten.</P>
+
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD><P>Expects localhost.</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module is intended to provide a transparent wrapper around the
+average user, one that puts them in a fake file-system (eg, their
+'<CODE>/</CODE>' is really <CODE>/some/where/else</CODE>).</P>
+
+<P>Useful if you have several classes of users, and are slightly paranoid
+about security.  Can be used to limit who else users can see on the
+system, and to limit the selection of programs they can run.</P>
+
+<H3>Account component:</H3>
+
+<P><EM>Need more info here.</EM></P>
+
+<H3>Authentication component:</H3>
+
+<P><EM>Need more info here.</EM></P>
+
+<H3>Session component:</H3>
+
+<P><EM>Need more info here.</EM></P>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P>Arguments and logging levels for the PAM version are being worked on.</P>
+
+<DT><B><B>Description:</B></B><DD>
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>Do provide a reasonable list of programs - just tossing 'cat', 'ls', 'rm',
+'cp' and 'ed' in there is a bit... </P>
+<P>Don't take it to extremes (eg, you can set up a separate environment for
+each user, but its a big waste of your disk space.)</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.3">6.3</A> <A HREF="pam.html#toc6.3">Cracklib pluggable password strength-checker</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P>pam_cracklib</P>
+
+<DT><B><B>Author:</B></B><DD><P>Cristian Gafton &lt;gafton@redhat.com&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>password</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>Requires the system library <CODE>libcrack</CODE> and a system dictionary:
+<CODE>/usr/lib/cracklib_dict</CODE>.</P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module can be plugged into the <CODE>password</CODE> stack of a given
+application to provide some plug-in strength-checking for passwords.</P>
+
+<P>This module works in the following manner: it first calls the
+<EM>Cracklib</EM> routine to check the strength of the password; if
+crack likes the password, the module does an additional set of
+strength checks.  These checks are:
+<UL>
+<LI> <B>Palindrome</B> -
+
+Is the new password a palindrome of the old one?
+</LI>
+<LI> <B>Case Change Only</B> -
+
+Is the new password the the old one with only a change of case?
+</LI>
+<LI> <B>Similar</B> -
+
+Is the new password too much like the old one?  This is primarily
+controlled by one argument, <CODE>difok</CODE> which is a number of characters
+that if different between the old and new are enough to accept the new
+password, this defaults to 10 or 1/2 the size of the new password
+whichever is smaller.
+
+To avoid the lockup associated with trying to change a long and
+complicated password, <CODE>difignore</CODE> is available. This argument can
+be used to specify the minimum length a new password needs to be
+before the <CODE>difok</CODE> value is ignored. The default value for
+<CODE>difignore</CODE> is 23.
+
+</LI>
+<LI> <B>Simple</B> -
+
+Is the new password too small?  This is controlled by 5 arguments
+<CODE>minlen</CODE>, <CODE>dcredit</CODE>, <CODE>ucredit</CODE>, <CODE>lcredit</CODE>, and
+<CODE>ocredit</CODE>. See the section on the arguments for the details of how
+these work and there defaults.
+</LI>
+<LI> <B>Rotated</B> -
+
+Is the new password a rotated version of the old password?
+</LI>
+<LI> <B>Already used</B> -
+
+Was the password used in the past?  Previously used passwords are to
+be found in /etc/security/opasswd.
+</LI>
+</UL>
+</P>
+
+<P>This module with no arguments will work well for standard unix
+password encryption.  With md5 encryption, passwords can be longer
+than 8 characters and the default settings for this module can make it
+hard for the user to choose a satisfactory new password.  Notably, the
+requirement that the new password contain no more than 1/2 of the
+characters in the old password becomes a non-trivial constraint.  For
+example, an old password of the form "the quick brown fox jumped over
+the lazy dogs" would be difficult to change...  In addition, the
+default action is to allow passwords as small as 5 characters in
+length.  For a md5 systems it can be a good idea to increase the
+required minimum size of a password.  One can then allow more credit
+for different kinds of characters but accept that the new password may
+share most of these characters with the old password.</P>
+
+<H3>Password component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>type=XXX</CODE>; <CODE>retry=N</CODE>; <CODE>difok=N</CODE>; <CODE>minlen=N</CODE>;
+<CODE>dcredit=N</CODE>; <CODE>ucredit=N</CODE>; <CODE>lcredit=N</CODE>; <CODE>ocredit=N</CODE>;
+<CODE>use_authtok</CODE>;</P>
+
+<DT><B><B>Description:</B></B><DD><P>The action of this module is to prompt the user for a password and
+check its strength against a system dictionary and a set of rules for
+identifying poor choices.</P>
+
+<P>The default action is to prompt for a single password, check its
+strength and then, if it is considered strong, prompt for the password
+a second time (to verify that it was typed correctly on the first
+occasion). All being well, the password is passed on to subsequent
+modules to be installed as the new authentication token.</P>
+
+<P>The default action may be modified in a number of ways using the
+arguments recognized by the module:
+<UL>
+<LI> <CODE>debug</CODE> -
+
+this option makes the module write information to syslog(3) indicating
+the behavior of the module (this option does <B>not</B> write password
+information to the log file).
+</LI>
+<LI> <CODE>type=XXX</CODE> -
+
+the default action is for the module to use the following prompts when
+requesting passwords: ``New UNIX password: '' and ``Retype UNIX
+password: ''. Using this option you can replace the word UNIX with
+<CODE>XXX</CODE>.
+</LI>
+<LI> <CODE>retry=N</CODE> -
+
+the default number of times this module will request a new password
+(for strength-checking) from the user is 1. Using this argument this
+can be increased to <CODE>N</CODE>.
+</LI>
+<LI> <CODE>difok=N</CODE> -
+
+This argument will change the default of 10 for the number of
+characters in the new password that must not be present in the old
+password.  In addition, if 1/2 of the characters in the new password
+are different then the new password will be accepted anyway.
+</LI>
+<LI> <CODE>minlen=N</CODE> -
+
+The minimum acceptable size for the new password plus one.  In
+addition to the number of characters in the new password, credit (of
++1 in length) is given for each different kind of character (<EM>other,
+upper, lower</EM> and <EM>digit</EM>).  The default for this parameter is
+9 which is good for a old style UNIX password all of the same type of
+character but may be too low to exploit the added security of a md5
+system.  Note that there is a pair of length limits in
+<EM>Cracklib</EM> itself, a "way too short" limit of 4 which is hard
+coded in and a defined limit (6) that will be checked without
+reference to <CODE>minlen</CODE>.  If you want to allow passwords as short
+as 5 characters you should either not use this module or recompile
+the crack library and then recompile this module.
+</LI>
+<LI> <CODE>dcredit=N</CODE> -
+
+This is the maximum credit for having digits in the new password. If
+you have less than or <CODE>N</CODE> digits, each digit will count +1 towards
+meeting the current <CODE>minlen</CODE> value.  The default for <CODE>dcredit</CODE>
+is 1 which is the recommended value for <CODE>minlen</CODE> less than 10.
+</LI>
+<LI> <CODE>ucredit=N</CODE> -
+
+This is the maximum credit for having upper case letters in the new
+password.  If you have less than or <CODE>N</CODE> upper case letters each
+letter will count +1 towards meeting the current <CODE>minlen</CODE> value.
+The default for <CODE>ucredit</CODE> is 1 which is the recommended value for
+<CODE>minlen</CODE> less than 10.
+</LI>
+<LI> <CODE>lcredit=N</CODE> -
+
+This is the maximum credit for having lower case letters in the new
+password.  If you have less than or <CODE>N</CODE> lower case letters, each
+letter will count +1 towards meeting the current <CODE>minlen</CODE> value.
+The default for <CODE>lcredit</CODE> is 1 which is the recommended value for
+<CODE>minlen</CODE> less than 10.
+</LI>
+<LI> <CODE>ocredit=N</CODE> -
+
+This is the maximum credit for having other characters in the new
+password.  If you have less than or <CODE>N</CODE> other characters, each
+character will count +1 towards meeting the current <CODE>minlen</CODE> value.
+The default for <CODE>ocredit</CODE> is 1 which is the recommended value for
+<CODE>minlen</CODE> less than 10.
+</LI>
+<LI> <CODE>use_authtok</CODE> -
+
+This argument is used to <EM>force</EM> the module to not prompt the user
+for a new password but use the one provided by the previously stacked
+<CODE>password</CODE> module.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD>
+<P>For an example of the use of this module, we show how it may be
+stacked with the password component of <CODE>pam_pwdb</CODE>:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# These lines stack two password type modules. In this example the
+# user is given 3 opportunities to enter a strong password. The
+# "use_authtok" argument ensures that the pam_pwdb module does not
+# prompt for a password, but instead uses the one provided by
+# pam_cracklib.
+#
+passwd  password required       pam_cracklib.so retry=3
+passwd  password required       pam_pwdb.so use_authtok
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>Another example (in the <CODE>/etc/pam.d/passwd</CODE> format) is for the
+case that you want to use md5 password encryption:
+<BLOCKQUOTE><CODE>
+<PRE>
+#%PAM-1.0
+#
+# These lines allow a md5 systems to support passwords of at least 14
+# bytes with extra credit of 2 for digits and 2 for others the new
+# password must have at least three bytes that are not present in the
+# old password
+#
+password  required pam_cracklib.so \
+               difok=3 minlen=15 dcredit= 2 ocredit=2
+password  required pam_pwdb.so use_authtok nullok md5
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.4">6.4</A> <A HREF="pam.html#toc6.4">The locking-out module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P>pam_deny</P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan &lt;morgan@parc.power.net&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>current <B>Linux-PAM</B> maintainer</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>account; authentication; password; session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD><P>clean.</P>
+
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module can be used to deny access. It always indicates a failure
+to the application through the PAM framework. As is commented in the
+overview section 
+<A HREF="pam-3.html#overview-section">above</A>, this module
+might be suitable for using for default (the <CODE>OTHER</CODE>) entries.</P>
+
+<H3>Account component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>This component does nothing other than return a failure. The
+failure type is <CODE>PAM_ACCT_EXPIRED</CODE>.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>Stacking this module with type <CODE>account</CODE> will prevent the user from
+gaining access to the system via applications that refer to
+<B>Linux-PAM</B>'s account management function <CODE>pam_acct_mgmt()</CODE>.</P>
+
+<P>The following example would make it impossible to login:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# add this line to your other login entries to disable all accounts
+#
+login   account  required       pam_deny.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>This component does nothing other than return a failure. The failure
+type is <CODE>PAM_AUTH_ERR</CODE> in the case that <CODE>pam_authenticate()</CODE> is
+called (when the application tries to authenticate the user), and is
+<CODE>PAM_CRED_UNAVAIL</CODE> when the application calls <CODE>pam_setcred()</CODE>
+(to establish and set the credentials of the user -- it is unlikely
+that this function will ever be called in practice).</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>To deny access to default applications with this component of the
+<CODE>pam_deny</CODE> module, you might include the following line in your
+<B>Linux-PAM</B> configuration file:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# add this line to your existing OTHER entries to prevent
+# authentication succeeding with default applications.
+#
+OTHER   auth     required       pam_deny.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+<H3>Password component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>This component of the module denies the user the opportunity to change
+their password. It always responds with <CODE>PAM_AUTHTOK_ERR</CODE> when
+invoked.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>This module should be used to prevent an application from updating the
+applicant user's password. For example, to prevent <CODE>login</CODE> from
+automatically prompting for a new password when the old one has
+expired you should include the following line in your configuration
+file:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# add this line to your other login entries to prevent the login
+# application from being able to change the user's password.
+#
+login   password required       pam_deny.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>This aspect of the module prevents an application from starting a
+session on the host computer.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>Together with another session module, that displays a message of the
+day perhaps (XXX - such a module needs to be written),
+this module can be used to block a user from starting a shell. Given
+the presence of a <CODE>pam_motd</CODE> module, we might use the following
+entries in the configuration file to inform the user it is system
+time:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# An example to see how to configure login to refuse the user a
+# session (politely)
+#
+login   session  required       pam_motd.so \
+                        file=/etc/system_time
+login   session  required       pam_deny.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.5">6.5</A> <A HREF="pam.html#toc6.5">Set/unset environment variables</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_env</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Dave Kinchlea &lt;kinch@kinch.ark.com&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>Authentication (setcred)</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P><CODE>/etc/security/pam_env.conf</CODE></P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module allows the (un)setting of environment variables. Supported
+is the use of previously set environment variables as well as
+<EM>PAM_ITEM</EM>s such as <CODE>PAM_RHOST</CODE>.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>conffile=</CODE><EM>configuration-file-name</EM>;
+<CODE>envfile</CODE>=<EM>env-file-name</EM>; <CODE>readenv</CODE>=<EM>0|1</EM></P>
+
+<DT><B><B>Description:</B></B><DD><P>This module allows you to (un)set arbitrary environment variables
+using fixed strings, the value of previously set environment variables
+and/or <EM>PAM_ITEM</EM>s.</P>
+
+<P>All is controlled via a configuration file (by default,
+<CODE>/etc/security/pam_env.conf</CODE> but can be overriden with
+<CODE>conffile</CODE> argument).  Each line starts with the variable name,
+there are then two possible options for each variable <B>DEFAULT</B>
+and <B>OVERRIDE</B>.  <B>DEFAULT</B> allows an administrator to
+set the value of the variable to some default value, if none is
+supplied then the empty string is assumed.  The <B>OVERRIDE</B>
+option tells pam_env that it should enter in its value (overriding the
+default value) if there is one to use.  <B>OVERRIDE</B> is not used,
+<CODE>""</CODE> is assumed and no override will be done.</P>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+VARIABLE   [DEFAULT=[value]]  [OVERRIDE=[value]]
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>(Possibly non-existent) environment variables may be used in values
+using the <CODE>${string}</CODE> syntax and (possibly
+non-existent) <EM>PAM_ITEM</EM>s may be used in values using the
+<CODE>&commat;{string}</CODE> syntax. Both the <CODE>$</CODE>
+and <CODE>&commat;</CODE> characters can be backslash-escaped to be used
+as literal values (as in <CODE>\$</CODE>.  Double quotes may
+be used in values (but not environment variable names) when white
+space is needed <B>the full value must be delimited by the quotes and
+embedded or escaped quotes are not supported</B>.</P>
+
+<P>This module can also parse a file with simple <CODE>KEY=VAL</CODE> pairs
+on seperate lines (<CODE>/etc/environment</CODE> by default). You can
+change the default file to parse, with the <EM>envfile</EM> flag and turn
+it on or off by setting the <EM>readenv</EM> flag to 1 or 0 respectively.</P>
+
+<P>The behavior of this module can be modified with one of the following
+flags:</P>
+
+<P>
+<UL>
+<LI><CODE>debug</CODE>
+- write more information to <CODE>syslog(3)</CODE>.
+</LI>
+<LI><CODE>conffile=</CODE><EM>filename</EM>
+- by default the file <CODE>/etc/security/pam_env.conf</CODE> is used as
+the configuration file. This option overrides the default. You must
+supply a complete path + file name.
+</LI>
+<LI><CODE>envfile=</CODE><EM>filename</EM>
+- by default the file <CODE>/etc/environment</CODE> is used to load KEY=VAL
+pairs directly into the env. This option overrides the default. You must
+supply a complete path + file name.
+</LI>
+<LI><CODE>readenv=</CODE><EM>0|1</EM>
+- turns on or off the reading of the file specified by envfile (0 is off,
+1 is on). By default this option is on.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>See sample <CODE>pam_env.conf</CODE> for more information and examples.</P>
+
+</DL>
+</P>
+
+
+
+
+
+
+
+
+
+
+
+
+<H2><A NAME="ss6.6">6.6</A> <A HREF="pam.html#toc6.6">The filter module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P>pam_filter</P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan &lt;morgan@parc.power.net&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>account; authentication; password; session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD><P>Not yet.</P>
+
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD><P>This module compiles cleanly on Linux based systems.</P>
+
+<DT><B><B>System dependencies:</B></B><DD><P>To function it requires <EM>filters</EM> to be installed on the system.</P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module was written to offer a plug-in alternative to programs
+like ttysnoop (XXX - need a reference). Since writing a filter that
+performs this function has not occurred, it is currently only a toy.
+The single filter provided with the module simply transposes upper and
+lower case letters in the input and output streams. (This can be very
+annoying and is not kind to termcap based editors).</P>
+
+<H3>Account+Authentication+Password+Session components</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>new_term</CODE>; <CODE>non_term</CODE>; <CODE>runX</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>Each component of the module has the potential to invoke the desired
+filter.  The filter is always <CODE>execv(2)</CODE>d with the privilege of the
+calling application and <B>not</B> that of the user. For this reason it
+cannot usually be killed by the user without closing their session.</P>
+
+<P>The behavior of the module can be significantly altered by the
+arguments passed to it in the <B>Linux-PAM</B> configuration file:
+<UL>
+<LI><CODE>debug</CODE> -
+
+this option increases the amount of information logged to
+<CODE>syslog(3)</CODE> as the module is executed.
+</LI>
+<LI><CODE>new_term</CODE> -
+
+the default action of the filter is to set the <CODE>PAM_TTY</CODE> item to
+indicate the terminal that the user is using to connect to the
+application. This argument indicates that the filter should set
+<CODE>PAM_TTY</CODE> to the filtered pseudo-terminal.
+</LI>
+<LI><CODE>non_term</CODE> -
+don't try to set the <CODE>PAM_TTY</CODE> item.
+</LI>
+<LI><CODE>runX</CODE> -
+
+in order that the module can invoke a filter it should know when to
+invoke it. This argument is required to tell the filter when to do
+this. The arguments that follow this one are respectively the full
+pathname of the filter to be run and any command line arguments that
+the filter might expect.
+
+<P>Permitted values for <CODE>X</CODE> are <CODE>1</CODE> and <CODE>2</CODE>. These indicate the
+precise time that the filter is to be run. To understand this concept
+it will be useful to have read the Linux-PAM Module developer's
+guide. Basically, for each management group there are up to two ways
+of calling the module's functions.</P>
+<P>In the case of the <EM>authentication</EM> and <EM>session</EM> components
+there are actually two separate functions.  For the case of
+authentication, these functions are <CODE>_authenticate</CODE> and
+<CODE>_setcred</CODE> -- here <CODE>run1</CODE> means run the filter from the
+<CODE>_authenticate</CODE> function and <CODE>run2</CODE> means run the filter from
+<CODE>_setcred</CODE>. In the case of the session modules, <CODE>run1</CODE> implies
+that the filter is invoked at the <CODE>_open_session</CODE> stage, and
+<CODE>run2</CODE> for <CODE>_close_session</CODE>.</P>
+
+<P>For the case of the account component. Either <CODE>run1</CODE> or <CODE>run2</CODE>
+may be used.</P>
+
+<P>For the case of the password component, <CODE>run1</CODE> is used to indicate
+that the filter is run on the first occasion <CODE>_chauthtok</CODE> is run
+(the <CODE>PAM_PRELIM_CHECK</CODE> phase) and <CODE>run2</CODE> is used to indicate
+that the filter is run on the second occasion (the
+<CODE>PAM_UPDATE_AUTHTOK</CODE> phase).</P>
+
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>At the time of writing there is little real use to be made of this
+module. For fun you might try adding the following line to your
+login's configuration entries
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# An example to see how to configure login to transpose upper and
+# lower case letters once the user has logged in(!)
+#
+login   session  required       pam_filter.so \
+                        run1 /usr/sbin/pam_filter/upperLOWER
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.7">6.7</A> <A HREF="pam.html#toc6.7">Anonymous access module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_ftp.so</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan &lt;morgan@linux.kernel.org&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD><P>prompts for email address of user; easily spoofed (XXX - needs work)</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>The purpose of this module is to provide a pluggable anonymous ftp
+mode of access.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>;
+<CODE>users=XXX,YYY,...</CODE>;
+<CODE>ignore</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>This module intercepts the user's name and password. If the name is
+``<CODE>ftp</CODE>'' or ``<CODE>anonymous</CODE>'', the user's password is broken up
+at the `<CODE>&commat;</CODE>' delimiter into a <CODE>PAM_RUSER</CODE> and a <CODE>PAM_RHOST</CODE>
+part; these pam-items being set accordingly. The username is set to
+``<CODE>ftp</CODE>''.  In this case the module succeeds.  Alternatively, the
+module sets the <CODE>PAM_AUTHTOK</CODE> item with the entered password and
+fails.</P>
+
+<P>The behavior of the module can be modified with the following flags:
+<UL>
+<LI><CODE>debug</CODE> -
+log more information to with <CODE>syslog(3)</CODE>.
+</LI>
+<LI><CODE>users=XXX,YYY,...</CODE> - 
+instead of ``<CODE>ftp</CODE>'' or ``<CODE>anonymous</CODE>'', provide anonymous login
+to the comma separated list of users; ``<CODE>XXX,YYY,...</CODE>''. Should the
+applicant enter one of these usernames the returned username is set to
+the first in the list; ``<CODE>XXX</CODE>''.
+</LI>
+<LI><CODE>ignore</CODE> -
+pay no attention to the email address of the user (if supplied).
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>An example of the use of this module is provided in the configuration
+file section 
+<A HREF="pam-4.html#configuration">above</A>. With care, this
+module could be used to provide new/temporary account anonymous
+login.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.8">6.8</A> <A HREF="pam.html#toc6.8">The group access module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_group</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan &lt;morgan@parc.power.net&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD><P>Sensitive to <EM>setgid</EM> status of file-systems accessible to users.</P>
+
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>Requires an <CODE>/etc/security/group.conf</CODE> file. Can be compiled
+with or without <CODE>libpwdb</CODE>.</P>
+
+<DT><B><B>Network aware:</B></B><DD><P>Only through correctly set <CODE>PAM_TTY</CODE> item.</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module provides group-settings based on the user's name and the
+terminal they are requesting a given service from. It takes note of
+the time of day.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>This module does not authenticate the user, but instead it grants
+group memberships (in the credential setting phase of the
+authentication module) to the user.  Such memberships are based on the
+service they are applying for. The group memberships are listed in
+text form in the <CODE>/etc/security/group.conf</CODE> file.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>For this module to function correctly there must be a correctly
+formatted <CODE>/etc/security/groups.conf</CODE> file present. The format
+of this file is as follows. Group memberships are given based on the
+service application satisfying any combination of lines in the
+configuration file. Each line (barring comments which are preceded by
+`<CODE>#</CODE>' marks) has the following
+syntax:
+<BLOCKQUOTE><CODE>
+<PRE>
+services   ;   ttys   ;   users   ;   times   ;   groups
+</PRE>
+</CODE></BLOCKQUOTE>
+
+Here the first four fields share the syntax of the <CODE>pam_time</CODE>
+configuration file; <CODE>/etc/security/pam_time.conf</CODE>, and the last
+field, the <CODE>groups</CODE> field, is a comma (or space) separated list of
+the text-names of a selection of groups. If the users application for
+service satisfies the first four fields, the user is granted membership
+of the listed groups.</P>
+
+<P>As stated in above this module's usefulness relies on the file-systems
+accessible to the user.  The point being that once granted the
+membership of a group, the user may attempt to create a <EM>setgid</EM>
+binary with a restricted group ownership.  Later, when the user is not
+given membership to this group, they can recover group membership with
+the precompiled binary.  The reason that the file-systems that the user
+has access to are so significant, is the fact that when a system is
+mounted <EM>nosuid</EM> the user is unable to create or execute such a
+binary file.  For this module to provide any level of security, all
+file-systems that the user has write access to should be mounted
+<EM>nosuid</EM>.</P>
+
+<P>The <CODE>pam_group</CODE> module fuctions in parallel with the
+<CODE>/etc/group</CODE> file. If the user is granted any groups based on
+the behavior of this module, they are granted <EM>in addition</EM> to
+those entries <CODE>/etc/group</CODE> (or equivalent).</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.9">6.9</A> <A HREF="pam.html#toc6.9">Add issue file to user prompt</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_issue</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Ben Collins &lt;bcollins@debian.org&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>Authentication (pam_sm_authenticate)</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module prepends the issue file (<EM>/etc/issue</EM> by default) when
+prompting for a username.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>issue=issue-file-name</CODE>; <CODE>noesc</CODE>;</P>
+
+<DT><B><B>Description:</B></B><DD><P>This module allows you to prepend an issue file to the username prompt. It
+also by default parses escape codes in the issue file similar to some
+common getty's (using \x format).</P>
+<P>Recognized escapes:
+<UL>
+<LI><CODE>d</CODE>
+- current date
+</LI>
+<LI><CODE>s</CODE>
+- operating system name
+</LI>
+<LI><CODE>l</CODE>
+- name of this tty
+</LI>
+<LI><CODE>m</CODE>
+- architecture of this system (i686, sparc, powerpc, ...)
+</LI>
+<LI><CODE>n</CODE>
+- hostname of this system
+</LI>
+<LI><CODE>o</CODE>
+- domainname of this system
+</LI>
+<LI><CODE>r</CODE>
+- release number of the operation system (eg. 2.2.12)
+</LI>
+<LI><CODE>t</CODE>
+- current time
+</LI>
+<LI><CODE>u</CODE>
+- number of users currently logged in
+</LI>
+<LI><CODE>U</CODE>
+- same as <CODE>u</CODE>, except it is suffixed with "user" or "users" (eg. "1
+user" or "10 users"
+</LI>
+<LI><CODE>v</CODE>
+- version/build-date of the operating system (eg. "#3 Mon Aug 23 14:38:16
+EDT 1999" on Linux).
+</LI>
+</UL>
+</P>
+
+<P>The behavior of this module can be modified with one of the following
+flags:</P>
+
+<P>
+<UL>
+<LI><CODE>issue</CODE>
+- the file to output if not using the default
+</LI>
+<LI><CODE>noesc</CODE>
+- turns off escape code parsing
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>login  auth  pam_issue.so  issue=/etc/issue</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.10">6.10</A> <A HREF="pam.html#toc6.10">The Kerberos 4 module.</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_krb4</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Derrick J. Brashear &lt;shadow@dementia.org&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication; password; session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD><P>uses API</P>
+
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>libraries - <CODE>libkrb</CODE>, <CODE>libdes</CODE>, <CODE>libcom_err</CODE>, <CODE>libkadm</CODE>;
+and a set of Kerberos include files.</P>
+
+<DT><B><B>Network aware:</B></B><DD><P>Gets Kerberos ticket granting ticket via a Kerberos key distribution
+center reached via the network.</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module provides an interface for doing Kerberos verification of a
+user's password, getting the user a Kerberos ticket granting ticket
+for use with the Kerberos ticket granting service, destroying the
+user's tickets at logout time, and changing a Kerberos password.</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>This component of the module currently sets the user's <CODE>KRBTKFILE</CODE>
+environment variable (although there is currently no way to export
+this), as well as deleting the user's ticket file upon logout (until
+<CODE>PAM_CRED_DELETE</CODE> is supported by <EM>login</EM>).</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>This part of the module won't be terribly useful until we can change
+the environment from within a <CODE>Linux-PAM</CODE> module.</P>
+
+</DL>
+</P>
+
+<H3>Password component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>use_first_pass</CODE>; <CODE>try_first_pass</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>This component of the module changes a user's Kerberos password
+by first getting and using the user's old password to get
+a session key for the password changing service, then sending
+a new password to that service.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>This should only be used with a real Kerberos v4 <CODE>kadmind</CODE>. It
+cannot be used with an AFS kaserver unless special provisions are
+made. Contact the module author for more information.</P>
+
+</DL>
+</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>use_first_pass</CODE>; <CODE>try_first_pass</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>This component of the module verifies a user's Kerberos password
+by requesting a ticket granting ticket from the Kerberos server
+and optionally using it to attempt to retrieve the local computer's
+host key and verifying using the key file on the local machine if 
+one exists.</P>
+<P>It also writes out a ticket file for the user to use later, and 
+deletes the ticket file upon logout (not until <CODE>PAM_CRED_DELETE</CODE>
+is called from <EM>login</EM>).</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>This module can be used with a real Kerberos server using MIT
+v4 Kerberos keys. The module or the system Kerberos libraries
+may be modified to support AFS style Kerberos keys. Currently
+this is not supported to avoid cryptography constraints.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.11">6.11</A> <A HREF="pam.html#toc6.11">The last login module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_lastlog</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan &lt;morgan@kernel.org&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>auth</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>uses information contained in the <CODE>/var/log/lastlog</CODE> file.</P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This session module maintains the <CODE>/var/log/lastlog</CODE> file.  Adding
+an open entry when called via the <CODE>pam_open_seesion()</CODE> function
+and completing it when <CODE>pam_close_session()</CODE> is called.  This
+module can also display a line of information about the last login of
+the user.  If an application already performs these tasks, it is not
+necessary to use this module.</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>nodate</CODE>; <CODE>noterm</CODE>; <CODE>nohost</CODE>; <CODE>silent</CODE>;
+<CODE>never</CODE></P>
+
+<DT><B><B>Description:</B></B><DD>
+<P>This module can be used to provide a ``Last login on ...''
+message. when the user logs into the system from what ever application
+uses the PAM libraries.  In addition, the module maintains the
+<CODE>/var/log/lastlog</CODE> file.</P>
+
+<P>The behavior of this module can be modified with one of the following
+flags:</P>
+
+<P>
+<UL>
+<LI><CODE>debug</CODE>
+- write more information to <CODE>syslog(3)</CODE>.
+</LI>
+<LI><CODE>nodate</CODE>
+- neglect to give the date of the last login when displaying
+information about the last login on the system.
+</LI>
+<LI><CODE>noterm</CODE> 
+- neglect to diplay the terminal name on which the last login was
+attempt.
+</LI>
+<LI><CODE>nohost</CODE>
+- neglect to indicate from which host the last login was attempted.
+</LI>
+<LI><CODE>silent</CODE>
+- neglect to inform the user about any previous login: just update
+the <CODE>/var/log/lastlog</CODE> file.
+</LI>
+<LI><CODE>never</CODE>
+- if the <CODE>/var/log/lastlog</CODE> file does not contain any old entries
+for the user, indicate that the user has never previously logged in
+with a ``welcome..." message.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>This module can be used to indicate that the user has new mail when
+they <EM>login</EM> to the system. Here is a sample entry for your
+<CODE>/etc/pam.d/XXX</CODE> file:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# When were we last here?
+#
+session  optional       pam_lastlog.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>Note, some applications may perform this function themselves. In such
+cases, this module is not necessary.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.12">6.12</A> <A HREF="pam.html#toc6.12">The resource limits module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_limits</CODE></P>
+
+<DT><B><B>Authors:</B></B><DD><P>Cristian Gafton &lt;gafton@redhat.com&gt; <BR>
+Thanks are also due to Elliot Lee &lt;sopwith@redhat.com&gt;
+for his comments on improving this module.</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Cristian Gafton - 1996/11/20</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>requires an <CODE>/etc/security/limits.conf</CODE> file and kernel support
+for resource limits. Also uses the library, <CODE>libpwdb</CODE>.</P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module, through the <B>Linux-PAM</B> <EM>open</EM>-session hook, sets
+limits on the system resources that can be obtained in a
+user-session. Its actions are dictated more explicitly through the
+configuration file discussed below.</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>conf=/path/to/file.conf</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>Through the contents of the configuration file,
+<CODE>/etc/security/limits.conf</CODE>, resource limits are placed on
+users' sessions. Users of <CODE>uid=0</CODE> are not affected by this
+restriction.</P>
+
+<P>The behavior of this module can be modified with the following
+arguments:
+<UL>
+<LI><CODE>debug</CODE> -
+verbose logging to <CODE>syslog(3)</CODE>.
+</LI>
+<LI><CODE>conf=/path/to/file.conf</CODE> -
+indicate an alternative <EM>limits</EM> configuration file to the default.
+</LI>
+<LI><CODE>change_uid</CODE> - 
+change real uid to the user for who the limits are set up.  Use this
+option if you have problems like login not forking a shell for user
+who has no processes. Be warned that something else may break when
+you do this.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>In order to use this module the system administrator must first create
+a <EM>root-only-readable</EM> file (default is
+<CODE>/etc/security/limits.conf</CODE>).  This file describes the resource
+limits the superuser wishes to impose on users and groups. No limits
+are imposed on <CODE>uid=0</CODE> accounts.</P>
+
+<P>Each line of the configuration file describes a limit for a user in
+the form:
+<BLOCKQUOTE><CODE>
+<PRE>
+&lt;domain>     &lt;type>       &lt;item>               &lt;value>
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>The fields listed above should be filled as follows...<BR>
+<CODE>&lt;domain&gt;</CODE> can be:
+<UL>
+<LI> a username</LI>
+<LI> a groupname, with <CODE>@group</CODE> syntax</LI>
+<LI> the wild-card <CODE>*</CODE>, for default entry</LI>
+</UL>
+</P>
+
+<P><CODE>&lt;type&gt;</CODE> can have the three values:
+<UL>
+<LI> <CODE>hard</CODE> for enforcing <EM>hard</EM> resource limits. These limits
+are set by the superuser and enforced by the Linux Kernel. The user
+cannot raise his requirement of system resources above such values.
+</LI>
+<LI> <CODE>soft</CODE> for enforcing <EM>soft</EM> resource limits. These limits
+are ones that the user can move up or down within the permitted range
+by any pre-exisiting <EM>hard</EM> limits. The values specified with this
+token can be thought of as <EM>default</EM> values, for normal system
+usage.
+</LI>
+<LI> <CODE>-</CODE> for enforcing both <EM>soft</EM> and <EM>hard</EM> limits
+together.
+</LI>
+</UL>
+</P>
+
+<P><CODE>&lt;item&gt;</CODE> can be one of the following:
+<UL>
+<LI><CODE>core</CODE> - limits the core file size (KB)</LI>
+<LI><CODE>data</CODE> - max data size (KB)</LI>
+<LI><CODE>fsize</CODE> - maximum filesize (KB)</LI>
+<LI><CODE>memlock</CODE> - max locked-in-memory address space (KB)</LI>
+<LI><CODE>nofile</CODE> - max number of open files</LI>
+<LI><CODE>rss</CODE> - max resident set size (KB)</LI>
+<LI><CODE>stack</CODE> - max stack size (KB)</LI>
+<LI><CODE>cpu</CODE> - max CPU time (MIN)</LI>
+<LI><CODE>nproc</CODE> - max number of processes</LI>
+<LI><CODE>as</CODE> - address space limit</LI>
+<LI><CODE>maxlogins</CODE> - max number of logins for this user.</LI>
+<LI><CODE>priority</CODE> - the priority to run user process with</LI>
+</UL>
+</P>
+
+<P>Note, if you specify a type of ``-'' but neglect to supply the
+<CODE>item</CODE> and <CODE>value</CODE> fields then the module will never enforce any
+limits on the corresponding user/group-members etc. . Note, the first
+entry of the form which applies to the authenticating user will
+override all other entries in the limits configuration file. In such
+cases, the <CODE>pam_limits</CODE> module will always return <CODE>PAM_SUCCESS</CODE>.</P>
+
+<P>In general, individual limits have priority over group limits, so if
+you impose no limits for <CODE>admin</CODE> group, but one of the members in
+this group have a limits line, the user will have its limits set
+according to this line.</P>
+
+<P>Also, please note that all limit settings are set <EM>per login</EM>.
+They are not global, nor are they permanent; existing only for the
+duration of the session.</P>
+
+<P>In the <EM>limits</EM> configuration file, the ``<CODE>#</CODE>'' character
+introduces a comment - after which the rest of the line is ignored.</P>
+
+<P>The <CODE>pam_limits</CODE> module does its best to report configuration
+problems found in its configuration file via <CODE>syslog(3)</CODE>.</P>
+
+<P>The following is an example configuration file:
+<BLOCKQUOTE><CODE>
+<PRE>
+# EXAMPLE /etc/security/limits.conf file:
+# =======================================
+# &lt;domain>   &lt;type>       &lt;item>               &lt;value>
+*               soft    core            0
+*               hard    rss             10000
+@student        hard    nproc           20
+@faculty        soft    nproc           20
+@faculty        hard    nproc           50
+ftp             hard    nproc           0
+@student        -       maxlogins       4
+</PRE>
+</CODE></BLOCKQUOTE>
+
+Note, the use of <CODE>soft</CODE> and <CODE>hard</CODE> limits for the same resource
+(see <CODE>@faculty</CODE>) -- this establishes the <EM>default</EM> and permitted
+<EM>extreme</EM> level of resources that the user can obtain in a given
+service-session.</P>
+
+<P>For the services that need resources limits (login for example) put
+the following line in <CODE>/etc/pam.conf</CODE> as the last line for that
+service (usually after the pam_unix session line:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# Resource limits imposed on login sessions via pam_limits
+#
+login   session    required     pam_limits.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.13">6.13</A> <A HREF="pam.html#toc6.13">The list-file module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_listfile</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Elliot Lee <CODE>&lt;sopwith@cuc.edu&gt;</CODE></P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Red Hat Software:<BR>
+Michael K. Johnson &lt;johnsonm@redhat.com&gt;  1996/11/18<BR>
+(if unavailable, contact Elliot Lee &lt;sopwith@cuc.edu&gt;).</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD><P>clean</P>
+
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>The list-file module provides a way to deny or allow services based on
+an arbitrary file.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>onerr=succeed|fail</CODE>;
+<CODE>sense=allow|deny</CODE>;
+<CODE>file=</CODE><I>filename</I>;
+<CODE>item=user|tty|rhost|ruser|group|shell</CODE>
+<CODE>apply=user|@group</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>The module gets the item of the type specified -- <CODE>user</CODE> specifies
+the username, <CODE>PAM_USER</CODE>; tty specifies the name of the terminal
+over which the request has been made, <CODE>PAM_TTY</CODE>; rhost specifies
+the name of the remote host (if any) from which the request was made,
+<CODE>PAM_RHOST</CODE>; and ruser specifies the name of the remote user
+(if available) who made the request, <CODE>PAM_RUSER</CODE> -- and looks for
+an instance of that item in the file <I>filename</I>.  <I>filename</I>
+contains one line per item listed.  If the item is found, then if
+<CODE>sense=allow</CODE>, <CODE>PAM_SUCCESS</CODE> is returned, causing the
+authorization request to succeed; else if <CODE>sense=deny</CODE>,
+<CODE>PAM_AUTH_ERR</CODE> is returned, causing the authorization
+request to fail.</P>
+
+<P>If an error is encountered (for instance, if <I>filename</I>
+does not exist, or a poorly-constructed argument is encountered),
+then if <CODE>onerr=succeed</CODE>, <CODE>PAM_SUCCESS</CODE> is returned,
+otherwise if <CODE>onerr=fail</CODE>, <CODE>PAM_AUTH_ERR</CODE> or
+<CODE>PAM_SERVICE_ERR</CODE> (as appropriate) will be returned.</P>
+
+<P>An additional argument, <CODE>apply=</CODE>, can be used to restrict the
+application of the above to a specific user
+(<CODE>apply=</CODE><EM>username</EM>) or a given group
+(<CODE>apply=@</CODE><EM>groupname</EM>).  This added restriction is only
+meaningful when used with the <CODE>tty</CODE>, <CODE>rhost</CODE> and <CODE>shell</CODE>
+<EM>items</EM>.</P>
+
+<P>Besides this last one, all arguments should be specified; do not count
+on any default behavior, as it is subject to change.</P>
+
+<P>No credentials are awarded by this module.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>Classic ``ftpusers'' authentication can be implemented with this entry
+in <CODE>/etc/pam.conf</CODE>:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# deny ftp-access to users listed in the /etc/ftpusers file
+#
+ftp     auth     required       pam_listfile.so \
+        onerr=succeed item=user sense=deny file=/etc/ftpusers
+</PRE>
+</CODE></BLOCKQUOTE>
+
+Note, users listed in <CODE>/etc/ftpusers</CODE> file are
+(counterintuitively) <B>not</B> allowed access to the ftp service.</P>
+
+<P>To allow login access only for certain users, you can use a
+<CODE>pam.conf</CODE> entry like this:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# permit login to users listed in /etc/loginusers
+#
+login   auth     required       pam_listfile.so \
+        onerr=fail item=user sense=allow file=/etc/loginusers
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>For this example to work, all users who are allowed to use the login
+service should be listed in the file <CODE>/etc/loginusers</CODE>.  Unless
+you are explicitly trying to lock out root, make sure that when you do
+this, you leave a way for root to log in, either by listing root in
+<CODE>/etc/loginusers</CODE>, or by listing a user who is able to <EM>su</EM>
+to the root account.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.14">6.14</A> <A HREF="pam.html#toc6.14">The mail module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_mail</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan &lt;morgan@linux.kernel.org&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>Authentication (credential)
+Session (open)</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>Default mail directory <CODE>/var/spool/mail/</CODE></P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module looks at the user's mail directory and indicates
+whether the user has any mail in it.</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>dir=</CODE><EM>directory-name</EM>; <CODE>nopen</CODE>; <CODE>close</CODE>;
+<CODE>noenv</CODE>; <CODE>empty</CODE>; <CODE>hash=</CODE><EM>hashcount</EM>; <CODE>standard</CODE>;
+<CODE>quiet</CODE>;</P>
+
+<DT><B><B>Description:</B></B><DD><P>This module provides the ``you have new mail'' service to the user. It
+can be plugged into any application that has credential hooks. It gives a
+single message indicating the <EM>newness</EM> of any mail it finds in the
+user's mail folder. This module also sets the <B>Linux-PAM</B>
+environment variable, <CODE>MAIL</CODE>, to the user's mail directory.</P>
+
+<P>The behavior of this module can be modified with one of the following
+flags:</P>
+
+<P>
+<UL>
+<LI><CODE>debug</CODE>
+- write more information to <CODE>syslog(3)</CODE>.
+</LI>
+<LI><CODE>dir=</CODE><EM>pathname</EM>
+- look for the users' mail in an alternative directory given by
+<EM>pathname</EM>.  The default location for mail is
+<CODE>/var/spool/mail</CODE>. Note, if the supplied <EM>pathname</EM> is
+prefixed by a `<CODE>~</CODE>', the directory is interpreted as
+indicating a file in the user's home directory.
+</LI>
+<LI><CODE>nopen</CODE>
+- instruct the module to <EM>not</EM> print any mail information when the
+user's credentials are acquired. This flag is useful to get the <CODE>MAIL</CODE>
+environment variable set, but to not display any information about it.
+</LI>
+<LI><CODE>close</CODE>
+- instruct the module to indicate if the user has any mail at the as
+the user's credentials are revoked.
+</LI>
+<LI><CODE>noenv</CODE>
+- do not set the <CODE>MAIL</CODE> environment variable.
+</LI>
+<LI><CODE>empty</CODE>
+- indicate that the user's mail directory is empty if this is found to
+be the case.
+</LI>
+<LI><CODE>hash=</CODE><EM>hashcount</EM>
+- mail directory hash depth.  For example, a <EM>hashcount</EM> of 2 would
+make the mailfile be <CODE>/var/spool/mail/u/s/user</CODE>.
+</LI>
+<LI><CODE>standard</CODE>
+- old style "You have..." format which doesn't show the mail spool being used.
+this also implies "empty"
+</LI>
+<LI><CODE>quiet</CODE>
+- only report when there is new mail.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>This module can be used to indicate that the user has new mail when
+they <EM>login</EM> to the system. Here is a sample entry for your
+<CODE>/etc/pam.conf</CODE> file:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# do we have any mail?
+#
+login   session  optional       pam_mail.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>Note, if the mail spool file (be it <CODE>/var/spool/mail/$USER</CODE> or
+a pathname given with the <CODE>dir=</CODE> parameter) is a directory then
+<CODE>pam_mail</CODE> assumes it is in the <I>Qmail Maildir</I> format.</P>
+
+<P>Note, some applications may perform this function themselves. In such
+cases, this module is not necessary.</P>
+
+</DL>
+</P>
+
+<H3>Authentication component</H3>
+
+<P>Then authentication companent works the same as the session component,
+except that everything is done during the <CODE>pam_setcred()</CODE> phase.</P>
+
+
+<H2><A NAME="ss6.15">6.15</A> <A HREF="pam.html#toc6.15">Create home directories on initial login</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_mkhomedir</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Jason Gunthorpe &lt;jgg@ualberta.ca&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Ben Collins &lt;bcollins@debian.org&gt;</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>Session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>Creates home directories on the fly for authenticated users.</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>skel=skeleton-dir</CODE>; <CODE>umask=octal-umask</CODE>;</P>
+
+<DT><B><B>Description:</B></B><DD><P>This module is useful for distributed systems where the user account is
+managed in a central database (such as NIS, NIS+, or LDAP) and accessed
+through miltiple systems. It frees the administrator from having to create
+a default home directory on each of the systems by creating it upon the
+first succesfully authenticated login of that user. The skeleton directory
+(usually /etc/skel/) is used to copy default files and also set's a umask
+for the creation.</P>
+
+<P>The behavior of this module can be modified with one of the following
+flags:</P>
+
+<P>
+<UL>
+<LI><CODE>skel</CODE>
+- The skeleton directory for default files to copy to the new home directory.
+</LI>
+<LI><CODE>umask</CODE>
+- An octal for of the same format as you would pass to the shells umask command.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>session    required   pam_mkhomedir.so skel=/etc/skel/ umask=0022</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.16">6.16</A> <A HREF="pam.html#toc6.16">Output the motd file</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_motd</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Ben Collins &lt;bcollins@debian.org&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>Session (open)</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module outputs the motd file (<EM>/etc/motd</EM> by default) upon
+successful login.</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>motd=motd-file-name</CODE>;</P>
+
+<DT><B><B>Description:</B></B><DD><P>This module allows you to have arbitrary motd's (message of the day)
+output after a succesful login. By default this file is <EM>/etc/motd</EM>,
+but is configurable to any file.</P>
+
+<P>The behavior of this module can be modified with one of the following
+flags:</P>
+
+<P>
+<UL>
+<LI><CODE>motd</CODE>
+- the file to output if not using the default.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>login  session  pam_motd.so  motd=/etc/motd</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.17">6.17</A> <A HREF="pam.html#toc6.17">The no-login module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_nologin</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Written by Michael K. Johnson &lt;johnsonm@redhat.com&gt;<BR>
+(based on code taken from a module written by Andrew G. Morgan
+&lt;morgan@parc.power.net&gt;).</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Michael K. Johnson &lt;johnsonm@redhat.com&gt;</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD><P>1 warning about dropping const</P>
+
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>Provides standard Unix <EM>nologin</EM> authentication.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>Provides standard Unix <EM>nologin</EM> authentication.  If the file
+<CODE>/etc/nologin</CODE> exists, only root is allowed to log in; other
+users are turned away with an error message.  All users (root or
+otherwise) are shown the contents of <CODE>/etc/nologin</CODE>.</P>
+
+<P>If the file <CODE>/etc/nologin</CODE> does not exist, this module succeeds
+silently.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>In order to make this module effective, all login methods should
+be secured by it.  It should be used as a <CODE>required</CODE>
+method listed before any <CODE>sufficient</CODE> methods in order to
+get standard Unix nologin semantics.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.18">6.18</A> <A HREF="pam.html#toc6.18">The promiscuous module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P>pam_permit</P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan, &lt;morgan@parc.power.net&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Linux-PAM maintainer.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>account; authentication; password; session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD><P>VERY LOW. Use with extreme caution.</P>
+
+<DT><B><B>Clean code base:</B></B><DD><P>Clean.</P>
+
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module is very dangerous. It should be used with extreme
+caution. Its action is always to permit access. It does nothing else.</P>
+
+<H3>Account+Authentication+Password+Session components</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>No matter what management group, the action of this module is to
+simply return <CODE>PAM_SUCCESS</CODE> -- operation successful.</P>
+
+<P>In the case of authentication, the user's name will be acquired. Many
+applications become confused if this name is unknown.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>It is seldom a good idea to use this module. However, it does have
+some legitimate uses.  For example, if the system-administrator wishes
+to turn off the account management on a workstation, and at the same
+time continue to allow logins, then she might use the following
+configuration file entry for login:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# add this line to your other login entries to disable account
+# management, but continue to permit users to log in...
+#
+login   account  required       pam_permit.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.19">6.19</A> <A HREF="pam.html#toc6.19">The Password-Database module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P>pam_pwdb</P>
+
+<DT><B><B>Author:</B></B><DD><P>Cristian Gafton &lt;gafton@redhat.com&gt; <BR>
+and Andrew G. Morgan &lt;morgan@kernel.org&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Authors.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>account; authentication; password; session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>Requires properly configured <CODE>libpwdb</CODE></P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module is a pluggable replacement for the <CODE>pam_unix_..</CODE>
+modules. It uses the generic interface of the <EM>Password Database</EM>
+library
+<CODE>
+<A HREF="http://linux.kernel.org/morgan/libpwdb/index.html">http://linux.kernel.org/morgan/libpwdb/index.html</A></CODE>.</P>
+
+<H3>Account component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>The <CODE>debug</CODE> argument makes the accounting functions of this module
+<CODE>syslog(3)</CODE> more information on its actions. (Remaining arguments
+supported by the other functions of this module are silently ignored,
+but others are logged as errors through <CODE>syslog(3)</CODE>).</P>
+<P>Based on the following <CODE>pwdb_element</CODE>s:
+<CODE>expire</CODE>;
+<CODE>last_change</CODE>;
+<CODE>max_change</CODE>;
+<CODE>defer_change</CODE>;
+<CODE>warn_change</CODE>,
+this module performs the task of establishing the status of the user's
+account and password. In the case of the latter, it may offer advice
+to the user on changing their password or, through the
+<CODE>PAM_AUTHTOKEN_REQD</CODE> return, delay giving service to the user until
+they have established a new password. The entries listed above are
+documented in the <EM>Password Database Library Guide</EM> (see pointer
+above). Should the user's record not contain one or more of these
+entries, the corresponding <EM>shadow</EM> check is not performed.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>In its accounting mode, this module can be inserted as follows:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# Ensure users account and password are still active
+#
+login   account  required       pam_pwdb.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>;
+<CODE>use_first_pass</CODE>;
+<CODE>try_first_pass</CODE>;
+<CODE>nullok</CODE>;
+<CODE>nodelay</CODE>;
+<CODE>likeauth</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>The <CODE>debug</CODE> argument makes the authentication functions of this
+module <CODE>syslog(3)</CODE> more information on its actions.</P>
+
+<P>The default action of this module is to not permit the user access to
+a service if their <EM>official</EM> password is blank. The <CODE>nullok</CODE>
+argument overrides this default.</P>
+
+<P>When given the argument <CODE>try_first_pass</CODE>, before prompting the user
+for their password, the module first tries the previous stacked
+<CODE>auth</CODE>-module's password in case that satisfies this module as
+well. The argument <CODE>use_first_pass</CODE> forces the module to use such a
+recalled password and will never prompt the user - if no password is
+available or the password is not appropriate, the user will be denied
+access.</P>
+
+<P>The argument, <CODE>nodelay</CODE>, can be used to discourage the
+authentication component from requesting a delay should the
+authentication as a whole fail.  The default action is for the module
+to request a delay-on-failure of the order of one second.</P>
+
+<P>Remaining arguments, supported by the other functions of this module,
+are silently ignored. Other arguments are logged as errors through
+<CODE>syslog(3)</CODE>.</P>
+
+<P>A helper binary, <CODE>pwdb_chkpwd</CODE>, is provided to check the user's
+password when it is stored in a read protected database.  This binary
+is very simple and will only check the password of the user invoking
+it.  It is called transparently on behalf of the user by the
+authenticating component of this module.  In this way it is possible
+for applications like <EM>xlock</EM> to work without being setuid-root.</P>
+
+<P>The <CODE>likeauth</CODE> argument makes the module return the same value
+when called as a credential setting module and an authentication
+module.  This will help libpam take a sane path through the auth
+component of your configuration file.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>The correct functionality of this module is dictated by having an
+appropriate <CODE>/etc/pwdb.conf</CODE> file, the user
+databases specified there dictate the source of the authenticated
+user's record.</P>
+
+</DL>
+</P>
+
+<H3>Password component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>nullok</CODE>; <CODE>not_set_pass</CODE>; <CODE>use_authtok</CODE>;
+<CODE>try_first_pass</CODE>; <CODE>use_first_pass</CODE>; <CODE>md5</CODE>; <CODE>bigcrypt</CODE>;
+<CODE>shadow</CODE>; <CODE>radius</CODE>; <CODE>unix</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>This part of the <CODE>pam_pwdb</CODE> module performs the task of updating
+the user's password.  Thanks to the flexibility of <CODE>libpwdb</CODE> this
+module is able to move the user's password from one database to
+another, perhaps securing the user's database entry in a dynamic
+manner (<EM>this is very ALPHA code at the moment!</EM>) - this is the
+purpose of the <CODE>shadow</CODE>, <CODE>radius</CODE> and <CODE>unix</CODE> arguments.</P>
+
+<P>In the case of conventional unix databases (which store the password
+encrypted) the <CODE>md5</CODE> argument is used to do the encryption with the
+MD5 function as opposed to the <EM>conventional</EM> <CODE>crypt(3)</CODE> call.
+As an alternative to this, the <CODE>bigcrypt</CODE> argument can be used to
+encrypt more than the first 8 characters of a password with DEC's
+(Digital Equipment Cooperation) `C2' extension to the standard UNIX
+<CODE>crypt()</CODE> algorithm.</P>
+
+<P>The <CODE>nullok</CODE> module is used to permit the changing of a password
+<EM>from</EM> an empty one. Without this argument, empty passwords are
+treated as account-locking ones.</P>
+
+<P>The argument <CODE>use_first_pass</CODE> is used to lock the choice of old and
+new passwords to that dictated by the previously stacked <CODE>password</CODE>
+module.  The <CODE>try_first_pass</CODE> argument is used to avoid the user
+having to re-enter an old password when <CODE>pam_pwdb</CODE> follows a module
+that possibly shared the user's old password - if this old password is
+not correct the user will be prompted for the correct one.  The
+argument <CODE>use_authtok</CODE> is used to <EM>force</EM> this module to set the
+new password to the one provided by the previously stacked
+<CODE>password</CODE> module (this is used in an example of the stacking of
+the <EM>Cracklib</EM> module documented above).</P>
+
+<P>The <CODE>not_set_pass</CODE> argument is used to inform the module that it is
+not to pay attention to/make available the old or new passwords from/to
+other (stacked) password modules.</P>
+
+<P>The <CODE>debug</CODE> argument makes the password functions of this module
+<CODE>syslog(3)</CODE> more information on its actions. Other arguments may be
+logged as erroneous to <CODE>syslog(3)</CODE>.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>An example of the stacking of this module with respect to the
+pluggable password checking module, <CODE>pam_cracklib</CODE>, is given in
+that modules section above.</P>
+</DL>
+</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>No arguments are recognized by this module component. Its action is
+simply to log the username and the service-type to
+<CODE>syslog(3)</CODE>. Messages are logged at the beginning and end of the
+user's session.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>The use of the session modules is straightforward:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# pwdb - unix like session opening and closing
+#
+login   session  required       pam_pwdb.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.20">6.20</A> <A HREF="pam.html#toc6.20">The RADIUS session module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_radius</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Cristian Gafton &lt;gafton@redhat.com&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD><P>This module does not deal with passwords</P>
+
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD><P>gcc reports 1 warning when compiling <CODE>/usr/include/rpc/clnt.h</CODE>.
+Hey, is not my fault !</P>
+
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD><P>yes; this is a network module (independent of application).</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module is intended to provide the session service for users
+authenticated with a RADIUS server.  At the present stage, the only
+option supported is the use of the RADIUS server as an accounting
+server.</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE> - verbose logging to <CODE>syslog(3)</CODE>.</P>
+
+<DT><B><B>Description:</B></B><DD><P>This module is intended to provide the session service for users
+authenticated with a RADIUS server. At the present stage, the only
+option supported is the use of the RADIUS server as an <EM>accounting</EM>
+server.  </P>
+
+<P>(There are few things which needs to be cleared out first in
+the PAM project until one will be able to use this module and expect
+it to magically start pppd in response to a RADIUS server command to
+use PPP for this user, or to initiate a telnet connection to another
+host, or to hang and call back the user using parameters provided in
+the RADIUS server response. Most of these things are better suited for
+the radius login application. I hope to make available Real Soon (tm)
+patches for the login apps to make it work this way.)</P>
+
+<P>When opening a session, this module sends an ``Accounting-Start''
+message to the RADIUS server, which will log/update/whatever a
+database for this user. On close, an ``Accounting-Stop'' message is
+sent to the RADIUS server.</P>
+
+<P>This module has no other prerequisites for making it work.  One can
+install a RADIUS server just for fun and use it as a centralized
+accounting server and forget about wtmp/last/sac etc. .</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>For the services that need this module (<EM>login</EM> for example) put
+the following line in <CODE>/etc/pam.conf</CODE> as the last line for that
+service (usually after the pam_unix session line):
+<BLOCKQUOTE><CODE>
+<PRE>
+login   session  required       pam_radius.so
+</PRE>
+</CODE></BLOCKQUOTE>
+
+Replace <CODE>login</CODE> for each service you are using this module.</P>
+
+<P>This module make extensive use of the API provided in libpwdb
+0.54preB or later. By default, it will read the radius server
+configuration (hostname and secret) from <CODE>/etc/raddb/server</CODE>.
+This is a default compiled into libpwdb, and curently there is no way to
+modify this default without recompiling libpwdb. I am working on
+extending the radius support from libpwdb to provide a possibility
+to make this runtime-configurable.</P>
+<P>Also please note that libpwdb will require also the RADIUS
+dictionary to be present (<CODE>/etc/raddb/dictionary</CODE>).</P>
+
+</DL>
+</P>
+
+
+
+<H2><A NAME="ss6.21">6.21</A> <A HREF="pam.html#toc6.21">The rhosts module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_rhosts_auth</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Al Longyear &lt;longyear@netcom.com&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD>
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD><P>Clean.</P>
+
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD><P>Standard <CODE>inet_addr()</CODE>, <CODE>gethostbyname()</CODE> function calls.</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module performs the standard network authentication for services,
+as used by traditional implementations of <EM>rlogin</EM> and <EM>rsh</EM>
+etc.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>no_hosts_equiv</CODE>; <CODE>no_rhosts</CODE>; <CODE>debug</CODE>; <CODE>no_warn</CODE>;
+<CODE>privategroup</CODE>; <CODE>promiscuous</CODE>; <CODE>suppress</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>The authentication mechanism of this module is based on the contents
+of two files; <CODE>/etc/hosts.equiv</CODE> (or <CODE>_PATH_HEQUIV</CODE> in
+<CODE>#include &lt;netdb.h&gt;</CODE>) and <CODE>~/.rhosts</CODE>.  Firstly,
+hosts listed in the former file are treated as equivalent to the
+localhost. Secondly, entries in the user's own copy of the latter file
+is used to map "<CODE>remote-host remote-user</CODE>" pairs to that user's
+account on the current host. Access is granted to the user if their
+host is present in <CODE>/etc/hosts.equiv</CODE> and their remote account
+is identical to their local one, or if their remote account has an
+entry in their personal configuration file.</P>
+
+<P>Some restrictions are applied to the attributes of the user's personal
+configuration file: it must be a regular file (as defined by
+<CODE>S_ISREG(x)</CODE> of POSIX.1); it must be owned by the <EM>superuser</EM> or
+the user; it must not be writable by any user besides its owner.</P>
+
+<P>The module authenticates a remote user (internally specified by the
+item <CODE>PAM_RUSER</CODE>) connecting from the remote host (internally
+specified by the item <CODE>PAM_RHOST</CODE>).  Accordingly, for applications
+to be compatible this authentication module they must set these items
+prior to calling <CODE>pam_authenticate()</CODE>.  The module is not capable
+of independently probing the network connection for such information.</P>
+
+<P>In the case of <CODE>root</CODE>-access, the <CODE>/etc/host.equiv</CODE> file is
+<EM>ignored</EM> unless the <CODE>hosts_equiv_rootok</CODE> option
+should be used.  Instead, the superuser must have a correctly configured
+personal configuration file.</P>
+
+<P>The behavior of the module is modified by flags:
+<UL>
+<LI><CODE>debug</CODE> -
+log more information to <CODE>syslog(3)</CODE>. (XXX - actually, this module
+does not do any logging currently, please volunteer to fix this!)
+</LI>
+<LI><CODE>no_warn</CODE> -
+do not give verbal warnings to the user about failures etc. (XXX -
+this module currently does not issue any warnings, please volunteer to
+fix this!)
+</LI>
+<LI><CODE>no_hosts_equiv</CODE> -
+ignore the contents of the <CODE>/etc/hosts.equiv</CODE> file.
+</LI>
+<LI><CODE>hosts_equiv_rootok</CODE> -
+allow the use of <CODE>/etc/hosts.equiv</CODE> for superuser.  Without this
+option <CODE>/etc/hosts.equiv</CODE> is not consulted for the superuser account.
+This option has no effect if the <CODE>no_hosts_equiv</CODE> option is used.
+</LI>
+<LI><CODE>no_rhosts</CODE> -
+ignore the contents of all user's personal configuration file
+<CODE>~/.rhosts</CODE>.
+</LI>
+<LI><CODE>privategroup</CODE> -
+normally, the <CODE>~/.rhosts</CODE> file must not be writable by anyone
+other than its owner.  This option overlooks group write access in the
+case that the group owner of this file has the same name as the
+user being authenticated.  To lessen the security problems associated
+with this option, the module also checks that the user is the only
+member of their private group.
+</LI>
+<LI><CODE>promiscuous</CODE> -
+A host entry of `+' will lead to all hosts being granted
+access. Without this option, '+' entries will be ignored. Note, that
+the <CODE>debug</CODE> option will syslog a warning in this latter case.
+</LI>
+<LI><CODE>suppress</CODE> -
+This will prevent the module from <CODE>syslog(3)</CODE>ing a warning message
+when this authentication fails.  This option is mostly for keeping
+logs free of meaningless errors, in particular when the module is used
+with the <CODE>sufficient</CODE> control flag.
+</LI>
+</UL>
+</P>
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>To allow users to login from trusted remote machines, you should try
+adding the following line to your <CODE>/etc/pam.conf</CODE> file
+<EM>before</EM> the line that would otherwise prompt the user for a
+password:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# No passwords required for users from hosts listed above.
+#
+login  auth  sufficient  pam_rhosts_auth.so no_rhosts
+</PRE>
+</CODE></BLOCKQUOTE>
+
+Note, in this example, the system administrator has turned off all
+<EM>personal</EM> <EM>rhosts</EM> configuration files. Also note, that this module
+can be used to <EM>only</EM> allow remote login from hosts specified in
+the <CODE>/etc/host.equiv</CODE> file, by replacing <CODE>sufficient</CODE> in the
+above example with <CODE>required</CODE>.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.22">6.22</A> <A HREF="pam.html#toc6.22">The root access module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P>pam_rootok</P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan &lt;morgan@parc.power.net&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P><B>Linux-PAM</B> maintainer</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD><P>Clean.</P>
+
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module is for use in situations where the superuser wishes
+to gain access to a service without having to enter a password.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>This module authenticates the user if their <CODE>uid</CODE> is <CODE>0</CODE>.
+Applications that are created <EM>setuid</EM>-root generally retain the
+<CODE>uid</CODE> of the user but run with the authority of an enhanced
+<EM>effective-</EM><CODE>uid</CODE>. It is the real <CODE>uid</CODE> that is checked.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>In the case of the <CODE>su</CODE> application the historical usage is to
+permit the superuser to adopt the identity of a lesser user without
+the use of a password. To obtain this behavior under <CODE>Linux-PAM</CODE>
+the following pair of lines are needed for the corresponding entry in
+the configuration file:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# su authentication. Root is granted access by default.
+#
+su      auth     sufficient     pam_rootok.so
+su      auth     required       pam_unix_auth.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>Note. For programs that are run by the superuser (or started when the
+system boots) this module should not be used to authenticate users.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.23">6.23</A> <A HREF="pam.html#toc6.23">The securetty module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_securetty</CODE></P>
+
+<DT><B><B>Author[s]:</B></B><DD><P>Elliot Lee &lt;sopwith@cuc.edu&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Red Hat Software:<BR>
+<EM>currently</EM> Michael K. Johnson &lt;johnsonm@redhat.com&gt;<BR>
+(if unavailable, contact Elliot Lee &lt;sopwith@cuc.edu&gt;).</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P><CODE>/etc/securetty</CODE> file</P>
+
+<DT><B><B>Network aware:</B></B><DD><P>Requires the application to fill in the <CODE>PAM_TTY</CODE> item
+correctly in order to act meaningfully.</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>Provides standard Unix securetty checking.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>Provides standard Unix securetty checking, which causes authentication
+for root to fail unless <CODE>PAM_TTY</CODE> is set to a string listed in
+the <CODE>/etc/securetty</CODE> file.  For all other users, it succeeds.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>For canonical usage, should be listed as a <CODE>required</CODE>
+authentication method before any <CODE>sufficient</CODE> authentication
+methods.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.24">6.24</A> <A HREF="pam.html#toc6.24">The login counter (tallying) module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P>pam_tally</P>
+
+<DT><B><B>Author[s]:</B></B><DD><P>Tim Baverstock</P>
+
+<DT><B><B>Maintainer:</B></B><DD>
+<DT><B><B>Management groups provided:</B></B><DD><P>auth; account</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>A faillog file (default location /var/log/faillog)</P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module maintains a count of attempted accesses, can reset count
+on success, can deny access if too many attempts fail.</P>
+
+<P>pam_tally comes in two parts: <CODE>pam_tally.so</CODE> and
+<CODE>pam_tally</CODE>. The former is the PAM module and the latter, a
+stand-alone program. <CODE>pam_tally</CODE> is an (optional) application
+which can be used to interrogate and manipulate the counter file. It
+can display users' counts, set individual counts, or clear all
+counts. Setting artificially high counts may be useful for blocking
+users without changing their passwords. For example, one might find it
+useful to clear all counts every midnight from a cron job.</P>
+
+<P>The counts file is organized as a binary-word array, indexed by
+uid. You can probably make sense of it with <CODE>od</CODE>, if you don't
+want to use the supplied appliction.</P>
+
+<P>Note, there are some outstanding issues with this module:
+<CODE>pam_tally</CODE> is very dependant on <CODE>getpw*()</CODE> - a database
+of usernames would be much more flexible; the `keep a count of current
+logins' bit has been <CODE>#ifdef</CODE>'d out and you can only reset the
+counter on successful authentication, for now.</P>
+
+<H3>Generic options accepted by both components</H3>
+
+<P>
+<UL>
+<LI> <CODE>onerr=</CODE>(<CODE>succeed</CODE>|<CODE>fail</CODE>):
+if something weird happens, such as unable to open the file, how
+should the module react?</LI>
+<LI> <CODE>file=</CODE><EM>/where/to/keep/counts</EM>:
+specify the file location for the counts.
+The default location is <CODE>/var/log/faillog</CODE>.</LI>
+</UL>
+</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>onerr=</CODE>(<CODE>succeed</CODE>|<CODE>fail</CODE>);
+<CODE>file=</CODE>/where/to/keep/counts;
+<CODE>no_magic_root</CODE></P>
+
+<DT><B><B>Description:</B></B><DD>
+<P>The authentication component of this module increments the attempted
+login counter.</P>
+
+
+<DT><B><B>Examples/suggested usage:</B></B><DD>
+<P>The module argument <CODE>no_magic_root</CODE> is used to indicate that if
+the module is invoked by a user with uid=0, then the counter is
+incremented. The sys-admin should use this for daemon-launched
+services, like <CODE>telnet</CODE>/<CODE>rsh</CODE>/<CODE>login</CODE>. For user
+launched services, like <CODE>su</CODE>, this argument should be omitted.</P>
+
+<P>By way of more explanation, when a process already running as root
+tries to access some service, the access is <EM>magic</EM>, and
+bypasses <CODE>pam_tally</CODE>'s checks: this is handy for <CODE>su</CODE>ing
+from root into an account otherwise blocked. However, for services
+like <CODE>telnet</CODE> or <CODE>login</CODE>, which always effectively run
+from the root account, root (ie everyone) shouldn't be granted this
+magic status, and the flag `no_magic_root' should be set in this
+situation, as noted in the summary above.</P>
+
+</DL>
+</P>
+
+<H3>Account component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>onerr=</CODE>(<CODE>succeed</CODE>|<CODE>fail</CODE>);
+<CODE>file=</CODE>/where/to/keep/counts;
+<CODE>deny=</CODE><EM>n</EM>;
+<CODE>no_magic_root</CODE>;
+<CODE>even_deny_root_account</CODE>;
+<CODE>reset</CODE>;
+<CODE>no_reset</CODE>;
+<CODE>per_user</CODE>;
+<CODE>no_lock_time</CODE></P>
+
+<DT><B><B>Description:</B></B><DD>
+<P>The account component can deny access and/or reset the attempts
+counter. It also checks to make sure that the counts file is a plain
+file and not world writable.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD>
+<P>The <CODE>deny=</CODE><EM>n</EM> option is used to deny access if tally
+for this user exceeds <EM>n</EM>. The presence of
+<CODE>deny=</CODE><EM>n</EM> changes the default for
+<CODE>reset</CODE>/<CODE>no_reset</CODE> to <CODE>reset</CODE>, unless the user
+trying to gain access is root and the <CODE>no_magic_root</CODE> option
+has NOT been specified.</P>
+
+<P>The <CODE>no_magic_root</CODE> option ensures that access attempts by root
+DON'T ignore deny.  Use this for daemon-based stuff, like
+<CODE>telnet</CODE>/<CODE>rsh</CODE>/<CODE>login</CODE>.</P>
+
+<P>The <CODE>even_deny_root_account</CODE> option is used to ensure that the
+root account can become unavailable. <B>Note</B> that magic root
+trying to gain root bypasses this, but normal users can be locked out.</P>
+
+<P>The <CODE>reset</CODE> option instructs the module to reset count to 0 on
+successful entry, even for magic root. The <CODE>no_reset</CODE> option is
+used to instruct the module to not reset the count on successful
+entry.  This is the default unless <CODE>deny</CODE> exists and the user
+attempting access is NOT magic root.</P>
+
+<P>If <CODE>/var/log/faillog</CODE> contains a non-zero <CODE>.fail_max</CODE>
+field for this user then the <CODE>per_user</CODE> module argument will
+ensure that the module uses this value and not the global
+<CODE>deny=</CODE><EM>n</EM> parameter.</P>
+
+<P>The <CODE>no_lock_time</CODE> option is for ensuring that the module does
+not use the <CODE>.fail_locktime</CODE> field in /var/log/faillog for this
+user.</P>
+
+<P>Normally, failed attempts to access root will <B>NOT</B> cause the
+root account to become blocked, to prevent denial-of-service: if your
+users aren't given shell accounts and root may only login via
+<CODE>su</CODE> or at the machine console (not
+<CODE>telnet</CODE>/<CODE>rsh</CODE>, etc), this is safe. If you really want
+root to be blocked for some given service, use
+<CODE>even_deny_root_account</CODE>.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.25">6.25</A> <A HREF="pam.html#toc6.25">Time control</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_time</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan <CODE>&lt;morgan@parc.power.net&gt;</CODE></P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>account</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>Requires a configuration file <CODE>/etc/security/time.conf</CODE></P>
+
+<DT><B><B>Network aware:</B></B><DD><P>Through the <CODE>PAM_TTY</CODE> item only</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>Running a well regulated system occasionally involves restricting
+access to certain services in a selective manner.  This module offers
+some time control for access to services offered by a system.  Its
+actions are determined with a configuration file.  This module can be
+configured to deny access to (individual) users based on their name,
+the time of day, the day of week, the service they are applying for
+and their terminal from which they are making their request.</P>
+
+<H3>Account component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>This module bases its actions on the rules listed in its configuration
+file: <CODE>/etc/security/pam.conf</CODE>.  Each rule has the following
+form,
+<BLOCKQUOTE><CODE>
+<EM>services</EM><CODE>;</CODE><EM>ttys</EM><CODE>;</CODE><EM>users</EM><CODE>;</CODE><EM>times</EM>
+</CODE></BLOCKQUOTE>
+
+In words, each rule occupies a line, terminated with a newline or the
+beginning of a comment; a `<CODE>#</CODE>'.  It contains four fields separated
+with semicolons, `<CODE>;</CODE>'. The fields are as follows:</P>
+
+<P>
+<UL>
+<LI><EM>services</EM> -
+a logic list of service names that are affected by this rule.
+</LI>
+<LI><EM>ttys</EM> -
+a logic list of terminal names indicating those terminals covered by
+the rule.
+</LI>
+<LI><EM>user</EM> -
+a logic list of usernames to which this rule applies
+
+<P>By a logic list we mean a sequence of tokens (associated with the
+appropriate <CODE>PAM_</CODE> item), containing no more than one wildcard
+character; `<CODE>*</CODE>', and optionally prefixed with a negation operator;
+`<CODE>!</CODE>'. Such a sequence is concatenated with one of two logical
+operators: <CODE>&amp;</CODE> (logical AND) and <CODE>|</CODE> (logical OR).  Two
+examples are: <CODE>!morgan&amp;!root</CODE>, indicating that this rule
+does not apply to the user <CODE>morgan</CODE> nor to <CODE>root</CODE>; and
+<CODE>tty*&amp;!ttyp*</CODE>, which indicates that the rule applies only
+to console terminals but not pseudoterminals.</P>
+
+</LI>
+<LI><EM>times</EM> - a logic list of times at which this rule
+applies. The format of each element is a day/time-range. The days are
+specified by a sequence of two character entries.  For example,
+<CODE>MoTuSa</CODE>, indicates Monday Tuesday and Saturday.  Note that
+repeated days are <EM>unset</EM>; <CODE>MoTuMo</CODE> indicates Tuesday, and
+<CODE>MoWk</CODE> means all weekdays bar Monday.  The two character
+combinations accepted are,
+<BLOCKQUOTE><CODE>
+<PRE>
+Mo Tu We Th Fr Sa Su Wk Wd Al
+</PRE>
+</CODE></BLOCKQUOTE>
+
+The last two of these being <EM>weekend</EM> days and <EM>all 7 days</EM> of
+the week respectively.
+
+<P>The time range part is a pair of 24-hour times, <EM>HHMM</EM>, separated
+by a hyphen -- indicating the start and finish time for the rule.  If
+the finsish time is smaller than the start time, it is assumed to
+apply on the following day. For an example, <CODE>Mo1800-0300</CODE> indicates
+that the permitted times are Monday night from 6pm to 3am the
+following morning.</P>
+
+</LI>
+</UL>
+</P>
+
+<P>Note, that the given time restriction is only applied when the first
+three fields are satisfied by a user's application for service.</P>
+
+<P>For convenience and readability a rule can be extended beyond a single
+line with a `<CODE>\</CODE><EM>newline</EM>'.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>The use of this module is initiated with an entry in the
+<B>Linux-PAM</B> configuration file of the following type:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# apply pam_time accounting to login requests
+#
+login   account  required       pam_time.so
+</PRE>
+</CODE></BLOCKQUOTE>
+
+where, here we are applying the module to the <EM>login</EM> application.</P>
+
+<P>Some examples of rules that can be placed in the
+<CODE>/etc/security/time.conf</CODE> configuration file are the following:
+<DL>
+
+<DT><B><CODE>login ; tty* &amp; !ttyp* ; !root ; !Al0000-2400</CODE></B><DD><P>all users except for <CODE>root</CODE> are denied access to console-login at
+all times.</P>
+
+<DT><B><CODE>games ; * ; !waster ; Wd0000-2400 | Wk1800-0800</CODE></B><DD><P>games (configured to use Linux-PAM) are only to be accessed out of
+working hours.  This rule does not apply to the user <CODE>waster</CODE>.</P>
+
+</DL>
+</P>
+
+<P>Note, currently there is no daemon enforcing the end of a session.
+This needs to be remedied.</P>
+
+<P>Poorly formatted rules are logged as errors using <CODE>syslog(3)</CODE>.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.26">6.26</A> <A HREF="pam.html#toc6.26">The Unix Password module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P>pam_unix</P>
+
+<DT><B><B>Author:</B></B><DD>
+<DT><B><B>Maintainer:</B></B><DD>
+<DT><B><B>Management groups provided:</B></B><DD><P>account; authentication; password; session</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This is the standard Unix authentication module. It uses standard calls
+from the system's libraries to retrieve and set account information as
+well as authentication. Usually this is obtained from the /etc/passwd
+and the /etc/shadow file as well if shadow is enabled.</P>
+
+<H3>Account component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>; <CODE>audit</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>The <CODE>debug</CODE> argument makes the accounting functions of this module
+<CODE>syslog(3)</CODE> more information on its actions. (Remaining arguments
+supported by the other functions of this module are silently ignored,
+but others are logged as errors through <CODE>syslog(3)</CODE>). The <CODE>audit</CODE>
+argument causes even more logging.</P>
+<P>Based on the following <CODE>shadow</CODE> elements:
+<CODE>expire</CODE>;
+<CODE>last_change</CODE>;
+<CODE>max_change</CODE>;
+<CODE>min_change</CODE>;
+<CODE>warn_change</CODE>,
+this module performs the task of establishing the status of the user's
+account and password. In the case of the latter, it may offer advice
+to the user on changing their password or, through the
+<CODE>PAM_AUTHTOKEN_REQD</CODE> return, delay giving service to the user until
+they have established a new password. The entries listed above are
+documented in the <EM>GNU Libc</EM> info documents. Should the user's record
+not contain one or more of these entries, the corresponding <EM>shadow</EM>
+check is not performed.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>In its accounting mode, this module can be inserted as follows:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# Ensure users account and password are still active
+#
+login   account  required       pam_unix.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>;
+<CODE>audit</CODE>;
+<CODE>use_first_pass</CODE>;
+<CODE>try_first_pass</CODE>;
+<CODE>nullok</CODE>;
+<CODE>nodelay</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>The <CODE>debug</CODE> argument makes the authentication functions of this
+module <CODE>syslog(3)</CODE> more information on its actions. The <CODE>audit</CODE>
+causes even more information to be logged.</P>
+
+<P>The default action of this module is to not permit the user access to
+a service if their <EM>official</EM> password is blank. The <CODE>nullok</CODE>
+argument overrides this default.</P>
+
+<P>When given the argument <CODE>try_first_pass</CODE>, before prompting the user
+for their password, the module first tries the previous stacked
+<CODE>auth</CODE>-module's password in case that satisfies this module as
+well. The argument <CODE>use_first_pass</CODE> forces the module to use such a
+recalled password and will never prompt the user - if no password is
+available or the password is not appropriate, the user will be denied
+access.</P>
+
+<P>The argument, <CODE>nodelay</CODE>, can be used to discourage the
+authentication component from requesting a delay should the
+authentication as a whole fail.  The default action is for the module
+to request a delay-on-failure of the order of one second.</P>
+
+<P>Remaining arguments, supported by the other functions of this module,
+are silently ignored. Other arguments are logged as errors through
+<CODE>syslog(3)</CODE>.</P>
+
+<P>A helper binary, <CODE>unix_chkpwd</CODE>, is provided to check the user's
+password when it is stored in a read protected database.  This binary
+is very simple and will only check the password of the user invoking
+it.  It is called transparently on behalf of the user by the
+authenticating component of this module.  In this way it is possible
+for applications like <EM>xlock</EM> to work without being setuid-root.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>The correct functionality of this module is dictated by having an
+appropriate <CODE>/etc/nsswitch.conf</CODE> file, the user
+databases specified there dictate the source of the authenticated
+user's record.</P>
+<P>In its authentication mode, this module can be inserted as follows:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# Authenticate the user
+#
+login   auth  required       pam_unix.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+<H3>Password component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>;
+<CODE>audit</CODE>;
+<CODE>nullok</CODE>;
+<CODE>not_set_pass</CODE>;
+<CODE>use_authtok</CODE>;
+<CODE>try_first_pass</CODE>;
+<CODE>use_first_pass</CODE>;
+<CODE>md5</CODE>;
+<CODE>bigcrypt</CODE>;
+<CODE>shadow</CODE>;
+<CODE>nis</CODE>;
+<CODE>remember</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>This part of the <CODE>pam_unix</CODE> module performs the task of updating
+the user's password.</P>
+
+<P>In the case of conventional unix databases (which store the password
+encrypted) the <CODE>md5</CODE> argument is used to do the encryption with the
+MD5 function as opposed to the <EM>conventional</EM> <CODE>crypt(3)</CODE> call.
+As an alternative to this, the <CODE>bigcrypt</CODE> argument can be used to
+encrypt more than the first 8 characters of a password with DEC's
+(Digital Equipment Cooperation) `C2' extension to the standard UNIX
+<CODE>crypt()</CODE> algorithm.</P>
+
+<P>The <CODE>nullok</CODE> argument is used to permit the changing of a password
+<EM>from</EM> an empty one. Without this argument, empty passwords are
+treated as account-locking ones.</P>
+
+<P>The argument <CODE>use_first_pass</CODE> is used to lock the choice of old and
+new passwords to that dictated by the previously stacked <CODE>password</CODE>
+module.  The <CODE>try_first_pass</CODE> argument is used to avoid the user
+having to re-enter an old password when <CODE>pam_unix</CODE> follows a module
+that possibly shared the user's old password - if this old password is
+not correct the user will be prompted for the correct one.  The
+argument <CODE>use_authtok</CODE> is used to <EM>force</EM> this module to set the
+new password to the one provided by the previously stacked
+<CODE>password</CODE> module (this is used in an example of the stacking of
+the <EM>Cracklib</EM> module documented above).</P>
+
+<P>The <CODE>not_set_pass</CODE> argument is used to inform the module that it is
+not to pay attention to/make available the old or new passwords from/to
+other (stacked) password modules.</P>
+
+<P>The <CODE>debug</CODE> argument makes the password functions of this module
+<CODE>syslog(3)</CODE> more information on its actions. Other arguments may be
+logged as erroneous to <CODE>syslog(3)</CODE>. The <CODE>audit</CODE> argument causes
+even more information to be logged.</P>
+
+<P>With the <CODE>nis</CODE> argument, <CODE>pam_unix</CODE> will attempt to use NIS RPC
+for setting new passwords.</P>
+
+<P>The <CODE>remember</CODE> argument takes one value. This is the number of most
+recent passwords to save for each user. These are saved in
+<CODE>/etc/security/opasswd</CODE> in order to force password change history
+and keep the user from alternating between the same password too frequently.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>Standard usage:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# Change the users password
+#
+passwd   password   required   pam_unix.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>An example of the stacking of this module with respect to the
+pluggable password checking module, <CODE>pam_cracklib</CODE>:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# Change the users password
+#
+passwd   password   required   pam_cracklib.so retry=3 minlen=6 difok=3
+passwd   password   required   pam_unix.so use_authtok nullok md5
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+<H3>Session component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>No arguments are recognized by this module component. Its action is
+simply to log the username and the service-type to
+<CODE>syslog(3)</CODE>. Messages are logged at the beginning and end of the
+user's session.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>The use of the session modules is straightforward:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# session opening and closing
+#
+login   session  required       pam_unix.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.27">6.27</A> <A HREF="pam.html#toc6.27">The userdb module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_userdb</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Cristian Gafton &lt;gafton@redhat.com&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>Requires Berkeley DB.</P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>Look up users in a .db database and verify their password against
+what is contained in that database.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>;
+<CODE>icase</CODE>;
+<CODE>dump</CODE>;
+<CODE>db=XXXX</CODE>;
+<CODE>use_authtok</CODE>;
+<CODE>unknown_ok</CODE>;</P>
+
+<DT><B><B>Description:</B></B><DD><P>This module is used to verify a username/password pair against values stored in
+a Berkeley DB database. The database is indexed by the username, and the data 
+fields corresponding to the username keys are the passwords, in unencrypted form,
+so caution must be exercised over the access rights to the DB database itself..</P>
+<P>The module will read the password from the user using the conversation mechanism. If
+you are using this module on top of another authentication module (like <CODE>pam_pwdb</CODE>;)
+then you should tell that module to read the entered password from the PAM_AUTHTOK field, which is set by this module.</P>
+
+<P>The action of the module may be modified from this default by one or
+more of the following flags in the <CODE>/etc/pam.d/&lt;service&gt;</CODE> file.
+<UL>
+<LI><CODE>debug</CODE> -
+Supply more debugging information to <CODE>syslog(3)</CODE>.
+</LI>
+<LI><CODE>icase</CODE> -
+Perform the password comparisons case insensitive.
+</LI>
+<LI><CODE>dump</CODE> -
+dump all the entries in the database to the log (eek,
+don't do this by default!)
+</LI>
+<LI><CODE>db=XXXX</CODE> - 
+use the database found on pathname XXXX. Note that Berkeley DB usually adds the 
+needed filename extension for you, so you should use something like <CODE>/etc/foodata</CODE>
+instead of <CODE>/etc/foodata.db</CODE>.
+</LI>
+<LI> <CODE>use_authtok</CODE> - 
+use the authentication token previously obtained by another that did the
+conversation with the application. If this token can not be obtained then
+the module will try to converse again. This option can be used for stacking
+different modules that need to deal with the authentication tokens.
+</LI>
+<LI><CODE>unknown_ok</CODE> -
+do not return error when checking for a user that is not in the database.
+This can be used to stack more than one pam_userdb module that will check a
+username/password pair in more than a database.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>This is a normal ftp configuration file (usually placed as <CODE>/etc/pam.d/ftp</CODE> 
+on most systems) that will accept for login users whose username/password pairs are 
+provided in the <CODE>/tmp/dbtest.db</CODE> file:</P>
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+#%PAM-1.0
+auth       required     pam_listfile.so item=user sense=deny file=/etc/ftpusers onerr=succeed
+auth       sufficient   pam_userdb.so icase db=/tmp/dbtest
+auth       required     pam_pwdb.so shadow nullok try_first_pass
+auth       required     pam_shells.so
+account    required     pam_pwdb.so
+session    required     pam_pwdb.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.28">6.28</A> <A HREF="pam.html#toc6.28">Warning logger module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_warn</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Andrew G. Morgan &lt;morgan@parc.power.net&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication; password</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD>
+<DT><B><B>Network aware:</B></B><DD><P>logs information about the remote user and host (if pam-items are known)</P>
+
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>This module is principally for logging information about a
+proposed authentication or application to update a password.</P>
+
+<H3>Authentication+Password component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD>
+<DT><B><B>Description:</B></B><DD><P>Log the service, terminal, user, remote user and remote host to
+<CODE>syslog(3)</CODE>. The items are not probed for, but instead obtained
+from the standard pam-items.</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>an example is provided in the configuration file section 
+<A HREF="pam-4.html#configuration">above</A>.</P>
+
+</DL>
+</P>
+
+
+<H2><A NAME="ss6.29">6.29</A> <A HREF="pam.html#toc6.29">The wheel module</A>
+</H2>
+
+<H3>Synopsis</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Module Name:</B></B><DD><P><CODE>pam_wheel</CODE></P>
+
+<DT><B><B>Author:</B></B><DD><P>Cristian Gafton &lt;gafton@redhat.com&gt;</P>
+
+<DT><B><B>Maintainer:</B></B><DD><P>Author.</P>
+
+<DT><B><B>Management groups provided:</B></B><DD><P>authentication</P>
+
+<DT><B><B>Cryptographically sensitive:</B></B><DD>
+<DT><B><B>Security rating:</B></B><DD>
+<DT><B><B>Clean code base:</B></B><DD>
+<DT><B><B>System dependencies:</B></B><DD><P>Requires libpwdb.</P>
+
+<DT><B><B>Network aware:</B></B><DD>
+</DL>
+</P>
+
+<H3>Overview of module</H3>
+
+<P>Only permit root access to members of the wheel (<CODE>gid=0</CODE>) group.</P>
+
+<H3>Authentication component</H3>
+
+<P>
+<DL>
+
+<DT><B><B>Recognized arguments:</B></B><DD><P><CODE>debug</CODE>;
+<CODE>use_uid</CODE>;
+<CODE>trust</CODE>;
+<CODE>deny</CODE>;
+<CODE>group=XXXX</CODE></P>
+
+<DT><B><B>Description:</B></B><DD><P>This module is used to enforce the so-called <EM>wheel</EM> group. By
+default, it permits root access to the system if the applicant user is
+a member of the <CODE>wheel</CODE> group (first, the module checks for the
+existence of a '<CODE>wheel</CODE>' group. Otherwise the module defines the
+group with group-id <CODE>0</CODE> to be the <EM>wheel</EM> group).</P>
+
+<P>The action of the module may be modified from this default by one or
+more of the following flags in the <CODE>/etc/pam.conf</CODE> file.
+<UL>
+<LI><CODE>debug</CODE> -
+Supply more debugging information to <CODE>syslog(3)</CODE>.
+</LI>
+<LI><CODE>use_uid</CODE> -
+This option modifies the behavior of the module by using the current
+<CODE>uid</CODE> of the process and not the <CODE>getlogin(3)</CODE> name of the user.
+This option is useful for being able to jump from one account to
+another, for example with 'su'.
+</LI>
+<LI><CODE>trust</CODE> -
+This option instructs the module to return <CODE>PAM_SUCCESS</CODE> should it
+find the user applying for root privilege is a member of the wheel
+group. The default action is to return <CODE>PAM_IGNORE</CODE> in this
+situation. By using the <CODE>trust</CODE> option it is possible to arrange
+for <CODE>wheel</CODE>-group members to become root without typing a
+password. <B>USE WITH CARE</B>.
+</LI>
+<LI><CODE>deny</CODE> - 
+This is used to reverse the logic of the module's behavior.
+If the user is trying to get <CODE>uid=0</CODE> access and is a member of the wheel
+group, deny access (for the wheel group, this is perhaps nonsense!):
+it is intended for use in conjunction with the <CODE>group=</CODE> argument...
+</LI>
+<LI><CODE>group=XXXX</CODE> -
+Instead of checking the <CODE>gid=0</CODE> group, use the user's <CODE>XXXX</CODE>
+group membership for the authentication. Here, <CODE>XXXX</CODE> is the name
+of the group and <B>not</B> its numeric identifier.
+</LI>
+</UL>
+</P>
+
+<DT><B><B>Examples/suggested usage:</B></B><DD><P>To restrict access to superuser status to the members of the
+<CODE>wheel</CODE> group, use the following entries in your configuration
+file:
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# root gains access by default (rootok), only wheel members can 
+# become root (wheel) but Unix authenticate non-root applicants.
+#
+su      auth     sufficient     pam_rootok.so
+su      auth     required       pam_wheel.so
+su      auth     required       pam_unix_auth.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+</DL>
+</P>
+
+
+<HR>
+<A HREF="pam-7.html">Next</A>
+<A HREF="pam-5.html">Previous</A>
+<A HREF="pam.html#toc6">Contents</A>
+</BODY>
+</HTML>

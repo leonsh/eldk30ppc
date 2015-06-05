@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM System Administrators' Guide: Introduction</TITLE>
+ <LINK HREF="pam-2.html" REL=next>
+
+ <LINK HREF="pam.html#toc1" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam-2.html">Next</A>
+Previous
+<A HREF="pam.html#toc1">Contents</A>
+<HR>
+<H2><A NAME="s1">1.</A> <A HREF="pam.html#toc1">Introduction</A></H2>
+
+<P><B>Linux-PAM</B> (Pluggable Authentication Modules for Linux) is a
+suite of shared libraries that enable the local system administrator
+to choose how applications authenticate users.</P>
+
+<P>In other words, without (rewriting and) recompiling a PAM-aware
+application, it is possible to switch between the authentication
+mechanism(s) it uses. Indeed, one may entirely upgrade the local
+authentication system without touching the applications themselves.</P>
+
+<P>Historically an application that has required a given user to be
+authenticated, has had to be compiled to use a specific authentication
+mechanism.  For example, in the case of traditional UN*X systems, the
+identity of the user is verified by the user entering a correct
+password.  This password, after being prefixed by a two character
+``salt'', is encrypted (with crypt(3)). The user is then authenticated
+if this encrypted password is identical to the second field of the
+user's entry in the system password database (the <CODE>/etc/passwd</CODE>
+file).  On such systems, most if not all forms of privileges are
+granted based on this single authentication scheme. Privilege comes in
+the form of a personal user-identifier (<CODE>uid</CODE>) and membership of
+various groups. Services and applications are available based on the
+personal and group identity of the user. Traditionally, group
+membership has been assigned based on entries in the
+<CODE>/etc/group</CODE> file.</P>
+
+<P>Unfortunately, increases in the speed of computers and the
+widespread introduction of network based computing, have made once
+secure authentication mechanisms, such as this, vulnerable to
+attack. In the light of such realities, new methods of authentication
+are continuously being developed.</P>
+
+<P>It is the purpose of the <B>Linux-PAM</B> project to separate the
+development of privilege granting software from the development of
+secure and appropriate authentication schemes.  This is accomplished
+by providing a library of functions that an application may use to
+request that a user be authenticated. This PAM library is configured
+locally with a system file, <CODE>/etc/pam.conf</CODE> (or a series of
+configuration files located in <CODE>/etc/pam.d/</CODE>) to authenticate a
+user request via the locally available authentication modules. The
+modules themselves will usually be located in the directory
+<CODE>/usr/lib/security</CODE> and take the form of dynamically loadable
+object files (see <CODE>dlopen(3)</CODE>).</P>
+
+<HR>
+<A HREF="pam-2.html">Next</A>
+Previous
+<A HREF="pam.html#toc1">Contents</A>
+</BODY>
+</HTML>

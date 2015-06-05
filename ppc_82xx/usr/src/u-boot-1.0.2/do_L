@@ -1,0 +1,15 @@
+#!/bin/sh
+
+WIDTH=120
+
+if [ $# -gt 0 ]; then
+	if [ "$1" -gt 100 ]; then
+		WIDTH=$1
+	fi
+fi
+
+set -x
+
+dircmp -l99999 -s -w${WIDTH} /opt/u-boot . | \
+sed -e '/^different	.*\/CVS/d' >/tmp/L
+vi /tmp/L

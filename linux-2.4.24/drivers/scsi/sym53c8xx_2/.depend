@@ -1,0 +1,65 @@
+sym53c8xx.h: \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/sym53c8xx/iomapped.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/ncr53c8xx/iomapped.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/sym53c8xx/default/tags.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/ncr53c8xx/default/tags.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/sym53c8xx/max/tags.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/ncr53c8xx/max/tags.h) \
+   /home/jhan/linux-2.4.241q/include/scsi/scsicam.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/sym53c8xx/dma/addressing/mode.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/sym53c8xx/default/sync.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/sym53c8xx/max/lun.h)
+	@touch sym53c8xx.h
+sym_fw.o: sym_fw.c \
+   sym_glue.h \
+   sym_fw1.h \
+   sym_fw2.h
+sym_glue.o: sym_glue.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   sym_glue.h \
+   ../scsi_module.c
+sym_glue.h: \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/signal.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/time.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/blk.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   ../scsi.h \
+   ../hosts.h \
+   ../constants.h \
+   ../sd.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   sym53c8xx.h \
+   sym_misc.h \
+   sym_conf.h \
+   sym_defs.h \
+   sym_fw.h \
+   sym_hipd.h
+	@touch sym_glue.h
+sym_hipd.o: sym_hipd.c \
+   sym_glue.h
+sym_malloc.o: sym_malloc.c \
+   sym_glue.h
+sym_misc.o: sym_misc.c \
+   sym_glue.h
+sym_nvram.o: sym_nvram.c \
+   sym_glue.h
+.PRECIOUS:	sym53c8xx.h \
+	sym_glue.h \
+

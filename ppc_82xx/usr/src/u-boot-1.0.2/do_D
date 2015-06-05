@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for i in $(cat /tmp/L)
+do
+	echo ===== $i ======
+	diff -u /opt/u-boot/$i $i
+	echo
+done 2>&1 | \
+tee /tmp/D

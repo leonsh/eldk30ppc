@@ -1,0 +1,12 @@
+This version of slang includes patches for multibyte character support,
+and line-drawing characters on unicode consoles.
+
+These patches change the API/ABI of slang slightly.
+
+Notable changes:
+
+- SLSMG_HLINE_CHAR (and friends) are no longer constants, so they
+  can not be used in static initializers.
+- SLsmg_init_smg() now calls setlocale(). If you do not wish this
+  to happen, set SLsmg_Setlocale to 0. Note: doing so may hinder
+  the ability of your application to use line-drawhing characters.

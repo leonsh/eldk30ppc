@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Application Developers' Guide: Overview</TITLE>
+ <LINK HREF="pam_appl-3.html" REL=next>
+ <LINK HREF="pam_appl-1.html" REL=previous>
+ <LINK HREF="pam_appl.html#toc2" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_appl-3.html">Next</A>
+<A HREF="pam_appl-1.html">Previous</A>
+<A HREF="pam_appl.html#toc2">Contents</A>
+<HR>
+<H2><A NAME="s2">2.</A> <A HREF="pam_appl.html#toc2">Overview</A></H2>
+
+<P>Most service-giving applications are restricted.  In other words,
+their service is not available to all and every prospective client.
+Instead, the applying client must jump through a number of hoops to
+convince the serving application that they are authorized to obtain
+service.</P>
+<P>The process of <EM>authenticating</EM> a client is what PAM is designed to
+manage.  In addition to authentication, PAM provides account
+management, credential management, session management and
+authentication-token (password changing) management services.  It is
+important to realize when writing a PAM based application that these
+services are provided in a manner that is <B>transparent</B> to
+the application.  That is to say, when the application is written, no
+assumptions can be made about <EM>how</EM> the client will be
+authenticated.</P>
+
+<P>The process of authentication is performed by the PAM library via a
+call to <CODE>pam_authenticate()</CODE>.  The return value of this
+function will indicate whether a named client (the <EM>user</EM>) has
+been authenticated.  If the PAM library needs to prompt the user for
+any information, such as their <EM>name</EM> or a <EM>password</EM>
+then it will do so.  If the PAM library is configured to authenticate
+the user using some silent protocol, it will do this too.  (This
+latter case might be via some hardware interface for example.)</P>
+
+<P>It is important to note that the application must leave all decisions
+about when to prompt the user at the discretion of the PAM library.</P>
+
+<P>The PAM library, however, must work equally well for different styles
+of application.  Some applications, like the familiar <CODE>login</CODE>
+and <CODE>passwd</CODE> are terminal based applications, exchanges of
+information with the client in these cases is as plain text messages.
+Graphically based applications, however, have a more sophisticated
+interface.  They generally interact with the user via specially
+constructed dialogue boxes.  Additionally, network based services
+require that text messages exchanged with the client are specially
+formatted for automated processing: one such example is <CODE>ftpd</CODE>
+which prefixes each exchanged message with a numeric identifier.</P>
+
+<P>The presentation of simple requests to a client is thus something very
+dependent on the protocol that the serving application will use.  In
+spite of the fact that PAM demands that it drives the whole
+authentication process, it is not possible to leave such protocol
+subtleties up to the PAM library.  To overcome this potential problem,
+the application provides the PAM library with a <EM>conversation</EM>
+function.  This function is called from <B>within</B> the PAM
+library and enables the PAM to directly interact with the client.  The
+sorts of things that this conversation function must be able to do are
+prompt the user with text and/or obtain textual input from the user
+for processing by the PAM library.  The details of this function are
+provided in a later section.</P>
+
+<P>For example, the conversation function may be called by the PAM library
+with a request to prompt the user for a password.  Its job is to
+reformat the prompt request into a form that the client will
+understand.  In the case of <CODE>ftpd</CODE>, this might involve prefixing
+the string with the number <CODE>331</CODE> and sending the request over
+the network to a connected client.  The conversation function will
+then obtain any reply and, after extracting the typed password, will
+return this string of text to the PAM library.  Similar concerns need
+to be addressed in the case of an X-based graphical server.</P>
+
+<P>There are a number of issues that need to be addressed when one is
+porting an existing application to become PAM compliant.  A section
+below has been devoted to this: Porting legacy applications.</P>
+
+<P>Besides authentication, PAM provides other forms of management.
+Session management is provided with calls to
+<CODE>pam_open_session()</CODE> and <CODE>pam_close_session()</CODE>.  What
+these functions actually do is up to the local administrator.  But
+typically, they could be used to log entry and exit from the system or
+for mounting and unmounting the user's home directory.  If an
+application provides continuous service for a period of time, it
+should probably call these functions, first open after the user is
+authenticated and then close when the service is terminated.</P>
+
+<P>Account management is another area that an application developer
+should include with a call to <CODE>pam_acct_mgmt()</CODE>.  This call will
+perform checks on the good health of the user's account (has it
+expired etc.). One of the things this function may check is whether
+the user's authentication token has expired - in such a case the
+application may choose to attempt to update it with a call to
+<CODE>pam_chauthtok()</CODE>, although some applications are not suited to
+this task (<EM>ftp</EM> for example) and in this case the application
+should deny access to the user.</P>
+
+<P>PAM is also capable of setting and deleting the users credentials with
+the call <CODE>pam_setcred()</CODE>.  This function should always be
+called after the user is authenticated and before service is offered
+to the user.  By convention, this should be the last call to the PAM
+library before the PAM session is opened.  What exactly a credential
+is, is not well defined.  However, some examples are given in the
+glossary below.</P>
+
+<HR>
+<A HREF="pam_appl-3.html">Next</A>
+<A HREF="pam_appl-1.html">Previous</A>
+<A HREF="pam_appl.html#toc2">Contents</A>
+</BODY>
+</HTML>

@@ -1,0 +1,56 @@
+bootinfo.o: bootinfo.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h
+crt0.o: crt0.S \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/4xx.h)
+misc-common.o: misc-common.c \
+   /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include/stdarg.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/zlib.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/vga/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/console.h)
+misc-simple.o: misc-simple.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/elf.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/mmu.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ebony.h) \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/ebony.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/mpc10x.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/zlib.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cmdline.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/vga/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gemini.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/lopec.h)
+mpc10x_memory.o: mpc10x_memory.c \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/mpc10x.h
+ns16550.o: ns16550.c \
+   /home/jhan/linux-2.4.241q/include/linux/serialP.h \
+   /home/jhan/linux-2.4.241q/include/linux/serial_reg.h \
+   /home/jhan/linux-2.4.241q/include/asm/serial.h
+ofcommon.o: ofcommon.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/zlib.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h
+relocate.o: relocate.S \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/cache.h \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h
+util.o: util.S \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/cache.h \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/8xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/4xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/405ep.h)

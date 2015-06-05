@@ -1,0 +1,484 @@
+hwang@sacramento linux-2.4.24 $ make uImage
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -DKBUILD_BASENAME=main -c -o init/main.o init/main.c
+. scripts/mkversion > .tmpversion
+dnsdomainname: Unknown host
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring  -DUTS_MACHINE='"ppc"' -DKBUILD_BASENAME=version -c -o init/version.o init/version.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -DKBUILD_BASENAME=do_mounts -c -o init/do_mounts.o init/do_mounts.c
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  kernel
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/kernel'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/kernel'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=dma  -c -o dma.o dma.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=resource  -c -o resource.o resource.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=sys  -DEXPORT_SYMTAB -c sys.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=ksyms  -DEXPORT_SYMTAB -c ksyms.c
+rm -f kernel.o
+ppc_82xx-ld   -r -o kernel.o sched.o dma.o fork.o exec_domain.o panic.o printk.o module.o exit.o itimer.o info.o time.o softirq.o resource.o sysctl.o acct.o capability.o ptrace.o timer.o user.o signal.o sys.o kmod.o context.o ksyms.o
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/kernel'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/kernel'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  drivers
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/drivers'
+make -C block
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/block'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/block'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=ll_rw_blk  -DEXPORT_SYMTAB -c ll_rw_blk.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=blkpg  -DEXPORT_SYMTAB -c blkpg.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=genhd  -DEXPORT_SYMTAB -c genhd.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=elevator  -c -o elevator.o elevator.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=rd  -c -o rd.o rd.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=loop  -DEXPORT_SYMTAB -c loop.c
+rm -f block.o
+ppc_82xx-ld   -r -o block.o ll_rw_blk.o blkpg.o genhd.o elevator.o rd.o loop.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/block'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/block'
+make -C cdrom
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/cdrom'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/cdrom'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/cdrom'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/cdrom'
+make -C char
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/char'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/char'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=mem  -c -o mem.o mem.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=tty_io  -DEXPORT_SYMTAB -c tty_io.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=tty_ioctl  -DEXPORT_SYMTAB -c tty_ioctl.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=raw  -c -o raw.o raw.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=misc  -DEXPORT_SYMTAB -c misc.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=random  -DEXPORT_SYMTAB -c random.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=vt  -c -o vt.o vt.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=vc_screen  -c -o vc_screen.o vc_screen.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=console  -DEXPORT_SYMTAB -c console.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=selection  -DEXPORT_SYMTAB -c selection.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=keyboard  -DEXPORT_SYMTAB -c keyboard.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=pc_keyb  -c -o pc_keyb.o pc_keyb.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=flash  -c -o flash.o flash.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=flash_config  -c -o flash_config.o flash_config.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=cfi_flash  -c -o cfi_flash.o cfi_flash.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=jedec_flash  -c -o jedec_flash.o jedec_flash.c
+rm -f char.o
+ppc_82xx-ld   -r -o char.o mem.o tty_io.o n_tty.o tty_ioctl.o raw.o pty.o misc.o random.o vt.o vc_screen.o consolemap.o consolemap_deftbl.o console.o selection.o keyboard.o defkeymap.o pc_keyb.o flash.o flash_config.o cfi_flash.o jedec_flash.o intel_flash.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/char'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/char'
+make -C hotplug
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/hotplug'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/hotplug'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/hotplug'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/hotplug'
+make -C i2c
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/i2c'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/i2c'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=i2c_algo_8260  -DEXPORT_SYMTAB -c i2c-algo-8260.c
+i2c-algo-8260.c: In function `cpm_iic_init':
+i2c-algo-8260.c:131: warning: passing arg 2 of pointer to function from incompatible pointer type
+i2c-algo-8260.c: In function `force_close':
+i2c-algo-8260.c:177: warning: unused variable `cp'
+i2c-algo-8260.c: In function `cpm_iic_read':
+i2c-algo-8260.c:238: warning: passing arg 1 of `invalidate_dcache_range' makes integer from pointer without a cast
+i2c-algo-8260.c:238: warning: passing arg 2 of `invalidate_dcache_range' makes integer from pointer without a cast
+i2c-algo-8260.c:199: warning: unused variable `cp'
+i2c-algo-8260.c: In function `cpm_iic_write':
+i2c-algo-8260.c:292: warning: unused variable `cp'
+i2c-algo-8260.c: In function `cpm_iic_tryaddress':
+i2c-algo-8260.c:358: warning: unused variable `cp'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=i2c_pm826  -c -o i2c-pm826.o i2c-pm826.c
+i2c-pm826.c: In function `pm826_install_isr':
+i2c-pm826.c:55: warning: passing arg 2 of `request_irq' from incompatible pointer type
+i2c-pm826.c: At top level:
+i2c-pm826.c:86: warning: initialization from incompatible pointer type
+rm -f i2c.o
+ppc_82xx-ld   -r -o i2c.o i2c-core.o i2c-algo-8260.o i2c-pm826.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/i2c'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/i2c'
+make -C macintosh
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/macintosh'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/macintosh'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/macintosh'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/macintosh'
+make -C media
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/media'
+make -C radio
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/media/radio'
+make all_targets
+make[4]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/media/radio'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/media/radio'
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/media/radio'
+make -C video
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/media/video'
+make all_targets
+make[4]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/media/video'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/media/video'
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/media/video'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/media'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/media'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/media'
+make -C misc
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/misc'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/misc'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/misc'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/misc'
+make -C net
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/net'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/net'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=loopback  -c -o loopback.o loopback.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=auto_irq  -DEXPORT_SYMTAB -c auto_irq.c
+rm -f net.o
+ppc_82xx-ld   -r -o net.o Space.o setup.o net_init.o loopback.o auto_irq.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/net'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/net'
+make -C parport
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/parport'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/parport'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/parport'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/parport'
+make -C sound
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/sound'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/sound'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/sound'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/sound'
+make -C video
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/video'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/drivers/video'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/video'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers/video'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/drivers'
+make[2]: Nothing to be done for `all_targets'.
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/drivers'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  mm
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/mm'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/mm'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=filemap  -DEXPORT_SYMTAB -c filemap.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=bootmem  -c -o bootmem.o bootmem.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=swap  -c -o swap.o swap.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=page_alloc  -DEXPORT_SYMTAB -c page_alloc.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=swapfile  -c -o swapfile.o swapfile.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=numa  -c -o numa.o numa.c
+rm -f mm.o
+ppc_82xx-ld   -r -o mm.o memory.o mmap.o filemap.o mprotect.o mlock.o mremap.o vmalloc.o slab.o bootmem.o swap.o vmscan.o page_io.o page_alloc.o swap_state.o swapfile.o numa.o oom_kill.o shmem.o
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/mm'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/mm'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  fs
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/fs'
+make -C devfs
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/devfs'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/devfs'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=base  -DEXPORT_SYMTAB -c base.c
+base.c: In function `devfsd_ioctl':
+base.c:3433: warning: unused variable `lock'
+rm -f devfs.o
+ppc_82xx-ld   -r -o devfs.o base.o util.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/devfs'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/devfs'
+make -C devpts
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/devpts'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/devpts'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/devpts'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/devpts'
+make -C ext2
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/ext2'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/ext2'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=super  -c -o super.o super.c
+rm -f ext2.o
+ppc_82xx-ld   -r -o ext2.o balloc.o bitmap.o dir.o file.o fsync.o ialloc.o inode.o ioctl.o namei.o super.o symlink.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/ext2'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/ext2'
+make -C jfs
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/jfs'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/jfs'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring  -D_JFS_4K -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=super  -c -o super.o super.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring  -D_JFS_4K -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=jfs_logmgr  -c -o jfs_logmgr.o jfs_logmgr.c
+rm -f jfs.o
+ppc_82xx-ld   -r -o jfs.o super.o file.o inode.o namei.o jfs_mount.o jfs_umount.o jfs_xtree.o jfs_imap.o jfs_debug.o jfs_dmap.o jfs_unicode.o jfs_dtree.o jfs_inode.o jfs_extent.o symlink.o jfs_metapage.o jfs_logmgr.o jfs_txnmgr.o jfs_uniupr.o resize.o xattr.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/jfs'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/jfs'
+make -C lockd
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/lockd'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/lockd'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/lockd'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/lockd'
+make -C nfs
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/nfs'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/nfs'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/nfs'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/nfs'
+make -C nls
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/nls'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/nls'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/nls'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/nls'
+make -C partitions
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/partitions'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/partitions'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=check  -DEXPORT_SYMTAB -c check.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=msdos  -DEXPORT_SYMTAB -c msdos.c
+rm -f partitions.o
+ppc_82xx-ld   -r -o partitions.o check.o msdos.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/partitions'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/partitions'
+make -C proc
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/proc'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/proc'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=array  -c -o array.o array.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=kmsg  -c -o kmsg.o kmsg.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=proc_misc  -c -o proc_misc.o proc_misc.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=kcore  -c -o kcore.o kcore.c
+rm -f proc.o
+ppc_82xx-ld   -r -o proc.o inode.o root.o base.o generic.o array.o kmsg.o proc_tty.o proc_misc.o kcore.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/proc'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/proc'
+make -C ramfs
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs/ramfs'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/fs/ramfs'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/ramfs'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs/ramfs'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/fs'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=buffer  -DEXPORT_SYMTAB -c buffer.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=block_dev  -c -o block_dev.o block_dev.c
+rm -f fs.o
+ppc_82xx-ld   -r -o fs.o open.o read_write.o devices.o file_table.o buffer.o super.o block_dev.o char_dev.o stat.o exec.o pipe.o namei.o fcntl.o ioctl.o readdir.o select.o fifo.o locks.o dcache.o inode.o attr.o bad_inode.o file.o iobuf.o dnotify.o filesystems.o namespace.o seq_file.o xattr.o quota.o binfmt_script.o binfmt_elf.o proc/proc.o partitions/partitions.o ext2/ext2.o ramfs/ramfs.o devfs/devfs.o nfs/nfs.o lockd/lockd.o nls/nls.o devpts/devpts.o jfs/jfs.o
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/fs'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/fs'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  net
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/net'
+make -C 802
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/802'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/802'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/802'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/802'
+make -C 8021q
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/8021q'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/8021q'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=vlanproc  -c -o vlanproc.o vlanproc.c
+rm -f 8021q.o
+ppc_82xx-ld   -r -o 8021q.o vlan.o vlanproc.o vlan_dev.o
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/8021q'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/8021q'
+make -C bridge
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/bridge'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/bridge'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/bridge'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/bridge'
+make -C core
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/core'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/core'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/core'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/core'
+make -C ethernet
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/ethernet'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/ethernet'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/ethernet'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/ethernet'
+make -C ipv4
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/ipv4'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/ipv4'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/ipv4'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/ipv4'
+make -C ipv4/netfilter
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/ipv4/netfilter'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/ipv4/netfilter'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/ipv4/netfilter'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/ipv4/netfilter'
+make -C netlink
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/netlink'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/netlink'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/netlink'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/netlink'
+make -C packet
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/packet'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/packet'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/packet'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/packet'
+make -C sched
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/sched'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/sched'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/sched'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/sched'
+make -C sunrpc
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/sunrpc'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/sunrpc'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/sunrpc'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/sunrpc'
+make -C unix
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net/unix'
+make all_targets
+make[3]: Entering directory `/home/hwang/src/linux-2.4.24/net/unix'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/hwang/src/linux-2.4.24/net/unix'
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net/unix'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/net'
+rm -f network.o
+ppc_82xx-ld   -r -o network.o socket.o core/core.o ethernet/ethernet.o 802/802.o sched/sched.o netlink/netlink.o ipv4/ipv4.o ipv4/netfilter/netfilter.o unix/unix.o packet/packet.o bridge/bridge.o sunrpc/sunrpc.o 8021q/8021q.o netsyms.o sysctl_net.o
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/net'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/net'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  ipc
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/ipc'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/ipc'
+make[2]: Nothing to be done for `all_targets'.
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/ipc'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/ipc'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  lib
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/lib'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/lib'
+make[2]: Nothing to be done for `all_targets'.
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/lib'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/lib'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  crypto
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/crypto'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/crypto'
+make[2]: Nothing to be done for `all_targets'.
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/crypto'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/crypto'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  arch/ppc/kernel
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/kernel'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=traps  -c -o traps.o traps.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=irq  -c -o irq.o irq.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=idle  -c -o idle.o idle.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=time  -DEXPORT_SYMTAB -c time.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=process  -c -o process.o process.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=setup  -c -o setup.o setup.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=ppc_htab  -c -o ppc_htab.o ppc_htab.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=ppc_ksyms  -DEXPORT_SYMTAB -c ppc_ksyms.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=m8260_setup  -c -o m8260_setup.o m8260_setup.c
+m8260_setup.c:106: warning: `abort' was declared `extern' and later `static'
+m8260_setup.c:106: warning: `abort' defined but not used
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=ppc8260_pic  -c -o ppc8260_pic.o ppc8260_pic.c
+rm -f kernel.o
+ppc_82xx-ld   -r -o kernel.o entry.o traps.o irq.o idle.o time.o misc.o process.o signal.o ptrace.o align.o semaphore.o syscalls.o setup.o cputable.o ppc_htab.o l2cr.o cpu_setup_6xx.o ppc_ksyms.o m8260_setup.o ppc8260_pic.o
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/kernel'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  arch/ppc/platforms
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/platforms'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/platforms'
+make[2]: Nothing to be done for `all_targets'.
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/platforms'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/platforms'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  arch/ppc/mm
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/mm'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/mm'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=init  -c -o init.o init.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=mem_pieces  -c -o mem_pieces.o mem_pieces.c
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=pgtable  -c -o pgtable.o pgtable.c
+rm -f mm.o
+ppc_82xx-ld   -r -o mm.o fault.o init.o mem_pieces.o extable.o mmu_context.o pgtable.o hashtable.o ppc_mmu.o tlb.o
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/mm'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/mm'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  arch/ppc/lib
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/lib'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/lib'
+make[2]: Nothing to be done for `all_targets'.
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/lib'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/lib'
+make CFLAGS="-D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring " -C  arch/ppc/8260_io
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/8260_io'
+make all_targets
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/8260_io'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=commproc  -c -o commproc.o commproc.c
+commproc.c: In function `m8260_cpm_reset':
+commproc.c:50: warning: assignment discards qualifiers from pointer target type
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=uart  -c -o uart.o uart.c
+uart.c: In function `serial_console_setup':
+uart.c:3396: warning: unused variable `scp'
+uart.c:3397: warning: unused variable `sup'
+ppc_82xx-gcc -D__KERNEL__ -I/home/hwang/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/home/hwang/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring   -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include -DKBUILD_BASENAME=fcc_enet  -c -o fcc_enet.o fcc_enet.c
+rm -f 8260_io.o
+ppc_82xx-ld   -r -o 8260_io.o commproc.o uart.o fcc_enet.o
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/8260_io'
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/8260_io'
+ppc_82xx-ld -T arch/ppc/vmlinux.lds -Ttext 0xc0000000 -Bstatic arch/ppc/kernel/head.o arch/ppc/kernel/idle_6xx.o init/main.o init/version.o init/do_mounts.o \
+        --start-group \
+        arch/ppc/kernel/kernel.o arch/ppc/platforms/platform.o arch/ppc/mm/mm.o arch/ppc/lib/lib.o kernel/kernel.o mm/mm.o fs/fs.o ipc/ipc.o \
+         drivers/char/char.o drivers/block/block.o drivers/misc/misc.o drivers/net/net.o drivers/macintosh/macintosh.o drivers/video/video.o drivers/media/media.o drivers/i2c/i2c.o arch/ppc/8260_io/8260_io.o \
+         net/network.o \
+         /home/hwang/src/linux-2.4.24/lib/lib.a \
+         --end-group \
+         -o vmlinux
+ppc_82xx-nm vmlinux | grep -v '\(compiled\)\|\(\.o$\)\|\( [aUw] \)\|\(\.\.ng$\)\|\(LASH[RL]DI\)' | sort > System.map
+make[1]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/boot'
+make -C images vmlinux.gz
+make[2]: Entering directory `/home/hwang/src/linux-2.4.24/arch/ppc/boot/images'
+ppc_82xx-objcopy --strip-all -S -O binary /home/hwang/src/linux-2.4.24/vmlinux vmlinux
+gzip -vf9 vmlinux
+vmlinux:         53.4% -- replaced with vmlinux.gz
+make[2]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/boot/images'
+/bin/sh /home/hwang/src/linux-2.4.24/scripts/mkuboot.sh -A ppc -O linux -T kernel \
+-C gzip -a 00000000 -e 00000000 \
+-n 'Linux-2.4.24-pre2' \
+-d images/vmlinux.gz images/vmlinux.UBoot
+Image Name:   Linux-2.4.24-pre2
+Created:      Sun Nov 21 23:06:19 2004
+Image Type:   PowerPC Linux Kernel Image (gzip compressed)
+Data Size:    749399 Bytes = 731.83 kB = 0.71 MB
+Load Address: 0x00000000
+Entry Point:  0x00000000
+ln -sf vmlinux.UBoot images/uImage
+rm -f ./mkuboot
+make[1]: Leaving directory `/home/hwang/src/linux-2.4.24/arch/ppc/boot'
+hwang@sacramento linux-2.4.24 $
+

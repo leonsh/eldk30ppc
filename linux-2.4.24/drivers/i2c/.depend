@@ -1,0 +1,348 @@
+cmd_i2c.o: cmd_i2c.c \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/commands.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/boot/retry/time.h)
+i2c-adap-ite.o: i2c-adap-ite.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-ite.h \
+   i2c-ite.h
+i2c-algo-8240.o: i2c-algo-8240.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-8240.h
+i2c-algo-8260.o: i2c-algo-8260.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/immap_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-8260.h
+i2c-algo-8xx.o: i2c-algo-8xx.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8xx.h \
+   /home/jhan/linux-2.4.241q/include/asm/commproc.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-8xx.h
+i2c-algo-bit.o: i2c-algo-bit.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-bit.h
+i2c-algo-ite.o: i2c-algo-ite.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-ite.h \
+   i2c-ite.h
+i2c-algo-mpc5xxx.o: i2c-algo-mpc5xxx.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc5xxx.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uboot.h) \
+   /home/jhan/linux-2.4.241q/include/asm/ppcboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-ppc_5xxx.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc/5xxx/ipbfreq.h)
+i2c-algo-pcf.o: i2c-algo-pcf.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-pcf.h \
+   i2c-pcf8584.h
+i2c-algo-sgi.o: i2c-algo-sgi.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-sgi.h
+i2c-algo-sibyte.o: i2c-algo-sibyte.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-sibyte.h
+i2c-core.o: i2c-core.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/chardev.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/algobit.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/philipspar.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/elv.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/velleman.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/bitvia.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/algopcf.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/elektor.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/algo8xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/algo8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/algo/sibyte.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/max1617.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/proc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/algo8240.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/cu824.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/i2c/pm826.h)
+i2c-cu824.o: i2c-cu824.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/cu824.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-8240.h
+i2c-dev.o: i2c-dev.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/devfs/fs.h) \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-dev.h
+i2c-elektor.o: i2c-elektor.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-pcf.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-elektor.h \
+   i2c-pcf8584.h
+i2c-elv.o: i2c-elv.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-bit.h
+i2c-ibm_iic.o: i2c-ibm_iic.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-id.h \
+   /home/jhan/linux-2.4.241q/include/asm/ocp.h \
+   i2c-ibm_iic.h
+i2c-ibm_iic.h: \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h
+	@touch i2c-ibm_iic.h
+i2c-icecube.o: i2c-icecube.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc5xxx.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-ppc_5xxx.h
+i2c-keywest.o: i2c-keywest.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/completion.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/machdep.h \
+   /home/jhan/linux-2.4.241q/include/asm/pmac_feature.h \
+   i2c-keywest.h
+i2c-max1617.o: i2c-max1617.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-sibyte.h
+i2c-philips-par.o: i2c-philips-par.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/stddef.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-bit.h
+i2c-pm826.o: i2c-pm826.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/stddef.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_8260.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-8260.h
+i2c-proc.o: i2c-proc.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-proc.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h
+i2c-rpx.o: i2c-rpx.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/stddef.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8xx.h \
+   /home/jhan/linux-2.4.241q/include/asm/commproc.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-8xx.h
+i2c-sibyte.o: i2c-sibyte.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-sibyte.h
+i2c-velleman.o: i2c-velleman.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-bit.h
+scx200_acb.o: scx200_acb.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/scx200.h
+scx200_i2c.o: scx200_i2c.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-algo-bit.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/scx200_gpio.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scx200/i2c/scl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scx200/i2c/sda.h)
+.PRECIOUS:	i2c-ibm_iic.h \
+

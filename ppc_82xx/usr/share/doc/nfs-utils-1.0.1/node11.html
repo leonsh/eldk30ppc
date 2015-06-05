@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Performance</TITLE>
+<META NAME="description" CONTENT="Performance">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node18.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="nfs.html">
+<LINK REL="next" HREF="node12.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html139"
+ HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html137"
+ HREF="nfs.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html131"
+ HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html140"
+ HREF="node12.html">The User-Space NFS Server</A>
+<B> Up:</B> <A NAME="tex2html138"
+ HREF="nfs.html">NFS server in Linux:</A>
+<B> Previous:</B> <A NAME="tex2html132"
+ HREF="node10.html">Results</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00040000000000000000">
+Performance</A>
+</H1>
+
+<P>
+We measured the NFS server performances under different server setup
+for the NFS V2 protocol with UDP.
+We used SPEC System File Server Suite Release
+2.0 (SFS 2.0) from Standard Performance Evaluation Corporation (SPEC).
+The test was done for both the kernel-space NFS server in  Linux kernel
+2.2.9 plus the kernel NFS server patches in knfsd 1.4.2 and the
+user-space NFS server version 2.2beta37. The setup consists of
+
+<P>
+
+<UL><LI>A NFS server is a dual 500Mhz Pentium III Xeon 512KB cache with
+  	256MB RAM, 1 Intel 82557 100Mb Ethernet controller, 2 SCSI U-2
+	NCR53C895
+	controllers, 1 18GB QUANTUM QM318000TD-SW harddrive on one SCSI
+	controller, 4 9GB SEAGATE ST39102LW harddrives on the other
+	SCSI controller running the Linux kernel 2.2.9 plus knfsd 1.4.2.
+
+<P>
+
+<LI>Clients are a 500Mhz Pentium III with 128MB RAM running the
+	Linux kernel 2.2.7, a dual 500Mhz Pentium III with 256MB RAM 
+	running the kernel 2.2.9, a quad 400Mhz Pentium III Xeon 1024KB
+	cache with 1GB RAM running the Linux kernel 2.2.7, a Sparc Ultra 10
+	running Solaris 7 and a 450MHz Pentium II with 64MB RAM running
+	Solaris 7.
+
+<P>
+
+<LI>All machines are connected with 100Mb Ethernet switches.
+
+</UL>
+
+<P>
+Those performance measurements were only used for the Linux NFS server
+tuning. They shouldn't be interpreted for any other purposes. To
+compare the
+Linux kernel-space NFS server performance with other implementations
+requires to follow very strict rules setup by SPEC, which is not the
+intention of this paper.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html141"
+ HREF="node12.html">The User-Space NFS Server</A>
+<LI><A NAME="tex2html142"
+ HREF="node13.html">The Kernel-Space NFS Server</A>
+<UL>
+<LI><A NAME="tex2html143"
+ HREF="node14.html">Light Load</A>
+<LI><A NAME="tex2html144"
+ HREF="node15.html">Moderate Load</A>
+<LI><A NAME="tex2html145"
+ HREF="node16.html">Heavy Load</A>
+<LI><A NAME="tex2html146"
+ HREF="node17.html">Other Factors</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html139"
+ HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html137"
+ HREF="nfs.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html131"
+ HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html140"
+ HREF="node12.html">The User-Space NFS Server</A>
+<B> Up:</B> <A NAME="tex2html138"
+ HREF="nfs.html">NFS server in Linux:</A>
+<B> Previous:</B> <A NAME="tex2html132"
+ HREF="node10.html">Results</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

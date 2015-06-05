@@ -1,0 +1,1 @@
+#define CONFIG_USE_SCC_IO 1

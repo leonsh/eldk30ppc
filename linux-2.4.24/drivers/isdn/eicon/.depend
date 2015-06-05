@@ -1,0 +1,238 @@
+adapter.h: \
+   sys.h \
+   idi.h \
+   divas.h \
+   pc.h
+	@touch adapter.h
+bri.o: bri.c \
+   eicon.h \
+   sys.h \
+   idi.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   dsp_defs.h \
+   adapter.h \
+   uxio.h
+common.o: common.c \
+   eicon.h \
+   sys.h \
+   idi.h \
+   constant.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   uxio.h
+divas.h: \
+   sys.h
+	@touch divas.h
+Divas_mod.o: Divas_mod.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   adapter.h \
+   uxio.h \
+   idi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h)
+dsp_defs.h: \
+   dspdids.h
+	@touch dsp_defs.h
+eicon_dsp.h: \
+   dsp_defs.h
+	@touch eicon_dsp.h
+eicon.h: \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/tqueue.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/signal.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/mman.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/isdn.h \
+   /home/jhan/linux-2.4.241q/include/linux/isdnif.h \
+   eicon_isa.h \
+   idi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/tty/fax.h) \
+   eicon_pci.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mca.h) \
+   eicon_idi.h
+	@touch eicon.h
+eicon_idi.o: eicon_idi.c \
+   eicon.h \
+   eicon_idi.h \
+   eicon_dsp.h \
+   uxio.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/tty/fax.h)
+eicon_idi.h: \
+   pc.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/tty/fax.h)
+	@touch eicon_idi.h
+eicon_io.o: eicon_io.c \
+   eicon.h \
+   uxio.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/drv/eicon/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/drv/eicon/isa.h)
+eicon_isa.o: eicon_isa.c \
+   eicon.h \
+   eicon_isa.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/drv/eicon/isa.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mca.h)
+eicon_isa.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mca.h)
+	@touch eicon_isa.h
+eicon_mod.o: eicon_mod.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mca.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mca.h \
+   eicon.h \
+   ../avmb1/capicmd.h \
+   adapter.h \
+   uxio.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/drv/eicon/isa.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/drv/eicon/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/tty/fax.h)
+eicon_pci.o: eicon_pci.c \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   eicon.h \
+   eicon_pci.h \
+   adapter.h \
+   uxio.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isdn/drv/eicon/pci.h)
+fourbri.o: fourbri.c \
+   sys.h \
+   idi.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   dsp_defs.h \
+   constant.h \
+   adapter.h \
+   uxio.h
+fpga.o: fpga.c \
+   sys.h \
+   idi.h \
+   uxio.h
+idi.o: idi.c \
+   idi.h \
+   adapter.h \
+   pc.h \
+   pr_pc.h \
+   sys.h \
+   uxio.h
+idi.h: \
+   sys.h
+	@touch idi.h
+kprintf.o: kprintf.c \
+   eicon.h \
+   sys.h \
+   /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include/stdarg.h \
+   divas.h \
+   divalog.h \
+   uxio.h
+lincfg.o: lincfg.c \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   sys.h \
+   idi.h \
+   constant.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   adapter.h \
+   uxio.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h
+linchr.o: linchr.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   adapter.h \
+   divas.h \
+   divalog.h
+linio.o: linio.c \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   uxio.h
+linsys.o: linsys.c \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/tqueue.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   sys.h \
+   divas.h \
+   adapter.h \
+   divalog.h \
+   uxio.h
+log.o: log.c \
+   sys.h \
+   idi.h \
+   divas.h \
+   adapter.h \
+   divalog.h \
+   uxio.h
+pri.o: pri.c \
+   sys.h \
+   idi.h \
+   divas.h \
+   pc.h \
+   pr_pc.h \
+   dsp_defs.h \
+   adapter.h \
+   uxio.h
+sys.h: \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h
+	@touch sys.h
+uxio.h: \
+   sys.h \
+   adapter.h
+	@touch uxio.h
+xlog.o: xlog.c \
+   sys.h \
+   idi.h \
+   pc.h \
+   pc_maint.h \
+   divalog.h \
+   adapter.h \
+   uxio.h
+.PRECIOUS:	adapter.h \
+	divas.h \
+	dsp_defs.h \
+	eicon_dsp.h \
+	eicon.h \
+	eicon_idi.h \
+	eicon_isa.h \
+	idi.h \
+	sys.h \
+	uxio.h \
+

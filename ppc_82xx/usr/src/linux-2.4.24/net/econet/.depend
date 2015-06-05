@@ -1,0 +1,35 @@
+af_econet.o: af_econet.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sockios.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/in.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_ether.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/inetdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/route.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/inet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/etherdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_arp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wireless.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/inet_common.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/stat.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_ec.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/udp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bitops.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/econet/aunudp.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/econet/native.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h

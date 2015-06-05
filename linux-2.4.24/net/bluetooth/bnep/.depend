@@ -1,0 +1,64 @@
+bnep.h: \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/net/bluetooth/bluetooth.h \
+   /home/jhan/linux-2.4.241q/include/linux/crc32.h
+	@touch bnep.h
+core.o: core.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/signal.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/linux/file.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/net/bluetooth/bluetooth.h \
+   /home/jhan/linux-2.4.241q/include/net/bluetooth/l2cap.h \
+   bnep.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bluez/bnep/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bluez/bnep/proto/filter.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bluez/bnep/mc/filter.h)
+netdev.o: netdev.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/net/bluetooth/bluetooth.h \
+   /home/jhan/linux-2.4.241q/include/net/bluetooth/hci_core.h \
+   /home/jhan/linux-2.4.241q/include/net/bluetooth/l2cap.h \
+   bnep.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bluez/bnep/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bluez/bnep/mc/filter.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bluez/bnep/proto/filter.h)
+sock.o: sock.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/fcntl.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/file.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   bnep.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bluez/bnep/debug.h)
+.PRECIOUS:	bnep.h \
+

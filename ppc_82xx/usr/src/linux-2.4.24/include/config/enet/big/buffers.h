@@ -1,0 +1,1 @@
+#define CONFIG_ENET_BIG_BUFFERS 1

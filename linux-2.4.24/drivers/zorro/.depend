@@ -1,0 +1,23 @@
+names.o: names.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/zorro/names.h)
+proc.o: proc.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h
+zorro.o: zorro.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h

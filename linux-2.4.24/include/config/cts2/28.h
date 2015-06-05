@@ -1,0 +1,1 @@
+#undef  CONFIG_CTS2_28

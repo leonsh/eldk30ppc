@@ -1,0 +1,1 @@
+#define CONFIG_PORT_DTR4_NONE 1

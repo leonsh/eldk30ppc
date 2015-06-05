@@ -1,0 +1,194 @@
+daisy.o: daisy.c \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+ieee1284.o: ieee1284.c \
+   /home/jhan/linux-2.4.241q/include/linux/threads.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/lp/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/1284.h)
+ieee1284_ops.o: ieee1284_ops.c \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/lp/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/1284.h)
+init.o: init.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/threads.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/pc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sysctl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/amiga.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/mfc3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/atari.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/arc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/sunbpp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/1284.h)
+parport_amiga.o: parport_amiga.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigaints.h
+parport_arc.o: parport_arc.c \
+   /home/jhan/linux-2.4.241q/include/linux/threads.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/asm/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+parport_atari.o: parport_atari.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h
+parport_cs.o: parport_cs.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport_pc.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/version.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/cs_types.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/cs.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/cistpl.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/ds.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/cisreg.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/ciscode.h
+parport_gsc.o: parport_gsc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h
+parport_ip22.o: parport_ip22.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h
+parport_mfc3.o: parport_mfc3.c \
+   multiface.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/mc6821.h \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigaints.h
+parport_pc.o: parport_pc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport_pc.h \
+   /home/jhan/linux-2.4.241q/include/asm/parport.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/pc/fifo.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/pc/superio.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/1284.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h)
+parport_serial.o: parport_serial.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport_pc.h \
+   /home/jhan/linux-2.4.241q/include/linux/serial.h \
+   /home/jhan/linux-2.4.241q/include/linux/serialP.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/asm/serial.h
+parport_sunbpp.o: parport_sunbpp.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/asm/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h
+probe.o: probe.c \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+procfs.o: procfs.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sysctl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/1284.h)
+share.o: share.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/threads.h \
+   /home/jhan/linux-2.4.241q/include/linux/parport.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parport/1284.h)

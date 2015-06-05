@@ -1,0 +1,52 @@
+xuartlite.o: xuartlite.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xuartlite.h \
+   xuartlite_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+xuartlite_g.o: xuartlite_g.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xuartlite.h
+xuartlite.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xstatus.h
+	@touch xuartlite.h
+xuartlite_i.h: \
+   xuartlite.h \
+   xuartlite_l.h
+	@touch xuartlite_i.h
+xuartlite_intr.o: xuartlite_intr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xuartlite.h \
+   xuartlite_i.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+xuartlite_l.o: xuartlite_l.c \
+   xuartlite_l.h
+xuartlite_l.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xuartlite_l.h
+xuartlite_serial.o: xuartlite_serial.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tty.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serial.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serialP.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/generic_serial.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tty_flip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/console.h \
+   xuartlite.h \
+   xuartlite_i.h \
+   xuartlite_serial.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/xilinx/uartlite/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/devfs/fs.h)
+.PRECIOUS:	xuartlite.h \
+	xuartlite_i.h \
+	xuartlite_l.h \
+

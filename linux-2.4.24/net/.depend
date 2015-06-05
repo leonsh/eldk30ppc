@@ -1,0 +1,120 @@
+netsyms.o: netsyms.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/linux/in.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/inetdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/fddidevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/trdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/fcdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/ethtool.h \
+   /home/jhan/linux-2.4.241q/include/net/neighbour.h \
+   /home/jhan/linux-2.4.241q/include/net/snmp.h \
+   /home/jhan/linux-2.4.241q/include/net/dst.h \
+   /home/jhan/linux-2.4.241q/include/net/checksum.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/net/route.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hippi.h) \
+   /home/jhan/linux-2.4.241q/include/linux/hippidevice.h \
+   /home/jhan/linux-2.4.241q/include/net/pkt_sched.h \
+   /home/jhan/linux-2.4.241q/include/net/scm.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_bridge.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_vlan.h \
+   /home/jhan/linux-2.4.241q/include/linux/random.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/divert.h) \
+   /home/jhan/linux-2.4.241q/include/linux/divert.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/inet.h) \
+   /home/jhan/linux-2.4.241q/include/linux/ip.h \
+   /home/jhan/linux-2.4.241q/include/net/protocol.h \
+   /home/jhan/linux-2.4.241q/include/net/arp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/clip.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/clip/module.h) \
+   /home/jhan/linux-2.4.241q/include/net/atmclip.h \
+   /home/jhan/linux-2.4.241q/include/net/ip.h \
+   /home/jhan/linux-2.4.241q/include/net/udp.h \
+   /home/jhan/linux-2.4.241q/include/net/tcp.h \
+   /home/jhan/linux-2.4.241q/include/net/icmp.h \
+   /home/jhan/linux-2.4.241q/include/net/inet_common.h \
+   /home/jhan/linux-2.4.241q/include/linux/inet.h \
+   /home/jhan/linux-2.4.241q/include/linux/mroute.h \
+   /home/jhan/linux-2.4.241q/include/linux/igmp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ipv6.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ipv6/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/khttpd.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/khttpd/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ip/sctp/module.h) \
+   /home/jhan/linux-2.4.241q/include/linux/in6.h \
+   /home/jhan/linux-2.4.241q/include/linux/icmpv6.h \
+   /home/jhan/linux-2.4.241q/include/net/ipv6.h \
+   /home/jhan/linux-2.4.241q/include/net/ndisc.h \
+   /home/jhan/linux-2.4.241q/include/net/transp_v6.h \
+   /home/jhan/linux-2.4.241q/include/net/addrconf.h \
+   /home/jhan/linux-2.4.241q/include/linux/rtnetlink.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ipx/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atalk/module.h) \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sysctl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/filter.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arpd.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/vlan/8021q.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/vlan/8021q/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dlci/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/netlink/dev.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/netlink/dev/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/tr.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fddi.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kmod.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/hw/flowcontrol.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/fastroute.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/sched.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/estimator.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/cls/police.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/cls.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/netfilter.h) \
+   /home/jhan/linux-2.4.241q/include/linux/netfilter.h \
+   /home/jhan/linux-2.4.241q/include/linux/netfilter_ipv4.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/radio.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/pcmcia/radio.h) \
+   /home/jhan/linux-2.4.241q/include/net/iw_handler.h
+socket.o: socket.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/linux/file.h \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/wanrouter.h \
+   /home/jhan/linux-2.4.241q/include/linux/netlink.h \
+   /home/jhan/linux-2.4.241q/include/linux/rtnetlink.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/cache.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kmod.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net.h) \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/net/scm.h \
+   /home/jhan/linux-2.4.241q/include/linux/netfilter.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/smp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/wan/router.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bluez.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/netlink/dev.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/netfilter.h)
+sysctl_net.o: sysctl_net.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/inet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ipv6.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/tr.h)

@@ -1,0 +1,1 @@
+#define CONFIG_MTD_TQM8XXM 1

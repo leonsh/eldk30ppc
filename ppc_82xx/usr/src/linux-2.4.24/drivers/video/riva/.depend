@@ -1,0 +1,40 @@
+accel.o: accel.c \
+   rivafb.h
+fbdev.o: fbdev.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/selection.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tty.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fb.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/console.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtrr.h) \
+   rivafb.h \
+   nvreg.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/pci.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/all/ppc.h)
+rivafb.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fb.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/fbcon.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/fbcon-cfb4.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/fbcon-cfb8.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/fbcon-cfb16.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/video/fbcon-cfb32.h \
+   riva_hw.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtrr.h)
+	@touch rivafb.h
+riva_hw.o: riva_hw.c \
+   riva_hw.h \
+   riva_tbl.h
+riva_hw.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h
+	@touch riva_hw.h
+.PRECIOUS:	rivafb.h \
+	riva_hw.h \
+

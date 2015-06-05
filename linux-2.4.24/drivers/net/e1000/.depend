@@ -1,0 +1,64 @@
+e1000_ethtool.o: e1000_ethtool.c \
+   e1000.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h
+e1000.h: \
+   /home/jhan/linux-2.4.241q/include/linux/stddef.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/linux/capability.h \
+   /home/jhan/linux-2.4.241q/include/linux/in.h \
+   /home/jhan/linux-2.4.241q/include/linux/ip.h \
+   /home/jhan/linux-2.4.241q/include/linux/tcp.h \
+   /home/jhan/linux-2.4.241q/include/linux/udp.h \
+   /home/jhan/linux-2.4.241q/include/net/pkt_sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/net/checksum.h \
+   /home/jhan/linux-2.4.241q/include/linux/tqueue.h \
+   /home/jhan/linux-2.4.241q/include/linux/mii.h \
+   /home/jhan/linux-2.4.241q/include/linux/ethtool.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_vlan.h \
+   e1000_hw.h
+	@touch e1000.h
+e1000_hw.o: e1000_hw.c \
+   e1000_hw.h
+e1000_hw.h: \
+   e1000_osdep.h
+	@touch e1000_hw.h
+e1000_main.o: e1000_main.c \
+   e1000.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/e1000/napi.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h)
+e1000_osdep.h: \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h
+	@touch e1000_osdep.h
+e1000_param.o: e1000_param.c \
+   e1000.h
+.PRECIOUS:	e1000.h \
+	e1000_hw.h \
+	e1000_osdep.h \
+

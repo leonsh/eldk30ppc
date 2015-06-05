@@ -1,0 +1,1 @@
+#define CONFIG_PORT_RTS4_NONE 1

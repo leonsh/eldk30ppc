@@ -1,0 +1,284 @@
+af_irda.o: af_irda.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sockios.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_arp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/net.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/iriap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irias_object.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irttp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/discovery.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/ultra.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/debug.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h)
+crc.o: crc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/crc.h
+discovery.o: discovery.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/discovery.h
+irda_device.o: irda_device.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_ether.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_arp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/tty.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wireless.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ioctls.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/segment.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/dma.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/pkt_sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda_device.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/wrapper.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irtty/sir.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/winbond/fir.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/sa1100/fir.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/nsc/fir.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/toshiba/old.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/smc/ircc/fir.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/esi/dongle.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/tekram/dongle.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/actisys/dongle.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/girbil/dongle.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/litelink/dongle.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/old/belkin.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ep7211/ir.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mcp2120/dongle.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/kmod.h)
+iriap.o: iriap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/unaligned.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irttp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irias_object.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/iriap_event.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/iriap.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/ultra.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h)
+iriap_event.o: iriap_event.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/iriap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/iriap_event.h
+irias_object.o: irias_object.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irias_object.h
+irlap.o: irlap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/random.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda_device.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp_frame.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap_frame.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/qos.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/ultra.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/dynamic/window.h)
+irlap_event.o: irlap_event.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap_event.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap_frame.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/qos.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/parameters.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda_device.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/fast/rr.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/ultra.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/dynamic/window.h)
+irlap_frame.o: irlap_frame.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/if_ether.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/pkt_sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda_device.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/wrapper.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap_frame.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/qos.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/dynamic/window.h)
+irlmp.o: irlmp.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/random.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/qos.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/iriap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp_frame.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/cache/last/lsap.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/ultra.h)
+irlmp_event.o: irlmp_event.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp_frame.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp_event.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/ultra.h)
+irlmp_frame.o: irlmp_frame.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp_frame.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/discovery.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/ultra.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/cache/last/lsap.h)
+irproc.o: irproc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/miscdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h
+irqueue.o: irqueue.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irqueue.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irmod.h
+irsyms.o: irsyms.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/segment.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/iriap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irias_object.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irttp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda_device.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/wrapper.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/parameters.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/crc.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irtty.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/sysctl.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irlan.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ircomm.h)
+irsysctl.o: irsysctl.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ctype.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sysctl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/segment.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irias_object.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/fast/rr.h)
+irttp.o: irttp.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/unaligned.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irmod.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/parameters.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irttp.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h)
+parameters.o: parameters.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/unaligned.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/parameters.h
+qos.o: qos.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/parameters.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/qos.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/irda/dynamic/window.h)
+timer.o: timer.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/system.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/timer.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irtty.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlmp_event.h
+wrapper.o: wrapper.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/wrapper.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irtty.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/crc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irlap_frame.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/irda/irda_device.h

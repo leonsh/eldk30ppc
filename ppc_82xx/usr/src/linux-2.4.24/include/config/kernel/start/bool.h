@@ -1,0 +1,1 @@
+#undef  CONFIG_KERNEL_START_BOOL

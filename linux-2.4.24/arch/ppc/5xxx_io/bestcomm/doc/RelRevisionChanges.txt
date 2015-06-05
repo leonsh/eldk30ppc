@@ -1,0 +1,22 @@
+Changes in BestComm API between Release 1.0 and 1.1
+-----------------------------------------------------------------
+Date: Sep 25, 2003
+
+- Added TasksAttachImage() function.
+
+- Added TasksSetSramOffset() and TasksGetSramOffset() functions.
+
+- Added example code for systems using virtual memory.
+
+- Changed some defines for the GUI development specification.
+
+- Added awareness of virtual memory address translation in operating systems
+  such as QNX Neutrino.  This required a new function called TasksInitAPI_VM().
+  TasksInitAPI() takes two addresses as parameters. One is the virtual
+  address and the other is the physical address of the processor's register
+  map. This must be mapped as cache-protected device memory, and must map the
+  entire register range including the internal SRAM.
+
+- TaskBDAssign() should no longer set buffer length to 0 for receive tasks. When
+  calling this function in version 1.1 and later, set to the buffer length parameter
+  to the maximum size (in bytes) of the receive buffer.

@@ -1,0 +1,3 @@
+ifeq (-D__KERNEL__ -I/opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include -Wall -Wstrict-prototypes -Wno-trigraphs -O2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I/opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc -fsigned-char -msoft-float -pipe -ffixed-r2 -Wno-uninitialized -mmultiple -mstring -nostdinc -I /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include,$(strip $(subst $(comma),:,$(CFLAGS) $(EXTRA_CFLAGS_nostdinc) $(CFLAGS_ioctl.o))))
+FILES_FLAGS_UP_TO_DATE += ioctl.o
+endif

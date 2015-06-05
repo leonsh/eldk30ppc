@@ -1,0 +1,236 @@
+adler32.o: adler32.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h
+associola.o: associola.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fcntl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/in.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+bind_addr.o: bind_addr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/in.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/if_inet6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+command.o: command.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+crc32c.o: crc32c.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h
+debug.o: debug.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h
+endpointola.o: endpointola.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/in.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/random.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+hashdriver.o: hashdriver.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sla1.h
+input.o: input.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/list.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/icmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/snmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ipsec.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+inqueue.o: inqueue.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h
+ipv6.o: ipv6.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sockios.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/net.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/in.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/in6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ipsec.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/icmpv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/random.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/protocol.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/tcp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ndisc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/transp_v6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/addrconf.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ip6_route.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/inet_common.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/inet_ecn.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h
+objcnt.o: objcnt.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h
+output.o: output.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/inet_ecn.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/icmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/tcp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+outqueue.o: outqueue.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/list.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+primitive.o: primitive.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/list.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+proc.o: proc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/semaphore.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/seq_file.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h
+protocol.o: protocol.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/netdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/inetdevice.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/protocol.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/addrconf.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/inet_common.h
+sla1.o: sla1.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fcntl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/string.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/in.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sla1.h
+sm_make_chunk.o: sm_make_chunk.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/net.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/inet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/scatterlist.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/random.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+sm_sideeffect.o: sm_sideeffect.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+sm_statefuns.o: sm_statefuns.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/net.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/inet.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/inet_ecn.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/structs.h
+sm_statetable.o: sm_statetable.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+socket.o: socket.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/wait.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/time.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fcntl.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ip.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/icmp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/route.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/ipv6.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/inet_common.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/socket.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ip/sctp/addip.h)
+ssnmap.o: ssnmap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+sysctl.o: sysctl.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/structs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sysctl.h
+transport.o: transport.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+tsnmap.o: tsnmap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+ulpevent.o: ulpevent.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/structs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h
+ulpqueue.o: ulpqueue.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/skbuff.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/structs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sctp.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/net/sctp/sm.h

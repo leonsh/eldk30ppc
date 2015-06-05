@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>File Handle in Kernel-Space NFS Server</TITLE>
+<META NAME="description" CONTENT="File Handle in Kernel-Space NFS Server">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html111"
+ HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html109"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html103"
+ HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html112"
+ HREF="node9.html">Other Considerations</A>
+<B> Up:</B> <A NAME="tex2html110"
+ HREF="node5.html">Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html104"
+ HREF="node7.html">The Kernel-Space NFS Server</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00033000000000000000">
+File Handle in Kernel-Space NFS Server</A>
+</H2>
+
+<P>
+To make the file handle from the NFS server in the Linux kernel to
+work with other NFS client implementations, we have to remove
+dentry from file handle. The direct result is the file handle
+for the same file remains unchanged across machine reboot. Rebooting
+Linux NFS server no longer cause the NFS clients to get the stale NFS
+file handle.
+
+<P>
+However, deleting and creating the
+same pathname may still lead to the same file handle. To solve
+it, a generation counter is added to the file handle:
+
+<P>
+
+<UL><LI>A system wide generation counter is initialized with a
+  	random number during machine boot.
+
+<P>
+
+<LI>When a new inode is created, it is assigned with the
+  	current generation counter and the generation counter
+	is incremented.
+
+<P>
+
+<LI>When a freed inode is written to the disk, its generation
+  	counter is incremented.
+
+</UL>
+
+<P>
+Since we removed the dependency on pathname in the file handle,
+rename and hard links within the same directory won't cause change
+in the file handle.
+However, since the parent directory inode is still the part of the
+file handle, move a file or hard link a file from one directory to
+a different directory within the same
+file system will result in the file handle change. So far we haven't
+got any report which shows it is a real problem yet.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html111"
+ HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html109"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html103"
+ HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html112"
+ HREF="node9.html">Other Considerations</A>
+<B> Up:</B> <A NAME="tex2html110"
+ HREF="node5.html">Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html104"
+ HREF="node7.html">The Kernel-Space NFS Server</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

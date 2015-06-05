@@ -1,0 +1,61 @@
+e100_config.o: e100_config.c \
+   e100_config.h
+e100_config.h: \
+   e100.h
+	@touch e100_config.h
+e100_eeprom.o: e100_eeprom.c \
+   e100.h
+e100.h: \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/linux/ethtool.h \
+   /home/jhan/linux-2.4.241q/include/linux/inetdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/linux/if.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/ip.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_vlan.h \
+   /home/jhan/linux-2.4.241q/include/linux/mii.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h)
+	@touch e100.h
+e100_main.o: e100_main.c \
+   /home/jhan/linux-2.4.241q/include/net/checksum.h \
+   /home/jhan/linux-2.4.241q/include/linux/tcp.h \
+   /home/jhan/linux-2.4.241q/include/linux/udp.h \
+   e100.h \
+   e100_ucode.h \
+   e100_config.h \
+   e100_phy.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h)
+e100_phy.o: e100_phy.c \
+   e100_phy.h
+e100_phy.h: \
+   e100.h
+	@touch e100_phy.h
+e100_test.o: e100_test.c \
+   e100_phy.h \
+   e100_config.h
+.PRECIOUS:	e100_config.h \
+	e100.h \
+	e100_phy.h \
+

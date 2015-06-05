@@ -1,0 +1,940 @@
+#
+# For a description of the syntax of this configuration file,
+# see Documentation/kbuild/config-language.txt.
+#
+define_bool CONFIG_UID16 n
+define_bool CONFIG_RWSEM_GENERIC_SPINLOCK n
+define_bool CONFIG_RWSEM_XCHGADD_ALGORITHM y
+define_bool CONFIG_HAVE_DEC_LOCK y
+
+mainmenu_name "Linux/PowerPC Kernel Configuration"
+
+mainmenu_option next_comment
+comment 'Code maturity level options'
+bool 'Prompt for development and/or incomplete code/drivers' CONFIG_EXPERIMENTAL
+bool 'Prompt for advanced kernel configuration options' CONFIG_ADVANCED_OPTIONS
+endmenu
+
+mainmenu_option next_comment
+comment 'Loadable module support'
+bool 'Enable loadable module support' CONFIG_MODULES
+if [ "$CONFIG_MODULES" = "y" ]; then
+   bool '  Set version information on all module symbols' CONFIG_MODVERSIONS
+   bool '  Kernel module loader' CONFIG_KMOD
+fi
+endmenu
+
+mainmenu_option next_comment
+comment 'Platform support'
+define_bool CONFIG_PPC y
+define_bool CONFIG_PPC32 y
+choice 'Processor Type'	\
+	"6xx/7xx/74xx/8260	CONFIG_6xx	\
+	 40x			CONFIG_40x	\
+	 44x			CONFIG_44x	\
+	 POWER3			CONFIG_POWER3	\
+	 POWER4			CONFIG_POWER4	\
+	 8xx			CONFIG_8xx"	6xx
+
+if [ "$CONFIG_40x" = "y" -o "$CONFIG_44x" = "y" ]; then
+  define_bool CONFIG_4xx y
+fi
+
+if [ "$CONFIG_6xx" = "y" ]; then
+  bool 'MPC8260 CPM Support' CONFIG_8260
+fi
+
+if [ "$CONFIG_POWER3" = "y" ]; then
+  define_bool CONFIG_PPC64BRIDGE y
+  define_bool CONFIG_ALL_PPC y
+  define_bool CONFIG_PPC_ISATIMER y
+fi
+
+if [ "$CONFIG_6xx" = "y" -o "$CONFIG_POWER3" = "y" -o \
+     "$CONFIG_POWER4" = "y" ]; then
+  define_bool CONFIG_PPC_STD_MMU y
+else
+  define_bool CONFIG_PPC_STD_MMU n
+fi
+
+#
+# hwuang, added OLC8260 and ONU8260
+# 12/22/04
+#
+if [ "$CONFIG_8260" = "y" ]; then
+  define_bool CONFIG_SERIAL_CONSOLE y
+  choice 'Machine Type'	\
+	"ATC		CONFIG_ATC	\
+	 ADS8260	CONFIG_ADS8260	\
+	 OLC8260	CONFIG_OLC8260	\
+	 ONU8260	CONFIG_ONU8260	\
+	 EST8260	CONFIG_EST8260	\
+	 PM826		CONFIG_PM826	\
+	 SBS8260	CONFIG_SBS8260	\
+	 RPXSUPER	CONFIG_RPX6	\
+ 	 TQM8260	CONFIG_TQM8260	\
+	 Willow		CONFIG_WILLOW"	Willow
+fi
+
+if [ "$CONFIG_40x" = "y" ]; then
+    choice 'Machine Type'			\
+	"Arctic-II	CONFIG_ARCTIC2		\
+	 
+	 Ceder		CONFIG_CEDER		\
+	 Beech		CONFIG_BEECH		\
+	 CPCI405	CONFIG_CPCI405 		\
+	 DMC405		CONFIG_DMC405 		\
+	 EP405/EP405PC	CONFIG_EP405 		\
+	 Exbitgen	CONFIG_EXBITGEN		\
+	 405EP-eval	CONFIG_EVB405EP		\
+	 Oak		CONFIG_OAK		\
+	 PPChameleonEVB	CONFIG_PPCHAMELEONEVB	\
+	 Rainier	CONFIG_RAINIER		\
+	 Redwood-4	CONFIG_REDWOOD_4 	\
+	 Redwood-5	CONFIG_REDWOOD_5 	\
+	 Redwood-6	CONFIG_REDWOOD_6 	\
+	 Sycamore	CONFIG_SYCAMORE		\
+	 Tivo		CONFIG_TIVO 		\
+	 Walnut		CONFIG_WALNUT		\
+	 Xilinx-ML300	CONFIG_XILINX_ML300"	Walnut
+
+   if [ "$CONFIG_EP405" = "y" ]; then
+      bool 'EP405PC Support' CONFIG_EP405PC
+   fi  
+fi
+
+if [ "$CONFIG_44x" = "y" ]; then
+    choice 'Machine Type'			\
+	 "Ebony		CONFIG_EBONY		\
+	 Ocotea		CONFIG_OCOTEA"		Ebony
+fi
+
+if [ "$CONFIG_8xx" = "y" ]; then
+  define_bool CONFIG_SERIAL_CONSOLE y
+  define_bool CONFIG_NOT_COHERENT_CACHE y
+
+  choice 'Machine Type'		\
+        "Adder-II       CONFIG_ADDER_II         \
+	 AMX860		CONFIG_AMX860		\
+	 BSE-IP		CONFIG_BSEIP		\
+	 CCM		CONFIG_CCM		\
+	 D-Box2		CONFIG_DBOX2		\
+	 DAB4K		CONFIG_DAB4K		\
+	 FADS		CONFIG_FADS		\
+	 FPS850L	CONFIG_FPS850L		\
+	 HERMES		CONFIG_HERMES_PRO	\
+	 IP860		CONFIG_IP860		\
+	 IVML24		CONFIG_IVML24		\
+	 IVMS8		CONFIG_IVMS8		\
+	 LANTEC		CONFIG_LANTEC		\
+	 LWMON		CONFIG_LWMON		\
+	 MBX		CONFIG_MBX		\
+	 NSCU		CONFIG_NSCU		\
+	 PCU_E		CONFIG_PCU_E		\
+	 RMU		CONFIG_RMU		\
+	 RPX-Classic	CONFIG_RPXCLASSIC	\
+	 RPX-Lite	CONFIG_RPXLITE		\
+	 SM850		CONFIG_SM850		\
+	 SPD823TS	CONFIG_SPD823TS		\
+	 TQM823L	CONFIG_TQM823L		\
+	 TQM823M	CONFIG_TQM823M		\
+	 TQM850L	CONFIG_TQM850L		\
+	 TQM850M	CONFIG_TQM850M		\
+	 TQM855L	CONFIG_TQM855L		\
+	 TQM855M	CONFIG_TQM855M		\
+	 TQM860M	CONFIG_TQM860M		\
+	 TQM862M	CONFIG_TQM862M		\
+ 	 TQM860L	CONFIG_TQM860L		\
+         Viper-860      CONFIG_VIPER860         \
+	 WinCept	CONFIG_WINCEPT"		RPX-Lite
+
+  if [ "$CONFIG_TQM823M" = "y" -o \
+       "$CONFIG_TQM850M" = "y" -o \
+       "$CONFIG_TQM855M" = "y" -o \
+       "$CONFIG_TQM860M" = "y" -o \
+       "$CONFIG_TQM862M" = "y" -o \
+       "$CONFIG_NSCU"    = "y" ]; then
+ 	define_bool	CONFIG_TQM8xxM	y
+  fi
+
+  if [ "$CONFIG_TQM823L" = "y" -o \
+       "$CONFIG_TQM850L" = "y" -o \
+       "$CONFIG_FPS850L" = "y" -o \
+       "$CONFIG_TQM855L" = "y" -o \
+       "$CONFIG_TQM860L" = "y" -o \
+       "$CONFIG_SM850"   = "y" -o \
+       "$CONFIG_TQM8xxM" = "y" ]; then
+	define_bool	CONFIG_TQM8xxL	y
+  fi
+  if [ "$CONFIG_ADDER_II" = "y" -o \
+       "$CONFIG_VIPER860" = "y" ]; then
+	define_bool	CONFIG_AM8XX	y
+  fi
+fi
+
+if [ "$CONFIG_6xx" = "y" -a "$CONFIG_8260" = "n" ]; then
+  choice 'Machine Type'		\
+	"CHRP/PowerMac/PReP	CONFIG_ALL_PPC		\
+	 Amiga-APUS		CONFIG_APUS		\
+	 Cogent-Willow		CONFIG_WILLOW		\
+	 Force-CPCI690		CONFIG_CPCI690		\
+	 Force-PowerCore	CONFIG_PCORE		\
+	 Force-PowerPMC250	CONFIG_POWERPMC250	\
+	 Force-PowerPMC260      CONFIG_PPMC260		\
+	 Marvell-EV-64260-BP	CONFIG_EV64260		\
+	 IBM-Spruce		CONFIG_SPRUCE		\
+	 Motorola-Glacier	CONFIG_GLACIER		\
+	 Motorola-Icecube	CONFIG_ICECUBE		\
+	 Momentum-Puma-A	CONFIG_PUMA_A		\
+	 Motorola-HXEB100	CONFIG_HXEB100		\
+	 Motorola-LoPEC		CONFIG_LOPEC		\
+	 Motorola-MCPN765	CONFIG_MCPN765		\
+	 Motorola-MVME5100	CONFIG_MVME5100		\
+	 Motorola-PowerPlus     CONFIG_PPLUS		\
+	 Motorola-PrPMC750	CONFIG_PRPMC750		\
+	 Motorola-PrPMC800	CONFIG_PRPMC800		\
+	 Motorola-Sandpoint	CONFIG_SANDPOINT	\
+	 SBS-Adirondack		CONFIG_ADIR		\
+	 SBS-K2			CONFIG_K2		\
+	 SBS-Palomar4		CONFIG_PAL4		\
+	 SL8245			CONFIG_SL8245		\
+	 CU824			CONFIG_CU824		\
+	 Synergy-Gemini		CONFIG_GEMINI"		CHRP/PowerMac/PReP
+fi
+
+if [ "$CONFIG_PCORE" = "y" -o "$CONFIG_POWERPMC250" = "y" ]; then
+  define_bool CONFIG_FORCE y
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_EV64260" = "y" -o "$CONFIG_HXEB100" = "y" \
+  -o "$CONFIG_PUMA_A" = "y" -o "$CONFIG_CPCI690" = "y"  \
+  -o "$CONFIG_PPMC260" = "y" ]; then
+    define_bool CONFIG_GT64260 y
+fi
+
+if [ "$CONFIG_GT64260" = "y" ]; then
+   mainmenu_option next_comment
+   comment 'Marvell/Galileo GT64260 Options'
+
+   dep_bool 'PCI Bus 0 Snooping Disable (experimental)' \
+     CONFIG_GT64260_BUS_0_NOT_COHERENT $CONFIG_EXPERIMENTAL
+   dep_bool 'PCI Bus 1 Snooping Disable (experimental)' \
+     CONFIG_GT64260_BUS_1_NOT_COHERENT $CONFIG_EXPERIMENTAL
+
+   if [ "$CONFIG_GT64260_BUS_0_NOT_COHERENT" = "y" \
+     -o "$CONFIG_GT64260_BUS_1_NOT_COHERENT" = "y" ]; then
+       define_bool CONFIG_NOT_COHERENT_CACHE y
+   fi
+
+   bool 'Board uses PPCBoot' CONFIG_USE_PPCBOOT
+   if [ "$CONFIG_USE_PPCBOOT" = "y" ]; then
+       hex 'Base Address assigned by Firmware' CONFIG_GT64260_ORIG_REG_BASE 0xf8000000
+   else
+       hex 'Base Address assigned by Firmware' CONFIG_GT64260_ORIG_REG_BASE 0x14000000
+
+       bool 'Change Base Address in Bootloader' CONFIG_GT64260_NEW_BASE
+       if [ "$CONFIG_GT64260_NEW_BASE" = "y" ]; then
+	 hex 'New Base Address' CONFIG_GT64260_NEW_REG_BASE 0x14000000
+       fi
+   fi
+   endmenu
+fi
+
+if [ "$CONFIG_EV64260" = "y" ]; then
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_FORCE" = "y" -o "$CONFIG_SANDPOINT" = "y" ]; then
+  bool 'Enable MPC10x store gathering' CONFIG_MPC10X_STORE_GATHERING
+fi
+
+if [ "$CONFIG_HXEB100" = "y" ]; then
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_K2" = "y" ]; then
+  bool 'Enable CPC710 data gathering' CONFIG_CPC710_DATA_GATHERING
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_MVME5100" = "y" ]; then
+  bool 'MVME5100 configured with an IPMC761' CONFIG_MVME5100_IPMC761_PRESENT
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_PRPMC750" = "y" ]; then
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_PRPMC800" = "y" ]; then
+  define_bool CONFIG_GEN550 y
+  define_bool CONFIG_PPC_OPENPIC_BE y
+fi
+
+if [ "$CONFIG_SANDPOINT" = "y" ]; then
+  define_bool CONFIG_EPIC_SERIAL_MODE y
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_SPRUCE" = "y" ]; then
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_LOPEC" = "y" ]; then
+  define_bool CONFIG_EPIC_SERIAL_MODE y
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_MCPN765" = "y" ]; then
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_PPLUS" = "y" ]; then
+  define_bool CONFIG_GEN550 y
+fi
+
+if [ "$CONFIG_GLACIER" = "y" -o "$CONFIG_ICECUBE" = "y" ]; then
+  define_bool CONFIG_PPC_5xxx y
+fi
+
+if [ "$CONFIG_PPC_STD_MMU" != "y" ]; then
+  define_bool CONFIG_ALL_PPC n
+fi
+
+bool 'Symmetric multi-processing support' CONFIG_SMP
+if [ "$CONFIG_SMP" = "y" ]; then
+  bool '  Distribute interrupts on all CPUs by default' CONFIG_IRQ_ALL_CPUS
+  int  'Maximum number of CPUs (2-32)' CONFIG_NR_CPUS 32
+fi
+
+if [ "$CONFIG_6xx" = "y" -a "$CONFIG_8260" = "n" ];then
+  bool 'AltiVec Support' CONFIG_ALTIVEC
+  bool 'Thermal Management Support' CONFIG_TAU
+  if [ "$CONFIG_TAU" = "y" ]; then
+    bool '    Interrupt driven TAU driver (DANGEROUS)' CONFIG_TAU_INT
+    bool '    Average high and low temp' CONFIG_TAU_AVERAGE
+  fi
+  define_bool CONFIG_PPC_ISATIMER y
+fi
+if [ "$CONFIG_POWER4" = "y" ]; then
+  bool 'VMX (same as AltiVec) support' CONFIG_ALTIVEC
+fi
+
+if [ "$CONFIG_4xx" = "y" -o "$CONFIG_8xx" = "y" ]; then
+  bool 'Math emulation' CONFIG_MATH_EMULATION
+fi
+
+if [ "$CONFIG_4xx" = "y" ]; then
+
+#
+# Set generic PPC4xx options
+#
+  define_bool CONFIG_NOT_COHERENT_CACHE y
+
+  if [ "$CONFIG_40x" = "y" ]; then
+    choice 'TTYS0 device and default console'	\
+	"UART0  CONFIG_UART0_TTYS0		\
+	 UART1	CONFIG_UART0_TTYS1"		UART0
+  fi
+
+  dep_bool 'Power Management support (experimental)' CONFIG_PM $CONFIG_EXPERIMENTAL
+
+#
+# Set processor implementation and boot options based on board
+#
+  if [ "$CONFIG_ASH" = "y" ]; then
+    define_bool CONFIG_NP405H y
+    define_bool CONFIG_IBM_OPENBIOS y
+    define_bool CONFIG_BIOS_FIXUP y
+  fi
+
+  if [ "$CONFIG_CEDER" = "y" ]; then
+    define_bool CONFIG_NP405L y
+    define_bool CONFIG_IBM_OPENBIOS y
+  fi
+
+  if [ "$CONFIG_CPCI405" = "y" ]; then
+    define_bool CONFIG_405GP y
+  fi
+
+  if [ "$CONFIG_DMC405" = "y" ]; then
+    define_bool CONFIG_405GP y
+  fi
+
+  if [ "$CONFIG_EP405" = "y" ]; then
+    define_bool CONFIG_405GP y
+    define_bool CONFIG_BIOS_FIXUP y
+    define_bool CONFIG_EMBEDDEDBOOT y
+  fi
+
+  if [ "$CONFIG_EVB405EP" = "y" ]; then
+    define_bool CONFIG_405EP y
+    define_bool CONFIG_IBM_OPENBIOS y
+    define_bool CONFIG_BIOS_FIXUP y
+  fi
+
+  if [ "$CONFIG_PPCHAMELEONEVB" = "y" ]; then
+    define_bool CONFIG_405EP y
+    define_bool CONFIG_STE100P_FIXUP y
+  fi  
+
+  if [ "$CONFIG_RAINIER" = "y" ]; then
+    define_bool CONFIG_EMBEDDEDBOOT y
+    define_bool CONFIG_NP405GS y
+  fi
+
+  if [ "$CONFIG_XILINX_ML300" = "y" ]; then
+    define_bool CONFIG_EMBEDDEDBOOT y
+    define_bool CONFIG_VIRTEX_II_PRO y
+  fi
+
+  if [ "$CONFIG_OAK" = "y" -o "$CONFIG_TIVO" = "y" ]; then
+    define_bool CONFIG_403GCX y
+    define_bool CONFIG_IBM_OPENBIOS y
+  fi
+
+  if [ "$CONFIG_REDWOOD_4" = "y" -o "$CONFIG_REDWOOD_5" = "y" \
+  	-o "$CONFIG_REDWOOD_6" = "y" ]; then
+    define_bool CONFIG_STB03xxx y
+    define_bool CONFIG_IBM_OPENBIOS y
+  fi
+
+  if [ "$CONFIG_WALNUT" = "y" ]; then
+    define_bool CONFIG_405GP y
+    define_bool CONFIG_IBM_OPENBIOS y
+    define_bool CONFIG_BIOS_FIXUP y
+  fi
+
+  if [ "$CONFIG_EXBITGEN" = "y" ]; then
+    define_bool CONFIG_405GP y
+    define_bool CONFIG_IBM_OPENBIOS y
+    define_bool CONFIG_BIOS_FIXUP y
+  fi
+
+  if [ "$CONFIG_BEECH" = "y" ]; then
+    define_bool CONFIG_405LP y
+    define_bool CONFIG_IBM_OPENBIOS y
+  fi
+
+  if [ "$CONFIG_ARCTIC2" = "y" ]; then
+    define_bool CONFIG_405LP y
+  fi
+
+  if [ "$CONFIG_SYCAMORE" = "y" ]; then
+    define_bool CONFIG_405GPR y
+    define_bool CONFIG_BIOS_FIXUP y
+    define_bool CONFIG_IBM_OPENBIOS y
+  fi
+
+  if [ "$CONFIG_EBONY" = "y" ]; then
+    define_bool CONFIG_440GP y
+  fi
+
+  if [ "$CONFIG_OCOTEA" = "y" ]; then
+    define_bool CONFIG_440GX y
+  fi
+
+#
+# Set options based on processor implementation
+#
+  if [ "$CONFIG_405GP" = "y" -o "$CONFIG_405EP" = "y" -o \
+       "$CONFIG_NP405H" = "y" -o "$CONFIG_NP405L" = "y" -o \
+       "$CONFIG_NP405GS" = "y" -o "$CONFIG_STB03xxx" = "y" -o \
+       "$CONFIG_405LP" = "y" -o "$CONFIG_405GPR" = "y" ]; then
+    define_bool CONFIG_IBM_OCP y
+    define_bool CONFIG_GEN550 y
+    define_bool CONFIG_405 y
+  fi
+
+  if [ "$CONFIG_VIRTEX_II_PRO" = "y" ]; then
+    define_bool CONFIG_XILINX_OCP y
+    define_bool CONFIG_GEN550 y
+    define_bool CONFIG_405 y
+  fi
+
+  if [ "$CONFIG_440GP" = "y" ]; then
+    define_bool CONFIG_IBM_OCP y
+    define_bool CONFIG_GEN550 y
+    define_bool CONFIG_440 y
+  fi
+
+  if [ "$CONFIG_440GX" = "y" ]; then
+    define_bool CONFIG_IBM_OCP y
+    define_bool CONFIG_GEN550 y
+    define_bool CONFIG_IBM_EMAC4 y
+    define_bool CONFIG_440A y
+  fi
+
+#
+# Set options based on processor core
+#
+  if [ "$CONFIG_40x" = "y" ]; then
+    define_bool CONFIG_IBM405_ERR51 y
+  fi
+
+  if [ "$CONFIG_405" = "y" ]; then
+    define_bool CONFIG_IBM405_ERR77 y
+  fi
+
+  if [ "$CONFIG_44x" = "y" ]; then
+    define_bool CONFIG_PTE_64BIT y
+    define_bool CONFIG_PIN_TLB y
+    define_bool CONFIG_BOOKE y
+  fi
+
+  bool 'PPC4xx DMA controller support' CONFIG_PPC4xx_DMA
+  if [ "$CONFIG_PPC4xx_DMA" = "y" ]; then
+    if [ "$CONFIG_405GP" = "y" -o "$CONFIG_NP405L" = "y"	\
+	  -o "$CONFIG_NP405H" = "y" -o "$CONFIG_NP405GS" = "y"	\
+          -o "$CONFIG_440" = "y" -o "$CONFIG_405LP" = "y" \
+	  -o "$CONFIG_405EP" = "y" ]; then
+      define_bool CONFIG_PPC4xx_EDMA y
+    fi
+    if [ "$CONFIG_STB03xxx" = "y" ]; then
+      define_bool CONFIG_STBXXX_DMA y
+    fi
+  fi
+
+  dep_bool 'OCP Device proc fs support (experimental)' CONFIG_OCP_PROC $CONFIG_IBM_OCP
+
+fi
+
+if [ "$CONFIG_PPC_5xxx" = "y" ]; then
+  choice 'Processor Type'	\
+	"MPC5100		CONFIG_MPC5100		\
+	 MPC5200		CONFIG_MPC5200"		MPC5200
+  int 'Serial Console Baudrate' CONFIG_PPC_5xxx_PSC_CONSOLE_BAUD 115200
+  bool 'Board uses U-Boot' CONFIG_UBOOT
+
+  if [ "$CONFIG_GLACIER" = "y" ]; then
+    define_int CONFIG_PPC_5xxx_PSC_CONSOLE_PORT 2
+    if [ "$CONFIG_UBOOT" != "y" ]; then
+      int 'MPC5xxx Processor Frequency' CONFIG_PPC_5xxx_PROCFREQ 231000000
+      int 'MPC5xxx Peripheral Bus Frequency' CONFIG_PPC_5xxx_IPBFREQ 66000000
+    fi
+  fi
+  
+  if [ "$CONFIG_ICECUBE" = "y" ]; then
+    define_int CONFIG_PPC_5xxx_PSC_CONSOLE_PORT 0
+    if [ "$CONFIG_UBOOT" != "y" ]; then
+      int 'MPC5xxx Processor Frequency' CONFIG_PPC_5xxx_PROCFREQ 396000000
+      int 'MPC5xxx Peripheral Bus Frequency' CONFIG_PPC_5xxx_IPBFREQ 66000000
+      hex 'Flash Rom Base Address' CONFIG_PPC_5xxx_FLASH_ADDR 0xff800000
+      hex 'Flash Rom Size' CONFIG_PPC_5xxx_FLASH_SIZE 0x1000000
+    fi
+  fi
+fi
+
+if [ "$CONFIG_8xx" = "y" -o "$CONFIG_8260" = "y" ]; then
+    define_bool CONFIG_EMBEDDEDBOOT y
+fi
+endmenu
+
+mainmenu_option next_comment
+comment 'General setup'
+
+bool 'High memory support (experimental)' CONFIG_HIGHMEM
+if [ "$CONFIG_ADVANCED_OPTIONS" = "y" ]; then
+  if [ "$CONFIG_HIGHMEM" = "y" ]; then
+    bool "  Set high memory pool address" CONFIG_HIGHMEM_START_BOOL
+    if [ "$CONFIG_HIGHMEM_START_BOOL" = "y" ]; then
+      hex "    Virtual start address of high memory pool" CONFIG_HIGHMEM_START 0xfe000000
+    fi
+  fi
+  bool "  Set maximum low memory" CONFIG_LOWMEM_SIZE_BOOL
+  if [ "$CONFIG_LOWMEM_SIZE_BOOL" = "y" ]; then
+    hex "    Maximum low memory size (in bytes)" CONFIG_LOWMEM_SIZE 0x20000000
+  fi
+
+  bool "Set custom kernel base address" CONFIG_KERNEL_START_BOOL
+  if [ "$CONFIG_KERNEL_START_BOOL" = "y" ]; then
+    hex "  Virtual address of kernel base" CONFIG_KERNEL_START 0xc0000000
+  fi
+  bool "Set custom user task size" CONFIG_TASK_SIZE_BOOL
+  if [ "$CONFIG_TASK_SIZE_BOOL" = "y" ]; then
+    hex "  Size of user task space" CONFIG_TASK_SIZE 0x80000000
+  fi
+  if [ "$CONFIG_8xx" = "y" ]; then
+    bool "Pinned Kernel TLBs (86x ONLY)" CONFIG_PIN_TLB
+  fi
+  if [ "$CONFIG_40x" = "y" ]; then
+    bool "Pinned Kernel TLBs" CONFIG_PIN_TLB
+  fi
+fi
+
+if [ "$CONFIG_HIGHMEM_START_BOOL" != "y" ]; then
+  define_hex CONFIG_HIGHMEM_START 0xfe000000
+fi
+
+if [ "$CONFIG_LOWMEM_SIZE_BOOL" != "y" ]; then
+  define_hex CONFIG_LOWMEM_SIZE 0x30000000
+fi
+
+if [ "$CONFIG_KERNEL_START_BOOL" != "y" ]; then
+  define_hex CONFIG_KERNEL_START 0xc0000000
+fi
+
+if [ "$CONFIG_TASK_SIZE_BOOL" != "y" ]; then
+  define_hex CONFIG_TASK_SIZE 0x80000000
+fi
+
+if [ "$CONFIG_ALL_PPC" = "y" ]; then
+  bool 'Support for ISA-bus hardware' CONFIG_ISA
+else
+  define_bool CONFIG_ISA n
+fi
+define_bool CONFIG_EISA n
+define_bool CONFIG_SBUS n
+
+# Yes MCA RS/6000s exist but Linux-PPC does not currently support any
+define_bool CONFIG_MCA n
+
+if [ "$CONFIG_4xx" = "y" -o "$CONFIG_8260" = "y" ]; then
+  bool "Enable PCI" CONFIG_PCI
+  dep_bool "  Enable workaround for MPC826x erratum PCI 9" CONFIG_8260_PCI9 $CONFIG_PCI $CONFIG_8260
+  if [ "$CONFIG_8260_PCI9" = "y" ]; then
+    choice '    IDMA channel for PCI 9 workaround'	\
+	"IDMA1	CONFIG_8260_PCI9_IDMA1	\
+	 IDMA2	CONFIG_8260_PCI9_IDMA2	\
+	 IDMA3	CONFIG_8260_PCI9_IDMA3	\
+	 IDMA4	CONFIG_8260_PCI9_IDMA4"	IDMA1
+  fi
+  bool 'PC PS/2 style Keyboard' CONFIG_PC_KEYBOARD
+else
+  if [ "$CONFIG_8xx" = "y" ]; then
+     bool 'QSpan PCI' CONFIG_PCI_QSPAN
+     define_bool CONFIG_PCI $CONFIG_PCI_QSPAN
+  else
+     if [ "$CONFIG_APUS" = "y" ]; then
+       bool 'PCI for Permedia2' CONFIG_PCI_PERMEDIA
+       define_bool CONFIG_PCI $CONFIG_PCI_PERMEDIA
+     else
+       define_bool CONFIG_PCI y
+     fi
+  fi
+fi
+
+bool 'Networking support' CONFIG_NET
+bool 'Sysctl support' CONFIG_SYSCTL
+bool 'System V IPC' CONFIG_SYSVIPC
+bool 'BSD Process Accounting' CONFIG_BSD_PROCESS_ACCT
+
+# only elf supported, a.out is not -- Cort
+if [ "$CONFIG_PROC_FS" = "y" ]; then
+  define_bool CONFIG_KCORE_ELF y
+fi
+define_bool CONFIG_BINFMT_ELF y
+define_bool CONFIG_KERNEL_ELF y
+tristate 'Kernel support for MISC binaries' CONFIG_BINFMT_MISC
+
+source drivers/pci/Config.in
+
+bool 'Support for hot-pluggable devices' CONFIG_HOTPLUG
+
+if [ "$CONFIG_HOTPLUG" = "y" ]; then
+  source drivers/pcmcia/Config.in
+else
+  define_bool CONFIG_PCMCIA n
+fi
+
+source drivers/parport/Config.in
+
+tristate 'Generic /dev/rtc emulation' CONFIG_GEN_RTC
+if [ "$CONFIG_GEN_RTC" = "n" -a "$CONFIG_APUS" != "y" ]; then
+  tristate 'Support for /dev/rtc' CONFIG_PPC_RTC
+fi
+
+if [ "$CONFIG_ALL_PPC" = "y" -a "$CONFIG_POWER3" = "n" ] ; then
+  bool 'Workarounds for PPC601 bugs' CONFIG_PPC601_SYNC_FIX
+fi
+
+if [ "$CONFIG_ALL_PPC" = "y" ]; then
+  bool 'Support for Open Firmware device tree in /proc' CONFIG_PROC_DEVICETREE
+  bool 'Support for RTAS (RunTime Abstraction Services) in /proc' CONFIG_PPC_RTAS
+  bool 'Support for PReP Residual Data' CONFIG_PREP_RESIDUAL
+  dep_bool '  Support for reading of PReP Residual Data in /proc' CONFIG_PROC_PREPRESIDUAL $CONFIG_PREP_RESIDUAL
+  define_bool CONFIG_PPCBUG_NVRAM y
+fi
+if [ "$CONFIG_PPLUS" = "y" -o "$CONFIG_LOPEC" = "y" ]; then
+  bool 'Enable reading PPCBUG NVRAM during boot' CONFIG_PPCBUG_NVRAM
+fi
+
+bool 'Default bootloader kernel arguments' CONFIG_CMDLINE_BOOL
+if [ "$CONFIG_CMDLINE_BOOL" = "y" ] ; then
+  string 'Initial kernel command string' CONFIG_CMDLINE "console=ttyS0,9600 console=tty0 root=/dev/sda2"
+fi
+
+if [ "$CONFIG_APUS" = "y" ]; then
+  define_bool CONFIG_FB_CONSOLE y
+  define_bool CONFIG_AMIGA y
+  define_bool CONFIG_ZORRO y
+  define_bool CONFIG_AMIGAMOUSE y
+  define_bool CONFIG_ABSTRACT_CONSOLE y
+  define_bool CONFIG_FB y
+  define_bool CONFIG_MOUSE y
+  define_bool CONFIG_BUSMOUSE y
+  define_bool CONFIG_APUS_FAST_EXCEPT y
+
+  if [ "$CONFIG_EXPERIMENTAL" = "y" ]; then
+    bool 'Amiga 1200/600 PCMCIA support' CONFIG_AMIGA_PCMCIA
+  fi
+
+  tristate 'Amiga builtin serial support' CONFIG_AMIGA_BUILTIN_SERIAL
+  tristate 'GVP IO-Extender support' CONFIG_GVPIOEXT
+  dep_tristate 'GVP IO-Extender parallel printer support' CONFIG_GVPIOEXT_LP $CONFIG_GVPIOEXT
+  dep_tristate 'GVP IO-Extender PLIP support' CONFIG_GVPIOEXT_PLIP $CONFIG_GVPIOEXT
+  tristate 'Multiface Card III serial support' CONFIG_MULTIFACE_III_TTY
+  if [ "$CONFIG_EXPERIMENTAL" = "y" ]; then
+      tristate 'Commodore A2232 serial support (EXPERIMENTAL)' CONFIG_A2232
+  fi
+  if [ "$CONFIG_AMIGA_PCMCIA" = "y" ]; then
+    tristate 'Hisoft Whippet PCMCIA serial support' CONFIG_WHIPPET_SERIAL
+    tristate 'PCMCIA NE2000 support' CONFIG_APNE
+  fi
+  if [ "$CONFIG_AMIGA_BUILTIN_SERIAL" = "y" -o "$CONFIG_GVPIOEXT" = "y" -o \
+       "$CONFIG_MULTIFACE_III_TTY" = "y" ]; then
+    bool 'Support for serial port console' CONFIG_SERIAL_CONSOLE
+  fi
+  bool 'Use power LED as a heartbeat' CONFIG_HEARTBEAT
+  bool '/proc/hardware support' CONFIG_PROC_HARDWARE
+  source drivers/zorro/Config.in
+fi
+
+endmenu
+source drivers/mtd/Config.in
+source drivers/pnp/Config.in
+source drivers/block/Config.in
+source drivers/md/Config.in
+
+if [ "$CONFIG_NET" = "y" ]; then
+  source net/Config.in
+fi
+
+mainmenu_option next_comment
+comment 'ATA/IDE/MFM/RLL support'
+
+tristate 'ATA/IDE/MFM/RLL support' CONFIG_IDE
+
+if [ "$CONFIG_IDE" != "n" ]; then
+  source drivers/ide/Config.in
+else
+  define_bool CONFIG_BLK_DEV_IDE_MODES n
+  define_bool CONFIG_BLK_DEV_HD n
+fi
+endmenu
+
+mainmenu_option next_comment
+comment 'SCSI support'
+tristate 'SCSI support' CONFIG_SCSI
+if [ "$CONFIG_SCSI" != "n" ]; then
+  source drivers/scsi/Config.in
+fi
+endmenu
+
+source drivers/message/fusion/Config.in
+
+source drivers/ieee1394/Config.in
+
+source drivers/message/i2o/Config.in
+
+if [ "$CONFIG_NET" = "y" ]; then
+  mainmenu_option next_comment
+  comment 'Network device support'
+
+  bool 'Network device support' CONFIG_NETDEVICES
+  if [ "$CONFIG_NETDEVICES" = "y" ]; then
+    source drivers/net/Config.in
+    if [ "$CONFIG_ATM" = "y" -o "$CONFIG_ATM" = "m" ]; then
+      source drivers/atm/Config.in
+    fi
+  fi
+  endmenu
+fi
+
+source net/ax25/Config.in
+
+source net/irda/Config.in
+
+mainmenu_option next_comment
+comment 'ISDN subsystem'
+
+tristate 'ISDN support' CONFIG_ISDN
+if [ "$CONFIG_ISDN" != "n" ]; then
+  source drivers/isdn/Config.in
+fi
+endmenu
+
+mainmenu_option next_comment
+comment 'Old CD-ROM drivers (not SCSI, not IDE)'
+
+bool 'Support non-SCSI/IDE/ATAPI CDROM drives' CONFIG_CD_NO_IDESCSI
+if [ "$CONFIG_CD_NO_IDESCSI" != "n" ]; then
+  source drivers/cdrom/Config.in
+fi
+endmenu
+
+mainmenu_option next_comment
+comment 'Console drivers'
+if [ "$CONFIG_40x" != "y" -a "$CONFIG_8xx" != "y" ]; then
+  bool 'Support for VGA Console' CONFIG_VGA_CONSOLE
+fi
+ source drivers/video/Config.in
+if [ "$CONFIG_FB" = "y" -a "$CONFIG_ALL_PPC" = "y" ]; then
+  bool 'Backward compatibility mode for Xpmac' CONFIG_FB_COMPAT_XPMAC
+fi
+endmenu
+
+source drivers/input/Config.in
+
+mainmenu_option next_comment
+comment 'Macintosh device drivers'
+
+if [ "$CONFIG_ALL_PPC" = "y" ]; then
+  # we want to change this to something like CONFIG_SYSCTRL_CUDA/PMU
+  bool 'Support for CUDA based PowerMacs' CONFIG_ADB_CUDA
+  bool 'Support for PMU  based PowerMacs' CONFIG_ADB_PMU
+  if [ "$CONFIG_ADB_PMU" = "y" ]; then
+    bool '   Power management support for PowerBooks' CONFIG_PMAC_PBOOK
+    if [ "$CONFIG_PMAC_PBOOK" = "y" ]; then
+      define_bool CONFIG_PM y
+      tristate '     APM emulation' CONFIG_PMAC_APM_EMU
+    fi
+    # made a separate option since backlight may end up beeing used
+    # on non-powerbook machines (but only on PMU based ones AFAIK)
+    bool '   Backlight control for LCD screens' CONFIG_PMAC_BACKLIGHT
+  fi
+  bool 'Support for PowerMac floppy' CONFIG_MAC_FLOPPY
+  tristate 'Support for PowerMac serial ports' CONFIG_MAC_SERIAL
+  if [ "$CONFIG_MAC_SERIAL" = "y" ]; then
+    bool '   Support for console on serial port' CONFIG_SERIAL_CONSOLE
+  fi
+  bool 'Apple Desktop Bus (ADB) support' CONFIG_ADB
+  if [ "$CONFIG_ADB" = "y" ]; then
+    bool '   Include MacIO (CHRP) ADB driver' CONFIG_ADB_MACIO
+    dep_bool '   Use input layer for ADB devices' CONFIG_INPUT_ADBHID $CONFIG_INPUT
+    if [ "$CONFIG_INPUT_ADBHID" = "y" ]; then
+      bool '     Support for ADB raw keycodes' CONFIG_MAC_ADBKEYCODES
+      bool '     Support for mouse button 2+3 emulation' CONFIG_MAC_EMUMOUSEBTN
+    else
+      bool '   Support for ADB keyboard (old driver)' CONFIG_ADB_KEYBOARD
+    fi
+  fi
+  # This is for drivers/macintosh/mac_hid.o, which is needed if the input
+  # layer is used.
+  if [ "$CONFIG_INPUT" != "n" ]; then
+    define_bool CONFIG_MAC_HID y
+  fi
+  if [ "$CONFIG_ADB_CUDA" != "n" ]; then
+    bool 'Support for ANS LCD display' CONFIG_ANSLCD
+  fi
+fi
+endmenu
+
+source drivers/char/Config.in
+
+source drivers/media/Config.in
+
+source fs/Config.in
+
+mainmenu_option next_comment
+comment 'Sound'
+tristate 'Sound card support' CONFIG_SOUND
+if [ "$CONFIG_SOUND" != "n" ]; then
+  source drivers/sound/dmasound/Config.in
+  source drivers/sound/Config.in
+fi
+
+endmenu
+
+if [ "$CONFIG_8xx" = "y" ]; then
+source arch/ppc/8xx_io/Config.in
+fi
+
+if [ "$CONFIG_8260" = "y" ]; then
+source arch/ppc/8260_io/Config.in
+fi
+
+if [ "$CONFIG_40x" = "y" ]; then
+  mainmenu_option next_comment
+  comment 'IBM 4xx options'
+  if [ "$CONFIG_STB03xxx" = "y" ]; then
+    bool 'STB IR Keyboard' CONFIG_STB_KB
+    bool 'SICC Serial port' CONFIG_SERIAL_SICC
+    if [ "$CONFIG_SERIAL_SICC" = "y" -a "$CONFIG_UART0_TTYS1" = "y" ]; then
+      define_bool CONFIG_UART1_DFLT_CONSOLE y	
+      define_bool CONFIG_SERIAL_SICC_CONSOLE y
+   fi
+  fi
+
+  if [ "$CONFIG_BEECH" = "y" ]; then
+     dep_bool 'Use pushbutton U63 for suspend/resume?' CONFIG_405LP_PM_BUTTON $CONFIG_PM
+  fi
+  if [ "$CONFIG_ARCTIC2" = "y" ]; then
+     dep_bool 'Use power button for suspend/resume?' CONFIG_405LP_PM_BUTTON $CONFIG_PM
+  fi
+  endmenu
+fi
+
+if [ "$CONFIG_PPC_5xxx" = "y" ]; then
+   source arch/ppc/5xxx_io/Config.in
+fi
+
+source drivers/usb/Config.in
+
+source net/bluetooth/Config.in
+
+source crypto/Config.in
+source lib/Config.in
+
+mainmenu_option next_comment
+comment 'Kernel hacking'
+
+bool 'Kernel debugging' CONFIG_DEBUG_KERNEL
+if [ "$CONFIG_DEBUG_KERNEL" = "y" ]; then
+  bool '  Magic SysRq key' CONFIG_MAGIC_SYSRQ
+  bool '  Debug high memory support' CONFIG_DEBUG_HIGHMEM
+  bool '  Debug memory allocations' CONFIG_DEBUG_SLAB
+  bool '  Memory mapped I/O debugging' CONFIG_DEBUG_IOVIRT
+  bool '  Spinlock debugging' CONFIG_DEBUG_SPINLOCK
+  bool '  Wait queue debugging' CONFIG_DEBUG_WAITQ
+  bool '  Include kgdb kernel debugger' CONFIG_KGDB
+  if [ "$CONFIG_KGDB" = "y" ]; then
+    choice '    Serial Port'		\
+	"ttyS0	CONFIG_KGDB_TTYS0	\
+	 ttyS1	CONFIG_KGDB_TTYS1	\
+	 ttyS2	CONFIG_KGDB_TTYS2	\
+	 ttyS3	CONFIG_KGDB_TTYS3"	ttyS1
+  fi
+  if [ "$CONFIG_8xx" = "y" -o "$CONFIG_8260" = "y" ]; then
+    dep_bool '    Enable serial console thru kgdb port' CONFIG_KGDB_CONSOLE $CONFIG_KGDB
+  fi
+  bool '  Include xmon kernel debugger' CONFIG_XMON
+  bool '  Include BDI-2000 user context switcher' CONFIG_BDI_SWITCH
+  # CONFIG_KGDB is much more useful with -g enbaled.  This makes the
+  # following look a little odd.
+  if [ "$CONFIG_KGDB" = "y" -o "$CONFIG_XMON" = "y" \
+	-o "$CONFIG_BDI_SWITCH" = "y" ]; then
+    bool '  Add any additional compile options' CONFIG_MORE_COMPILE_OPTIONS
+    if [ "$CONFIG_MORE_COMPILE_OPTIONS" = "y" ]; then
+      string '    Additional compile arguments' CONFIG_COMPILE_OPTIONS "-g -ggdb"
+    else
+      if [ "$CONFIG_KGDB" = "y" ]; then
+        define_bool CONFIG_MORE_COMPILE_OPTIONS y
+	define_string CONFIG_COMPILE_OPTIONS "-g"
+      fi
+    fi
+  fi
+fi
+
+if [ "$CONFIG_ALL_PPC" = "y" ]; then
+  bool 'Support for early boot text console (BootX or OpenFirmware only)' CONFIG_BOOTX_TEXT
+fi
+if [ "$CONFIG_GEN550" = "y" -o "$CONFIG_GT64260" = "y" \
+	-o "$CONFIG_PPC_5xxx" = "y" ]; then
+  bool 'Support for early boot texts over serial port' CONFIG_SERIAL_TEXT_DEBUG
+fi
+
+int 'Kernel messages buffer length shift (0 = default)' CONFIG_LOG_BUF_SHIFT 0
+
+endmenu

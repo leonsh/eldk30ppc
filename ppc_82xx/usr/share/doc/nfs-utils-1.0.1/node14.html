@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Light Load</TITLE>
+<META NAME="description" CONTENT="Light Load">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node15.html">
+<LINK REL="previous" HREF="node13.html">
+<LINK REL="up" HREF="node13.html">
+<LINK REL="next" HREF="node15.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html177"
+ HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html175"
+ HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html169"
+ HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html178"
+ HREF="node15.html">Moderate Load</A>
+<B> Up:</B> <A NAME="tex2html176"
+ HREF="node13.html">The Kernel-Space NFS Server</A>
+<B> Previous:</B> <A NAME="tex2html170"
+ HREF="node13.html">The Kernel-Space NFS Server</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00042100000000000000">
+Light Load</A>
+</H3>
+
+<P>
+We ran the SFS benchmarks with initial load set to 100 for 5 times
+and incremented the load by 100 at each run. We measured the
+server performances with different numbers of server threads,
+1, 2, 4, 8 and 16. The results were listed here:
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">Run</TD>
+<TD ALIGN="CENTER"># of Server</TD>
+<TD ALIGN="CENTER"># of</TD>
+<TD ALIGN="CENTER"># of Processes</TD>
+<TD ALIGN="CENTER">Load</TD>
+<TD ALIGN="CENTER">Throughput</TD>
+<TD ALIGN="CENTER">Response Time</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">Threads</TD>
+<TD ALIGN="CENTER">Clients</TD>
+<TD ALIGN="CENTER">Per Client</TD>
+<TD ALIGN="CENTER">(Ops/Sec)</TD>
+<TD ALIGN="CENTER">(Ops/Sec)</TD>
+<TD ALIGN="CENTER">(Msec/Op)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">100</TD>
+<TD ALIGN="CENTER">98</TD>
+<TD ALIGN="CENTER">1.4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">2.7</TD>
+</TR>
+<TR><TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">300</TD>
+<TD ALIGN="CENTER">302</TD>
+<TD ALIGN="CENTER">3.3</TD>
+</TR>
+<TR><TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">400</TD>
+<TD ALIGN="CENTER">402</TD>
+<TD ALIGN="CENTER">6.8</TD>
+</TR>
+<TR><TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">100</TD>
+<TD ALIGN="CENTER">99</TD>
+<TD ALIGN="CENTER">1.0</TD>
+</TR>
+<TR><TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">1.7</TD>
+</TR>
+<TR><TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">300</TD>
+<TD ALIGN="CENTER">302</TD>
+<TD ALIGN="CENTER">2.0</TD>
+</TR>
+<TR><TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">400</TD>
+<TD ALIGN="CENTER">398</TD>
+<TD ALIGN="CENTER">3.3</TD>
+</TR>
+<TR><TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">100</TD>
+<TD ALIGN="CENTER">98</TD>
+<TD ALIGN="CENTER">1.0</TD>
+</TR>
+<TR><TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">1.4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">300</TD>
+<TD ALIGN="CENTER">303</TD>
+<TD ALIGN="CENTER">1.5</TD>
+</TR>
+<TR><TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">400</TD>
+<TD ALIGN="CENTER">398</TD>
+<TD ALIGN="CENTER">2.1</TD>
+</TR>
+<TR><TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">8</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">100</TD>
+<TD ALIGN="CENTER">98</TD>
+<TD ALIGN="CENTER">1.0</TD>
+</TR>
+<TR><TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">8</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">1.4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">8</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">300</TD>
+<TD ALIGN="CENTER">302</TD>
+<TD ALIGN="CENTER">1.6</TD>
+</TR>
+<TR><TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">8</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">400</TD>
+<TD ALIGN="CENTER">398</TD>
+<TD ALIGN="CENTER">2.1</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+The benchmarks show that even for the light load, the kernel-space NFS
+server outperforms the user-space one by a wide margin. In this test
+load, 4 kernel NFS server
+threads provides adequate performance.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html177"
+ HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html175"
+ HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html169"
+ HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html178"
+ HREF="node15.html">Moderate Load</A>
+<B> Up:</B> <A NAME="tex2html176"
+ HREF="node13.html">The Kernel-Space NFS Server</A>
+<B> Previous:</B> <A NAME="tex2html170"
+ HREF="node13.html">The Kernel-Space NFS Server</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

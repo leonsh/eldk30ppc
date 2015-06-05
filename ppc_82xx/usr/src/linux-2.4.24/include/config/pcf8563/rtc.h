@@ -1,0 +1,1 @@
+#undef  CONFIG_PCF8563_RTC

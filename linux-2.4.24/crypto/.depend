@@ -1,0 +1,168 @@
+aes.o: aes.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h
+api.o: api.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/rwsem.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   internal.h
+autoload.o: autoload.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   internal.h
+blowfish.o: blowfish.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h
+cast5.o: cast5.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h
+cipher.o: cipher.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   internal.h
+compress.o: compress.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   internal.h
+crypto_null.o: crypto_null.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h
+deflate.o: deflate.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/zlib.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h
+des.o: des.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h
+digest.o: digest.c \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   internal.h
+hmac.o: hmac.c \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   internal.h
+internal.h: \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/hardirq.h \
+   /home/jhan/linux-2.4.241q/include/asm/softirq.h \
+   /home/jhan/linux-2.4.241q/include/asm/kmap_types.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kmod.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/crypto/hmac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+	@touch internal.h
+md4.o: md4.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h
+md5.o: md5.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h
+proc.o: proc.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/rwsem.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/seq_file.h \
+   internal.h
+serpent.o: serpent.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h
+sha1.o: sha1.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h
+sha256.o: sha256.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h
+sha512.o: sha512.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h
+tcrypt.o: tcrypt.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h \
+   /home/jhan/linux-2.4.241q/include/linux/highmem.h \
+   tcrypt.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/crypto/hmac.h)
+tcrypt.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/crypto/hmac.h)
+	@touch tcrypt.h
+twofish.o: twofish.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/crypto.h
+.PRECIOUS:	internal.h \
+	tcrypt.h \
+

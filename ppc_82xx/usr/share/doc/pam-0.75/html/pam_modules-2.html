@@ -1,0 +1,441 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Module Writers' Guide: What can be expected by the module</TITLE>
+ <LINK HREF="pam_modules-3.html" REL=next>
+ <LINK HREF="pam_modules-1.html" REL=previous>
+ <LINK HREF="pam_modules.html#toc2" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_modules-3.html">Next</A>
+<A HREF="pam_modules-1.html">Previous</A>
+<A HREF="pam_modules.html#toc2">Contents</A>
+<HR>
+<H2><A NAME="s2">2.</A> <A HREF="pam_modules.html#toc2">What can be expected by the module</A></H2>
+
+<P>Here we list the interface that the conventions that all
+<B>Linux-PAM</B> modules must adhere to.</P>
+
+<H2><A NAME="ss2.1">2.1</A> <A HREF="pam_modules.html#toc2.1">Getting and setting <CODE>PAM_ITEM</CODE>s and <EM>data</EM></A>
+</H2>
+
+<P>First, we cover what the module should expect from the <B>Linux-PAM</B>
+library and a <B>Linux-PAM</B> <EM>aware</EM> application. Essesntially this
+is the <CODE>libpam.*</CODE> library.</P>
+
+<H3>Setting data</H3>
+
+<P>Synopsis:
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int pam_set_data(pam_handle_t *pamh,
+                        const char *module_data_name,
+                        void *data,
+                        void (*cleanup)(pam_handle_t *pamh,
+                                        void *data, int error_status) );
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>The modules may be dynamically loadable objects. In general such files
+should not contain <CODE>static</CODE> variables. This and the subsequent
+function provide a mechanism for a module to associate some data with
+the handle <CODE>pamh</CODE>. Typically a module will call the
+<CODE>pam_set_data()</CODE> function to register some data under a (hopefully)
+unique <CODE>module_data_name</CODE>. The data is available for use by other
+modules too but <EM>not</EM> by an application.</P>
+
+<P>The function <CODE>cleanup()</CODE> is associated with the <CODE>data</CODE> and, if
+non-<CODE>NULL</CODE>, it is called when this data is over-written or
+following a call to <CODE>pam_end()</CODE> (see the Linux-PAM Application
+Developers' Guide).</P>
+
+<P>The <CODE>error_status</CODE> argument is used to indicate to the module the
+sort of action it is to take in cleaning this data item. As an
+example, Kerberos creates a ticket file during the authentication
+phase, this file might be associated with a data item. When
+<CODE>pam_end()</CODE> is called by the module, the <CODE>error_status</CODE>
+carries the return value of the <CODE>pam_authenticate()</CODE> or other
+<CODE>libpam</CODE> function as appropriate. Based on this value the Kerberos
+module may choose to delete the ticket file (<EM>authentication
+failure</EM>) or leave it in place.</P>
+
+<P>The <CODE>error_status</CODE> may have been logically OR'd with either of the
+following two values:</P>
+
+<P>
+<DL>
+<DT><B><CODE>PAM_DATA_REPLACE</CODE></B><DD><P>When a data item is being replaced (through a second call to
+<CODE>pam_set_data()</CODE>) this mask is used. Otherwise, the call is assumed
+to be from <CODE>pam_end()</CODE>.</P>
+
+<DT><B><CODE>PAM_DATA_SILENT</CODE></B><DD><P>Which indicates that the process would prefer to perform the
+<CODE>cleanup()</CODE> quietly. That is, discourages logging/messages to the
+user.</P>
+
+</DL>
+</P>
+
+
+<H3>Getting data</H3>
+
+<P>Synopsis:
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int pam_get_data(const pam_handle_t *pamh,
+                        const char *module_data_name,
+                        const void **data);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>This function together with the previous one provides a method of
+associating module-specific data with the handle <CODE>pamh</CODE>. A
+successful call to <CODE>pam_get_data</CODE> will result in <CODE>*data</CODE>
+pointing to the data associated with the <CODE>module_data_name</CODE>. Note,
+this data is <EM>not</EM> a copy and should be treated as <EM>constant</EM>
+by the module.</P>
+
+<P>Note, if there is an entry but it has the value <CODE>NULL</CODE>, then this
+call returns <CODE>PAM_NO_MODULE_DATA</CODE>.</P>
+
+<H3>Setting items</H3>
+
+<P>Synopsis:
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int pam_set_item(pam_handle_t *pamh,
+                        int item_type,
+                        const void *item);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>This function is used to (re)set the value of one of the
+<CODE>item_type</CODE>s.  The reader is urged to read the entry for this
+function in the <B>Linux-PAM</B> application developers' manual.</P>
+
+<P>In addition to the <CODE>item</CODE>s listed there, the module can set the
+following two <CODE>item_type</CODE>s:</P>
+
+<P>
+<DL>
+<DT><B><CODE>PAM_AUTHTOK</CODE></B><DD><P>The authentication token (often a password). This token should be
+ignored by all module functions besides <CODE>pam_sm_authenticate()</CODE> and
+<CODE>pam_sm_chauthtok()</CODE>. In the former function it is used to pass the
+most recent authentication token from one stacked module to
+another. In the latter function the token is used for another
+purpose. It contains the currently active authentication token.</P>
+
+<DT><B><CODE>PAM_OLDAUTHTOK</CODE></B><DD><P>The old authentication token. This token should be ignored by all
+module functions except <CODE>pam_sm_chauthtok()</CODE>.</P>
+
+</DL>
+</P>
+
+<P>Both of these items are reset before returning to the application.
+When resetting these items, the <B>Linux-PAM</B> library first writes
+<CODE>0</CODE>'s to the current tokens and then <CODE>free()</CODE>'s the associated
+memory.</P>
+
+<P>The return values for this function are listed in the 
+<B>Linux-PAM</B> Application Developers' Guide.</P>
+
+<H3>Getting items</H3>
+
+<P>Synopsis:
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int pam_get_item(const pam_handle_t *pamh,
+                        int item_type,
+                        const void **item);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>This function is used to obtain the value of the specified
+<CODE>item_type</CODE>. It is better documented in the <B>Linux-PAM</B>
+Application Developers' Guide. However, there are three things worth
+stressing here:
+<UL>
+<LI>Generally, if the module wishes to obtain the name of the user, it
+should not use this function, but instead perform a call to
+<CODE>pam_get_user()</CODE> (see section 
+<A HREF="#pam-get-user">below</A>).
+</LI>
+<LI>The module is additionally privileged to read the authentication
+tokens, <CODE>PAM_AUTHTOK</CODE> and <CODE>PAM_OLDAUTHTOK</CODE> (see the section
+above on <CODE>pam_set_data()</CODE>).
+</LI>
+<LI>The module should <EM>not</EM> <CODE>free()</CODE> or alter the data pointed to by
+<CODE>*item</CODE> after a successful return from <CODE>pam_get_item()</CODE>. This
+pointer points directly at the data contained within the <CODE>*pamh</CODE>
+structure.  Should a module require that a change is made to the this
+<CODE>ITEM</CODE> it should make the appropriate call to <CODE>pam_set_item()</CODE>.</LI>
+</UL>
+</P>
+
+<H3>The <EM>conversation</EM> mechanism</H3>
+
+<P>Following the call <CODE>pam_get_item(pamh,PAM_CONV,&amp;item)</CODE>, the
+pointer <CODE>item</CODE> points to a <EM>conversation</EM>-function that provides
+limited but direct access to the application.  The purpose of this
+function is to allow the module to prompt the user for their password
+and pass other information in a manner consistent with the
+application. For example, an X-windows based program might pop up a
+dialog box to report a login failure. Just as the application should
+not be concerned with the method of authentication, so the module
+should not dictate the manner in which input (output) is
+obtained from (presented to) to the user.</P>
+
+<P>The reader is strongly urged to read the more complete description of
+the <CODE>pam_conv</CODE> structure, written from the perspective of the
+application developer, in the <B>Linux-PAM</B> Application Developers'
+Guide.</P>
+
+<P>The <CODE>pam_response</CODE> structure returned after a call to the
+<CODE>pam_conv</CODE> function must be <CODE>free()</CODE>'d by the module. Since the
+call to the conversation function originates from the module, it is
+clear that either this <CODE>pam_response</CODE> structure could be either
+statically or dynamically (using <CODE>malloc()</CODE> etc.) allocated within
+the application. Repeated calls to the conversation function would
+likely overwrite static memory, so it is required that for a
+successful return from the conversation function the memory for the
+response structure is dynamically allocated by the application with
+one of the <CODE>malloc()</CODE> family of commands and <EM>must</EM> be
+<CODE>free()</CODE>'d by the module.</P>
+
+<P>If the <CODE>pam_conv</CODE> mechanism is used to enter authentication tokens,
+the module should either pass the result to the <CODE>pam_set_item()</CODE>
+library function, or copy it itself. In such a case, once the token
+has been stored (by one of these methods or another one), the memory
+returned by the application should be overwritten with <CODE>0</CODE>'s, and
+then <CODE>free()</CODE>'d.</P>
+
+<P>The return values for this function are listed in the 
+<B>Linux-PAM</B> Application Developers' Guide.</P>
+
+<H3><A NAME="pam-get-user"></A> Getting the name of a user</H3>
+
+<P>Synopsis:
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int pam_get_user(pam_handle_t *pamh, 
+                        const char **user,
+                        const char *prompt);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>This is a <B>Linux-PAM</B> library function that returns the
+(prospective) name of the user. To determine the username it does the
+following things, in this order:
+<UL>
+<LI> checks what <CODE>pam_get_item(pamh, PAM_USER, ... );</CODE> would have
+returned. If this is not <CODE>NULL</CODE> this is what it returns. Otherwise,
+</LI>
+<LI> obtains a username from the application via the <CODE>pam_conv</CODE>
+mechanism, it prompts the user with the first non-<CODE>NULL</CODE> string in
+the following list:
+<UL>
+<LI> The <CODE>prompt</CODE> argument passed to the function</LI>
+<LI> What is returned by <CODE>pam_get_item(pamh,PAM_USER_PROMPT, ... );</CODE></LI>
+<LI> The default prompt: ``Please enter username: ''
+</LI>
+</UL>
+</LI>
+</UL>
+</P>
+
+<P>By whatever means the username is obtained, a pointer to it is
+returned as the contents of <CODE>*user</CODE>. Note, this memory should
+<EM>not</EM> be <CODE>free()</CODE>'d by the module. Instead, it will be liberated
+on the next call to <CODE>pam_get_user()</CODE>, or by <CODE>pam_end()</CODE> when the
+application ends its interaction with <B>Linux-PAM</B>.</P>
+
+<P>Also, in addition, it should be noted that this function sets the
+<CODE>PAM_USER</CODE> item that is associated with the <CODE>pam_[gs]et_item()</CODE>
+function.</P>
+
+<P>The return value of this function is one of the following:
+<UL>
+<LI> <CODE>PAM_SUCCESS</CODE> - username obtained.
+</LI>
+<LI> <CODE>PAM_CONV_AGAIN</CODE> - converstation did not complete and the
+caller is required to return control to the application, until such
+time as the application has completed the conversation process. A
+module calling <CODE>pam_get_user()</CODE> that obtains this return code,
+should return <CODE>PAM_INCOMPLETE</CODE> and be prepared (when invoked the
+next time) to recall <CODE>pam_get_user()</CODE> to fill in the user's name,
+and then pick up where it left off as if nothing had happened. This
+procedure is needed to support an event-driven application programming
+model.
+</LI>
+<LI> <CODE>PAM_CONV_ERR</CODE> - the conversation method supplied by the
+application failed to obtain the username.
+</LI>
+</UL>
+</P>
+
+<H3>Setting a Linux-PAM environment variable</H3>
+
+<P>Synopsis:
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int pam_putenv(pam_handle_t *pamh, const char *name_value);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P><B>Linux-PAM</B> comes equipped with a series of functions for
+maintaining a set of <EM>environment</EM> variables. The environment is
+initialized by the call to <CODE>pam_start()</CODE> and is <B>erased</B> with a
+call to <CODE>pam_end()</CODE>.  This <EM>environment</EM> is associated with the
+<CODE>pam_handle_t</CODE> pointer returned by the former call.</P>
+
+<P>The default environment is all but empty. It contains a single
+<CODE>NULL</CODE> pointer, which is always required to terminate the
+variable-list.  The <CODE>pam_putenv()</CODE> function can be used to add a
+new environment variable, replace an existing one, or delete an old
+one.</P>
+
+<P>
+<UL>
+<LI>Adding/replacing a variable<BR>
+
+To add or overwrite a <B>Linux-PAM</B> environment variable the value of
+the argument <CODE>name_value</CODE>, should be of the following form:
+<BLOCKQUOTE><CODE>
+<PRE>
+name_value="VARIABLE=VALUE OF VARIABLE"
+</PRE>
+</CODE></BLOCKQUOTE>
+
+Here, <CODE>VARIABLE</CODE> is the environment variable's name and what
+follows the `<CODE>=</CODE>' is its (new) value. (Note, that <CODE>"VARIABLE="</CODE>
+is a valid value for <CODE>name_value</CODE>, indicating that the variable is
+set to <CODE>""</CODE>.)
+</LI>
+<LI> Deleting a variable<BR>
+
+To delete a <B>Linux-PAM</B> environment variable the value of
+the argument <CODE>name_value</CODE>, should be of the following form:
+<BLOCKQUOTE><CODE>
+<PRE>
+name_value="VARIABLE"
+</PRE>
+</CODE></BLOCKQUOTE>
+
+Here, <CODE>VARIABLE</CODE> is the environment variable's name and the absence
+of an `<CODE>=</CODE>' indicates that the variable should be removed.
+</LI>
+</UL>
+</P>
+
+<P>In all cases <CODE>PAM_SUCCESS</CODE> indicates success.</P>
+
+<H3>Getting a Linux-PAM environment variable</H3>
+
+<P>Synopsis:
+<BLOCKQUOTE><CODE>
+<PRE>
+extern const char *pam_getenv(pam_handle_t *pamh, const char *name);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>This function can be used to return the value of the given
+variable. If the returned value is <CODE>NULL</CODE>, the variable is not
+known.</P>
+
+<H3>Listing the Linux-PAM environment</H3>
+
+<P>Synopsis:
+<BLOCKQUOTE><CODE>
+<PRE>
+extern char * const *pam_getenvlist(pam_handle_t *pamh);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>This function returns a pointer to the entire <B>Linux-PAM</B>
+environment array.  At first sight the <EM>type</EM> of the returned data
+may appear a little confusing.  It is basically a <EM>read-only</EM> array
+of character pointers, that lists the <CODE>NULL</CODE> terminated list of
+environment variables set so far.</P>
+
+<P>Although, this is not a concern for the module programmer, we mention
+here that an application should be careful to copy this entire array
+before executing <CODE>pam_end()</CODE> otherwise all the variable information
+will be lost. (There are functions in <CODE>libpam_misc</CODE> for this
+purpose: <CODE>pam_misc_copy_env()</CODE> and <CODE>pam_misc_drop_env()</CODE>.)</P>
+
+<H2><A NAME="ss2.2">2.2</A> <A HREF="pam_modules.html#toc2.2">Other functions provided by <CODE>libpam</CODE></A>
+</H2>
+
+<H3>Understanding errors</H3>
+
+<P>
+<UL>
+<LI><CODE>extern const char *pam_strerror(pam_handle_t *pamh, int errnum);</CODE>
+
+<P>This function returns some text describing the <B>Linux-PAM</B> error
+associated with the argument <CODE>errnum</CODE>.  If the error is not
+recognized <CODE>``Unknown Linux-PAM error''</CODE> is returned.</P>
+
+</LI>
+</UL>
+</P>
+
+<H3>Planning for delays</H3>
+
+<P>
+<UL>
+<LI><CODE>extern int pam_fail_delay(pam_handle_t *pamh, unsigned int
+micro_sec)</CODE>
+
+<P>This function is offered by <B>Linux-PAM</B> to facilitate time delays
+following a failed call to <CODE>pam_authenticate()</CODE> and before control
+is returned to the application. When using this function the module
+programmer should check if it is available with,
+<BLOCKQUOTE><CODE>
+<PRE>
+#ifdef PAM_FAIL_DELAY
+    ....
+#endif /* PAM_FAIL_DELAY */
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>Generally, an application requests that a user is authenticated by
+<B>Linux-PAM</B> through a call to <CODE>pam_authenticate()</CODE> or
+<CODE>pam_chauthtok()</CODE>.  These functions call each of the <EM>stacked</EM>
+authentication modules listed in the <B>Linux-PAM</B> configuration
+file.  As directed by this file, one of more of the modules may fail
+causing the <CODE>pam_...()</CODE> call to return an error.  It is desirable
+for there to also be a pause before the application continues. The
+principal reason for such a delay is security: a delay acts to
+discourage <EM>brute force</EM> dictionary attacks primarily, but also
+helps hinder <EM>timed</EM> (cf. covert channel) attacks.</P>
+
+<P>The <CODE>pam_fail_delay()</CODE> function provides the mechanism by which an
+application or module can suggest a minimum delay (of <CODE>micro_sec</CODE>
+<EM>micro-seconds</EM>). <B>Linux-PAM</B> keeps a record of the longest time
+requested with this function. Should <CODE>pam_authenticate()</CODE> fail,
+the failing return to the application is delayed by an amount of time
+randomly distributed (by up to 25%) about this longest value.</P>
+
+<P>Independent of success, the delay time is reset to its zero default
+value when <B>Linux-PAM</B> returns control to the application.</P>
+
+</LI>
+</UL>
+</P>
+
+<HR>
+<A HREF="pam_modules-3.html">Next</A>
+<A HREF="pam_modules-1.html">Previous</A>
+<A HREF="pam_modules.html#toc2">Contents</A>
+</BODY>
+</HTML>

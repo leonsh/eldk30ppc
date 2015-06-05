@@ -1,0 +1,182 @@
+blkmtd.o: blkmtd.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/iobuf.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/blkdev/erasesize.h)
+doc1000.o: doc1000.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/iflash.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/smp.h)
+doc2000.o: doc2000.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/doc2000.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/docprobe/short/timeouts.h)
+doc2001.o: doc2001.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/doc2000.h
+docecc.o: docecc.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/doc2000.h
+docprobe.o: docprobe.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/doc2000.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/docprobe/address.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/docprobe/high.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm826.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/momenco/ocelot.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/momenco/ocelot/g.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/momenco/ocelot/c.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/docprobe/55aa.h)
+lart.o: lart.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/lart.h)
+ms02-nv.o: ms02-nv.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   ms02-nv.h
+ms02-nv.h: \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h
+	@touch ms02-nv.h
+mtdram.o: mtdram.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtdram/abs/pos.h) \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtdram/total/size.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtdram/erase/size.h)
+pmc551.o: pmc551.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/pmc551.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/compatmac.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/pmc551/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/pmc551/bugfix.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/pmc551/aperture/size.h)
+slram.o: slram.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h
+.PRECIOUS:	ms02-nv.h \
+

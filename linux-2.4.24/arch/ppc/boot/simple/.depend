@@ -1,0 +1,178 @@
+chrpmap.o: chrpmap.S \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h
+embed_config.o: embed_config.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/8xx.h) \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8xx.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/8260.h) \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/immap_8260.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/40x.h) \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/405gp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/np405h.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/np405l.h) \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mbx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/am8xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/rpxlite.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/rpxclassic.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/rpx6.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ep405.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/rmu.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bseip.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fads.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/est8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sbs8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ads8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/willow.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/xilinx/ml300.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ibm/openbios.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ash.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/beech.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/evb405ep.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/stb03xxx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/redwood/5.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/redwood/6.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arctic2.h) \
+   /home/jhan/linux-2.4.241q/include/linux/serial_reg.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/rainier.h)
+gt64260_iic.o: gt64260_iic.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/gt64260_defs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/reg/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/orig/reg/base.h)
+gt64260_tty.o: gt64260_tty.c \
+   /home/jhan/linux-2.4.241q/include/linux/serialP.h \
+   /home/jhan/linux-2.4.241q/include/linux/serial_reg.h \
+   /home/jhan/linux-2.4.241q/include/asm/serial.h \
+   /home/jhan/linux-2.4.241q/include/asm/gt64260_defs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/reg/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/orig/reg/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/brg/clk/rate.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/console/baud.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/clksrc.h)
+head.o: head.S \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/cache.h \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ibm/openbios.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/force.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppmc260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mbx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/rpx6.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/est8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/am8xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/6xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/8xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/redwood/4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260.h)
+hxeb100-cpu1.o: hxeb100-cpu1.S \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/hxeb100.h
+iic.o: iic.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8xx.h \
+   /home/jhan/linux-2.4.241q/include/asm/commproc.h
+legacy.o: legacy.S \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h
+m8260_tty.o: m8260_tty.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/cpm_8260.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scc/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ads8260.h)
+m8xx_tty.o: m8xx_tty.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8xx.h \
+   /home/jhan/linux-2.4.241q/include/asm/commproc.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mbx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/fads.h)
+misc-44x.o: misc-44x.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/ibm4xx.h
+misc-cpci690.o: misc-cpci690.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h
+misc-embedded.o: misc-embedded.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/elf.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/ibm4xx.h \
+   /home/jhan/linux-2.4.241q/include/asm/mmu.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8xx.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8260.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/residual.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/nonstdio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/zlib.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/vga/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cmdline/bool.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cmdline.h)
+misc-ev64260.o: misc-ev64260.S \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/cache.h \
+   /home/jhan/linux-2.4.241q/include/asm/gt64260_defs.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/ev64260.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/reg/base.h)
+misc-gt64260.o: misc-gt64260.S \
+   /home/jhan/linux-2.4.241q/include/asm/ppc_asm.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/cache.h \
+   /home/jhan/linux-2.4.241q/include/asm/gt64260_defs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/orig/reg/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/reg/base.h)
+misc-hxeb100.o: misc-hxeb100.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/string.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/hxeb100.h
+misc-ppmc260.o: misc-ppmc260.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/include/asm/string.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/ppmc260.h
+misc-spruce.o: misc-spruce.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/elf.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/mmu.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/boot/include/zlib.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/cmdline.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/console.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/vga/console.h)
+mpc5xxx_tty.o: mpc5xxx_tty.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc5xxx.h \
+   /home/jhan/linux-2.4.241q/include/asm/serial.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uboot.h) \
+   /home/jhan/linux-2.4.241q/include/asm/ppcboot.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc/5xxx/psc/console/port.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc/5xxx/ipbfreq.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc/5xxx/psc/console/baud.h)
+pumaA_tty.o: pumaA_tty.c \
+   /home/jhan/linux-2.4.241q/include/linux/serialP.h \
+   /home/jhan/linux-2.4.241q/include/linux/serial_reg.h \
+   /home/jhan/linux-2.4.241q/include/asm/serial.h \
+   /home/jhan/linux-2.4.241q/include/asm/gt64260_defs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/new/reg/base.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gt64260/orig/reg/base.h)

@@ -1,0 +1,64 @@
+autcpu12.o: autcpu12.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+edb7312.o: edb7312.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+nand.o: nand.c \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand_ecc.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/nand/verify/write.h)
+nand_ecc.o: nand_ecc.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h
+nand_ids.o: nand_ids.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h
+ppchameleon.o: ppchameleon.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/PPChameleonEVB.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+ppchameleonevb.o: ppchameleonevb.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/PPChameleonEVB.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+spia.o: spia.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/nand.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h

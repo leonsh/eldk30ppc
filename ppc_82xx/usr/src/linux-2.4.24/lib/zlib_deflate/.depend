@@ -1,0 +1,11 @@
+deflate.o: deflate.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/zutil.h \
+   defutil.h
+deflate_syms.o: deflate_syms.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/zlib.h
+deftree.o: deftree.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/zutil.h \
+   defutil.h

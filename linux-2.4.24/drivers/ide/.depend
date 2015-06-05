@@ -1,0 +1,424 @@
+ibm_ocp_ide.o: ibm_ocp_ide.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/ocp.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   ide-timing.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h)
+ide.o: ide.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/completion.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   ide_modes.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/idedma/auto.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/hd.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/amiga.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dma/nonpci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idepci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idecs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/dtc2278.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idescsi.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idecd.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedisk.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idefloppy.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idetape.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ide/task/ioctl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pkt/task/ioctl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedoubler.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/pdc4030.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ali14xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/umc8672.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/cmd640.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ht6560b.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/qd65xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/4drives.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/etrax/ide.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/pmac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/sibyte.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/mpc5xxx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/icside.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/rapide.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/gayle.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/falcon/ide.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/mac/ide.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/cpci405/ide.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/q40ide.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/buddha.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/isapnp.h)
+ide-cd.o: ide-cd.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/cdrom.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/completion.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   ide-cd.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h)
+ide-cd.h: \
+   /home/jhan/linux-2.4.241q/include/linux/cdrom.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h
+	@touch ide-cd.h
+ide-default.o: ide-default.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/cdrom.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h
+ide-disk.o: ide-disk.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   legacy/pdc4030.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ide/taskfile/io.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/idedisk/stroke.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+ide-dma.o: ide-dma.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/idedma/new/drive/listings.h)
+ide-floppy.o: ide-floppy.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/cdrom.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+ide-geometry.o: ide-geometry.c \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/mc146818rtc.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+ide-io.o: ide-io.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/completion.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/cdrom.h \
+   /home/jhan/linux-2.4.241q/include/linux/seq_file.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   ide_modes.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idepci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/pdc4030.h)
+ide-iops.o: ide-iops.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atari.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/q40.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/idepci/share/irq.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/idedma/ivb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dma/nonpci.h)
+ide-lib.o: ide-lib.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   ide_modes.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h)
+ide-pnp.o: ide-pnp.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/isapnp.h
+ide-probe.o: ide-probe.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/eata/dma.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/eata/pio.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/scsi/eata.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/pdc4030.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/cmd640.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/amiga.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/idedma/onlydisk.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/apus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/idepci/share/irq.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/hd.h)
+ide-probe-mini.o: ide-probe-mini.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h
+ide-proc.o: ide-proc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h) \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/pci-bridge.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idepci.h) \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/apus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/pmac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h)
+ide-tape.o: ide-tape.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/completion.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtio.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+ide-taskfile.o: ide-taskfile.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/genhd.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkpg.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ide/task/ioctl/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pkt/task/ioctl.h)
+ide-timing.h: \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h
+	@touch ide-timing.h
+ocp_stbxxxxx.o: ocp_stbxxxxx.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/ppc4xx_dma.h \
+   ide_modes.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/redwood/4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma.h)
+setup-pci.o: setup-pci.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma/forced.h)
+stb03xxx.o: stb03xxx.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/scatterlist.h \
+   ide_modes.h
+.PRECIOUS:	ide-cd.h \
+	ide-timing.h \
+

@@ -1,0 +1,3 @@
+ifeq (jffs_fm.o intrep.o inode-v23.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += jffs.o
+endif

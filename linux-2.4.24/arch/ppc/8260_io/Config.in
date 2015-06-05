@@ -1,0 +1,204 @@
+#
+# MPC8260 Communication options
+#
+mainmenu_option next_comment
+comment 'MPC8260 CPM Options'
+bool 'Enable SCC Console' CONFIG_SCC_CONSOLE
+if [ "$CONFIG_NET_ETHERNET" = "y" ]; then
+  bool 'CPM SCC Ethernet' CONFIG_SCC_ENET
+  if [ "$CONFIG_SCC_ENET" = "y" ]; then
+  bool 'Ethernet on SCC1' CONFIG_SCC1_ENET
+    if [ "$CONFIG_SCC1_ENET" != "y" ]; then
+      bool 'Ethernet on SCC2' CONFIG_SCC2_ENET
+    fi
+  fi
+#
+#  CONFIG_FEC_ENET is only used to get netdevices to call our init
+#    function.  Any combination of FCC1,2,3 are supported.
+#
+  bool 'CPM FCC Ethernet' CONFIG_FEC_ENET
+  if [ "$CONFIG_FEC_ENET" = "y" ]; then
+    bool 'Ethernet on FCC1' CONFIG_FCC1_ENET
+    if [ "$CONFIG_PM826" = "y" ]; then
+      bool '  DB CR826 Legacy Jumper ON' CONFIG_DB_CR826_J30x_ON
+    fi
+    bool 'Ethernet on FCC2' CONFIG_FCC2_ENET
+    bool 'Ethernet on FCC3' CONFIG_FCC3_ENET
+    bool 'Use MDIO for PHY configuration' CONFIG_USE_MDIO
+    bool 'Support LXT970    PHY' CONFIG_FCC_LXT970
+    bool 'Support LXT971    PHY' CONFIG_FCC_LXT971
+    bool 'Support QS6612    PHY' CONFIG_FCC_QS6612
+    bool 'Support AMD79C873 PHY' CONFIG_FCC_AMD79C873
+    bool 'Support DM9131    PHY' CONFIG_FCC_DM9131
+  fi
+fi
+
+bool 'Simple CPM SPI Support' CONFIG_CPM_SPI
+if [ "$CONFIG_CPM_SPI" = "y" -o "$CONFIG_CPM_SPI" = "m" ]; then
+  int 'Size of Rx/Tx Buffer for SPI' CONFIG_CPM_SPI_BDSIZE 16
+fi
+
+comment 'SCC UART h/w handshaking options'
+
+comment '  SCC1'
+
+choice 'CTS signal for SCC1' \
+        "None CONFIG_PORT_CTS1_NONE \
+        PC15 CONFIG_CTS1_15 \
+        PC29 CONFIG_CTS1_29" None
+if [ "$CONFIG_CTS1_15" = "y" ]; then
+  define_int CONFIG_UART_CTS_CONTROL_SCC1 3
+  define_int CONFIG_CTS1_PIN 15
+fi
+if [ "$CONFIG_CTS1_29" = "y" ]; then
+  define_int CONFIG_UART_CTS_CONTROL_SCC1 3
+  define_int CONFIG_CTS1_PIN 29
+fi
+
+choice 'RTS signal for SCC1' \
+        "None CONFIG_PORT_RTS1_NONE \
+        PD29 CONFIG_UART_RTS_CONTROL_SCC1" None
+
+choice 'CD signal for SCC1' \
+        "None CONFIG_PORT_CD1_NONE \
+        PC14 CONFIG_UART_CD_CONTROL_SCC1" None
+
+choice 'DTR signal port for SCC1' \
+        "None CONFIG_PORT_DTR1_NONE \
+        Port_A CONFIG_PORT_DTR1_A \
+        Port_B CONFIG_PORT_DTR1_B \
+        Port_C CONFIG_PORT_DTR1_C \
+        Port_D CONFIG_PORT_DTR1_D" None
+if [ "$CONFIG_PORT_DTR1_A" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC1 1
+fi
+if [ "$CONFIG_PORT_DTR1_B" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC1 2
+fi
+if [ "$CONFIG_PORT_DTR1_C" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC1 3
+fi
+if [ "$CONFIG_PORT_DTR1_D" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC1 4
+fi
+if [ "$CONFIG_PORT_DTR1_NONE" != "y" ]; then
+  int 'DTR signal pin for SCC1' CONFIG_DTR1_PIN 15
+fi
+
+comment '  SCC2'
+
+choice 'CTS signal for SCC2' \
+        "None CONFIG_PORT_CTS2_NONE \
+        PC13 CONFIG_CTS2_13 \
+        PC28 CONFIG_CTS2_28" None
+if [ "$CONFIG_CTS2_13" = "y" ]; then
+  define_int CONFIG_UART_CTS_CONTROL_SCC2 3
+  define_int CONFIG_CTS2_PIN 13
+fi
+if [ "$CONFIG_CTS2_28" = "y" ]; then
+  define_int CONFIG_UART_CTS_CONTROL_SCC2 3
+  define_int CONFIG_CTS2_PIN 28
+fi
+
+choice 'RTS signal for SCC2' \
+        "None CONFIG_PORT_RTS2_NONE \
+        PD26 CONFIG_UART_RTS_CONTROL_SCC2" None
+
+choice 'CD signal for SCC2' \
+        "None CONFIG_PORT_CD2_NONE \
+        PC12 CONFIG_UART_CD_CONTROL_SCC2" None
+
+choice 'DTR signal port for SCC2' \
+        "None CONFIG_PORT_DTR2_NONE \
+        Port_A CONFIG_PORT_DTR2_A \
+        Port_B CONFIG_PORT_DTR2_B \
+        Port_C CONFIG_PORT_DTR2_C \
+        Port_D CONFIG_PORT_DTR2_D" None
+if [ "$CONFIG_PORT_DTR2_A" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC2 1
+fi
+if [ "$CONFIG_PORT_DTR2_B" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC2 2
+fi
+if [ "$CONFIG_PORT_DTR2_C" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC2 3
+fi
+if [ "$CONFIG_PORT_DTR2_D" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC2 4
+fi
+if [ "$CONFIG_PORT_DTR2_NONE" != "y" ]; then
+  int 'DTR signal pin for SCC2' CONFIG_DTR2_PIN 14
+fi
+
+comment '  SCC3'
+
+choice 'CTS signal for SCC3' \
+        "None CONFIG_PORT_CTS3_NONE \
+        PC11 CONFIG_UART_CTS_CONTROL_SCC3" None
+
+choice 'RTS signal for SCC3' \
+        "None CONFIG_PORT_RTS3_NONE \
+        PD23 CONFIG_UART_RTS_CONTROL_SCC3" None
+
+choice 'CD signal for SCC3' \
+        "None CONFIG_PORT_CD3_NONE \
+        PC10 CONFIG_UART_CD_CONTROL_SCC3" None
+
+choice 'DTR signal port for SCC3' \
+        "None CONFIG_PORT_DTR3_NONE \
+        Port_A CONFIG_PORT_DTR3_A \
+        Port_B CONFIG_PORT_DTR3_B \
+        Port_C CONFIG_PORT_DTR3_C \
+        Port_D CONFIG_PORT_DTR3_D" None
+if [ "$CONFIG_PORT_DTR3_A" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC3 1
+fi
+if [ "$CONFIG_PORT_DTR3_B" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC3 2
+fi
+if [ "$CONFIG_PORT_DTR3_C" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC3 3
+fi
+if [ "$CONFIG_PORT_DTR3_D" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC3 4
+fi
+if [ "$CONFIG_PORT_DTR3_NONE" != "y" ]; then
+  int 'DTR signal pin for SCC3' CONFIG_DTR3_PIN 14
+fi
+
+comment ' SCC4'
+
+choice 'CTS signal for SCC4' \
+        "None CONFIG_PORT_CTS4_NONE \
+        PC11 CONFIG_UART_CTS_CONTROL_SCC4" None
+
+choice 'RTS signal for SCC4' \
+        "None CONFIG_PORT_RTS4_NONE \
+        PD23 CONFIG_UART_RTS_CONTROL_SCC4" None
+
+choice 'CD signal for SCC4' \
+        "None CONFIG_PORT_CD4_NONE \
+        PC10 CONFIG_UART_CD_CONTROL_SCC4" None
+
+choice 'DTR signal port for SCC4' \
+        "None CONFIG_PORT_DTR4_NONE \
+        Port_A CONFIG_PORT_DTR4_A \
+        Port_B CONFIG_PORT_DTR4_B \
+        Port_C CONFIG_PORT_DTR4_C \
+        Port_D CONFIG_PORT_DTR4_D" None
+if [ "$CONFIG_PORT_DTR4_A" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC4 1
+fi
+if [ "$CONFIG_PORT_DTR4_B" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC4 2
+fi
+if [ "$CONFIG_PORT_DTR4_C" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC4 3
+fi
+if [ "$CONFIG_PORT_DTR4_D" = "y" ]; then
+  define_int CONFIG_UART_DTR_CONTROL_SCC4 4
+fi
+if [ "$CONFIG_PORT_DTR4_NONE" != "y" ]; then
+  int 'DTR signal pin for SCC4' CONFIG_DTR4_PIN 14
+fi
+endmenu

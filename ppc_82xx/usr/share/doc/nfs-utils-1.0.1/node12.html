@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The User-Space NFS Server</TITLE>
+<META NAME="description" CONTENT="The User-Space NFS Server">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html155"
+ HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html153"
+ HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html147"
+ HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html156"
+ HREF="node13.html">The Kernel-Space NFS Server</A>
+<B> Up:</B> <A NAME="tex2html154"
+ HREF="node11.html">Performance</A>
+<B> Previous:</B> <A NAME="tex2html148"
+ HREF="node11.html">Performance</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00041000000000000000">
+The User-Space NFS Server</A>
+</H2>
+
+<P>
+The user-space NFS server failed the SFS NFS validation
+test. After skipping the validation test, the benchmark was run.
+However, it was aborted when the load was over 200.
+As the result, there were no
+complete SFS benchmarks for the user-space NFS server. The
+partial result is
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">Run</TD>
+<TD ALIGN="CENTER"># of Server</TD>
+<TD ALIGN="CENTER"># of</TD>
+<TD ALIGN="CENTER"># of Processes</TD>
+<TD ALIGN="CENTER">Load</TD>
+<TD ALIGN="CENTER">Throughput</TD>
+<TD ALIGN="CENTER">Response Time</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">Threads</TD>
+<TD ALIGN="CENTER">Clients</TD>
+<TD ALIGN="CENTER">Per Client</TD>
+<TD ALIGN="CENTER">(Ops/Sec)</TD>
+<TD ALIGN="CENTER">(Ops/Sec)</TD>
+<TD ALIGN="CENTER">(Msec/Op)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">100</TD>
+<TD ALIGN="CENTER">98</TD>
+<TD ALIGN="CENTER">1.8</TD>
+</TR>
+<TR><TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">200</TD>
+<TD ALIGN="CENTER">6.4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">300</TD>
+<TD ALIGN="CENTER">N/A</TD>
+<TD ALIGN="CENTER">N/A</TD>
+</TR>
+<TR><TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">400</TD>
+<TD ALIGN="CENTER">N/A</TD>
+<TD ALIGN="CENTER">N/A</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

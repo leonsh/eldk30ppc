@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM System Administrators' Guide: Overview</TITLE>
+ <LINK HREF="pam-4.html" REL=next>
+ <LINK HREF="pam-2.html" REL=previous>
+ <LINK HREF="pam.html#toc3" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam-4.html">Next</A>
+<A HREF="pam-2.html">Previous</A>
+<A HREF="pam.html#toc3">Contents</A>
+<HR>
+<H2><A NAME="overview-section"></A> <A NAME="s3">3.</A> <A HREF="pam.html#toc3">Overview</A></H2>
+
+<P>For the uninitiated, we begin by considering an example.  We take an
+application that grants some service to users; <EM>login</EM> is one such
+program. <EM>Login</EM> does two things, it first establishes that the
+requesting user is whom they claim to be and second provides them with
+the requested service: in the case of <EM>login</EM> the service is a
+command shell (<EM>bash, tcsh, zsh, etc.</EM>) running with the
+identity of the user.</P>
+
+<P>Traditionally, the former step is achieved by the <EM>login</EM>
+application prompting the user for a password and then verifying that
+it agrees with that located on the system; hence verifying that
+as far as the system is concerned the user is who they claim to be.
+This is the task that is delegated to <B>Linux-PAM</B>.</P>
+
+<P>From the perspective of the application programmer (in this case the
+person that wrote the <EM>login</EM> application), <B>Linux-PAM</B> takes
+care of this authentication task -- verifying the identity of the user.</P>
+
+<P>The flexibility of <B>Linux-PAM</B> is that <EM>you</EM>, the system
+administrator, have the freedom to stipulate which authentication
+scheme is to be used.  You have the freedom to set the scheme for
+any/all PAM-aware applications on your Linux system.  That is, you can
+authenticate from anything as naive as <EM>simple trust</EM>
+(<CODE>pam_permit</CODE>) to something as paranoid as a combination of a
+retinal scan, a voice print and a one-time password!</P>
+
+<P>To illustrate the flexibility you face, consider the following
+situation: a system administrator (parent) wishes to improve the
+mathematical ability of her users (children). She can configure their
+favorite ``Shoot 'em up game'' (PAM-aware of course) to authenticate
+them with a request for the product of a couple of random numbers less
+than 12. It is clear that if the game is any good they will soon learn
+their <EM>multiplication tables</EM>.   As they mature, the authentication
+can be upgraded to include (long) division!</P>
+
+<P><B>Linux-PAM</B> deals with four separate types of (management)
+task. These are: <EM>authentication management</EM>; <EM>account
+management</EM>; <EM>session management</EM>; and <EM>password management</EM>.
+The association of the preferred management scheme with the behavior
+of an application is made with entries in the relevant <B>Linux-PAM</B>
+configuration file.  The management functions are performed by
+<EM>modules</EM> specified in the configuration file. The syntax for this
+file is discussed in the section 
+<A HREF="pam-4.html#configuration">below</A>.</P>
+
+<P>Here is a figure that describes the overall organization of
+<B>Linux-PAM</B>.
+<BLOCKQUOTE><CODE>
+<PRE>
+         +----------------+
+         | application: X |
+         +----------------+       /  +----------+     +================+
+         | authentication-[---->--\--] Linux-   |--&lt;--| PAM config file|
+         |       +        [----&lt;--/--]        PAM    |     |================|
+         |[conversation()][--+    \  |          |     | X auth .. a.so |
+         +----------------+  |    /  +-n--n-----+     | X auth .. b.so |
+         |                |  |       __|  |           |           _____/
+         |  service user  |  A      |     |           |____,-----' 
+         |                |  |      V     A                        
+         +----------------+  +------|-----|---------+ -----+------+
+                                +---u-----u----+    |      |      |
+                                |   auth....   |--[ a ]--[ b ]--[ c ]
+                                +--------------+
+                                |   acct....   |--[ b ]--[ d ]
+                                +--------------+
+                                |   password   |--[ b ]--[ c ]
+                                +--------------+
+                                |   session    |--[ e ]--[ c ]
+                                +--------------+
+</PRE>
+</CODE></BLOCKQUOTE>
+
+By way of explanation, the left of the figure represents the
+application; application X.  Such an application interfaces with the
+<B>Linux-PAM</B> library and knows none of the specifics of its
+configured authentication method.  The <B>Linux-PAM</B> library (in the
+center) consults the contents of the PAM configuration file and loads
+the modules that are appropriate for application-X. These modules fall
+into one of four management groups (lower-center) and are stacked in
+the order they appear in the configuration file. These modules, when
+called by <B>Linux-PAM</B>, perform the various authentication tasks for
+the application. Textual information, required from/or offered to the
+user, can be exchanged through the use of the application-supplied
+<EM>conversation</EM> function.</P>
+
+<H2><A NAME="ss3.1">3.1</A> <A HREF="pam.html#toc3.1">Getting started</A>
+</H2>
+
+<P>The following text was contributed by Seth Chaiklin:
+<BLOCKQUOTE><CODE>
+<PRE>
+To this point, we have described how PAM should work in an
+ideal world, in which all applications are coded properly.
+However, at the present time (October 1998), this is far
+from the case.  Therefore, here are some practical considerations
+in trying to use PAM in your system.
+
+Why bother, is it really worth all the trouble?  
+
+If you running Linux as a single user system, or in an
+environment where all the users are trusted, then there 
+is no real advantage for using PAM.
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P><B>Ed:</B> there is actually an advantage since you can <EM>dummy
+down</EM> the authentication to the point where you don't have
+any... Almost like Win95.</P>
+<P>In a networked environment, it is clear that you need to think a
+little more about how users etc., are authenticated:]</P>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+If you are running Linux as a server, where several different
+services are being provided (e.g., WWW with areas restricted by
+password control, PPP), then there can be some real and interesting
+value for PAM.  In particular, through the use of modules, PAM can
+enable a program to search through several different password
+databases, even if that program is not explicitly coded for
+that particular database.  Here are some examples of the possibilities
+that this enables.
+
+   o  Apache has a module that provides PAM services.  Now
+   authentication
+      to use particular directories can be conducted by PAM, which
+      means that the range of modules that are available to PAM can
+      be used, including RADIUS, NIS, NCP (which means that Novell
+      password databases can be used).
+
+   o  pppd has a PAMified version (available from Red Hat)  Now it is
+      possible to use a series of databases to authenticate ppp users.
+      In addition to the normal Linux-based password databases (such
+      as /etc/passwd and /etc/shadow), you can use PAM modules to 
+      authenticate against Novell password databases or NT-based 
+      password databases. 
+
+   o  The preceding two examples can be combined.  Imagaine that the
+      persons in your office/department are already registered with a
+      username and password in a Novell or NT LAN.  If you wanted to
+      use this database on your Linux server (for PPP access, for 
+      web access, or even for normal shell access), you can use PAM
+      to authenticate against this existing database, rather than
+      maintain a separate database on both Linux and the LAN server.
+
+
+Can I use PAM for any program that requires authentication?
+
+Yes and no.   Yes, if you have access to the source code, and can
+add the appropriate PAM functions.  No, if you do not have access 
+to the source code, and the binary does not have the PAM functions
+included.
+
+In other words, if a program is going to use PAM, then it has to
+have PAM functions explicitly coded into the program.  If they
+are not, then it is not possible to use PAM. 
+
+How can I tell whether a program has PAM coded into it or not?
+
+A quick-and-dirty (but not always reliable) method is to ldd
+&lt;programname>
+If libpam and libpam_misc are not among the libraries that the program
+uses, then it is not going to work with PAM.  However, it is possible
+that the libraries are included, but there are still problems, because
+the PAM coding in the program does not work as it should.  So a
+more reliable method is to make the follow tests.
+
+In the /etc/pam.d directory, one needs to make a configuration file
+for the program that one wants to run.  The exact name of the
+configuration
+file is hard-coded into the program.  Usually, it is the same name as
+the
+program, but not always.  For sake of illustration, let's assume that
+the program is named "pamprog" and the name of the configuration file
+is /etc/pam.d/pamprog.
+
+In the /etc/pam.d/pamprog but the following two lines:
+
+auth    required  pam_permit.so
+auth    required  pam_warn.so
+
+
+Now try to use pamprog.  The first line in the configuration file 
+says that all users are permitted.  The second line will write a
+warning to your syslog file (or whether you syslog is writing
+
+messages).  If this test succeeds, then you know that you have
+a program that can understand pam, and you can start the more
+interesting work of deciding how to stack modules in your
+/etc/pam.d/pamprog  file.
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<HR>
+<A HREF="pam-4.html">Next</A>
+<A HREF="pam-2.html">Previous</A>
+<A HREF="pam.html#toc3">Contents</A>
+</BODY>
+</HTML>

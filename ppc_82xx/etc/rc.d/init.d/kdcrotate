@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+# kdcrotate     This shell script rotates the list of KDCs in /etc/krb5.conf
+#
+# Author:       Based on SysV Init in RHS Linux by Damien Neil
+#               Written by Nalin Dahyabhai <nalin@redhat.com>
+#
+# chkconfig:	345 99 01
+#
+# description:  Rotate the list of KDCs listed in /etc/krb5.conf
+#
+
+PATH=/sbin:$PATH
+
+# Only run in runlevels where we're 'enabled', which should only be 345.
+if [ "$1" != "start" ] ; then
+	exit 0
+fi
+
+# source function library
+. /etc/rc.d/init.d/functions
+
+action "Rotating KDC list" "awk '	/^[[:space:]]*kdc[[:space:]]*=/ { \\
+		if(length(firstkdc) == 0) { \\
+			firstkdc = \$0; \\
+		} else { \\
+			if(length(kdclist) > 0) { \\
+				kdclist = kdclist ORS; \\
+			} \\
+			kdclist = kdclist \$0; \\
+		} \\
+		next; \\
+	} \\
+	{ \\
+		if(length(kdclist) > 0) { \\
+			NEWCONFIG = NEWCONFIG kdclist ORS; \\
+		} \\
+		if(length(firstkdc) > 0) { \\
+			NEWCONFIG = NEWCONFIG firstkdc ORS; \\
+		} \\
+		firstkdc = \"\"; \\
+		kdclist = \"\"; \\
+		NEWCONFIG = NEWCONFIG \$0 ORS; \\
+	} \\
+	END {printf \"%s\", NEWCONFIG > \"/etc/krb5.conf\"}' /etc/krb5.conf"

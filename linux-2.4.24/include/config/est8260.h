@@ -1,0 +1,1 @@
+#undef  CONFIG_EST8260

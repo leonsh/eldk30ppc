@@ -1,0 +1,1 @@
+#undef  CONFIG_LOWMEM_SIZE_BOOL

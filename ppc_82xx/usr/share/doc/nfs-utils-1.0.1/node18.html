@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Future Development</TITLE>
+<META NAME="description" CONTENT="Future Development">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="nfs.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html215"
+ HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html213"
+ HREF="nfs.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html207"
+ HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html216"
+ HREF="node19.html">Conclusion</A>
+<B> Up:</B> <A NAME="tex2html214"
+ HREF="nfs.html">NFS server in Linux:</A>
+<B> Previous:</B> <A NAME="tex2html208"
+ HREF="node17.html">Other Factors</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00050000000000000000">
+Future Development</A>
+</H1>
+
+<P>
+Today's kernel NFS server is very much usable, but it not perfect.
+People are working on further improvements.
+
+<P>
+
+<UL><LI>The current stable Linux kernel only supports NFS over UDP. We
+  	like to get NFS over TCP stabilized.
+
+<P>
+
+<LI>We are also working on support for the NFS Version 3 protocol.
+
+<P>
+
+<LI>As we mentioned above, rename or move a file to a different
+  	directory on the same file system still causes the change in
+	the file handle. We'd like to address it in the future
+	development.
+	
+	One proposal looks very promising. That is make
+	the mapping between file and file handle be part of the
+	VFS layer. Each file system will provide a conversion between
+	a file and a file handle, which is persistent between server
+	reboots as well as
+	independent of its pathnames as well as its parent directory
+	pathnames. It also solves the problem where the underlying
+	file systems
+	do not support all the fields in the current file handle 
+	format.
+
+<P>
+
+</UL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

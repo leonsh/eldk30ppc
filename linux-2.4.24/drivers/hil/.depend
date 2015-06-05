@@ -1,0 +1,68 @@
+hil_kbd.o: hil_kbd.c \
+   /home/jhan/linux-2.4.241q/include/linux/hil.h \
+   /home/jhan/linux-2.4.241q/include/linux/input.h \
+   /home/jhan/linux-2.4.241q/include/linux/serio.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h
+hilkbd.o: hilkbd.c \
+   /home/jhan/linux-2.4.241q/include/linux/pci_ids.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/input.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/irq.h \
+   /home/jhan/linux-2.4.241q/include/linux/hil.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/parisc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/hp300.h)
+hil_mlc.o: hil_mlc.c \
+   /home/jhan/linux-2.4.241q/include/linux/hil_mlc.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h
+hil_ptr.o: hil_ptr.c \
+   /home/jhan/linux-2.4.241q/include/linux/hil.h \
+   /home/jhan/linux-2.4.241q/include/linux/input.h \
+   /home/jhan/linux-2.4.241q/include/linux/serio.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h
+hp_sdc.o: hp_sdc.c \
+   /home/jhan/linux-2.4.241q/include/linux/hp_sdc.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/time.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/hil.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h
+hp_sdc_mlc.o: hp_sdc_mlc.c \
+   /home/jhan/linux-2.4.241q/include/linux/hil_mlc.h \
+   /home/jhan/linux-2.4.241q/include/linux/hp_sdc.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h
+hp_sdc_rtc.o: hp_sdc_rtc.c \
+   /home/jhan/linux-2.4.241q/include/linux/hp_sdc.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/time.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/rtc.h

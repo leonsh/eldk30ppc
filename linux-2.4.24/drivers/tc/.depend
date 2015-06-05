@@ -1,0 +1,57 @@
+lk201.o: lk201.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/kbd_ll.h \
+   /home/jhan/linux-2.4.241q/include/linux/kbd_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/asm/keyboard.h \
+   zs.h \
+   lk201.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/magic/sysrq.h)
+tc.o: tc.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/ptrace.h
+zs.o: zs.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/signal.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty_flip.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/fcntl.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/serial/dec/console.h) \
+   /home/jhan/linux-2.4.241q/include/linux/console.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/bootinfo.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/decstation.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/baget/mips.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kgdb.h) \
+   /home/jhan/linux-2.4.241q/include/asm/kgdb.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/magic/sysrq.h) \
+   /home/jhan/linux-2.4.241q/include/linux/sysrq.h \
+   zs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/devfs/fs.h)

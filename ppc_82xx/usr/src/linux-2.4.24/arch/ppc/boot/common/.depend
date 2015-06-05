@@ -1,0 +1,56 @@
+bootinfo.o: bootinfo.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h
+crt0.o: crt0.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/4xx.h)
+misc-common.o: misc-common.c \
+   /usr/eldk/3.0/usr/lib/gcc-lib/ppc-linux/3.2.2/include/stdarg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/zlib.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/all/ppc.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/vga/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/serial/console.h)
+misc-simple.o: misc-simple.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/elf.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/mmu.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/ebony.h) \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/ebony.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/mpc10x.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/zlib.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/cmdline.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/vga/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/serial/console.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/gemini.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/lopec.h)
+mpc10x_memory.o: mpc10x_memory.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pci.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/mpc10x.h
+ns16550.o: ns16550.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serialP.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/serial_reg.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/serial.h
+ofcommon.o: ofcommon.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/zlib.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/boot/include/nonstdio.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bootinfo.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/page.h
+relocate.o: relocate.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/cache.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h
+util.o: util.S \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/processor.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/cache.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/ppc_asm.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/8xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/4xx.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/405ep.h)

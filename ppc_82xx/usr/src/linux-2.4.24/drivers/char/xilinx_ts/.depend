@@ -1,0 +1,47 @@
+adapter.o: adapter.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/poll.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/input.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/devfs_fs_kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/irq.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xtouchscreen.h \
+   xtouchscreen_i.h
+xtouchscreen.o: xtouchscreen.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xtouchscreen.h \
+   xtouchscreen_i.h \
+   xtouchscreen_l.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+xtouchscreen_g.o: xtouchscreen_g.c \
+   xtouchscreen.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xparameters.h
+xtouchscreen.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   xtouchscreen_l.h
+	@touch xtouchscreen.h
+xtouchscreen_i.h: \
+   xtouchscreen.h
+	@touch xtouchscreen_i.h
+xtouchscreen_intr.o: xtouchscreen_intr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h \
+   xtouchscreen.h \
+   xtouchscreen_l.h
+xtouchscreen_l.o: xtouchscreen_l.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/delay.h \
+   xtouchscreen_l.h
+xtouchscreen_l.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xtouchscreen_l.h
+.PRECIOUS:	xtouchscreen.h \
+	xtouchscreen_i.h \
+	xtouchscreen_l.h \
+

@@ -1,0 +1,1 @@
+#undef  CONFIG_SPD823TS

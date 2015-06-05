@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Solaris 7/x86 client</TITLE>
+<META NAME="description" CONTENT="Solaris 7/x86 client">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node21.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html265"
+ HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html263"
+ HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html259"
+ HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html266"
+ HREF="node24.html">Linux Client with Linux</A>
+<B> Up:</B> <A NAME="tex2html264"
+ HREF="node21.html">Solaris Clients with Linux</A>
+<B> Previous:</B> <A NAME="tex2html260"
+ HREF="node22.html">Solaris 7/Sparc client</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00082000000000000000">
+Solaris 7/x86 client</A>
+</H2>
+
+<P>
+<PRE>
+Start tests on path /mnt/nfstest/beijingp.test [y/n]?
+sh ./runtests -a -t /mnt/nfstest/beijingp.test
+
+Starting BASIC tests: test directory /mnt/nfstest/beijingp.test (arg: -t)
+
+test1: File and directory creation test
+	created 155 files 62 directories 5 levels deep in 0.29 seconds
+	test1 ok.
+
+test2: File and directory removal test
+	removed 155 files 62 directories 5 levels deep in 0.34 seconds
+	test2 ok.
+
+test3: lookups across mount point
+	500 getcwd and stat calls in 0.1  seconds
+	test3 ok.
+
+test4: setattr, getattr, and lookup
+	1000 chmods and stats on 10 files in 0.33 seconds
+	test4 ok.
+
+test5: read and write
+	wrote 1048576 byte file 10 times in 0.94 seconds (11144808 bytes/sec)
+	read 1048576 byte file 10 times in 7.96 seconds (1316127 bytes/sec)
+	test5 ok.
+
+test6: readdir
+	20500 entries read, 200 files in 1.21 seconds
+	test6 ok.
+
+test7: link and rename
+	200 renames and links on 10 files in 0.90 seconds
+	test7 ok.
+
+test8: symlink and readlink
+	400 symlinks and readlinks on 10 files in 0.90 seconds
+	test8 ok.
+
+test9: statvfs
+	1500 statvfs calls in 0.66 seconds
+	test9 ok.
+
+Congratulations, you passed the basic tests!
+
+GENERAL TESTS: directory /mnt/nfstest/beijingp.test
+cd /mnt/nfstest/beijingp.test; rm -f Makefile runtests runtests.wrk *.sh *.c mkdummy rmdummy  nroff.in makefile.tst
+cp Makefile runtests runtests.wrk *.sh *.c mkdummy rmdummy  nroff.in makefile.tst /mnt/nfstest/beijingp.test
+
+Small Compile
+	0.5 (0.5) real	0.1 (0.0) user	0.0 (0.0) sys
+
+Tbl
+	0.0 (0.0) real	0.0 (0.0) user	0.0 (0.0) sys
+
+Nroff
+	0.0 (0.0) real	0.0 (0.0) user	0.0 (0.0) sys
+
+Large Compile
+	0.5 (0.1) real	0.2 (0.0) user	0.0 (0.1) sys
+
+Four simultaneous large compiles
+	1.6 (0.3) real	0.9 (0.1) user	0.3 (0.1) sys
+
+Makefile
+	0.3 (0.0) real	0.1 (0.0) user	0.2 (0.1) sys
+
+General tests complete
+
+SPECIAL TESTS: directory /mnt/nfstest/beijingp.test
+cd /mnt/nfstest/beijingp.test; rm -f runtests runtests.wrk READWIN.txt Makefile op_unlk op_ren op_chmod dupreq excltest negseek rename holey  truncate nfsidem nstat stat stat2 touchn fstat rewind  telldir bigfile freesp
+cp runtests runtests.wrk READWIN.txt Makefile op_unlk op_ren op_chmod dupreq excltest negseek rename holey  truncate nfsidem nstat stat stat2 touchn fstat rewind  telldir bigfile freesp /mnt/nfstest/beijingp.test
+
+check for proper open/unlink operation
+nfsjunk files before unlink:
+  ./nfsAAAu.aOAh open; unlink ret = 0
+nfsjunk files after unlink:
+  -rw-rw-rw-   1 spec     spec           0 Jun 21 16:04 .nfs702C
+data compare ok
+nfsjunk files after close:
+  -rw-rw-rw-   1 spec     spec         100 Jun 21 16:04 .nfs702C
+test completed successfully.
+
+check for proper open/rename operation
+nfsjunk files before rename:
+  -rw-rw-rw-   1 spec     spec         100 Jun 21 16:04 .nfs702C
+./nfsbBAAY_aiBh open; rename ret = 0
+nfsjunk files after rename:
+  -rw-rw-rw-   1 spec     spec         100 Jun 21 16:04 .nfs702C
+-rwxrwxrwx   1 spec     spec           0 Jun 21 16:04 .nfs802C
+data compare ok
+nfsjunk files after close:
+  -rw-rw-rw-   1 spec     spec         100 Jun 21 16:04 .nfs702C
+-rwxrwxrwx   1 spec     spec         100 Jun 21 16:04 .nfs802C
+test completed successfully.
+
+check for proper open/chmod 0 operation
+testfile before chmod:
+  -rw-rw-rw-   1 spec     spec           0 Jun 21 16:04 ./nfsAAAhbaOBh
+./nfsAAAhbaOBh open; chmod ret = 0
+testfile after chmod:
+  ----------   1 spec     spec           0 Jun 21 16:04 ./nfsAAAhbaOBh
+data compare ok
+testfile after write/read:
+  ----------   1 spec     spec         100 Jun 21 16:04 ./nfsAAAhbaOBh
+test completed successfully.
+
+check for lost reply on non-idempotent requests
+100 tries
+
+test exclusive create.
+
+test negative seek, you should get: read: Invalid argument
+or lseek: Invalid argument
+
+test rename
+
+test truncate
+truncate succeeded
+
+test holey file support
+Holey file test ok
+
+second check for lost reply on non-idempotent requests
+testing 50 idempotencies in directory "testdir"
+
+test rewind support
+
+test telldir cookies (slow)
+
+write/read 30 MB file
+
+
+test freesp and file size
+
+Special tests complete
+
+Starting LOCKING tests: test directory /mnt/nfstest/beijingp.test (arg: -t)
+
+Testing native post-LFS locking
+
+Creating parent/child synchronization pipes.
+
+Test #1 - Test regions of an unlocked file.
+	Parent: 1.1  - F_TEST  [       0,       1] PASSED.
+	Parent: 1.2  - F_TEST  [       0,  ENDING] PASSED.
+	Parent: 1.3  - F_TEST  [       0,7fffffff] PASSED.
+	Parent: 1.4  - F_TEST  [       1,       1] PASSED.
+	Parent: 1.5  - F_TEST  [       1,  ENDING] PASSED.
+	Parent: 1.6  - F_TEST  [       1,7fffffff] PASSED.
+	Parent: 1.7  - F_TEST  [7fffffff,       1] PASSED.
+	Parent: 1.8  - F_TEST  [7fffffff,  ENDING] PASSED.
+	Parent: 1.9  - F_TEST  [7fffffff,7fffffff] PASSED.
+
+Test #2 - Try to lock the whole file.
+	Parent: 2.0  - F_TLOCK [       0,  ENDING] PASSED.
+	Child:  2.1  - F_TEST  [       0,       1] PASSED.
+	Child:  2.2  - F_TEST  [       0,  ENDING] PASSED.
+	Child:  2.3  - F_TEST  [       0,7fffffff] PASSED.
+	Child:  2.4  - F_TEST  [       1,       1] PASSED.
+	Child:  2.5  - F_TEST  [       1,  ENDING] PASSED.
+	Child:  2.6  - F_TEST  [       1,7fffffff] PASSED.
+	Child:  2.7  - F_TEST  [7fffffff,       1] PASSED.
+	Child:  2.8  - F_TEST  [7fffffff,  ENDING] PASSED.
+	Child:  2.9  - F_TEST  [7fffffff,7fffffff] PASSED.
+	Parent: 2.10 - F_ULOCK [       0,  ENDING] PASSED.
+
+Test #3 - Try to lock just the 1st byte.
+	Parent: 3.0  - F_TLOCK [       0,       1] PASSED.
+	Child:  3.1  - F_TEST  [       0,       1] PASSED.
+	Child:  3.2  - F_TEST  [       0,  ENDING] PASSED.
+	Child:  3.3  - F_TEST  [       1,       1] PASSED.
+	Child:  3.4  - F_TEST  [       1,  ENDING] PASSED.
+	Parent: 3.5  - F_ULOCK [       0,       1] PASSED.
+
+Test #4 - Try to lock the 2nd byte, test around it.
+	Parent: 4.0  - F_TLOCK [       1,       1] PASSED.
+	Child:  4.1  - F_TEST  [       0,       1] PASSED.
+	Child:  4.2  - F_TEST  [       0,       2] PASSED.
+	Child:  4.3  - F_TEST  [       0,  ENDING] PASSED.
+	Child:  4.4  - F_TEST  [       1,       1] PASSED.
+	Child:  4.5  - F_TEST  [       1,       2] PASSED.
+	Child:  4.6  - F_TEST  [       1,  ENDING] PASSED.
+	Child:  4.7  - F_TEST  [       2,       1] PASSED.
+	Child:  4.8  - F_TEST  [       2,       2] PASSED.
+	Child:  4.9  - F_TEST  [       2,  ENDING] PASSED.
+	Parent: 4.10 - F_ULOCK [       1,       1] PASSED.
+
+Test #5 - Try to lock 1st and 2nd bytes, test around them.
+	Parent: 5.0  - F_TLOCK [       0,       1] PASSED.
+	Parent: 5.1  - F_TLOCK [       2,       1] PASSED.
+	Child:  5.2  - F_TEST  [       0,       1] PASSED.
+	Child:  5.3  - F_TEST  [       0,       2] PASSED.
+	Child:  5.4  - F_TEST  [       0,  ENDING] PASSED.
+	Child:  5.5  - F_TEST  [       1,       1] PASSED.
+	Child:  5.6  - F_TEST  [       1,       2] PASSED.
+	Child:  5.7  - F_TEST  [       1,  ENDING] PASSED.
+	Child:  5.8  - F_TEST  [       2,       1] PASSED.
+	Child:  5.9  - F_TEST  [       2,       2] PASSED.
+	Child:  5.10 - F_TEST  [       2,  ENDING] PASSED.
+	Child:  5.11 - F_TEST  [       3,       1] PASSED.
+	Child:  5.12 - F_TEST  [       3,       2] PASSED.
+	Child:  5.13 - F_TEST  [       3,  ENDING] PASSED.
+	Parent: 5.14 - F_ULOCK [       0,       1] PASSED.
+	Parent: 5.15 - F_ULOCK [       2,       1] PASSED.
+
+Test #6 - Try to lock the MAXEOF byte.
+	Parent: 6.0  - F_TLOCK [7fffffff,       1] PASSED.
+	Child:  6.1  - F_TEST  [7ffffffe,       1] PASSED.
+	Child:  6.2  - F_TEST  [7ffffffe,       2] PASSED.
+	Child:  6.3  - F_TEST  [7ffffffe,  ENDING] PASSED.
+	Child:  6.4  - F_TEST  [7fffffff,       1] PASSED.
+	Child:  6.5  - F_TEST  [7fffffff,       2] PASSED.
+	Child:  6.6  - F_TEST  [7fffffff,  ENDING] PASSED.
+	Child:  6.7  - F_TEST  [80000000,  ENDING] PASSED.
+	Child:  6.8  - F_TEST  [80000000,       1] PASSED.
+	Child:  6.9  - F_TEST  [80000000,7fffffff] PASSED.
+	Child:  6.10 - F_TEST  [80000000,80000000] PASSED.
+	Parent: 6.11 - F_ULOCK [7fffffff,       1] PASSED.
+
+Test #7 - Test parent/child mutual exclusion.
+	Parent: 7.0  - F_TLOCK [       0,       4] PASSED.
+	Parent: Wrote 'aaaa' to testfile [ 0, 4 ].
+	Parent: Now free child to run, should block on lock.
+	Parent: Check data in file to insure child blocked.
+	Parent: Read 'aaaa' from testfile [ 0, 4 ].
+	Parent: 7.1  - COMPARE [       0,       4] PASSED.
+	Parent: Now unlock region so child will unblock.
+	Parent: 7.2  - F_ULOCK [       0,       4] PASSED.
+	Child:  7.3  - F_LOCK  [       0,       4] PASSED.
+	Child:  Write child's version of the data and release lock.
+	Parent: Now try to regain lock, parent should block.
+	Child:  Wrote 'bbbb' to testfile [ 0, 4 ].
+	Parent: 7.5  - F_LOCK  [       0,       4] PASSED.
+	Parent: Check data in file to insure child unblocked.
+	Child:  7.4  - F_ULOCK [       0,       4] PASSED.
+	Parent: Read 'bbbb' from testfile [ 0, 4 ].
+	Parent: 7.6  - COMPARE [       0,       4] PASSED.
+	Parent: 7.7  - F_ULOCK [       0,       4] PASSED.
+
+Test #8 - Rate test performing lock/unlock cycles.
+	Parent: Performed 1000 lock/unlock cycles in 720 msecs. [166666 lpm].
+
+Test #10 - Make sure a locked region is split properly.
+	Parent: 10.0  - F_TLOCK [       0,       3] PASSED.
+	Parent: 10.1  - F_ULOCK [       1,       1] PASSED.
+	Child:  10.2  - F_TEST  [       0,       1] PASSED.
+	Child:  10.3  - F_TEST  [       2,       1] PASSED.
+	Child:  10.4  - F_TEST  [       3,  ENDING] PASSED.
+	Child:  10.5  - F_TEST  [       1,       1] PASSED.
+	Parent: 10.6  - F_ULOCK [       0,       1] PASSED.
+	Parent: 10.7  - F_ULOCK [       2,       1] PASSED.
+	Child:  10.8  - F_TEST  [       0,       3] PASSED.
+	Parent: 10.9  - F_ULOCK [       0,       1] PASSED.
+	Parent: 10.10 - F_TLOCK [       1,       3] PASSED.
+	Parent: 10.11 - F_ULOCK [       2,       1] PASSED.
+	Child:  10.12 - F_TEST  [       1,       1] PASSED.
+	Child:  10.13 - F_TEST  [       3,       1] PASSED.
+	Child:  10.14 - F_TEST  [       4,  ENDING] PASSED.
+	Child:  10.15 - F_TEST  [       2,       1] PASSED.
+	Child:  10.16 - F_TEST  [       0,       1] PASSED.
+
+Test #11 - Make sure close() releases the process's locks.
+	Parent: 11.0  - F_TLOCK [       0,  ENDING] PASSED.
+	Parent: Closed testfile.
+	Child:  11.1  - F_TLOCK [       0,  ENDING] PASSED.
+	Child:  11.2  - F_ULOCK [       0,  ENDING] PASSED.
+	Parent: 11.3  - F_TLOCK [      1d,     5b7] PASSED.
+	Parent: 11.4  - F_TLOCK [    2000,      57] PASSED.
+	Parent: Closed testfile.
+	Child:  11.5  - F_TLOCK [       0,  ENDING] PASSED.
+	Child:  11.6  - F_ULOCK [       0,  ENDING] PASSED.
+	Parent: Wrote '123456789abcdef' to testfile [ 0, 16 ].
+	Parent: 11.7  - F_TLOCK [       0,  ENDING] PASSED.
+	Parent: Wrote '123456789abcdef' to testfile [ 13, 16 ].
+	Parent: Closed testfile.
+	Child:  11.8  - F_TLOCK [       0,  ENDING] PASSED.
+	Child:  11.9  - F_ULOCK [       0,  ENDING] PASSED.
+	Parent: Wrote '123456789abcdef' to testfile [ 0, 16 ].
+	Parent: 11.10 - F_TLOCK [       0,  ENDING] PASSED.
+	Parent: Truncated testfile.
+	Parent: Closed testfile.
+	Child:  11.11 - F_TLOCK [       0,  ENDING] PASSED.
+	Child:  11.12 - F_ULOCK [       0,  ENDING] PASSED.
+
+Test #12 - Signalled process should release locks.
+	Child:  12.0  - F_TLOCK [       0,  ENDING] PASSED.
+	Parent: Killed child process.
+	Parent: 12.1  - F_TLOCK [       0,  ENDING] PASSED.
+
+Test #13 - Check locking and mmap semantics.
+	Parent: 13.0  - F_TLOCK [     ffe,  ENDING] PASSED.
+	Parent: 13.1  - mmap [       0,    1000] PASSED.
+	Parent: 13.2  - F_ULOCK [       0,  ENDING] PASSED.
+	Parent: 13.3  - mmap [       0,    1000] PASSED.
+	Parent: 13.4  - F_TLOCK [     ffe,  ENDING] PASSED.
+
+** PARENT pass 1 results: 45/45 pass, 0/0 warn, 0/0 fail (pass/total).
+
+**  CHILD pass 1 results: 64/64 pass, 0/0 warn, 0/0 fail (pass/total).
+Congratulations, you passed the locking tests!
+
+All tests completed
+</PRE>
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

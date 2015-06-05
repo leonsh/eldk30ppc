@@ -1,0 +1,362 @@
+#!/usr/bin/expect
+
+set BOARD [lindex $argv 0]
+
+set HOST [exec hostname]
+
+set U_BOOT  "/tftpboot/$BOARD/u-boot.srec"
+set KERNEL  "/tftpboot/$BOARD/uImage"
+set RAMDISK "/tftpboot/$BOARD/uRamdisk"
+set LOGDIR  "/tftpboot/$BOARD/logfiles"
+
+set TQM82xx_BAUDRATE	9600
+set TQM8xxL_BAUDRATE	115k
+set CPU86_BAUDRATE	9600
+set PORT		S1
+
+if [string match xpert* $HOST] {
+	set SERVER_IP	"192.168.3.1"
+	set TARGET_IP	"192.168.3.100"
+	set NETMASK	"255.255.255.0"
+} else {
+	set SERVER_IP	"10.0.0.14"
+	set TARGET_IP	"10.0.0.99"
+	set NETMASK	"255.0.0.0"
+}
+
+# Verify existence of images
+if [file exists $U_BOOT] {
+	# ok
+} else {
+	puts "File $U_BOOT missing"
+	exit 1
+}
+
+if [file exists $KERNEL] {
+	# ok
+} else {
+	puts "File $KERNEL missing"
+	exit 1
+}
+
+if [file exists $RAMDISK] {
+	# ok
+} else {
+	puts "File $RAMDISK missing"
+	exit 1
+}
+
+if [file isdirectory $LOGDIR] {
+	# ok
+} else {
+	file mkdir $LOGDIR
+}
+
+set timeout 60
+
+if [string match TQM8255* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM82xx_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match TQM8260* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM82xx_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match TQM8265* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM82xx_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match TQM8??L* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match TQM8??M* $BOARD] {
+	set KERNEL_ADDR "40080000"
+	set KERNEL_END  "4017FFFF"
+	set INITRD_ADDR "40180000"
+	set INITRD_END  "403FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match CPU86 $BOARD] {
+	set KERNEL_ADDR "FF040000"
+	set KERNEL_END  "FF0FFFFF"
+	set INITRD_ADDR "FF100000"
+	set INITRD_END  "FF1FFFFF"
+	set HOSTNAME	"cpu86"
+
+	spawn "connect" $BOARD
+
+	expect -exact "--------------------------------------------------"
+} elseif [string match SM850 $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"sm850"
+
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+
+	expect "Connected."
+} elseif [string match FPS8??L* $BOARD] {
+	set KERNEL_ADDR "40040000"
+	set KERNEL_END  "400FFFFF"
+	set INITRD_ADDR "40100000"
+	set INITRD_END  "401FFFFF"
+	set HOSTNAME	"tqm"
+
+	spawn "cu" "$PORT@$TQM8xxL_BAUDRATE"
+
+	expect "Connected."
+} else {
+	puts "Unknown Board \"$BOARD\""
+	exit 1
+}
+
+puts "\n\n"
+puts "\t####################################################################"
+puts "\t####################################################################"
+puts "\t###                                                             ####"
+puts "\t###  Reset board to boot U-Boot                                 ####"
+puts "\t###                                                             ####"
+puts "\t####################################################################"
+puts "\t####################################################################"
+
+proc u_boot_cmd {cmd} {
+	send -s "$cmd\r"
+	expect "=>"
+}
+
+proc logfile_start { prompt file } {
+	log_file -noappend $file
+	send_user -- $prompt
+}
+
+proc logfile_stop {} {
+	log_file
+}
+set timeout -1
+logfile_start "\n" "$LOGDIR/u-boot.boot"
+expect "CPU:"
+send "\r"
+
+sleep 5
+set timeout 2
+expect "=>"
+logfile_stop
+set timeout .2
+expect "=>"
+expect "=>"
+
+
+set timeout 10
+set send_slow {1 .01}
+
+# Make sure we get the command output on the serial line
+u_boot_cmd "setenv stdout serial"
+u_boot_cmd "setenv stdout serial"
+u_boot_cmd "setenv stdout serial"
+u_boot_cmd "setenv stdout serial"
+
+# Now start...
+set send_slow {1 .001}
+set timeout 120
+
+u_boot_cmd "printenv baudrate"
+
+##
+## Test and Log some standard commands in U-Boot
+##
+
+logfile_start "=> "  "$LOGDIR/u-boot.printenv_board_ID"
+u_boot_cmd "printenv serial# ethaddr"
+logfile_stop
+
+logfile_start "=> "  "$LOGDIR/u-boot.saveenv"
+u_boot_cmd "saveenv"
+logfile_stop
+
+logfile_start "=> "  "$LOGDIR/u-boot.help"
+u_boot_cmd "help"
+logfile_stop
+
+logfile_start "=> "  "$LOGDIR/u-boot.help_long"
+u_boot_cmd "help tftpboot"
+u_boot_cmd "help setenv printenv"
+logfile_stop
+
+logfile_start "=> "  "$LOGDIR/u-boot.help_abbrev"
+u_boot_cmd "help fli tftp"
+logfile_stop
+
+logfile_start "=> "  "$LOGDIR/u-boot.flinfo"
+u_boot_cmd "fli"
+logfile_stop
+
+u_boot_cmd "setenv preboot echo\\;echo Type \"run flash_nfs\" to mount root filesystem over NFS\\;echo"
+
+logfile_start "=> "  "$LOGDIR/u-boot.install_kernel_nfs"
+u_boot_cmd "era $KERNEL_ADDR $KERNEL_END"
+
+u_boot_cmd "setenv nfsargs setenv bootargs root=/dev/nfs rw nfsroot=\\\$(serverip):\\\$(rootpath)"
+
+u_boot_cmd "setenv addip setenv bootargs \\\$(bootargs) ip=\\\$(ipaddr):\\\$(serverip):\\\$(gatewayip):\\\$(netmask):\\\$(hostname):\\\$(netdev):off panic=1"
+
+u_boot_cmd "setenv flash_nfs run nfsargs addip\\\;bootm \\\$(kernel_addr)"
+
+u_boot_cmd "setenv kernel_addr $KERNEL_ADDR"
+
+u_boot_cmd "setenv ipaddr   $TARGET_IP"
+u_boot_cmd "setenv netmask  $NETMASK"
+u_boot_cmd "setenv netdev   eth0"
+u_boot_cmd "setenv hostname $HOSTNAME"
+u_boot_cmd "setenv serverip $SERVER_IP"
+u_boot_cmd "setenv clocks_in_mhz"
+
+if [string match TQM8260* $BOARD] {
+	u_boot_cmd "setenv rootpath /opt/eldk/ppc_82xx"
+} else {
+	u_boot_cmd "setenv rootpath /opt/eldk/ppc_8xx"
+}
+
+u_boot_cmd "tftp 100000 $KERNEL"
+
+u_boot_cmd "cp.b 100000 \$(kernel_addr) \$(filesize)"
+logfile_stop
+
+logfile_start "=> "  "$LOGDIR/u-boot.iminfo"
+u_boot_cmd "iminfo \$(kernel_addr)"
+logfile_stop
+
+
+logfile_start "=> "  "$LOGDIR/u-boot.install_kernel_ram"
+u_boot_cmd "setenv ramargs setenv bootargs root=/dev/ram rw"
+
+u_boot_cmd "era $INITRD_ADDR $INITRD_END"
+
+u_boot_cmd "setenv flash_self run ramargs addip\\\;bootm \\\$(kernel_addr) \\\$(ramdisk_addr)"
+
+u_boot_cmd "setenv ramdisk_addr $INITRD_ADDR"
+
+u_boot_cmd "tftp 100000 $RAMDISK"
+
+u_boot_cmd "cp.b 100000 \$(ramdisk_addr) \$(filesize)"
+
+u_boot_cmd "setenv bootcmd run flash_self"
+logfile_stop
+
+u_boot_cmd "setenv dnsip"
+
+u_boot_cmd "setenv filesize"
+
+u_boot_cmd "setenv bootfile"
+
+u_boot_cmd "saveenv"
+
+set DATE [exec date -u +%m%d%H%M%Y.%S]
+u_boot_cmd "date $DATE"
+
+send -s "reset\r"
+
+#################################################################
+##
+## Test "SELF" Environment
+##
+#################################################################
+
+# Wait for SELF to come up :-)
+expect "stop autoboot"
+expect "0"
+
+logfile_start "=> "  "$LOGDIR/linux.boot_self"
+expect "Linux version"
+expect "Application running"
+
+sleep 4
+set timeout 1
+expect "# "
+
+set timeout 10
+
+send -s "\r"
+expect "# "
+logfile_stop
+
+set timeout 60
+
+send -s "date\r"
+expect "# "
+
+# Long timeout needed for slow baudrate systems
+set timeout 150
+send -s "ls -l /bin /sbin /etc /dev\r"
+expect "# "
+
+send -s "ping $SERVER_IP\r"
+expect "# "
+
+send "reboot\r"
+
+#################################################################
+##
+## Test NFS Environment
+##
+#################################################################
+
+# Wait for PREBOOT message
+expect "stop autoboot"
+# Send Break character
+u_boot_cmd ""
+
+logfile_start "=> "  "$LOGDIR/linux.boot_nfs"
+send -s "run flash_nfs\r"
+
+# Wait for Linux to come up :-)
+set timeout 120
+expect "login:"
+
+set send_slow {1 .01}
+
+send -s "root\r"
+expect "# "
+logfile_stop
+
+send -s "/sbin/ifconfig lo 127.0.0.1\r"
+expect "# "
+
+send -s "mount\r"
+expect "# "
+
+send -s "date\r"
+expect "# "
+
+send -s "ls -l /bin\r"
+expect "# "
+
+interact

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Kernel-Space NFS Server</TITLE>
+<META NAME="description" CONTENT="The Kernel-Space NFS Server">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html101"
+ HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html99"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html93"
+ HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html102"
+ HREF="node8.html">File Handle in Kernel-Space</A>
+<B> Up:</B> <A NAME="tex2html100"
+ HREF="node5.html">Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html94"
+ HREF="node6.html">File Handle</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00032000000000000000">
+The Kernel-Space NFS Server</A>
+</H2>
+
+<P>
+The Connectathon testsuites revealed several flaws in the NFS
+server implementation in the Linux kernel 2.2.9. The test
+result from Solaris clients showed that the Solaris NFS
+client assumes:
+
+<P>
+
+<UL><LI>Files are unstructured streams of uninterpreted bytes.
+
+<P>
+
+<LI>If 2 file handles from the same server are identical,
+  	they represent the same file on the server.
+
+<P>
+
+<LI>If 2 file handles from the same server are different,
+  	they must represent the different files on the server.
+
+<P>
+
+<LI>All the hard links should be represented by the same
+  	file handle
+
+<P>
+
+<LI>When a client renames a file within the same file system,
+  	the file handle should be unchanged.
+
+</UL>
+
+<P>
+However, two fields in the file handle in the Linux NFS server,
+fb_dentry and fb_dirino, make Solaris's assumption untrue.
+
+<P>
+fb_dentry is for dentry, which is the internal part for the Linux
+file system. It determined by pathname. That implies several
+things:
+
+<P>
+
+<UL><LI>When a pathname is deleted and then created, their dentries
+  	will be the same although they are different files.
+
+<P>
+
+<LI>The hard links have different dentries.
+
+<P>
+
+<LI>Rename will lead to different dentries.
+
+</UL>
+
+<P>
+Those make dentry very unsuitable for file handle.
+Even worse, dentry is a memory pointer. That means the file handle
+from the Linux NFS server is not persistent. When the server
+is rebooted, the file handlers which clients have may become stale
+and for the same file the Linux NFS server may return a different
+file handle.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html101"
+ HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html99"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html93"
+ HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html102"
+ HREF="node8.html">File Handle in Kernel-Space</A>
+<B> Up:</B> <A NAME="tex2html100"
+ HREF="node5.html">Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html94"
+ HREF="node6.html">File Handle</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

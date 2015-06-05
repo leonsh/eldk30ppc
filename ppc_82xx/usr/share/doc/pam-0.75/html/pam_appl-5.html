@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Application Developers' Guide: A library of miscellaneous helper functions</TITLE>
+ <LINK HREF="pam_appl-6.html" REL=next>
+ <LINK HREF="pam_appl-4.html" REL=previous>
+ <LINK HREF="pam_appl.html#toc5" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_appl-6.html">Next</A>
+<A HREF="pam_appl-4.html">Previous</A>
+<A HREF="pam_appl.html#toc5">Contents</A>
+<HR>
+<H2><A NAME="libpam-misc-section"></A> <A NAME="s5">5.</A> <A HREF="pam_appl.html#toc5">A library of miscellaneous helper functions</A></H2>
+
+<P>To aid the work of the application developer a library of
+miscellaneous functions is provided.  It is called <CODE>libpam_misc</CODE>,
+and contains functions for allocating memory (securely), a text based
+conversation function, and routines for enhancing the standard
+PAM-environment variable support.</P>
+
+<H2><A NAME="ss5.1">5.1</A> <A HREF="pam_appl.html#toc5.1">Requirements</A>
+</H2>
+
+<P>The functions, structures and macros, made available by this library
+can be defined by including <CODE>&lt;security/pam_misc.h&gt;</CODE>.  It
+should be noted that this library is specific to <B>Linux-PAM</B> and is
+not referred to in the defining DCE-RFC (see 
+<A HREF="pam_appl-10.html#bibliography">the bibliography</A>) below.</P>
+
+<H2><A NAME="ss5.2">5.2</A> <A HREF="pam_appl.html#toc5.2">Functions supplied</A>
+</H2>
+
+<H3>Safe string duplication</H3>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+extern char *xstrdup(const char *s)
+</PRE>
+</CODE></BLOCKQUOTE>
+
+Return a duplicate copy of the <CODE>NUL</CODE> terminated string,
+<CODE>s</CODE>. <CODE>NULL</CODE> is returned if there is insufficient memory
+available for the duplicate or if <CODE>s=NULL</CODE>.</P>
+
+<H3>A text based conversation function</H3>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int misc_conv(int num_msg, const struct pam_message **msgm,
+                     struct pam_response **response, void *appdata_ptr);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>This is a function that will prompt the user with the appropriate
+comments and obtain the appropriate inputs as directed by
+authentication modules.</P>
+
+<P>In addition to simply slotting into the appropriate <CODE>struct
+pam_conv</CODE>, this function provides some time-out facilities.  The
+function exports five variables that can be used by an application
+programmer to limit the amount of time this conversation function will
+spend waiting for the user to type something.</P>
+
+<P>The five variables are as follows:
+<DL>
+<DT><B><CODE>extern time_t pam_misc_conv_warn_time;</CODE></B><DD><P>This variable contains the <EM>time</EM> (as returned by <CODE>time()</CODE>) that
+the user should be first warned that the clock is ticking. By default
+it has the value <CODE>0</CODE>, which indicates that no such warning will be
+given. The application may set its value to sometime in the future,
+but this should be done prior to passing control to the <B>Linux-PAM</B>
+library.</P>
+
+<DT><B><CODE>extern const char *pam_misc_conv_warn_line;</CODE></B><DD><P>Used in conjuction with <CODE>pam_misc_conv_warn_time</CODE>, this variable is
+a pointer to the string that will be displayed when it becomes time to
+warn the user that the timeout is approaching. Its default value is
+``..\a.Time is running out...\n'', but this can be changed
+by the application prior to passing control to <B>Linux-PAM</B>.</P>
+
+<DT><B><CODE>extern time_t pam_misc_conv_die_time;</CODE></B><DD><P>This variable contains the <EM>time</EM> (as returned by <CODE>time()</CODE>) that
+the conversation will time out. By default it has the value <CODE>0</CODE>,
+which indicates that the conversation function will not timeout. The
+application may set its value to sometime in the future, this should
+be done prior to passing control to the <B>Linux-PAM</B> library.</P>
+
+<DT><B><CODE>extern const char *pam_misc_conv_die_line;</CODE></B><DD><P>Used in conjuction with <CODE>pam_misc_conv_die_time</CODE>, this variable is
+a pointer to the string that will be displayed when the conversation
+times out. Its default value is ``..\a.Sorry, your time is
+up!\n'', but this can be changed by the application prior to
+passing control to <B>Linux-PAM</B>.</P>
+
+<DT><B><CODE>extern int pam_misc_conv_died;</CODE></B><DD><P>Following a return from the <B>Linux-PAM</B> libraray, the value of this
+variable indicates whether the conversation has timed out. A value of
+<CODE>1</CODE> indicates the time-out occurred.</P>
+
+<DT><B><CODE>extern int (*pam_binary_handler_fn)(const union pam_u_packet_p send,
+union pam_u_packet_p *receive);</CODE></B><DD><P>This function pointer is initialized to <CODE>NULL</CODE> but can be filled
+with a function that provides machine-machine (hidden) message
+exchange.  It is intended for use with hidden authentication protocols
+such as RSA or Diffie-Hellman key exchanges.  (This is still under
+development.)</P>
+
+</DL>
+</P>
+
+<H3>Transcribing an environment to that of Linux-PAM</H3>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int pam_misc_paste_env(pam_handle_t *pamh,
+                              const char * const * user_env);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>This function takes the supplied list of environment pointers and
+<EM>uploads</EM> its contents to the <B>Linux-PAM</B> environment. Success
+is indicated by <CODE>PAM_SUCCESS</CODE>.</P>
+
+<H3>Saving the Linux-PAM environment for later use</H3>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+extern char **pam_misc_copy_env(pam_handle_t *pamh);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>This function returns a pointer to a list of environment variables
+that are a direct copy of the <B>Linux-PAM</B> environment.  The memory
+associated with these variables are the responsibility of the
+application and should be liberated with a call to
+<CODE>pam_misc_drop_env()</CODE>.</P>
+
+<H3>Liberating a locally saved environment</H3>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+extern char **pam_misc_drop_env(char **env);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>This function is defined to complement the <CODE>pam_misc_copy_env()</CODE>
+function.  It liberates the memory associated with <CODE>env</CODE>,
+<EM>overwriting</EM> with <CODE>0</CODE> all memory before <CODE>free()</CODE>ing it.</P>
+
+<H3>BSD like Linux-PAM environment variable setting</H3>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+extern int pam_misc_setenv(pam_handle_t *pamh, const char *name,
+                           const char *value, int readonly);
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>This function performs a task equivalent to <CODE>pam_putenv()</CODE>, its
+syntax is, however, more like the BSD style function; <CODE>setenv()</CODE>.
+The <CODE>name</CODE> and <CODE>value</CODE> are concatenated with an ``<CODE>=</CODE>'' to
+form a <CODE>name_value</CODE> and passed to <CODE>pam_putenv()</CODE>. If, however,
+the <B>Linux-PAM</B> variable is already set, the replacement will only
+be applied if the last argument, <CODE>readonly</CODE>, is zero.</P>
+
+<HR>
+<A HREF="pam_appl-6.html">Next</A>
+<A HREF="pam_appl-4.html">Previous</A>
+<A HREF="pam_appl.html#toc5">Contents</A>
+</BODY>
+</HTML>

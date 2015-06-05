@@ -1,0 +1,1 @@
+#undef  CONFIG_SCC4_UART

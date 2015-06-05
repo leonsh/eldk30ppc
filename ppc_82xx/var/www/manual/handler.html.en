@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><!--
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+              This file is generated from xml source: DO NOT EDIT
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      --><title>Apache's Handler Use - Apache HTTP Server</title><link href="./style/manual.css" type="text/css" rel="stylesheet"/></head><body><blockquote><div align="center"><img src="./images/sub.gif" alt="[APACHE DOCUMENTATION]"/><h3>Apache HTTP Server Version 2.0</h3></div><h1 align="center">Apache's Handler Use</h1>
+    <p>This document describes the use of Apache's Handlers.</p>
+  <ul><li><a href="#definition">What is a Handler</a></li><li><a href="#examples">Examples</a><ul><li><a href="#example1">Modifying static content using a CGI script</a></li><li><a href="#example2">Files with HTTP headers</a></li></ul></li><li><a href="#programmer">Programmer's Note</a></li></ul><hr/><h2><a name="definition">What is a Handler</a></h2>
+    
+    <table border="1"><tr><td valign="top"><strong>Related Modules</strong><br/><br/><code><a href="./mod/mod_actions.html">mod_actions</a></code><br/><code><a href="./mod/mod_asis.html">mod_asis</a></code><br/><code><a href="./mod/mod_cgi.html">mod_cgi</a></code><br/><code><a href="./mod/mod_imap.html">mod_imap</a></code><br/><code><a href="./mod/mod_info.html">mod_info</a></code><br/><code><a href="./mod/mod_mime.html">mod_mime</a></code><br/><code><a href="./mod/mod_negotiation.html">mod_negotiation</a></code><br/><code><a href="./mod/mod_status.html">mod_status</a></code><br/></td><td valign="top"><strong>Related Directives</strong><br/><br/><a href="./mod/mod_actions.html#action" class="directive"><code class="directive">Action</code></a><br/><a href="./mod/mod_mime.html#addhandler" class="directive"><code class="directive">AddHandler</code></a><br/><a href="./mod/mod_mime.html#removehandler" class="directive"><code class="directive">RemoveHandler</code></a><br/><a href="./mod/mod_mime.html#sethandler" class="directive"><code class="directive">SetHandler</code></a><br/></td></tr></table>
+    
+
+    <p>A "handler" is an internal Apache representation of the
+    action to be performed when a file is called. Generally, files
+    have implicit handlers, based on the file type. Normally, all
+    files are simply served by the server, but certain file types
+    are "handled" separately.</p>
+
+    <p>Apache 1.1 adds the ability to use handlers explicitly.
+    Based on either filename extensions or on location, handlers
+    can be specified without relation to file type. This is
+    advantageous both because it is a more elegant solution, and
+    because it also allows for both a type <strong>and</strong> a
+    handler to be associated with a file. (See also <a href="mod/mod_mime.html#multipleext">Files with Multiple
+    Extensions</a>.)</p>
+
+    <p>Handlers can either be built into the server or included in
+    a module, or they can be added with the <a href="./mod/mod_actions.html#action" class="directive"><code class="directive">Action</code></a> directive. The
+    built-in handlers in the standard distribution are as
+    follows:</p>
+
+    <ul>
+      <li><strong>default-handler</strong>: Send the file using the
+      <code>default_handler()</code>, which is the handler used by
+      default to handle static content. (core)</li>
+
+      <li><strong>send-as-is</strong>: Send file with HTTP headers
+      as is. (<code><a href="./mod/mod_asis.html">mod_asis</a></code>)</li>
+
+      <li><strong>cgi-script</strong>: Treat the file as a CGI
+      script. (<code><a href="./mod/mod_cgi.html">mod_cgi</a></code>)</li>
+
+      <li><strong>imap-file</strong>: Parse as an imagemap rule
+      file. (<code><a href="./mod/mod_imap.html">mod_imap</a></code>)</li>
+
+      <li><strong>server-info</strong>: Get the server's
+      configuration information. (<code><a href="./mod/mod_info.html">mod_info</a></code>)</li>
+
+      <li><strong>server-status</strong>: Get the server's status
+      report. (<code><a href="./mod/mod_status.html">mod_status</a></code>)</li>
+
+      <li><strong>type-map</strong>: Parse as a type map file for
+      content negotiation. (<code><a href="./mod/mod_negotiation.html">mod_negotiation</a></code>)</li>
+    </ul>
+  <h2><a name="examples">Examples</a></h2>
+    
+
+    <h3><a name="example1">Modifying static content using a CGI script</a></h3>
+      
+
+      <p>The following directives will cause requests for files with
+      the <code>html</code> extension to trigger the launch of the
+      <code>footer.pl</code> CGI script.</p>
+      
+      <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code><code>
+        Action add-footer /cgi-bin/footer.pl<br>
+        AddHandler add-footer .html
+      </code></code></td></tr></table></blockquote>
+
+      <p>Then the CGI script is responsible for sending the
+      originally requested document (pointed to by the
+      <code>PATH_TRANSLATED</code> environment variable) and making
+      whatever modifications or additions are desired.</p>
+ 
+    
+    <h3><a name="example2">Files with HTTP headers</a></h3>
+      
+
+      <p>The following directives will enable the
+      <code>send-as-is</code> handler, which is used for files which
+      contain their own HTTP headers. All files in the
+      <code>/web/htdocs/asis/</code> directory will be processed by
+      the <code>send-as-is</code> handler, regardless of their
+      filename extensions.</p>
+
+      <blockquote><table cellpadding="10"><tr><td bgcolor="#eeeeee"><code><code>
+        &lt;Directory /web/htdocs/asis&gt;<br>
+        SetHandler send-as-is<br>
+        &lt;/Directory&gt;
+      </code></code></td></tr></table></blockquote>
+      
+    
+  <h2><a name="programmer">Programmer's Note</a></h2>
+    
+
+    <p>In order to implement the handler features, an addition has
+    been made to the <a href="developer/API.html">Apache API</a> that
+    you may wish to make use of. Specifically, a new record has
+    been added to the <code>request_rec</code> structure:</p>
+<pre>
+    char *handler
+</pre>
+
+    <p>If you wish to have your module engage a handler, you need
+    only to set <code>r-&gt;handler</code> to the name of the
+    handler at any time prior to the <code>invoke_handler</code>
+    stage of the request. Handlers are implemented as they were
+    before, albeit using the handler name instead of a content
+    type. While it is not necessary, the naming convention for
+    handlers is to use a dash-separated word, with no slashes, so
+    as to not invade the media type name-space.</p>
+  <hr/></blockquote><h3 align="center">Apache HTTP Server Version 2.0</h3><a href="./"><img src="./images/index.gif" alt="Index"/></a><a href="./"><img src="./images/home.gif" alt="Home"/></a></body></html>

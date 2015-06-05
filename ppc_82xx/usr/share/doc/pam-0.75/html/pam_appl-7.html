@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Application Developers' Guide: Glossary of PAM related terms</TITLE>
+ <LINK HREF="pam_appl-8.html" REL=next>
+ <LINK HREF="pam_appl-6.html" REL=previous>
+ <LINK HREF="pam_appl.html#toc7" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_appl-8.html">Next</A>
+<A HREF="pam_appl-6.html">Previous</A>
+<A HREF="pam_appl.html#toc7">Contents</A>
+<HR>
+<H2><A NAME="s7">7.</A> <A HREF="pam_appl.html#toc7">Glossary of PAM related terms</A></H2>
+
+<P>The following are a list of terms used within this document.</P>
+
+<P>
+<DL>
+
+<DT><B>Authentication token</B><DD><P>Generally, this is a password.  However, a user can authenticate
+him/herself in a variety of ways.  Updating the user's authentication
+token thus corresponds to <EM>refreshing</EM> the object they use to
+authenticate themself with the system.  The word password is avoided
+to keep open the possibility that the authentication involves a
+retinal scan or other non-textual mode of challenge/response.</P>
+
+<DT><B>Credentials</B><DD><P>Having successfully authenticated the user, PAM is able to establish
+certain characteristics/attributes of the user.  These are termed
+<EM>credentials</EM>.  Examples of which are group memberships to
+perform privileged tasks with, and <EM>tickets</EM> in the form of
+environment variables etc. .  Some user-credentials, such as the
+user's UID and GID (plus default group memberships) are not deemed to
+be PAM-credentials.  It is the responsibility of the application to
+grant these directly.</P>
+
+</DL>
+</P>
+
+<HR>
+<A HREF="pam_appl-8.html">Next</A>
+<A HREF="pam_appl-6.html">Previous</A>
+<A HREF="pam_appl.html#toc7">Contents</A>
+</BODY>
+</HTML>

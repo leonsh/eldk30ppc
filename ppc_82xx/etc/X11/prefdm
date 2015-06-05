@@ -1,0 +1,54 @@
+#!/bin/sh
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/X11R6/bin
+
+# We need to source this so that the login screens get translated
+[ -f /etc/profile.d/lang.sh ] && . /etc/profile.d/lang.sh
+
+# Run preferred X display manager
+
+# Try autologin first, if wanted...
+if [ -f /etc/sysconfig/autologin -a -x /usr/sbin/autologin ]; then
+	if /usr/sbin/autologin; then
+		exit 0
+	fi
+	# If autologin fails (bad permissions, etc.), we get here -
+	# time to start a real display manager.
+fi
+
+preferred=
+if [ -f /etc/sysconfig/desktop ]; then
+	. /etc/sysconfig/desktop
+	if [ "$DISPLAYMANAGER" = GNOME ]; then
+		preferred=gdm
+	elif [ "$DISPLAYMANAGER" = KDE ]; then
+		preferred=kdm
+	elif [ "$DISPLAYMANAGER" = XDM ]; then
+	        preferred=xdm
+	fi
+fi
+
+if [ -z "$preferred" ]; then
+	if which gdm >/dev/null 2>&1; then
+		preferred=gdm
+	elif which kdm >/dev/null 2>&1; then
+		preferred=kdm
+	elif which xdm >/dev/null 2>&1; then
+		preferred=xdm
+	fi
+fi
+
+if [ -n "$preferred" ] && which $preferred >/dev/null 2>&1; then 
+	exec `which $preferred` $* >/dev/null 2>&1
+fi
+
+if which gdm >/dev/null 2>&1; then
+	exec `which gdm` $* >/dev/null 2>&1
+elif which kdm >/dev/null 2>&1; then
+	exec `which kdm` $* >/dev/null 2>&1
+elif which xdm >/dev/null 2>&1; then
+	exec `which xdm` $* >/dev/null 2>&1
+fi
+
+# catch all exit error
+exit 1

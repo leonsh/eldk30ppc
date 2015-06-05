@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The User-Space NFS Server</TITLE>
+<META NAME="description" CONTENT="The User-Space NFS Server">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html58"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html56"
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html50"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html59"
+ HREF="node4.html">The Kernel-Space NFS Server</A>
+<B> Up:</B> <A NAME="tex2html57"
+ HREF="node2.html">Overview</A>
+<B> Previous:</B> <A NAME="tex2html51"
+ HREF="node2.html">Overview</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00021000000000000000">
+The User-Space NFS Server</A>
+</H2>
+
+<P>
+The Linux user-space NFS server is relatively easy to implement. It
+only uses the user-space RPC calls. It has several features:
+
+<P>
+
+<UL><LI>The directory hierarchy exported by the user-space NFS server
+  	mount points within an exported filesystem transparently; thus
+	the client sees the same directory hierarchy as is seen from
+	the server.
+
+<P>
+
+<LI>Since the server is running in the user space, it is easy to
+  	do uid and gid mapping as well as access DNS, NIS, NIS+,
+	etc.
+
+</UL>
+
+<P>
+However the user-space NFS server has some drawbacks:
+
+<P>
+
+<UL><LI>Since it is running in the user space, it has to do extra
+	memory copy between user and kernel spaces. Also there is an
+	overhead for context switch. They can be very expensive.
+
+<P>
+
+<LI>There are no supports for NLM nor NSM. File and record locks
+  	are not available.
+
+<P>
+
+<LI>The current implementation is not multithreaded which impacts
+  	its performance.
+
+<P>
+
+<LI>Since the export control is initialized at the startup time,
+  	the server process has to be restarted when /etc/exports is
+	changed.
+
+</UL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

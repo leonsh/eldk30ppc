@@ -1,0 +1,194 @@
+VMEBus Support for MicroSys Boards:
+===================================
+
+This document describes the VMEBus support which is available for the
+following MicroSys boards:
+
+	Board:			Files:
+	-------------------------------------
+	CPU86			cpu86_intr.c
+				cpu86_intr.h
+				cpu86_mem.c
+				cpu86_mem.h
+				cpu86_test.c
+	-------------------------------------
+	CU824			cu824_intr.c
+				cu824_intr.h
+				cu824_mem.c
+				cu824_mem.h
+				cu824_test.c
+	-------------------------------------
+	IP860			ip860_intr.c
+				ip860_intr.h
+				ip860_mem.c
+				ip860_mem.h
+				ip860_test.c
+	-------------------------------------
+
+Note: this text documents the version of the code for the IP860
+board; please adjust function names and #define'd constants
+accordingly (substitute "ip860" by "cu824" or "cpu86", "IP860" by
+"CU824" or "CPU86").
+
+
+
+1. VMEBus Memory Regions:	Module "ip860_mem"
+==================================================
+
+   The device driver which implements access to the VME Memory
+   Regions uses Major Device Number 221 which is officially
+   registered with the "Linux Assigned Names And Numbers Authority"
+   (see http://www.lanana.org/).
+
+   However, the driver uses different Minor Device Numbers than those
+   registered with the LANANA. The reason is that their version was
+   specifically designed with Tundra Universe Controllers in mind,
+   while the MicroSys hardware is completely different, so
+   differences cannot be avoided.
+
+   Please create the following special files in the root filesystem
+   of your target system:
+
+	# cd dev
+	# rm -f vme_ipmod vme_rtc vme_short vme_sram vme_std
+	# mknod vme_std   c 221 1
+	# mknod vme_short c 221 2
+	# mknod vme_sram  c 221 3
+	# mknod vme_bcsr  c 221 4
+	# mknod vme_ipmod c 221 8
+	# ls -l *vme*
+	crw-r--r--    1 root     root     221,   4 Mar 10 00:52 vme_bcsr
+	crw-r--r--    1 root     root     221,   8 Mar 10 00:54 vme_ipmod
+	crw-r--r--    1 root     root     221,   2 Mar 10 00:52 vme_short
+	crw-r--r--    1 root     root     221,   3 Mar 10 00:52 vme_sram
+	crw-r--r--    1 root     root     221,   1 Mar 10 00:51 vme_std
+
+
+   The "VME Memory" driver is required not only for user space access
+   to the VME Memory Regions, but also as a prerequisite for other
+   driver modules like the VME Interrupt Support ("ip860_intr"), or
+   similar services (like the Real-Time Clock driver for the IP860
+   board ("ip860_rtc").
+
+
+   This module can be linked statically with the kernel, or compiled
+   as module and loaded dynamically.
+
+
+
+
+2. VMEBus and Onboard Interrupt Support:	Module "ip860_intr"
+===================================================================
+
+   The module "ip860_intr" implements support for VMEBus and Onboard
+   interrupts. It can be linked statically with the kernel, or
+   compiled as module and loaded dynamically.
+
+
+   The module implements the following API for other kernel services
+   (Device drivers or modules); see also the corresponding header
+   files "drivers/char/ip860_intr.h":
+
+   	extern int vme_interrupt_enable  (unsigned int level);
+	extern int vme_interrupt_disable (unsigned int level);
+
+		These functions enable resp. disable the generation of
+		interrupts for specific VMEBus interupt levels.
+
+		Input	level = VMEBus Interrupt Level; allowed values
+				are 1 ... 7
+		Output	0     = OK
+			-1    = Error (invalid value of "level")
+		
+
+	extern int request_ip860_irq (unsigned int irq,
+				      void (*handler)(int irq,
+				                      void *arg,
+						      struct pt_regs *regs),
+				      void *arg);
+
+                This function registeres a handler function for a
+                VMEBus or Onboard interrupt and enables this
+                interrupt.
+
+                Input	irq	selects the interrupt; the values 0
+                                ... 255 (see NR_VME_INTERRUPTS) refer
+                                to the 256 possible VMEBus
+                                interrupts; the following values
+                                select the available Onboard
+                                Interrupt sources; please see the
+                                header file for available sources:
+
+			#define IP860_ONBOARD_IRQ_ABORT  (NR_VME_INTERRUPTS + 0)
+			#define IP860_ONBOARD_IRQ_MBSF   (NR_VME_INTERRUPTS + 1)
+			#define IP860_ONBOARD_IRQ_IP_B_1 (NR_VME_INTERRUPTS + 2)
+			#define IP860_ONBOARD_IRQ_IP_B_0 (NR_VME_INTERRUPTS + 3)
+			#define IP860_ONBOARD_IRQ_IP_A_1 (NR_VME_INTERRUPTS + 4)
+			#define IP860_ONBOARD_IRQ_IP_A_0 (NR_VME_INTERRUPTS + 5)
+
+                Input handler	Pointer to a function which gets
+                                installed as interrupt handler; it
+                                will be called on interrupt with the
+                                foillowing arguments:
+                                
+				irq:  current IP860-IRQ (0 ... 255 for
+				      VMEBus interrupts, 256 ... 261 for
+				      Onboard Interrupts; see above)
+				arg:  Argument which was passed when the
+				      interrupt handler was installed;
+				      typically this is a pointer to some
+				      internal data of this device driver
+				regs: Pointer to register save-area at
+				      entry into the interrupt handler; see
+				      "include/asm-ppc/ptrace.h"
+		
+		Input	arg	Argument which will be passed to the
+				interrupt handler (see above)
+		
+		Output	0	= OK
+			-EBUSY	= There is already an interrupt handler
+				  registered for this IRQ; there is no
+				  support for nested interrupt handlers
+				  (yet).
+			-EINVAL	= Invalid value for "irq"
+
+
+	extern int free_ip860_irq    (unsigned int irq);
+
+                This function un-registeres an interrupt handler that
+                was installed using request_ip860_irq() and disables
+                the corresponding interrupt.
+
+		Input	irq	selects the interrupt - see above
+
+		Output	0	= OK
+			-EINVAL	= Invalid value for "irq"
+
+
+3. Example Code for Interrupt Support:	Module "ip860_test"
+============================================================
+
+   The file "drivers/char/ip860_test.c" contains some example code to
+   show how to use the interrupt support. It will be automatically
+   compiled when you run "make modules" in the Linux kernel's top
+   level directory if VMEBus Support is enabled in your kernel
+   configuration. When loading this module using "insmod" on the
+   target system, a handler for the "Abort Key" gets installed that
+   will simply print a message to the console terminal each time the
+   Abort key is pressed.
+
+
+
+4. V3021 Real-Time Clock:	Module "ip860_rtc"
+==================================================
+
+   The Real-Time Clock of the IP860 board is supported by the
+   "ip860_rtc" device driver which is compatible to other RTC drivers
+   in the Linux kernel. The character special file /dev/rtc is used
+   to access this driver:
+
+	crw-rw-r--    1 root     root      10, 135 Mar 25  1997 rtc
+
+   "ip860_rtc" requires that the "ip860_mem" driver is available.
+   This driver can be linked statically with the kernel, or
+   compiled as module and loaded dynamically.

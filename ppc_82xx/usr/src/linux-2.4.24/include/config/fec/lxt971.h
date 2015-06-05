@@ -1,0 +1,1 @@
+#define CONFIG_FEC_LXT971 1

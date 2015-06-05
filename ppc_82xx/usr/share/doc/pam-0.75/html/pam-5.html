@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM System Administrators' Guide: Security issues of Linux-PAM</TITLE>
+ <LINK HREF="pam-6.html" REL=next>
+ <LINK HREF="pam-4.html" REL=previous>
+ <LINK HREF="pam.html#toc5" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam-6.html">Next</A>
+<A HREF="pam-4.html">Previous</A>
+<A HREF="pam.html#toc5">Contents</A>
+<HR>
+<H2><A NAME="s5">5.</A> <A HREF="pam.html#toc5">Security issues of Linux-PAM</A></H2>
+
+<P>This section will discuss good practices for using Linux-PAM in a
+secure manner.  <EM>It is currently sadly lacking...suggestions are
+welcome!</EM></P>
+
+<H2><A NAME="ss5.1">5.1</A> <A HREF="pam.html#toc5.1">If something goes wrong</A>
+</H2>
+
+<P><B>Linux-PAM</B> has the potential to seriously change the security of
+your system.  You can choose to have no security or absolute security
+(no access permitted).  In general, <B>Linux-PAM</B> errs towards the
+latter.  Any number of configuration errors can dissable access to
+your system partially, or completely.</P>
+
+<P>The most dramatic problem that is likely to be encountered when
+configuring <B>Linux-PAM</B> is that of <EM>deleting</EM> the
+configuration file(s): <CODE>/etc/pam.d/*</CODE> and/or
+<CODE>/etc/pam.conf</CODE>.  This will lock you out of your own system!</P>
+
+<P>To recover, your best bet is to reboot the system in single user mode
+and set about correcting things from there.  The following has been
+<EM>adapted</EM> from a life-saving email on the subject from David
+Wood:
+<PRE>
+> What the hell do I do now?
+
+OK, don't panic. The first thing you have to realize is that
+this happens to 50% of users who ever do anything with PAM.
+It happened here, not once, not twice, but three times, all
+different, and in the end, the solution was the same every
+time.
+
+First, I hope you installed LILO with a delay. If you can,
+reboot, hit shift or tab or something and type:
+
+    LILO boot: linux single
+
+(Replace 'linux' with 'name-of-your-normal-linux-image').
+This will let you in without logging in.  Ever wondered how
+easy it is to break into a linux machine from the console?
+Now you know.
+
+If you can't do that, then get yourself a bootkernel floppy
+and a root disk a-la slackware's rescue.gz.  (Red Hat's
+installation disks can be used in this mode too.)
+
+In either case, the point is to get back your root prompt.
+
+Second, I'm going to assume that you haven't completely
+nuked your pam installation - just your configuration files.
+Here's how you make your configs nice again:
+
+    cd /etc
+    mv pam.conf pam.conf.orig
+    mv pam.d pam.d.orig
+    mkdir pam.d
+    cd pam.d
+
+and then use vi to create a file called "other" in this
+directory.  It should contain the following four lines:
+
+    auth     required       pam_unix_auth.so
+    account  required       pam_unix_acct.so
+    password required       pam_unix_passwd.so
+    session  required       pam_unix_session.so
+
+Now you have the simplest possible PAM configuration that
+will work the way you're used to.  Everything should
+magically start to work again.  Try it out by hitting ALT-F2
+and logging in on another virtual console.  If it doesn't
+work, you have bigger problems, or you've mistyped
+something.  One of the wonders of this system (seriously,
+perhaps) is that if you mistype anything in the conf files,
+you usually get no error reporting of any kind on the
+console - just some entries in the log file.  So look there!
+(Try 'tail /var/log/messages'.)
+
+From here you can go back and get a real configuration
+going, hopefully after you've tested it first on a machine
+you don't care about screwing up.  :/
+
+Some pointers (to make everything "right" with Red Hat...):
+
+    Install the newest pam, pamconfig, and pwdb from the
+    redhat current directory, and do it all on the same
+    command line with rpm...
+
+        rpm -Uvh [maybe --force too] pam-* pamconfig-* pwdb-*
+
+    Then make sure you install (or reinstall) the newest
+    version of libc, util-linux, wuftp, and NetKit. For
+    kicks you might try installing the newest versions of
+    the affected x apps, like xlock, but I haven't gotten
+    those to work at all yet.
+</PRE>
+</P>
+
+<H2><A NAME="ss5.2">5.2</A> <A HREF="pam.html#toc5.2">Avoid having a weak `other' configuration</A>
+</H2>
+
+<P>It is not a good thing to have a weak default (<CODE>OTHER</CODE>) entry.
+This service is the default configuration for all PAM aware
+applications and if it is weak, your system is likely to be vulnerable
+to attack.</P>
+
+<P>Here is a sample "other" configuration file. The <EM>pam_deny</EM> module will
+deny access and the <EM>pam_warn</EM> module will send a syslog message to
+<CODE>auth.notice</CODE>:</P>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+#
+# The PAM configuration file for the `other' service 
+# 
+auth      required   pam_deny.so 
+auth      required   pam_warn.so 
+account   required   pam_deny.so 
+account   required   pam_warn.so 
+password  required   pam_deny.so 
+password  required   pam_warn.so 
+session   required   pam_deny.so 
+session   required   pam_warn.so
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<HR>
+<A HREF="pam-6.html">Next</A>
+<A HREF="pam-4.html">Previous</A>
+<A HREF="pam.html#toc5">Contents</A>
+</BODY>
+</HTML>

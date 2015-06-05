@@ -1,0 +1,6 @@
+#define UTS_VERSION "#3 Áù 3ÔÂ 26 18:34:45 CST 2005"
+#define LINUX_COMPILE_TIME "18:34:45"
+#define LINUX_COMPILE_BY "root"
+#define LINUX_COMPILE_HOST "linux-server"
+#define LINUX_COMPILE_DOMAIN ""
+#define LINUX_COMPILER "gcc version 3.2.2 20030217 (Yellow Dog Linux 3.0 3.2.2-2a_1)"

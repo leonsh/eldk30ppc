@@ -1,0 +1,64 @@
+autcpu12.o: autcpu12.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/mtd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/nand.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/partitions.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h
+edb7312.o: edb7312.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/mtd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/nand.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/partitions.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/partitions.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/cmdline/parts.h)
+nand.o: nand.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/delay.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/errno.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/mtd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/nand.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/nand_ecc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/nand/verify/write.h)
+nand_ecc.o: nand_ecc.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/kernel.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h
+nand_ids.o: nand_ids.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/nand.h
+ppchameleon.o: ppchameleon.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/mtd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/nand.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/partitions.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/PPChameleonEVB.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/partitions.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/partitions/module.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/cmdline/parts.h)
+ppchameleonevb.o: ppchameleonevb.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/mtd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/nand.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/partitions.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/arch/ppc/platforms/PPChameleonEVB.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/partitions.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/partitions/module.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/mtd/cmdline/parts.h)
+spia.o: spia.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/mtd.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/nand.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/mtd/partitions.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/io.h

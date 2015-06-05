@@ -1,0 +1,1 @@
+#define CONFIG_PORT_CD3_NONE 1

@@ -1,0 +1,1 @@
+#undef  CONFIG_FCC2_ENET

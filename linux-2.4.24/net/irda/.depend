@@ -1,0 +1,284 @@
+af_irda.o: af_irda.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/linux/sockios.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_arp.h \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/linux/irda.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/iriap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irias_object.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irttp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/discovery.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/ultra.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/debug.h) \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+crc.o: crc.c \
+   /home/jhan/linux-2.4.241q/include/net/irda/crc.h
+discovery.o: discovery.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/discovery.h
+irda_device.o: irda_device.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/if.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_ether.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_arp.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/linux/wireless.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/ioctls.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/net/pkt_sched.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda_device.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/wrapper.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irtty/sir.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/winbond/fir.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/fir.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nsc/fir.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/toshiba/old.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/smc/ircc/fir.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/esi/dongle.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/tekram/dongle.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/actisys/dongle.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/girbil/dongle.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/litelink/dongle.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/old/belkin.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ep7211/ir.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mcp2120/dongle.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kmod.h)
+iriap.o: iriap.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irttp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irmod.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irias_object.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/iriap_event.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/iriap.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/ultra.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+iriap_event.o: iriap_event.c \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/iriap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/iriap_event.h
+irias_object.o: irias_object.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irmod.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irias_object.h
+irlap.o: irlap.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/random.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda_device.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irqueue.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp_frame.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap_frame.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/qos.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/ultra.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/dynamic/window.h)
+irlap_event.o: irlap_event.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap_event.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap_frame.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/qos.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/parameters.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda_device.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/fast/rr.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/ultra.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/dynamic/window.h)
+irlap_frame.o: irlap_frame.c \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/if.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_ether.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/pkt_sched.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda_device.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/wrapper.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap_frame.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/qos.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/dynamic/window.h)
+irlmp.o: irlmp.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/linux/random.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irmod.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/qos.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/iriap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp_frame.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/cache/last/lsap.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/ultra.h)
+irlmp_event.o: irlmp_event.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp_frame.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp_event.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/ultra.h)
+irlmp_frame.o: irlmp_frame.c \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp_frame.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/discovery.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/ultra.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/cache/last/lsap.h)
+irproc.o: irproc.c \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irmod.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h
+irqueue.o: irqueue.c \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irqueue.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irmod.h
+irsyms.o: irsyms.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irmod.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/iriap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irias_object.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irttp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda_device.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/wrapper.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/parameters.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/crc.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irtty.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sysctl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irlan.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ircomm.h)
+irsysctl.o: irsysctl.c \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irias_object.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/fast/rr.h)
+irttp.o: irttp.c \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irmod.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/parameters.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irttp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+parameters.o: parameters.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/asm/unaligned.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/parameters.h
+qos.o: qos.c \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/parameters.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/qos.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda/dynamic/window.h)
+timer.o: timer.c \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/timer.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irtty.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlmp_event.h
+wrapper.o: wrapper.c \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/wrapper.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irtty.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/crc.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irlap_frame.h \
+   /home/jhan/linux-2.4.241q/include/net/irda/irda_device.h

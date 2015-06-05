@@ -1,0 +1,1 @@
+#undef  CONFIG_FCC_AMD79C873

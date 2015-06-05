@@ -1,0 +1,1 @@
+#define CONFIG_PORT_CTS1_NONE 1

@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenSSL
+Description: Secure Sockets Layer and cryptography libraries and tools
+Version: 0.9.7a
+Requires: 
+Libs: -L${libdir} -lssl -lcrypto -L/opt/eldk/build/ppc-2004-02-16/work/ppc_82xx/usr/kerberos/lib -lresolv -lgssapi_krb5 -lkrb5 -lk5crypto -lcom_err -L/opt/eldk/build/ppc-2004-02-16/work/ppc_82xx/usr/kerberos/lib -ldl -lz
+Cflags: -I${includedir} -I/opt/eldk/build/ppc-2004-02-16/work/ppc_82xx/usr/kerberos/include

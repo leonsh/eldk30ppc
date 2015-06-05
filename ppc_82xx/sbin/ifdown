@@ -1,0 +1,125 @@
+#!/bin/bash
+
+. /etc/init.d/functions
+
+cd /etc/sysconfig/network-scripts
+. network-functions
+
+CONFIG=$1
+
+[ -z "$CONFIG" ] && {
+    echo $"usage: ifdown <device name>" >&2
+    exit 1
+}
+
+need_config $CONFIG
+
+[ -f "$CONFIG" ] || {
+    echo $"usage: ifdown <device name>" >&2
+    exit 1
+}
+
+if [ $UID != 0 ]; then
+    if [ -x /usr/sbin/usernetctl ]; then
+	if /usr/sbin/usernetctl $CONFIG report ; then
+	    exec /usr/sbin/usernetctl $CONFIG down
+	fi
+    fi
+    echo $"Users cannot control this device." >&2
+    exit 1
+fi
+
+source_config
+
+if [ -x /sbin/ifdown-pre-local ]; then
+    /sbin/ifdown-pre-local ${DEVICE}
+fi
+
+DEVICETYPE=`echo $DEVICE | sed "s/[0-9]*$//"`
+[ -z "$REALDEVICE" ] && REALDEVICE=`echo ${DEVICE} | sed 's/:.*//g'`
+OTHERSCRIPT="/etc/sysconfig/network-scripts/ifdown-${DEVICETYPE}"
+
+if [ -x $OTHERSCRIPT ]; then
+	exec $OTHERSCRIPT $CONFIG $2
+fi
+
+. /etc/sysconfig/network
+
+# Check to make sure the device is actually up
+check_device_down ${DEVICE} && [ "$BOOTPROTO" != "dhcp" -a "$BOOTPROTO" != "bootp" ] && exit 0
+
+if [ -n "${HWADDR}" ]; then
+    FOUNDMACADDR=`LC_ALL= LANG= ip -o link show ${REALDEVICE} | \
+	sed 's/.*link\/ether \([[:alnum:]:]*\).*/\1/'`
+    if [ "${FOUNDMACADDR}" != "${HWADDR}" ]; then
+        NEWCONFIG=`fgrep -l "HWADDR=${HWADDR}" /etc/sysconfig/network-scripts/ifcfg-*`
+	if [ -n "${NEWCONFIG}" -a "${NEWCONFIG}" != "${CONFIG}" ]; then
+	   exec /sbin/ifdown ${NEWCONFIG}
+	else
+	   echo $"Device ${DEVICE} has different MAC address than expected, ignoring."
+	   exit 1
+	fi
+    fi
+fi
+
+if [ "${NETWORKING_IPV6}" = "yes" ]; then
+    /etc/sysconfig/network-scripts/ifdown-ipv6 ${CONFIG}
+fi
+
+retcode=0
+if [ "$BOOTPROTO" = bootp -o "$BOOTPROTO" = dhcp ]; then
+	[ -n "`pidof -x dhclient`" ] && {
+		if [ -f "/var/run/dhclient-${DEVICE}.pid" ]; then
+		   kill `cat /var/run/dhclient-${DEVICE}.pid` >/dev/null 2>&1
+		   retcode=$?
+		fi
+	}	
+	[ -n "`pidof -x dhcpcd`" ] && {
+		if [ -f "/etc/dhcpc/dhcpcd-${DEVICE}.pid" ]; then
+		   kill `cat /etc/dhcpc/dhcpcd-${DEVICE}.pid` >/dev/null 2>&1
+		   retcode=$?
+		elif [ -f "/var/run/dhcpcd-${DEVICE}.pid" ]; then
+		   kill `cat /var/run/dhcpcd-${DEVICE}.pid` >/dev/null 2>&1
+		   retcode=$?
+		fi
+	}	
+	[ -n "`pidof -x pump`" ] && {
+	 	pump -r -i ${DEVICE}
+		retcode=$?
+	}
+else
+	# we can't just delete the configured address because that address
+	# may have been changed in the config file since the device was
+	# brought up.  Flush all addresses associated with this
+	# instance instead.
+	if [ "${REALDEVICE}" = "${DEVICE}" ]; then
+		ip addr flush dev ${REALDEVICE} 2>/dev/null
+	else
+		ip addr flush dev ${REALDEVICE} label ${DEVICE} 2>/dev/null
+	fi
+fi
+
+if [ "${REALDEVICE}" = "${DEVICE}" ]; then
+  ip link set ${DEVICE} down
+fi
+[ "$retcode" = "0" ] && retcode=$?
+
+# wait up to 5 seconds for device to actually come down...
+waited=0
+while ! check_device_down ${DEVICE} && [ "$waited" -lt 50 ] ; do
+    usleep 10000
+    waited=$(($waited+1))
+done
+
+# don't leave an outdated key sitting around
+if [ -n "${WIRELESS_ENC_KEY}" -a -x /sbin/iwconfig ]; then
+    /sbin/iwconfig ${DEVICE} enc 0 >/dev/null 2>&1
+fi
+
+if [ "$retcode" = 0 ] ; then
+    /etc/sysconfig/network-scripts/ifdown-post $CONFIG
+    # do NOT use $? because ifdown should return whether or not
+    # the interface went down.
+fi
+
+exit $retcode

@@ -1,0 +1,384 @@
+addr.o: addr.c \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   signaling.h \
+   addr.h
+addr.h: \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h
+	@touch addr.h
+atm_misc.o: atm_misc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/sonet.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/asm/atomic.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h
+br2684.o: br2684.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/rtnetlink.h \
+   /home/jhan/linux-2.4.241q/include/linux/ip.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/net/arp.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmbr2684.h \
+   common.h \
+   ipcommon.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/br2684/ipfilter.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/br2684/fast/trans.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+clip.o: clip.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_arp.h \
+   /home/jhan/linux-2.4.241q/include/linux/notifier.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmclip.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmarp.h \
+   /home/jhan/linux-2.4.241q/include/linux/ip.h \
+   /home/jhan/linux-2.4.241q/include/linux/in.h \
+   /home/jhan/linux-2.4.241q/include/linux/if.h \
+   /home/jhan/linux-2.4.241q/include/linux/inetdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/net/route.h \
+   /home/jhan/linux-2.4.241q/include/net/icmp.h \
+   /home/jhan/linux-2.4.241q/include/asm/param.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/atomic.h \
+   common.h \
+   resources.h \
+   ipcommon.h \
+   /home/jhan/linux-2.4.241q/include/net/atmclip.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/clip/no/icmp.h)
+common.o: common.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmclip.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmarp.h \
+   /home/jhan/linux-2.4.241q/include/linux/sonet.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/capability.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/time.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/atomic.h \
+   /home/jhan/linux-2.4.241q/include/asm/poll.h \
+   /home/jhan/linux-2.4.241q/include/asm/ioctls.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/lane.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/lane/module.h) \
+   /home/jhan/linux-2.4.241q/include/linux/atmlec.h \
+   lec.h \
+   lec_arpc.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/mpoa/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/mpoa.h) \
+   /home/jhan/linux-2.4.241q/include/linux/atmmpc.h \
+   mpc.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/tcp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/tcp/module.h) \
+   /home/jhan/linux-2.4.241q/include/linux/atm_tcp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/clip.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/clip/module.h) \
+   /home/jhan/linux-2.4.241q/include/net/atmclip.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pppoatm.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pppoatm/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/br2684.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/br2684/module.h) \
+   resources.h \
+   common.h \
+   protocols.h \
+   addr.h \
+   /home/jhan/linux-2.4.241q/include/net/atmclip.h \
+   signaling.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+common.h: \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h
+	@touch common.h
+ipcommon.o: ipcommon.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/in.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmclip.h \
+   common.h \
+   ipcommon.h
+ipcommon.h: \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h
+	@touch ipcommon.h
+lec_arpc.h: \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_ether.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmlec.h
+	@touch lec_arpc.h
+lec.o: lec.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_ether.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/rtnetlink.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/ip.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/net/arp.h \
+   /home/jhan/linux-2.4.241q/include/net/dst.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/tr.h) \
+   /home/jhan/linux-2.4.241q/include/linux/trdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmlec.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge/module.h) \
+   /home/jhan/linux-2.4.241q/include/linux/if_bridge.h \
+   ../bridge/br_private.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   lec.h \
+   lec_arpc.h \
+   resources.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/asm/param.h \
+   /home/jhan/linux-2.4.241q/include/asm/atomic.h \
+   /home/jhan/linux-2.4.241q/include/linux/inetdevice.h \
+   /home/jhan/linux-2.4.241q/include/net/route.h
+lec.h: \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmlec.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge/module.h) \
+   /home/jhan/linux-2.4.241q/include/linux/if_bridge.h
+	@touch lec.h
+mpc.o: mpc.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_ether.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/ip.h \
+   /home/jhan/linux-2.4.241q/include/asm/byteorder.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/checksum.h \
+   /home/jhan/linux-2.4.241q/include/net/arp.h \
+   /home/jhan/linux-2.4.241q/include/net/dst.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmlec.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmmpc.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   lec.h \
+   mpc.h \
+   resources.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+mpc.h: \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmmpc.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   mpoa_caches.h
+	@touch mpc.h
+mpoa_caches.o: mpoa_caches.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmmpc.h \
+   /home/jhan/linux-2.4.241q/include/linux/time.h \
+   mpoa_caches.h \
+   mpc.h
+mpoa_caches.h: \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmmpc.h
+	@touch mpoa_caches.h
+mpoa_proc.o: mpoa_proc.c \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/time.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmmpc.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   mpc.h \
+   mpoa_caches.h
+pppoatm.o: pppoatm.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/ppp_defs.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_ppp.h \
+   /home/jhan/linux-2.4.241q/include/linux/ppp_channel.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmppp.h \
+   common.h
+proc.o: proc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/stat.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmclip.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmarp.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_arp.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/atomic.h \
+   /home/jhan/linux-2.4.241q/include/asm/param.h \
+   resources.h \
+   common.h \
+   signaling.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/clip.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/clip/module.h) \
+   /home/jhan/linux-2.4.241q/include/net/atmclip.h \
+   ipcommon.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/lane.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/atm/lane/module.h) \
+   lec.h \
+   lec_arpc.h
+pvc.o: pvc.c \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   resources.h \
+   common.h
+raw.o: raw.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   common.h \
+   protocols.h
+resources.o: resources.c \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/sonet.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/asm/segment.h \
+   common.h \
+   resources.h \
+   addr.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
+resources.h: \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h
+	@touch resources.h
+signaling.o: signaling.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmsap.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmsvc.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   resources.h \
+   signaling.h
+signaling.h: \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmsvc.h
+	@touch signaling.h
+svc.o: svc.c \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/net.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/wait.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/fcntl.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/atm.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmsap.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmsvc.h \
+   /home/jhan/linux-2.4.241q/include/linux/atmdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   resources.h \
+   common.h \
+   signaling.h \
+   addr.h
+.PRECIOUS:	addr.h \
+	common.h \
+	ipcommon.h \
+	lec_arpc.h \
+	lec.h \
+	mpc.h \
+	mpoa_caches.h \
+	resources.h \
+	signaling.h \
+

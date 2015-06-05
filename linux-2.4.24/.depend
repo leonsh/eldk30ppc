@@ -1,0 +1,84 @@
+init/do_mounts.o: init/do_mounts.c \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/unistd.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/blk.h \
+   /home/jhan/linux-2.4.241q/include/linux/fd.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/nfs_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/nfs_fs_sb.h \
+   /home/jhan/linux-2.4.241q/include/linux/nfs_mount.h \
+   /home/jhan/linux-2.4.241q/include/linux/minix_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/ext2_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/romfs_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/cramfs_fs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/initrd.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/s390.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/root/nfs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ram.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/fd.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc/iseries.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/devfs/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/all/ppc.h) \
+   /home/jhan/linux-2.4.241q/include/../lib/inflate.c
+init/main.o: init/main.c \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/unistd.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/ctype.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/utsname.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/linux/blk.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/iobuf.h \
+   /home/jhan/linux-2.4.241q/include/linux/bootmem.h \
+   /home/jhan/linux-2.4.241q/include/linux/file.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/bugs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/s390.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi.h) \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pci.h) \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dio.h) \
+   /home/jhan/linux-2.4.241q/include/linux/dio.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/zorro.h) \
+   /home/jhan/linux-2.4.241q/include/linux/zorro.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtrr.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/nubus.h) \
+   /home/jhan/linux-2.4.241q/include/linux/nubus.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/isapnp.h) \
+   /home/jhan/linux-2.4.241q/include/linux/isapnp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/irda.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86/local/apic.h) \
+   /home/jhan/linux-2.4.241q/include/asm/smp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/watchdog.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/8xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/8260.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/tc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sysvipc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/smp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/modules.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/initrd.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sysctl.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/wdt/mpc8xx.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/wdt/pcippc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/interpreter.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sbus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mca.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/acorn.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pcmcia.h)
+init/version.o: init/version.c \
+   /home/jhan/linux-2.4.241q/include/linux/uts.h \
+   /home/jhan/linux-2.4.241q/include/linux/utsname.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/compile.h

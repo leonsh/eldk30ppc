@@ -1,0 +1,1 @@
+#undef  CONFIG_PORT_RTS1_C

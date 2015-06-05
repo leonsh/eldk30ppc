@@ -1,0 +1,61 @@
+agpgart_be.o: agpgart_be.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86.h) \
+   /home/jhan/linux-2.4.241q/include/linux/agp_backend.h \
+   agp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/smp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/i810.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/i460.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/intel.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/via.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/sis.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/amd.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/amd/k8.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/ali.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/sworks.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/nvidia.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/hp/zx1.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/agp/ati.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/gart/iommu.h)
+agpgart_fe.o: agpgart_fe.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/vmalloc.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/pagemap.h \
+   /home/jhan/linux-2.4.241q/include/linux/miscdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/agp_backend.h \
+   /home/jhan/linux-2.4.241q/include/linux/agpgart.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/include/asm/mman.h \
+   agp.h

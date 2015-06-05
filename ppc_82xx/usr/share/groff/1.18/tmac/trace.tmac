@@ -1,0 +1,54 @@
+.\" trace.tmac
+.\"
+.\" Load this before a macro package that you want to trace.
+.
+.nr _C \n(.C
+.cp 0
+.
+.eo
+.
+.rn de !!de
+.
+.!!de de
+.  do ecs
+.  ec
+.  do !!de \$1
+.    ie "\$1"\\$0" .tm *** de trace enter: \\$0 \\$@
+.    el .tm *** de trace enter \$1: \\$0 \\$@
+.    do nop \\*[!!\$1]\\
+.    ie "\$1"\\$0" .tm *** trace exit: \\$0 \\$@
+.    el .tm *** trace exit \$1: \\$0 \\$@
+\..
+.
+.  do ds !!d1 !!\$1
+.  do ds !!d2 \$2
+.
+.  do ecr
+.  do dei !!d1 !!d2
+..
+.
+.rn am !!am
+.
+.!!am am
+.  do ecs
+.  ec
+.  do !!am \$1
+.    ie "\$1"\\$0" .tm *** am trace enter: \\$0 \\$@
+.    el .tm *** am trace enter \$1: \\$0 \\$@
+.    do nop \\*[!!\$1]\\
+.    ie "\$1"\\$0" .tm *** trace exit: \\$0 \\$@
+.    el .tm *** trace exit \$1: \\$0 \\$@
+\..
+.
+.  do ds !!a1 !!\$1
+.  do ds !!a2 \$2
+.
+.  do ecr
+.  do ami !!a1 !!a2
+..
+.
+.ec
+.
+.cp \n(_C
+.
+.\" EOF

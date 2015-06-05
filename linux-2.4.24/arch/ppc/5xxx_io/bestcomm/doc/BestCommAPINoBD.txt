@@ -1,0 +1,158 @@
+This document explains how a programmer can interface with the
+BestComm buffer descriptor (BD) tasks without using TaskBDAssign() and
+TaskBDRelease() as provided by the BestComm API. It assumes the rest of
+the BestComm API (e.g. TaskSetup()) is used. Please refer to the BestComm
+API documentation for information concerning API initialization and usage.
+
+
+
+Half-Duplex Buffer Descriptor Functionality
+
+Task Functionality:
+
+    These tasks implement a half-duplex mode of communication between two
+    addressable memory locations using buffer descriptors (BDs). Tasks are
+    configured to support single or double data pointers. The following
+    tasks are provided in each of the BestComm API image_rtos1 and
+    image_rtos2 task images.
+
+    image_rtos1
+	TASK_ATA		ATA double-pointer
+	TASK_FEC_RX		ethernet single-pointer receive
+	TASK_FEC_TX		ethernet single-pointer transmit
+	TASK_GEN_DP_BD_0	general double-pointer
+	TASK_GEN_DP_BD_1	general double-pointer alternate
+	TASK_GEN_RX_BD		general single-pointer receive
+	TASK_GEN_TX_BD		general single-pointer transmit
+
+    image_rtos2
+	TASK_ATA		ATA double-pointer
+	TASK_CRC16_DP_BD	16-bit CRC double-pointer
+	TASK_FEC_RX		ethernet single-pointer receive
+	TASK_FEC_TX		ethernet single-pointer transmit
+	TASK_GEN_RX_BD_0	general single-pointer receive
+	TASK_GEN_TX_BD_0	general single-pointer transmit
+	TASK_GEN_RX_BD_1	general single-pointer receive alternate
+	TASK_GEN_TX_BD_1	general single-pointer transmit alternate
+
+
+    The following describes the BD data structures used by the BestComm
+    tasks.
+
+
+BD Table Format (single pointer):
+
+    typedef struct {
+	uint32 Status;		/*!< Status and length bits	*/
+	uint32 DataPtr[1];	/*!< Pointer to data buffer	*/
+    } TaskBD1_t;
+
+    BDTableBase+0x00  bd[0].Status      Buffer descriptor status word
+    BDTableBase+0x04  bd[0].DataPtr[0]  Data pointer to src/dst buffer
+    BDTableBase+0x08  bd[1].Status      Buffer descriptor status word
+    BDTableBase+0x0C  bd[1].DataPtr[0]  Data pointer to src/dst buffer
+		    ...
+    BDTableLast+0x00  bd[n].Status      Buffer descriptor status word
+    BDTableLast+0x04  bd[n].DataPtr[0]  Data pointer to src/dst buffer
+
+BD Table Format (double pointer):
+
+    typedef struct {
+	uint32 Status;		/*!< Status and length bits	*/
+	uint32 DataPtr[2];	/*!< Pointer to data buffers	*/
+    } TaskBD2_t;
+
+    BDTableBase+0x00  bd[0].Status      Buffer descriptor status word
+    BDTableBase+0x04  bd[0].DataPtr[0]  Data pointer to src buffer
+    BDTableBase+0x08  bd[0].DataPtr[1]  Data pointer to dst buffer
+    BDTableBase+0x0C  bd[1].Status      Buffer descriptor status word
+    BDTableBase+0x10  bd[1].DataPtr[0]  Data pointer to src buffer
+    BDTableBase+0x14  bd[1].DataPtr[1]  Data pointer to dst buffer
+		    ...
+    BDTableLast+0x00  bd[n].Status      Buffer descriptor status word
+    BDTableLast+0x04  bd[n].DataPtr[0]  Data pointer to src buffer
+    BDTableLast+0x08  bd[n].DataPtr[1]  Data pointer to dst buffer
+
+Buffer Status Format:
+
+    The Status field is a 32-bit word with the following bit fields.
+
+    reserved[31], ready[30], reserved[28:26], buffer length[25:0]
+
+    The FEC transmit task uses two additional bit fields.
+
+    reserved[31], ready[30], reserved[28], TFD[27], INT[26], buffer length[25:0]
+
+
+    The BDTableBase pointer for each task can be returned from
+    the TaskGetBDRing() BestComm API function. Single pointer BDs
+    are used when either the source or destination pointer does not
+    change. E.g. copying data to a FIFO. Double pointer BDs are used
+    when both the source and the destination pointers increment.
+
+
+BD Initialization:
+
+    Tasks are configured by TaskSetup(). This function clears the
+    BD table Status and DataPointer[] words. The internal function,
+    TaskSetup_BDTable(), called by TaskSetup() performs the actual BD
+    initialization.
+
+    A "ready bit" in the Status field determines if the BestComm (bit is
+    set) or the core (bit is unset) may access the contents of the BD. By
+    convention, the owner relinquishes the BD. The ready bit is defined
+    by the SDMA_BD_MASK_READY macro in capi/task_api/bestcomm_cntrl.h
+    as 0x40000000.
+
+    Note: the tasks will disable themselves after finishing the last BD
+    in the ring. The auto start bit needs to be set with the task number
+    to assure the task wraps around after the last BD in the ring.
+
+    The BestComm task code visits the BDs in a round-robin order starting
+    at index 0. A task begins again at the first BD even when a task is
+    stopped (via TaskStop()) somewhere in the middle of the BD ring and
+    started again (via TaskStart()). There is currently no way to start
+    a task on any other BD. The task waits on the BD if the ready bit
+    is not set.
+
+Using the BD Ring:
+
+    The BDs of a receive task must be initialized by the user with
+    buffers to receive incoming data. The DataPointer[0] field of each
+    BD to be used must be assigned the address of a buffer in memory
+    and the Status field should be assigned the length of the buffer
+    in bytes arithmetically ORed with the ready bit (0x40000000 or
+    SDMA_BD_MASK_READY from capi/task_api/bestcomm_cntrl.h). The BDs of a
+    transmit task are initialized by the TaskSetup_BDTable() BestComm API
+    function. Significantly, the ready bit is unset in the Status field.
+
+    Upon receipt of an interrupt from a BestComm receive task the user may
+    examine the BD ring for full buffers. The ready bit in full buffers
+    will be unset and the Status field set to the number of bytes read
+    into the buffer pointed to by DataPointer[0]. The user may continue
+    processing BDs around the ring until a set ready bit is encountered.
+    Processed buffers in the receive ring should be reinitialized by
+    loading the DataPointer[0] with a pointer to any empty buffer and
+    Status with the size of that buffer ORed with the ready bit.
+
+    To transmit a frame the DataPointer[0] field is loaded with a
+    pointer to the buffer to be transmitted and the Status field with
+    the length of that buffer ORed with the ready bit. The task will
+    begin sending the data when it reads the ready bit for a given BD.
+    When transmission is complete, the task clears the ready bit in the
+    BD Status field and interrupts the core.
+
+    The FEC TX task supports two flags in addition to the ready bit for
+    transmit frame done (TFD, 0x08000000) and interrupt on frame done
+    (INT, 0x04000000) in the BD Status word. When the task is finished
+    copying the buffer to the FEC TX FIFO it will assert an FEC TFD
+    interrupt (TFD) and/or a BestComm interrupt (INT). The FEC TX task
+    will not interrupt the core unless the INT flag is set.
+
+
+    Note: the BestComm task code maintains a non-visible internal BD
+    pointer so the core needs to maintain its own. This should not be
+    an issue because the BDs are handled in round-robin order around
+    the BD ring starting from 0 and waits if a BD is not ready. If the
+    core handles the BD ring in the same way, it should never get out
+    of synchronization with BestComm.

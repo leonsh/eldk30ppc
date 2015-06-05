@@ -1,0 +1,64 @@
+adapter.o: adapter.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/mii.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac.h \
+   xemac_i.h
+xemac.o: xemac.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h
+xemac_g.o: xemac_g.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xemac.h
+xemac.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xpacket_fifo_v1_00_b.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xdma_channel.h
+	@touch xemac.h
+xemac_i.h: \
+   xemac.h \
+   xemac_l.h
+	@touch xemac_i.h
+xemac_intr.o: xemac_intr.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h
+xemac_intr_dma.o: xemac_intr_dma.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbuf_descriptor.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xdma_channel.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h
+xemac_intr_fifo.o: xemac_intr_fifo.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h
+xemac_l.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xemac_l.h
+xemac_options.o: xemac_options.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+xemac_phy.o: xemac_phy.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xemac_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+.PRECIOUS:	xemac.h \
+	xemac_i.h \
+	xemac_l.h \
+

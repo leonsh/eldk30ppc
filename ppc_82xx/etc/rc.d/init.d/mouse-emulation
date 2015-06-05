@@ -1,0 +1,75 @@
+#!/bin/sh
+#
+# mouse-emulation	This shell script takes care of enabling mouse button emulation
+#
+# chkconfig: 345 30 70
+# description: sets mouse button emulation defaults from /etc/sysconfig/mouse-emulation
+
+# Source function library.
+. /etc/init.d/functions
+
+RETVAL=0
+
+start() {
+        if grep -i "MacRISC" /proc/cpuinfo >/dev/null; then
+	   if [ -f /etc/sysconfig/mouse-emulation ]; then
+	      . /etc/sysconfig/mouse-emulation
+	      if [ -n "$EMULATION" -a "$EMULATION" = "yes" ]; then
+                 action "Enabling mouse button emulation: " \
+		     /sbin/sysctl -w dev.mac_hid.mouse_button_emulation="1"
+	            if [ -n "$BUTTON_2" ]; then
+                           action "Configuring mouse emulation button 2: " \
+			       /sbin/sysctl -w dev.mac_hid.mouse_button2_keycode="$BUTTON_2"
+	            fi
+	            if [ -n "$BUTTON_3" ]; then
+                           action "Configuring mouse emulation button 3: " \
+			       /sbin/sysctl -w dev.mac_hid.mouse_button3_keycode="$BUTTON_3"
+	            fi
+              fi
+           fi
+        fi
+	RETVAL=$?
+        [ $RETVAL -eq 0 ] && touch /var/lock/subsys/mouse-emulation
+	return $RETVAL
+}
+
+stop() {
+        if grep -i "MacRISC" /proc/cpuinfo >/dev/null; then
+           action "Disabling mouse button emulation: " \
+               /sbin/sysctl -w dev.mac_hid.mouse_button_emulation="0"
+        fi
+	RETVAL=$?
+        [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/mouse-emulation
+	return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+  start)
+	start
+        ;;
+  stop)
+	stop
+        ;;
+  status)
+	status mouse-emulation 
+	RETVAL=$?
+	;;
+  restart|reload)
+	stop
+	start
+	RETVAL=$?
+	;;
+  condrestart)
+	if [ -f /var/lock/subsys/mouse-emulation ]; then
+	    stop
+	    start
+	    RETVAL=$?
+	fi
+	;;
+  *)
+        echo $"Usage: $0 {start|stop|restart|condrestart|status}"
+        exit 1
+esac
+
+exit $RETVAL

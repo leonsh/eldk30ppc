@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Module Writers' Guide: Introduction</TITLE>
+ <LINK HREF="pam_modules-2.html" REL=next>
+
+ <LINK HREF="pam_modules.html#toc1" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_modules-2.html">Next</A>
+Previous
+<A HREF="pam_modules.html#toc1">Contents</A>
+<HR>
+<H2><A NAME="s1">1.</A> <A HREF="pam_modules.html#toc1">Introduction</A></H2>
+
+<H2><A NAME="ss1.1">1.1</A> <A HREF="pam_modules.html#toc1.1">Synopsis</A>
+</H2>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+#include &lt;security/pam_modules.h>
+
+gcc -fPIC -c pam_module-name.c
+ld -x --shared -o pam_module-name.so pam_module-name.o
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<H2><A NAME="ss1.2">1.2</A> <A HREF="pam_modules.html#toc1.2">Description</A>
+</H2>
+
+<P><B>Linux-PAM</B> (Pluggable Authentication Modules for Linux) is a
+library that enables the local system administrator to choose how
+individual applications authenticate users.  For an overview of the
+<B>Linux-PAM</B> library see the <B>Linux-PAM</B> System Administrators'
+Guide.</P>
+
+<P>A <B>Linux-PAM</B> module is a single executable binary file that can be
+loaded by the <B>Linux-PAM</B> interface library. This PAM library is
+configured locally with a system file, <CODE>/etc/pam.conf</CODE>, to
+authenticate a user request via the locally available authentication
+modules. The modules themselves will usually be located in the
+directory <CODE>/usr/lib/security</CODE> and take the form of dynamically
+loadable object files (see dlopen(3)). Alternatively, the modules can
+be statically linked into the <B>Linux-PAM</B> library; this is mostly to
+allow <B>Linux-PAM</B> to be used on platforms without dynamic linking
+available, but the two forms can be used together.  It is the
+<B>Linux-PAM</B> interface that is called by an application and it is
+the responsibility of the library to locate, load and call the
+appropriate functions in a <B>Linux-PAM</B>-module.</P>
+
+<P>Except for the immediate purpose of interacting with the user
+(entering a password etc..) the module should never call the
+application directly. This exception requires a "conversation
+mechanism" which is documented below.</P>
+
+<HR>
+<A HREF="pam_modules-2.html">Next</A>
+Previous
+<A HREF="pam_modules.html#toc1">Contents</A>
+</BODY>
+</HTML>

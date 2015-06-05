@@ -1,0 +1,47 @@
+adapter.o: adapter.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/input.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xtouchscreen.h \
+   xtouchscreen_i.h
+xtouchscreen.o: xtouchscreen.c \
+   /home/jhan/linux-2.4.241q/include/asm/delay.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xtouchscreen.h \
+   xtouchscreen_i.h \
+   xtouchscreen_l.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+xtouchscreen_g.o: xtouchscreen_g.c \
+   xtouchscreen.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h
+xtouchscreen.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h \
+   xtouchscreen_l.h
+	@touch xtouchscreen.h
+xtouchscreen_i.h: \
+   xtouchscreen.h
+	@touch xtouchscreen_i.h
+xtouchscreen_intr.o: xtouchscreen_intr.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h \
+   xtouchscreen.h \
+   xtouchscreen_l.h
+xtouchscreen_l.o: xtouchscreen_l.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/include/asm/delay.h \
+   xtouchscreen_l.h
+xtouchscreen_l.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xtouchscreen_l.h
+.PRECIOUS:	xtouchscreen.h \
+	xtouchscreen_i.h \
+	xtouchscreen_l.h \
+

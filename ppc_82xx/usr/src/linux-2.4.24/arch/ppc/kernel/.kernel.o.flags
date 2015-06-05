@@ -1,0 +1,3 @@
+ifeq (entry.o traps.o irq.o idle.o time.o misc.o process.o signal.o ptrace.o align.o semaphore.o syscalls.o setup.o cputable.o ppc_htab.o idle_gen.o ppc_ksyms.o m8xx_setup.o ppc8xx_pic.o softemu8xx.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += kernel.o
+endif

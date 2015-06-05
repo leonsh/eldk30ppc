@@ -1,0 +1,127 @@
+#!/usr/bin/perl
+
+use strict;
+use File::Find ();
+use Cwd ();
+
+my $cwd = Cwd::cwd();
+
+my @file_list = (
+	'CHANGELOG',
+	'COPYING',
+	'CREDITS',
+	'MAINTAINERS',
+	'MAKEALL',
+	'board/mousse/u-boot.lds.ram',
+	'board/mousse/u-boot.lds.rom',
+	'board/rpxsuper/readme',
+	'common/dlmalloc.src',
+	'include/ppc_asm.tmpl',
+	'mkconfig',
+	'tools/env/fw_env.config',
+	'tools/easylogo/runme.sh',
+	'tools/scripts/dot.kermrc',
+	'tools/scripts/flash_param',
+	'tools/scripts/send_cmd',
+	'tools/scripts/send_image'
+);
+
+# for the convenience of &wanted calls, including -eval statements:
+use vars qw/*name *dir *prune/;
+*name   = *File::Find::name;
+*dir    = *File::Find::dir;
+*prune  = *File::Find::prune;
+
+sub wanted {
+	my ($dev,$ino,$mode,$nlink,$uid,$gid);
+
+	(($dev,$ino,$mode,$nlink,$uid,$gid) = lstat($_)) &&
+	-f _ &&
+	(
+		/^.*\.[Sch]\z/s				||
+		/^.*\.mk\z/s				||
+		/^Makefile\z/s				||
+		/^.*\.txt\z/s				||
+		/^.*\.lds\z/s				||
+		/^.*\.lds\.debug\z/s			||
+		/^README.*\z/s
+	) &&
+	push @file_list, $name;
+}
+
+File::Find::find({wanted => \&wanted}, '.');
+
+my %cxx;		# C++ style // comments with problems (embedded /*)
+my %cpp;		# C++ style // comments
+my %tws;		# trailing white space;
+my %lws;		# leading white space;
+my %dos;		# DOS '\r' characters
+my %enl;		# excessive multiple new lines
+my %tel;		# trailing empty lines
+
+foreach my $file (@file_list) {
+	my $cnt;
+##	print "$file\n";
+	open (FD, '<' . $file) or die "Can't open $file: $!\n";
+	$cnt = 0;
+	while (<FD>) {
+		chomp;
+		if (/(^|[^:])\/\/.*\/\*/) {
+			$cxx{$file} = 1;
+		}
+		if (/(^|[^:])\/\//) {
+			$cpp{$file} = 1;
+		}
+		if (/[\t ]$/) {
+			$tws{$file} = 1;
+		}
+		if (/^        /) { 
+			$lws{$file} = 1; 
+		}
+		if (/\r/) {
+			$dos{$file} = 1;
+		}
+		if (/^$/) {
+			++$cnt;
+		} else {
+			$cnt = 0; 
+		}
+		if ($cnt > 2) {
+			$enl{$file} = 1; 
+			$cnt = 0;
+		}
+	}
+	if ($cnt > 0) {
+		$tel{$file} = 1;  
+	}
+	close FD;
+}
+
+
+foreach (sort keys %cxx) {
+	print "CXX\t$_\n";
+}
+
+foreach (sort keys %cpp) {
+	print "CPP\t$_\n";
+}
+
+foreach (sort keys %tws) {
+	print "TWS\t$_\n";
+}
+
+foreach (sort keys %lws) {
+	print "LWS\t$_\n";
+}
+
+foreach (sort keys %dos) {
+	print "DOS\t$_\n";
+}
+
+foreach (sort keys %enl) {
+	print "ENL\t$_\n";
+}
+
+foreach (sort keys %tel) {
+	print "TEL\t$_\n";
+}

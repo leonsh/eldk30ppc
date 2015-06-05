@@ -1,0 +1,1 @@
+#define CONFIG_UART_MAXIDL_SCC1 (1)

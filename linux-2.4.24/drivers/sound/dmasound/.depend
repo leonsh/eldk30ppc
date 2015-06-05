@@ -1,0 +1,118 @@
+dac3550a.o: dac3550a.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   dmasound.h
+dmasound_atari.o: dmasound_atari.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/soundcard.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgalloc.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   dmasound.h
+dmasound_awacs.o: dmasound_awacs.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/soundcard.h \
+   /home/jhan/linux-2.4.241q/include/linux/adb.h \
+   /home/jhan/linux-2.4.241q/include/linux/nvram.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/vt_kern.h \
+   /home/jhan/linux-2.4.241q/include/linux/irq.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/asm/semaphore.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/adb/cuda.h) \
+   /home/jhan/linux-2.4.241q/include/linux/cuda.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/adb/pmu.h) \
+   /home/jhan/linux-2.4.241q/include/linux/pmu.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c-dev.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/machdep.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dbdma.h \
+   /home/jhan/linux-2.4.241q/include/asm/pmac_feature.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/nvram.h \
+   awacs_defs.h \
+   dmasound.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pmac/pbook.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kmod.h)
+dmasound_core.o: dmasound_core.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/sound.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/soundcard.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp_lock.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   dmasound.h
+dmasound.h: \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dmasound/atari.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dmasound/atari/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dmasound/paula.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dmasound/paula/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dmasound/q40.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dmasound/q40/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dmasound/pmac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dmasound/pmac/module.h)
+	@touch dmasound.h
+dmasound_paula.o: dmasound_paula.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/soundcard.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/setup.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigahw.h \
+   /home/jhan/linux-2.4.241q/include/asm/amigaints.h \
+   /home/jhan/linux-2.4.241q/include/asm/machdep.h \
+   dmasound.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/heartbeat.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/apus.h)
+dmasound_q40.o: dmasound_q40.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/soundcard.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   dmasound.h
+tas3001c.o: tas3001c.c \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/i2c.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/errno.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   dmasound.h \
+   tas3001c.h
+trans_16.o: trans_16.c \
+   /home/jhan/linux-2.4.241q/include/linux/soundcard.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   dmasound.h
+.PRECIOUS:	dmasound.h \
+

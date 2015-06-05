@@ -1,0 +1,247 @@
+ac.o: ac.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+acpi_ksyms.o: acpi_ksyms.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/interpreter.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/bus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/pci.h) \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/ec.h)
+asus_acpi.o: asus_acpi.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h
+battery.o: battery.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+blacklist.o: blacklist.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h
+bus.o: bus.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/list.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86.h) \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acinterp.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ldm.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/ec.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h)
+button.o: button.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+ec.o: ec.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h \
+   /home/jhan/linux-2.4.241q/include/acpi/actypes.h
+fan.o: fan.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+numa.o: numa.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h
+osl.o: osl.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/nmi.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/efi.h) \
+   /home/jhan/linux-2.4.241q/include/linux/efi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/pci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ia64.h)
+pci_bind.o: pci_bind.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+pci_irq.o: pci_irq.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86/io/apic.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/iosapic.h) \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86.h)
+pci_link.o: pci_link.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+pci_root.o: pci_root.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+power.o: power.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+processor.o: processor.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/smp.h)
+system.o: system.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/sysrq.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/pm.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/x86.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/acpi/sleep.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mc146818rtc.h \
+   /home/jhan/linux-2.4.241q/include/linux/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/hw_irq.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pm.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/magic/sysrq.h)
+tables.o: tables.c \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/smp.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/irq.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/acpi.h \
+   /home/jhan/linux-2.4.241q/include/linux/bootmem.h
+thermal.o: thermal.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/compatmac.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+toshiba_acpi.o: toshiba_acpi.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h
+utils.o: utils.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_bus.h \
+   /home/jhan/linux-2.4.241q/include/acpi/acpi_drivers.h

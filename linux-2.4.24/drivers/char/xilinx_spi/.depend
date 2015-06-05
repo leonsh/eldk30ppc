@@ -1,0 +1,52 @@
+xspi_adapter.o: xspi_adapter.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/bitops.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/page.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xspi.h \
+   xspi_i.h \
+   xspi_ioctl.h \
+   /home/jhan/linux-2.4.241q/include/linux/devfs_fs_kernel.h
+xspi.o: xspi.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xspi.h \
+   xspi_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xipif_v1_23_b.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+xspi_g.o: xspi_g.c \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xparameters.h \
+   xspi.h
+xspi.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xstatus.h
+	@touch xspi.h
+xspi_i.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   xspi_l.h
+	@touch xspi_i.h
+xspi_ioctl.h: \
+   /home/jhan/linux-2.4.241q/include/linux/ioctl.h
+	@touch xspi_ioctl.h
+xspi_l.h: \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xbasic_types.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+	@touch xspi_l.h
+xspi_options.o: xspi_options.c \
+   xspi.h \
+   xspi_i.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/xilinx_ocp/xio.h
+xspi_stats.o: xspi_stats.c \
+   xspi.h \
+   xspi_i.h
+.PRECIOUS:	xspi.h \
+	xspi_i.h \
+	xspi_ioctl.h \
+	xspi_l.h \
+

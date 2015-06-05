@@ -1,0 +1,3 @@
+ifeq (fault.o init.o mem_pieces.o extable.o mmu_context.o pgtable.o cachemap.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += mm.o
+endif

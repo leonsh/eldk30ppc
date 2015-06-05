@@ -1,0 +1,3 @@
+ifeq (commproc.o uart.o fcc_enet.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += 8260_io.o
+endif

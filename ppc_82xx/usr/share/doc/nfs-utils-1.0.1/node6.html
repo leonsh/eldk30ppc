@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>File Handle</TITLE>
+<META NAME="description" CONTENT="File Handle">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="next" HREF="node7.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html91"
+ HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html89"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html83"
+ HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html92"
+ HREF="node7.html">The Kernel-Space NFS Server</A>
+<B> Up:</B> <A NAME="tex2html90"
+ HREF="node5.html">Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html84"
+ HREF="node5.html">Interoperability</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00031000000000000000">
+File Handle</A>
+</H2>
+
+<P>
+The definitions of file and file handle are in the NFS V2 protocol
+are vague.  The V2 specification only
+says a file handle is opaque to client and can contain whatever
+information the server needs to distinguish an individual file. 
+However, there are many ambiguities:
+
+<P>
+
+<UL><LI>If 2 file handles from the same server are identical,
+  	can clients assume they represent the same file on the
+	server?
+
+<P>
+
+<LI>If 2 file handles from the same server are different,
+  	can clients assume they represent the different files
+	on the server?
+
+<P>
+
+<LI>Should all the hard links be represented by the same file handle?
+
+<P>
+
+<LI>When a client renames a file within the same file system,
+  	should it expect the file handle is unchanged?
+
+</UL>
+
+<P>
+The V2 specification is not clear on them and different NFS
+implementations interpreted them differently. That leads to the
+interoperability problems among different NFS implementations.
+
+<P>
+For the interoperability test, we used the Connectathon,
+which is a network proving ground sponsored by Sun Microsystems 
+for testing software and hardware interoperability allowing vendors
+to test their interoperability solutions, with special
+emphasis on NFS and Internet protocols, testsuites,
+http://www.connectathon.org/nfstests.html, to test the Linux
+implementation of the NFS V2 Protocol. Solaris 7/x86 and Solaris 7/Sparc
+are used at the NFS clients. We tested both the user-space and
+kernel-space NFS servers.
+
+<P>
+As expected, the user-space NFS server didn't support file lock over
+NFS. All NFS lock tests in the Connectathon testsuites were not
+performed. Although the rest of tests were ok, the user-space NFS server
+is not suitable in an environment where the file lock over NFS
+is required. The later part of this paper will show the performance
+of the user-space NFS server is not idea either.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html91"
+ HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html89"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html83"
+ HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html92"
+ HREF="node7.html">The Kernel-Space NFS Server</A>
+<B> Up:</B> <A NAME="tex2html90"
+ HREF="node5.html">Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html84"
+ HREF="node5.html">Interoperability</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,666 @@
+am8xx.o: am8xx.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/adder/ii.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/viper860.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/redboot/parts.h)
+amd766rom.o: amd766rom.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci_ids.h
+amd76xrom.o: amd76xrom.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci_ids.h
+amx860.o: amx860.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+arctic-mtd.o: arctic-mtd.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/ibm4xx.h
+atc.o: atc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+autcpu12-nvram.o: autcpu12-nvram.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+beech-mtd.o: beech-mtd.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/ibm4xx.h
+cdb89712.o: cdb89712.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+ceiva.o: ceiva.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/concat.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/ceiva/staticmap.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/ceiva.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/concat.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/redboot/parts.h)
+cfi_flagadm.o: cfi_flagadm.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+cstm_mips_ixx.o: cstm_mips_ixx.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/ite8172.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/ivr.h) \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cstm/mips/ixx/start.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cstm/mips/ixx/len.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cstm/mips/ixx/buswidth.h)
+cu824.o: cu824.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+dab4k.o: dab4k.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dab4k/version.h)
+dbox2-flash.o: dbox2-flash.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+dc21285.o: dc21285.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/redboot/parts.h)
+dilnetpc.o: dilnetpc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/concat.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/dilnetpc/bootsize.h)
+dmc405.o: dmc405.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h
+ebony.o: ebony.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/ibm440.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/ebony.h
+edb7312.o: edb7312.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+elan-104nc.o: elan-104nc.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+epxa10db-flash.o: epxa10db-flash.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/epxa10db.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/redboot/parts.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/afs/parts.h)
+exbitgen.o: exbitgen.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+fortunet.o: fortunet.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+hxeb100.o: hxeb100.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/asm/gt64260.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/hxeb100.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/hxeb100/bank/b/flash.h)
+icecube.o: icecube.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/uboot.h) \
+   /home/jhan/linux-2.4.241q/include/asm/ppcboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc/5xxx/flash/addr.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppc/5xxx/flash/size.h)
+ich2rom.o: ich2rom.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci_ids.h
+impa7.o: impa7.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+integrator-flash.o: integrator-flash.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/integrator.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/p720t.h)
+iq80310.o: iq80310.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/redboot/parts.h)
+k2.o: k2.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+l440gx.o: l440gx.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h
+lasat.o: lasat.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+mbx860.o: mbx860.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+mot-mvp.o: mot-mvp.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/gt64260.h
+netsc520.o: netsc520.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+nettel.o: nettel.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/cfi.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cfi/intelext.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/initrd.h)
+nora.o: nora.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h
+ocelot.o: ocelot.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+octagon-5066.o: octagon-5066.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h
+olc8260.o: olc8260.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+onu8260.o: onu8260.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+pb1xxx-flash.o: pb1xxx-flash.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/pb1000.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/pb1500.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mips/pb1100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/pb1500/boot.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/pb1500/user.h)
+pci.o: pci.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+pcmciamtd.o: pcmciamtd.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/version.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/cs_types.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/cs.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/cistpl.h \
+   /home/jhan/linux-2.4.241q/include/pcmcia/ds.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/debug.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/debug/verbose.h)
+physmap64.o: physmap64.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/cfi.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/physmap/start.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/physmap/len.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/physmap/buswidth.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+physmap.o: physmap.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/physmap/start.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/physmap/len.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/physmap/buswidth.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+pnc2000.o: pnc2000.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+ppmc260.o: ppmc260.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+pumaA.o: pumaA.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/arch/ppc/platforms/pumaA.h \
+   /home/jhan/linux-2.4.241q/include/asm/gt64260_defs.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/redboot/parts.h)
+redwood.o: redwood.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/redwood/6.h)
+rpxlite.o: rpxlite.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/rmu.h)
+sa1100-flash.o: sa1100-flash.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/arch/sa1100.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/adsbitsy.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/assabet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/badge4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/cerf.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/cerf/flash/32mb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/cerf/flash/16mb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/cerf/flash/8mb.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/consus.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/flexanet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/freebird.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/freebird/new.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/frodo.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/graphicsclient.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/graphicsmaster.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/h3600.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/jffs2/fs.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/huw/webpanel.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/jornada720.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/pangolin.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/pt/system3.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/shannon.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/sherman.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/simpad.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/stork.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sa1100/yopy.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/redboot/parts.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+sbc_gxx.o: sbc_gxx.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h
+sc520cdp.o: sc520cdp.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/concat.h
+scb2_flash.o: scb2_flash.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/cfi.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci_ids.h
+scx200_docflash.o: scx200_docflash.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/scx200.h
+sl8245.o: sl8245.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/ppcboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+solutionengine.o: solutionengine.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/superh/reserve.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/redboot/parts.h)
+sun_uflash.o: sun_uflash.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/version.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h
+tqm8260.o: tqm8260.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+tqm8xxl.o: tqm8xxl.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+tqm8xxm.o: tqm8xxm.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/partitions.h) \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/mtd/cmdline/parts.h)
+tsunami_flash.o: tsunami_flash.c \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h
+uclinux.o: uclinux.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/mtd.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/partitions.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+vmax301.o: vmax301.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/spinlock.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/linux/mtd/map.h

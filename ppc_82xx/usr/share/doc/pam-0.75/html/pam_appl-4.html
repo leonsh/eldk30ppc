@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Application Developers' Guide: Security issues of Linux-PAM</TITLE>
+ <LINK HREF="pam_appl-5.html" REL=next>
+ <LINK HREF="pam_appl-3.html" REL=previous>
+ <LINK HREF="pam_appl.html#toc4" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_appl-5.html">Next</A>
+<A HREF="pam_appl-3.html">Previous</A>
+<A HREF="pam_appl.html#toc4">Contents</A>
+<HR>
+<H2><A NAME="s4">4.</A> <A HREF="pam_appl.html#toc4">Security issues of <B>Linux-PAM</B></A></H2>
+
+<P>PAM, from the perspective of an application, is a convenient API for
+authenticating users. PAM modules generally have no increased
+privilege over that possessed by the application that is making use of
+it. For this reason, the application must take ultimate responsibility
+for protecting the environment in which PAM operates.</P>
+
+<P>A poorly (or maliciously) written application can defeat any
+<B>Linux-PAM</B> module's authentication mechanisms by simply ignoring
+it's return values.  It is the applications task and responsibility to
+grant privileges and access to services.  The <B>Linux-PAM</B> library
+simply assumes the responsibility of <EM>authenticating</EM> the user;
+ascertaining that the user <EM>is</EM> who they say they are.  Care should
+be taken to anticipate all of the documented behavior of the
+<B>Linux-PAM</B> library functions.  A failure to do this will most
+certainly lead to a future security breach.</P>
+
+<H2><A NAME="ss4.1">4.1</A> <A HREF="pam_appl.html#toc4.1">Care about standard library calls</A>
+</H2>
+
+<P>In general, writers of authorization-granting applications should
+assume that each module is likely to call any or <EM>all</EM> `libc'
+functions.  For `libc' functions that return pointers to
+static/dynamically allocated structures (ie. the library allocates the
+memory and the user is not expected to `<CODE>free()</CODE>' it) any module
+call to this function is likely to corrupt a pointer previously
+obtained by the application.  The application programmer should either
+re-call such a `libc' function after a call to the <B>Linux-PAM</B>
+library, or copy the structure contents to some safe area of memory
+before passing control to the <B>Linux-PAM</B> library.</P>
+
+<P>Two important function classes that fall into this category are
+<CODE>getpwnam(3)</CODE> and <CODE>syslog(3)</CODE>.</P>
+
+<H2><A NAME="ss4.2">4.2</A> <A HREF="pam_appl.html#toc4.2">Choice of a service name</A>
+</H2>
+
+<P>When picking the <EM>service-name</EM> that corresponds to the first entry
+in the <B>Linux-PAM</B> configuration file, the application programmer
+should <B>avoid</B> the temptation of choosing something related to
+<CODE>argv[0]</CODE>.  It is a trivial matter for any user to invoke any
+application on a system under a different name and this should not be
+permitted to cause a security breach.</P>
+
+<P>To invoke some <CODE>target</CODE> application by another name, the user may
+symbolically link the target application with the desired name.  To be
+precise all the user need do is,
+<BLOCKQUOTE><CODE>
+<PRE>
+ln -s /target/application ./preferred_name
+</PRE>
+</CODE></BLOCKQUOTE>
+
+and then <EM>run</EM> <CODE>./preferred_name</CODE></P>
+
+<P>By studying the <B>Linux-PAM</B> configuration file(s), an attacker can
+choose the <CODE>preferred_name</CODE> to be that of a service enjoying
+minimal protection; for example a game which uses <B>Linux-PAM</B> to
+restrict access to certain hours of the day.  If the service-name were
+to be linked to the filename under which the service was invoked, it
+is clear that the user is effectively in the position of dictating
+which authentication scheme the service uses.  Needless to say, this
+is not a secure situation.</P>
+
+<P>The conclusion is that the application developer should carefully
+define the service-name of an application. The safest thing is to make
+it a single hard-wired name.</P>
+
+<H2><A NAME="ss4.3">4.3</A> <A HREF="pam_appl.html#toc4.3">The conversation function</A>
+</H2>
+
+<P>Care should be taken to ensure that the <CODE>conv()</CODE> function is
+robust. Such a function is provided in the library <CODE>libpam_misc</CODE>
+(see 
+<A HREF="pam_appl-5.html#libpam-misc-section">below</A>).</P>
+
+<H2><A NAME="ss4.4">4.4</A> <A HREF="pam_appl.html#toc4.4">The identity of the user</A>
+</H2>
+
+<P>The <B>Linux-PAM</B> modules will need to determine the identity of the
+user who requests a service, and the identity of the user who grants
+the service.  These two users will seldom be the same.  Indeed there
+is generally a third user identity to be considered, the new (assumed)
+identity of the user once the service is granted.</P>
+
+<P>The need for keeping tabs on these identities is clearly an issue of
+security.  One convention that is actively used by some modules is
+that the identity of the user requesting a service should be the
+current <CODE>uid</CODE> (userid) of the running process; the identity of the
+privilege granting user is the <CODE>euid</CODE> (effective userid) of the
+running process; the identity of the user, under whose name the
+service will be executed, is given by the contents of the
+<CODE>PAM_USER</CODE> <CODE>pam_get_item(3)</CODE>.</P>
+
+<P>For network-serving databases and other applications that provide
+their own security model (independent of the OS kernel) the above
+scheme is insufficient to identify the requesting user.</P>
+
+<P>A more portable solution to storing the identity of the requesting
+user is to use the <CODE>PAM_RUSER</CODE> <CODE>pam_get_item(3)</CODE>. The
+application should supply this value before attempting to authenticate
+the user with <CODE>pam_authenticate()</CODE>. How well this name can be
+trusted will ultimately be at the discretion of the local
+administrator (who configures PAM for your application) and a selected
+module may attempt to override the value where it can obtain more
+reliable data. If an application is unable to determine the identity
+of the requesting entity/user, it should not call <CODE>pam_set_item(3)</CODE>
+to set <CODE>PAM_RUSER</CODE>.</P>
+
+<P>In addition to the <CODE>PAM_RUSER</CODE> item, the application should supply
+the <CODE>PAM_RHOST</CODE> (<EM>requesting host</EM>) item. As a general rule, the
+following convention for its value can be assumed: <CODE>&lt;unset&gt;</CODE>
+= unknown; <CODE>localhost</CODE> = invoked directly from the local system;
+<EM>other.place.xyz</EM> = some component of the user's connection
+originates from this remote/requesting host. At present, PAM has no
+established convention for indicating whether the application supports
+a trusted path to communication from this host.</P>
+
+<H2><A NAME="ss4.5">4.5</A> <A HREF="pam_appl.html#toc4.5">Sufficient resources</A>
+</H2>
+
+<P>Care should be taken to ensure that the proper execution of an
+application is not compromised by a lack of system resources.  If an
+application is unable to open sufficient files to perform its service,
+it should fail gracefully, or request additional resources.
+Specifically, the quantities manipulated by the <CODE>setrlimit(2)</CODE>
+family of commands should be taken into consideration.</P>
+
+<P>This is also true of conversation prompts. The application should not
+accept prompts of arbitrary length with out checking for resource
+allocation failure and dealing with such extreme conditions gracefully
+and in a mannor that preserves the PAM API. Such tolerance may be
+especially important when attempting to track a malicious adversary.</P>
+
+<HR>
+<A HREF="pam_appl-5.html">Next</A>
+<A HREF="pam_appl-3.html">Previous</A>
+<A HREF="pam_appl.html#toc4">Contents</A>
+</BODY>
+</HTML>

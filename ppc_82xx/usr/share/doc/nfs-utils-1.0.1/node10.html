@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Results</TITLE>
+<META NAME="description" CONTENT="Results">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html129"
+ HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html127"
+ HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html123"
+ HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html130"
+ HREF="node11.html">Performance</A>
+<B> Up:</B> <A NAME="tex2html128"
+ HREF="node5.html">Interoperability</A>
+<B> Previous:</B> <A NAME="tex2html124"
+ HREF="node9.html">Other Considerations</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00035000000000000000">
+Results</A>
+</H2>
+
+<P>
+We performed our tests on the Linux NFS server under Linux 2.2.9
+plus kernel patches from knfsd 1.4.2, which contains all the necessary
+changes to ensure interoperability with other NFS implementations.
+We ran the Connectathon testsuites on Solaris 7/Sparc client,
+Solaris 7/x86 client and Linux client.
+
+<P>
+The Solaris test results are in Appendix&nbsp;<A HREF="node21.html#solaris">A</A>.
+They showed that the Linux kernel-space NFS server passed all the
+tests serving Solaris clients.
+In the Linux test result in Appendix&nbsp;<A HREF="node24.html#linux">B</A>, there is a warning:
+
+<P>
+<PRE>
+Test #13 - Check locking and mmap semantics.
+	Parent: 13.0  - F_TLOCK [     ffe,  ENDING] PASSED. 
+	Parent: 13.1  - mmap [       0,    1000] WARNING!
+	Parent: **** Expected EAGAIN, returned success...
+</PRE>
+
+<P>
+From the comment in the test:
+
+<P>
+<PRE>
+		/*
+		 * Can a file be locked and mapped at same time?  It's
+		 * potentially safe if the whole file is locked, or if the
+		 * locked region is page-aligned.  Otherwise, there is a
+		 * race condition between two clients that lock disjoint
+		 * regions of the same page.  So for this test we
+		 * deliberately lock a region that is not
+		 * page-aligned--that should cause the mmap to fail.  But if
+		 * it doesn't, that's arguably not an interoperability
+		 * problem, so make it a warning, not a fatal error.
+		 */
+</PRE>
+
+<P>
+This warning is due to the Linux NFS client implementation.
+It doesn't affect
+the interoperability of the Linux NFS server.
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

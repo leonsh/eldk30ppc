@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Module Writers' Guide: What is expected of a module</TITLE>
+ <LINK HREF="pam_modules-4.html" REL=next>
+ <LINK HREF="pam_modules-2.html" REL=previous>
+ <LINK HREF="pam_modules.html#toc3" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_modules-4.html">Next</A>
+<A HREF="pam_modules-2.html">Previous</A>
+<A HREF="pam_modules.html#toc3">Contents</A>
+<HR>
+<H2><A NAME="s3">3.</A> <A HREF="pam_modules.html#toc3">What is expected of a module</A></H2>
+
+<P>The module must supply a sub-set of the six functions listed
+below. Together they define the function of a <B>Linux-PAM
+module</B>. Module developers are strongly urged to read the comments on
+security that follow this list.</P>
+
+<H2><A NAME="ss3.1">3.1</A> <A HREF="pam_modules.html#toc3.1">Overview</A>
+</H2>
+
+<P>The six module functions are grouped into four independent management
+groups. These groups are as follows: <EM>authentication</EM>,
+<EM>account</EM>, <EM>session</EM> and <EM>password</EM>. To be properly defined,
+a module must define all functions within at least one of these
+groups. A single module may contain the necessary functions for
+<EM>all</EM> four groups.</P>
+
+<H3>Functional independence</H3>
+
+<P>The independence of the four groups of service a module can offer
+means that the module should allow for the possibility that any one of
+these four services may legitimately be called in any order. Thus, the
+module writer should consider the appropriateness of performing a
+service without the prior success of some other part of the module.</P>
+
+<P>As an informative example, consider the possibility that an
+application applies to change a user's authentication token, without
+having first requested that <B>Linux-PAM</B> authenticate the user. In
+some cases this may be deemed appropriate: when <CODE>root</CODE> wants to
+change the authentication token of some lesser user. In other cases it
+may not be appropriate: when <CODE>joe</CODE> maliciously wants to reset
+<CODE>alice</CODE>'s password; or when anyone other than the user themself
+wishes to reset their <EM>KERBEROS</EM> authentication token. A policy for
+this action should be defined by any reasonable authentication scheme,
+the module writer should consider this when implementing a given
+module.</P>
+
+<H3>Minimizing administration problems</H3>
+
+<P>To avoid system administration problems and the poor construction of a
+<CODE>/etc/pam.conf</CODE> file, the module developer may define all
+six of the following functions. For those functions that would not be
+called, the module should return <CODE>PAM_SERVICE_ERR</CODE> and write an
+appropriate message to the system log. When this action is deemed
+inappropriate, the function would simply return <CODE>PAM_IGNORE</CODE>.</P>
+
+<H3>Arguments supplied to the module</H3>
+
+<P>The <CODE>flags</CODE> argument of each of the following functions can be
+logically OR'd with <CODE>PAM_SILENT</CODE>, which is used to inform the
+module to not pass any <EM>text</EM> (errors or warnings) to the
+application.</P>
+
+<P>The <CODE>argc</CODE> and <CODE>argv</CODE> arguments are taken from the line
+appropriate to this module---that is, with the <EM>service_name</EM>
+matching that of the application---in the configuration file (see the
+<B>Linux-PAM</B> System Administrators' Guide). Together these two
+parameters provide the number of arguments and an array of pointers to
+the individual argument tokens. This will be familiar to C programmers
+as the ubiquitous method of passing command arguments to the function
+<CODE>main()</CODE>. Note, however, that the first argument (<CODE>argv[0]</CODE>) is
+a true argument and <B>not</B> the name of the module.</P>
+
+<H2><A NAME="ss3.2">3.2</A> <A HREF="pam_modules.html#toc3.2">Authentication management</A>
+</H2>
+
+<P>To be correctly initialized, <CODE>PAM_SM_AUTH</CODE> must be <CODE>#define</CODE>'d
+prior to including <CODE>&lt;security/pam_modules.h&gt;</CODE>. This will
+ensure that the prototypes for static modules are properly declared.</P>
+
+<P>
+<UL>
+<LI><CODE>PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags,
+int argc, const char **argv);</CODE>
+
+<P>This function performs the task of authenticating the user. </P>
+
+<P>The <CODE>flags</CODE> argument can be a logically OR'd with <CODE>PAM_SILENT</CODE>
+and optionally take the following value:</P>
+
+<P>
+<DL>
+<DT><B><CODE>PAM_DISALLOW_NULL_AUTHTOK</CODE></B><DD><P>return <CODE>PAM_AUTH_ERR</CODE> if the database of authentication
+tokens for this authentication mechanism has a <CODE>NULL</CODE> entry for the
+user. Without this flag, such a <CODE>NULL</CODE> token will lead to a success
+without the user being prompted.</P>
+</DL>
+</P>
+
+<P>Besides <CODE>PAM_SUCCESS</CODE> return values that can be sent by this
+function are one of the following:</P>
+<P>
+<DL>
+
+<DT><B><CODE>PAM_AUTH_ERR</CODE></B><DD><P>The user was not authenticated</P>
+<DT><B><CODE>PAM_CRED_INSUFFICIENT</CODE></B><DD><P>For some reason the application does not have sufficient
+credentials to authenticate the user.</P>
+<DT><B><CODE>PAM_AUTHINFO_UNAVAIL</CODE></B><DD><P>The modules were not able to access the authentication
+information. This might be due to a network or hardware failure etc.</P>
+<DT><B><CODE>PAM_USER_UNKNOWN</CODE></B><DD><P>The supplied username is not known to the authentication
+service</P>
+<DT><B><CODE>PAM_MAXTRIES</CODE></B><DD><P>One or more of the authentication modules has reached its
+limit of tries authenticating the user. Do not try again.</P>
+
+</DL>
+</P>
+
+</LI>
+<LI><CODE>PAM_EXTERN int pam_sm_setcred(pam_handle_t *pamh, int flags, int
+argc, const char **argv);</CODE>
+
+<P>This function performs the task of altering the credentials of the
+user with respect to the corresponding authorization
+scheme. Generally, an authentication module may have access to more
+information about a user than their authentication token. This
+function is used to make such information available to the
+application. It should only be called <EM>after</EM> the user has been
+authenticated but before a session has been established.</P>
+
+<P>Permitted flags, one of which, may be logically OR'd with
+<CODE>PAM_SILENT</CODE> are,</P>
+
+<P>
+<DL>
+<DT><B><CODE>PAM_ESTABLISH_CRED</CODE></B><DD><P>Set the credentials for the authentication service,</P>
+<DT><B><CODE>PAM_DELETE_CRED</CODE></B><DD><P>Delete the credentials associated with the authentication service,</P>
+<DT><B><CODE>PAM_REINITIALIZE_CRED</CODE></B><DD><P>Reinitialize the user credentials, and</P>
+<DT><B><CODE>PAM_REFRESH_CRED</CODE></B><DD><P>Extend the lifetime of the user credentials.</P>
+</DL>
+</P>
+
+<P>Prior to <B>Linux-PAM-0.75</B>, and due to a deficiency with the way the
+<CODE>auth</CODE> stack was handled in the case of the setcred stack being
+processed, the module was required to attempt to return the same error
+code as <CODE>pam_sm_authenticate</CODE> did.  This was necessary to preserve
+the logic followed by libpam as it executes the stack of
+<EM>authentication</EM> modules, when the application called either
+<CODE>pam_authenticate()</CODE> or <CODE>pam_setcred()</CODE>.  Failing to do this,
+led to confusion on the part of the System Administrator.</P>
+
+<P>For <B>Linux-PAM-0.75</B> and later, libpam handles the credential stack
+much more sanely. The way the <CODE>auth</CODE> stack is navigated in order to
+evaluate the <CODE>pam_setcred()</CODE> function call, independent of the
+<CODE>pam_sm_setcred()</CODE> return codes, is exactly the same way that it
+was navigated when evaluating the <CODE>pam_authenticate()</CODE> library
+call. Typically, if a stack entry was ignored in evaluating
+<CODE>pam_authenticate()</CODE>, it will be ignored when libpam evaluates the
+<CODE>pam_setcred()</CODE> function call. Otherwise, the return codes from
+each module specific <CODE>pam_sm_setcred()</CODE> call are treated as
+<CODE>required</CODE>.</P>
+
+<P>Besides <CODE>PAM_SUCCESS</CODE>, the module may return one of the following
+errors:</P>
+
+<P>
+<DL>
+<DT><B><CODE>PAM_CRED_UNAVAIL</CODE></B><DD><P>This module cannot retrieve the user's credentials.</P>
+<DT><B><CODE>PAM_CRED_EXPIRED</CODE></B><DD><P>The user's credentials have expired.</P>
+<DT><B><CODE>PAM_USER_UNKNOWN</CODE></B><DD><P>The user is not known to this authentication module.</P>
+<DT><B><CODE>PAM_CRED_ERR</CODE></B><DD><P>This module was unable to set the credentials of the user.</P>
+</DL>
+</P>
+
+<P>these, non-<CODE>PAM_SUCCESS</CODE>, return values will typically lead to the
+credential stack <EM>failing</EM>. The first such error will dominate in
+the return value of <CODE>pam_setcred()</CODE>.</P>
+
+</LI>
+</UL>
+</P>
+
+<H2><A NAME="ss3.3">3.3</A> <A HREF="pam_modules.html#toc3.3">Account management</A>
+</H2>
+
+<P>To be correctly initialized, <CODE>PAM_SM_ACCOUNT</CODE> must be
+<CODE>#define</CODE>'d prior to including <CODE>&lt;security/pam_modules.h&gt;</CODE>.
+This will ensure that the prototype for a static module is properly
+declared.</P>
+
+<P>
+<UL>
+<LI><CODE>PAM_EXTERN int pam_sm_acct_mgmt(pam_handle_t *pamh, int flags, int
+argc, const char **argv);</CODE>
+
+<P>This function performs the task of establishing whether the user is
+permitted to gain access at this time. It should be understood that
+the user has previously been validated by an authentication
+module. This function checks for other things. Such things might be:
+the time of day or the date, the terminal line, remote
+hostname, etc. .</P>
+
+<P>This function may also determine things like the expiration on
+passwords, and respond that the user change it before continuing.</P>
+
+<P>Valid flags, which may be logically OR'd with <CODE>PAM_SILENT</CODE>, are the
+same as those applicable to the <CODE>flags</CODE> argument of
+<CODE>pam_sm_authenticate</CODE>.</P>
+
+<P>This function may return one of the following errors,</P>
+<P>
+<DL>
+
+<DT><B><CODE>PAM_ACCT_EXPIRED</CODE></B><DD><P>The user is no longer permitted access to the system.</P>
+<DT><B><CODE>PAM_AUTH_ERR</CODE></B><DD><P>There was an authentication error.</P>
+<DT><B><CODE>PAM_AUTHTOKEN_REQD</CODE></B><DD><P>The user's authentication token has expired. Before calling
+this function again the application will arrange for a new one to be
+given. This will likely result in a call to <CODE>pam_sm_chauthtok()</CODE>.</P>
+<DT><B><CODE>PAM_USER_UNKNOWN</CODE></B><DD><P>The user is not known to the module's account management
+component.</P>
+
+</DL>
+</P>
+
+</LI>
+</UL>
+</P>
+
+<H2><A NAME="ss3.4">3.4</A> <A HREF="pam_modules.html#toc3.4">Session management</A>
+</H2>
+
+<P>To be correctly initialized, <CODE>PAM_SM_SESSION</CODE> must be
+<CODE>#define</CODE>'d prior to including
+<CODE>&lt;security/pam_modules.h&gt;</CODE>.  This will ensure that the
+prototypes for static modules are properly declared.</P>
+
+<P>The following two functions are defined to handle the
+initialization/termination of a session. For example, at the beginning
+of a session the module may wish to log a message with the system
+regarding the user. Similarly, at the end of the session the module
+would inform the system that the user's session has ended.</P>
+
+<P>It should be possible for sessions to be opened by one application and
+closed by another. This either requires that the module uses only
+information obtained from <CODE>pam_get_item()</CODE>, or that information
+regarding the session is stored in some way by the operating system
+(in a file for example).</P>
+
+<P>
+<UL>
+<LI><CODE>PAM_EXTERN int pam_sm_open_session(pam_handle_t *pamh, int flags, int
+argc, const char **argv);</CODE>
+
+<P>This function is called to commence a session. The only valid, but
+optional, flag is <CODE>PAM_SILENT</CODE>.</P>
+
+<P>As a return value, <CODE>PAM_SUCCESS</CODE> signals success and
+<CODE>PAM_SESSION_ERR</CODE> failure.</P>
+
+</LI>
+<LI><CODE>PAM_EXTERN int pam_sm_close_session(pam_handle_t *pamh, int flags, int
+argc, const char **argv);</CODE>
+
+<P>This function is called to terminate a session. The only valid, but
+optional, flag is <CODE>PAM_SILENT</CODE>.</P>
+
+<P>As a return value, <CODE>PAM_SUCCESS</CODE> signals success and
+<CODE>PAM_SESSION_ERR</CODE> failure.</P>
+
+</LI>
+</UL>
+</P>
+
+<H2><A NAME="ss3.5">3.5</A> <A HREF="pam_modules.html#toc3.5">Password management</A>
+</H2>
+
+<P>To be correctly initialized, <CODE>PAM_SM_PASSWORD</CODE> must be
+<CODE>#define</CODE>'d prior to including <CODE>&lt;security/pam_modules.h&gt;</CODE>.
+This will ensure that the prototype for a static module is properly
+declared.</P>
+
+<P>
+<UL>
+<LI><CODE>PAM_EXTERN int pam_sm_chauthtok(pam_handle_t *pamh, int flags, int
+argc, const char **argv);</CODE>
+
+<P>This function is used to (re-)set the authentication token of the
+user. A valid flag, which may be logically OR'd with <CODE>PAM_SILENT</CODE>,
+can be built from the following list,</P>
+<P>
+<DL>
+<DT><B><CODE>PAM_CHANGE_EXPIRED_AUTHTOK</CODE></B><DD><P>This argument indicates to the module that the users
+authentication token (password) should only be changed if it has
+expired. This flag is optional and <EM>must</EM> be combined with one of
+the following two flags. Note, however, the following two options are
+<EM>mutually exclusive</EM>.</P>
+
+<DT><B><CODE>PAM_PRELIM_CHECK</CODE></B><DD><P>This indicates that the modules are being probed as to their
+ready status for altering the user's authentication token. If the
+module requires access to another system over some network it should
+attempt to verify it can connect to this system on receiving this
+flag. If a module cannot establish it is ready to update the user's
+authentication token it should return <CODE>PAM_TRY_AGAIN</CODE>, this
+information will be passed back to the application.</P>
+
+<DT><B><CODE>PAM_UPDATE_AUTHTOK</CODE></B><DD><P>This informs the module that this is the call it should change
+the authorization tokens. If the flag is logically OR'd with
+<CODE>PAM_CHANGE_EXPIRED_AUTHTOK</CODE>, the token is only changed if it has
+actually expired.</P>
+
+</DL>
+</P>
+
+<P>Note, the <B>Linux-PAM</B> library calls this function twice in
+succession. The first time with <CODE>PAM_PRELIM_CHECK</CODE> and then, if the
+module does not return <CODE>PAM_TRY_AGAIN</CODE>, subsequently with
+<CODE>PAM_UPDATE_AUTHTOK</CODE>. It is only on the second call that the
+authorization token is (possibly) changed.</P>
+
+<P><CODE>PAM_SUCCESS</CODE> is the only successful return value, valid
+error-returns are:</P>
+<P>
+<DL>
+<DT><B><CODE>PAM_AUTHTOK_ERR</CODE></B><DD><P>The module was unable to obtain the new authentication token.</P>
+
+<DT><B><CODE>PAM_AUTHTOK_RECOVERY_ERR</CODE></B><DD><P>The module was unable to obtain the old authentication token.</P>
+
+<DT><B><CODE>PAM_AUTHTOK_LOCK_BUSY</CODE></B><DD><P>Cannot change the authentication token since it is currently
+locked.</P>
+
+<DT><B><CODE>PAM_AUTHTOK_DISABLE_AGING</CODE></B><DD><P>Authentication token aging has been disabled.</P>
+
+<DT><B><CODE>PAM_PERM_DENIED</CODE></B><DD><P>Permission denied.</P>
+
+<DT><B><CODE>PAM_TRY_AGAIN</CODE></B><DD><P>Preliminary check was unsuccessful. Signals an immediate return
+to the application is desired.</P>
+
+<DT><B><CODE>PAM_USER_UNKNOWN</CODE></B><DD><P>The user is not known to the authentication token changing
+service.</P>
+
+</DL>
+</P>
+
+</LI>
+</UL>
+</P>
+
+<HR>
+<A HREF="pam_modules-4.html">Next</A>
+<A HREF="pam_modules-2.html">Previous</A>
+<A HREF="pam_modules.html#toc3">Contents</A>
+</BODY>
+</HTML>

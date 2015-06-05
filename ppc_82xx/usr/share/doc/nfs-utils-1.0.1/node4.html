@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Kernel-Space NFS Server</TITLE>
+<META NAME="description" CONTENT="The Kernel-Space NFS Server">
+<META NAME="keywords" CONTENT="nfs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="nfs.css">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html66"
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html64"
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html60"
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html67"
+ HREF="node5.html">Interoperability</A>
+<B> Up:</B> <A NAME="tex2html65"
+ HREF="node2.html">Overview</A>
+<B> Previous:</B> <A NAME="tex2html61"
+ HREF="node3.html">The User-Space NFS Server</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00022000000000000000">
+The Kernel-Space NFS Server</A>
+</H2>
+
+<P>
+Mainly due to the performance and interoperation considerations,
+the kernel-space NFS server is preferred over the user-space one.
+It has many advantages:
+
+<P>
+
+<UL><LI>Since it is running in the kernel space and doing RPC calls
+  	inside kernel, it doesn't have to move memory between kernel
+	and user spaces. Its memory operation is much more efficient.
+	There is no overhead for context switch.
+
+<P>
+
+<LI>Since it is a kernel process, it can take advantage of
+	the kernel thread.
+
+<P>
+
+<LI>Both NLM and NSM protocols are supported. File and record locks
+  	can work across NFS. It is very important when you have
+	a heterogeneous NFS environment.
+
+<P>
+
+<LI>The file export control is implemented as a system call. When
+  	/etc/exports is changed, there is no need to restart the
+	NFS server if there are no changes to mountd.
+
+<P>
+
+</UL>
+
+<P>
+However, there are some disadvantages for the kernel-space NFS server:
+
+<P>
+
+<UL><LI>Unlink the user-space NFS sever, each entry in /etc/exports can
+  	export only a directory in one file system. Any file systems
+	mounted under the exported directory are not exported. A
+	separate entry is needed for each mounted file system.
+
+<P>
+
+<LI>Since it is not easy to do callback from the kernel, uid/gid
+  	mapping and other functionalities which require access to
+	DNS, NIS, NIS+ and other user-space services are not supported.
+
+<P>
+
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html66"
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/lib/latex2html/icons.png/next_motif.png"></A> 
+<A NAME="tex2html64"
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/lib/latex2html/icons.png/up_motif.png"></A> 
+<A NAME="tex2html60"
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/lib/latex2html/icons.png/previous_motif.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html67"
+ HREF="node5.html">Interoperability</A>
+<B> Up:</B> <A NAME="tex2html65"
+ HREF="node2.html">Overview</A>
+<B> Previous:</B> <A NAME="tex2html61"
+ HREF="node3.html">The User-Space NFS Server</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>H.J. Lu</I>
+<BR><I>1999-08-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

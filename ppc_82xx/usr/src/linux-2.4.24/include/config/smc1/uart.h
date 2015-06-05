@@ -1,0 +1,1 @@
+#undef  CONFIG_SMC1_UART

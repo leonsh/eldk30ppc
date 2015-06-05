@@ -1,0 +1,1 @@
+#undef  CONFIG_FCC_QS6612

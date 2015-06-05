@@ -1,0 +1,84 @@
+xbasic_types.o: xbasic_types.c \
+   xbasic_types.h
+xbasic_types.h: \
+   /home/jhan/linux-2.4.241q/include/linux/types.h
+	@touch xbasic_types.h
+xbuf_descriptor.h: \
+   xbasic_types.h \
+   xdma_channel_i.h
+	@touch xbuf_descriptor.h
+xdma_channel.o: xdma_channel.c \
+   xdma_channel.h \
+   xbasic_types.h \
+   xio.h
+xdma_channel.h: \
+   xdma_channel_i.h \
+   xbasic_types.h \
+   xstatus.h \
+   xversion.h \
+   xbuf_descriptor.h
+	@touch xdma_channel.h
+xdma_channel_i.h: \
+   xbasic_types.h \
+   xstatus.h \
+   xversion.h
+	@touch xdma_channel_i.h
+xdma_channel_sg.o: xdma_channel_sg.c \
+   xdma_channel.h \
+   xbasic_types.h \
+   xio.h \
+   xbuf_descriptor.h \
+   xstatus.h
+xilinx_syms.o: xilinx_syms.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   xbasic_types.h \
+   xdma_channel.h \
+   xipif_v1_23_b.h \
+   xpacket_fifo_v1_00_b.h \
+   xversion.h
+xio.h: \
+   xbasic_types.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+	@touch xio.h
+xipif_v1_23_b.o: xipif_v1_23_b.c \
+   xipif_v1_23_b.h \
+   xio.h
+xipif_v1_23_b.h: \
+   xbasic_types.h \
+   xstatus.h \
+   xversion.h
+	@touch xipif_v1_23_b.h
+xpacket_fifo_v1_00_b.o: xpacket_fifo_v1_00_b.c \
+   xbasic_types.h \
+   xio.h \
+   xstatus.h \
+   xpacket_fifo_v1_00_b.h
+xpacket_fifo_v1_00_b.h: \
+   xbasic_types.h \
+   xstatus.h
+	@touch xpacket_fifo_v1_00_b.h
+xparameters.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/xilinx/ml300.h) \
+   xparameters_ml300.h
+	@touch xparameters.h
+xstatus.h: \
+   xbasic_types.h
+	@touch xstatus.h
+xversion.o: xversion.c \
+   xbasic_types.h \
+   xversion.h
+xversion.h: \
+   xbasic_types.h \
+   xstatus.h
+	@touch xversion.h
+.PRECIOUS:	xbasic_types.h \
+	xbuf_descriptor.h \
+	xdma_channel.h \
+	xdma_channel_i.h \
+	xio.h \
+	xipif_v1_23_b.h \
+	xpacket_fifo_v1_00_b.h \
+	xparameters.h \
+	xstatus.h \
+	xversion.h \
+

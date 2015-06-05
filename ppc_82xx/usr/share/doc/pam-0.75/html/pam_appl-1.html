@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Application Developers' Guide: Introduction</TITLE>
+ <LINK HREF="pam_appl-2.html" REL=next>
+
+ <LINK HREF="pam_appl.html#toc1" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_appl-2.html">Next</A>
+Previous
+<A HREF="pam_appl.html#toc1">Contents</A>
+<HR>
+<H2><A NAME="s1">1.</A> <A HREF="pam_appl.html#toc1">Introduction</A></H2>
+
+<H2><A NAME="ss1.1">1.1</A> <A HREF="pam_appl.html#toc1.1">Synopsis</A>
+</H2>
+
+<P>For general applications that wish to use the services provided by
+<B>Linux-PAM</B> the following is a summary of the relevant linking
+information:
+<BLOCKQUOTE><CODE>
+<PRE>
+#include &lt;security/pam_appl.h>
+
+cc -o application .... -lpam -ldl
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<P>In addition to <CODE>libpam</CODE>, there is a library of miscellaneous
+functions that make the job of writing <EM>PAM-aware</EM> applications
+easier (this library is not covered in the DCE-RFC for PAM and is
+specific to the Linux-PAM distribution):
+<BLOCKQUOTE><CODE>
+<PRE>
+...
+#include &lt;security/pam_misc.h>
+
+cc -o application .... -lpam -lpam_misc -ldl
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+
+<H2><A NAME="ss1.2">1.2</A> <A HREF="pam_appl.html#toc1.2">Description</A>
+</H2>
+
+<P><B>Linux-PAM</B> (Pluggable Authentication Modules for Linux) is a
+library that enables the local system administrator to choose how
+individual applications authenticate users.  For an overview of the
+<B>Linux-PAM</B> library see the <B>Linux-PAM</B> System
+Administrators' Guide.</P>
+
+<P>It is the purpose of the <B>Linux-PAM</B> project to liberate the
+development of privilege granting software from the development of
+secure and appropriate authentication schemes.  This is accomplished
+by providing a documented library of functions that an application may
+use for all forms of user authentication management. This library
+dynamically loads locally configured authentication modules that
+actually perform the authentication tasks.</P>
+
+<P>From the perspective of an application developer the information
+contained in the local configuration of the PAM library should not be
+important.  Indeed it is intended that an application treat the
+functions documented here as a ``black box'' that will deal with all
+aspects of user authentication. ``All aspects'' includes user
+verification, account management, session initialization/termination
+and also the resetting of passwords (<EM>authentication tokens</EM>).</P>
+
+<HR>
+<A HREF="pam_appl-2.html">Next</A>
+Previous
+<A HREF="pam_appl.html#toc1">Contents</A>
+</BODY>
+</HTML>

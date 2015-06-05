@@ -1,0 +1,302 @@
+#
+# MPC8xx Communication options
+#
+mainmenu_option next_comment
+comment 'MPC8xx Options'
+
+comment 'Generic MPC8xx Options'
+bool 'Copy-Back Data Cache (else Writethrough)' CONFIG_8xx_COPYBACK
+bool 'CPU6 Silicon Errata (860 Pre Rev. C)' CONFIG_8xx_CPU6
+bool 'I2C/SPI Microcode Patch' CONFIG_UCODE_PATCH
+if [ "$CONFIG_UCODE_PATCH" = "y" ]; then
+  bool '  Use MPC850-specific microcode patch' CONFIG_MPC850_UCODE_PATCH
+fi
+
+comment 'MPC8xx CPM Options'
+
+tristate 'Track CPM loading' CONFIG_CPM_TRACK_LOAD
+
+if [ "$CONFIG_NET_ETHERNET" = "y" ]; then
+  bool 'CPM SCC Ethernet' CONFIG_SCC_ENET
+  if [ "$CONFIG_SCC_ENET" = "y" ]; then
+    choice 'SCC used for Ethernet'	\
+  	"SCC1	CONFIG_SCC1_ENET	\
+	 SCC2	CONFIG_SCC2_ENET	\
+	 SCC3	CONFIG_SCC3_ENET"	SCC1
+  else
+    define_bool CONFIG_SCC1_ENET n
+    define_bool CONFIG_SCC2_ENET n
+    define_bool CONFIG_SCC3_ENET n
+  fi
+  bool '8xxT FEC Ethernet' CONFIG_FEC_ENET
+  if [ "$CONFIG_FEC_ENET" = "y" ]; then
+    bool 'Use MDIO for PHY configuration' CONFIG_USE_MDIO
+    if [ "$CONFIG_USE_MDIO" = "y" ]; then
+      bool 'Generic PHY support'    CONFIG_FEC_GENERIC_PHY
+      bool 'Support AMD79C874  PHY' CONFIG_FEC_AM79C874
+      bool 'Support LXT970     PHY' CONFIG_FEC_LXT970
+      bool 'Support LXT971/972 PHY' CONFIG_FEC_LXT971
+      bool 'Support QS6612     PHY' CONFIG_FEC_QS6612
+      bool 'Support DP83843    PHY' CONFIG_FEC_DP83843
+      bool 'Support DP83846A   PHY' CONFIG_FEC_DP83846A
+    fi
+  fi
+  bool 'Use Big CPM Ethernet Buffers' CONFIG_ENET_BIG_BUFFERS
+fi
+
+if [ "$CONFIG_SCC3_ENET" != "y" ]; then
+  bool 'Use SMC1 for UART' CONFIG_SMC1_UART
+fi
+
+if [ "$CONFIG_SMC1_UART" = "y" ]; then
+  define_int CONFIG_SMC1_UART_RX_BDNUM 4
+  define_int CONFIG_SMC1_UART_RX_BDSIZE 32
+  define_int CONFIG_SMC1_UART_TX_BDNUM 4
+  define_int CONFIG_SMC1_UART_TX_BDSIZE 32
+fi
+
+bool 'Use SMC2 for UART' CONFIG_SMC2_UART
+if [ "$CONFIG_SMC2_UART" = "y" ]; then
+  bool 'Use Alternate SMC2 I/O (823/850)' CONFIG_ALTSMC2
+  bool 'Use SMC2 for Console' CONFIG_CONS_SMC2
+  int  'MAXIDL value for SMC2' CONFIG_UART_MAXIDL_SMC2 1
+  int 'Number of Rx BD for SMC2' CONFIG_SMC2_UART_RX_BDNUM 4
+  int 'Size of the Rx Buffer for SMC2' CONFIG_SMC2_UART_RX_BDSIZE 32
+  int 'Number of Tx BD for SMC2' CONFIG_SMC2_UART_TX_BDNUM 4
+  int 'Size of the Tx Buffer for SMC2' CONFIG_SMC2_UART_TX_BDSIZE 32
+fi
+bool 'Enable SCCx UART' CONFIG_USE_SCC_IO
+if [ "$CONFIG_USE_SCC_IO" = "y" ]; then
+  if [ "$CONFIG_SCC1_ENET" != "y" ]; then
+    bool 'Use SCC1 for UART'	CONFIG_SCC1_UART
+    if [ "$CONFIG_SCC1_UART" = "y" ]; then
+      choice 'CTS signal for SCC1' \
+         "None CONFIG_PORT_CTS1_NONE \
+          PC11 CONFIG_UART_CTS_CONTROL_SCC1" None
+      choice 'RTS signal for SCC1' \
+         "None CONFIG_PORT_RTS1_NONE \
+          PB19 CONFIG_PORT_RTS1_B \
+          PC15 CONFIG_PORT_RTS1_C" None
+      if [ "$CONFIG_PORT_RTS1_B" = "y" ]; then
+        define_int CONFIG_UART_RTS_CONTROL_SCC1 2
+        define_int CONFIG_RTS1_PIN 19
+      fi
+      if [ "$CONFIG_PORT_RTS1_C" = "y" ]; then
+        define_int CONFIG_UART_RTS_CONTROL_SCC1 3
+        define_int CONFIG_RTS1_PIN 15
+      fi
+      choice 'CD signal for SCC1' \
+         "None CONFIG_PORT_CD1_NONE \
+          PC10 CONFIG_UART_CD_CONTROL_SCC1" None
+      choice 'DTR signal port for SCC1' \
+         "None   CONFIG_PORT_DTR1_NONE \
+          Port_A CONFIG_PORT_DTR1_A \
+          Port_B CONFIG_PORT_DTR1_B \
+  	Port_C CONFIG_PORT_DTR1_C \
+  	Port_D CONFIG_PORT_DTR1_D" None
+      if [ "$CONFIG_PORT_DTR1_A" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC1 1
+      fi
+      if [ "$CONFIG_PORT_DTR1_B" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC1 2
+      fi
+      if [ "$CONFIG_PORT_DTR1_C" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC1 3
+      fi
+      if [ "$CONFIG_PORT_DTR1_D" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC1 4
+      fi
+      if [ "$CONFIG_PORT_DTR1_NONE" != "y" ]; then
+        int 'DTR signal pin for SCC1' \
+            CONFIG_DTR1_PIN 15
+      fi
+      int 'MAXIDL value for SCC1' CONFIG_UART_MAXIDL_SCC1 1
+      int 'Number of Rx BD for SCC1' CONFIG_SCC1_UART_RX_BDNUM 4
+      int 'Size of the Rx Buffer for SCC1' CONFIG_SCC1_UART_RX_BDSIZE 32
+      int 'Number of Tx BD for SCC1' CONFIG_SCC1_UART_TX_BDNUM 4
+      int 'Size of the Tx Buffer for SCC1' CONFIG_SCC1_UART_TX_BDSIZE 32
+    fi
+  fi
+  if [ "$CONFIG_SCC2_ENET" != "y" ]; then
+    bool 'Use SCC2 for UART'	CONFIG_SCC2_UART
+    if [ "$CONFIG_SCC2_UART" = "y" ]; then
+      choice 'CTS signal for SCC2' \
+         "None CONFIG_PORT_CTS2_NONE \
+          PC09 CONFIG_UART_CTS_CONTROL_SCC2" PC09
+      choice 'RTS signal for SCC2' \
+         "None CONFIG_PORT_RTS2_NONE \
+          PB18 CONFIG_PORT_RTS2_B \
+          PC14 CONFIG_PORT_RTS2_C" PC14
+      if [ "$CONFIG_PORT_RTS2_B" = "y" ]; then
+        define_int CONFIG_UART_RTS_CONTROL_SCC2 2
+        define_int CONFIG_RTS2_PIN 18
+      fi
+      if [ "$CONFIG_PORT_RTS2_C" = "y" ]; then
+        define_int CONFIG_UART_RTS_CONTROL_SCC2 3
+        define_int CONFIG_RTS2_PIN 14
+      fi
+      choice 'CD signal for SCC2' \
+         "None CONFIG_PORT_CD2_NONE \
+          PC08 CONFIG_UART_CD_CONTROL_SCC2" None
+      choice 'DTR signal port for SCC2' \
+         "None CONFIG_PORT_DTR2_NONE \
+          Port_A CONFIG_PORT_DTR2_A \
+          Port_B CONFIG_PORT_DTR2_B \
+          Port_C CONFIG_PORT_DTR2_C \
+          Port_D CONFIG_PORT_DTR2_D" Port_D
+      if [ "$CONFIG_PORT_DTR2_A" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC2 1
+      fi
+      if [ "$CONFIG_PORT_DTR2_B" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC2 2
+      fi
+      if [ "$CONFIG_PORT_DTR2_C" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC2 3
+      fi
+      if [ "$CONFIG_PORT_DTR2_D" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC2 4
+      fi
+      if [ "$CONFIG_PORT_DTR2_NONE" != "y" ]; then
+        int 'DTR signal pin for SCC2' \
+            CONFIG_DTR2_PIN 14
+      fi
+      int 'MAXIDL value for SCC2' CONFIG_UART_MAXIDL_SCC2 1
+      int 'Number of Rx BD for SCC2' CONFIG_SCC2_UART_RX_BDNUM 4
+      int 'Size of the Rx Buffer for SCC2' CONFIG_SCC2_UART_RX_BDSIZE 32
+      int 'Number of Tx BD for SCC2' CONFIG_SCC2_UART_TX_BDNUM 4
+      int 'Size of the Tx Buffer for SCC2' CONFIG_SCC2_UART_TX_BDSIZE 32
+    fi
+  fi
+  if [ "$CONFIG_SCC3_ENET" != "y" ]; then
+    bool 'Use SCC3 for UART'	CONFIG_SCC3_UART
+    if [ "$CONFIG_SCC3_UART" = "y" ]; then
+      choice 'CTS signal for SCC3' \
+         "None CONFIG_PORT_CTS3_NONE \
+          PC07 CONFIG_PORT_CTS3_8XX \
+          PC05 CONFIG_PORT_CTS3_823E" None
+      if [ "$CONFIG_PORT_CTS3_8XX" = "y" ]; then
+        define_int CONFIG_UART_CTS_CONTROL_SCC3 2
+        define_int CONFIG_CTS3_PIN 7
+      fi
+      if [ "$CONFIG_PORT_CTS3_823E" = "y" ]; then
+        define_int CONFIG_UART_CTS_CONTROL_SCC3 2
+        define_int CONFIG_CTS3_PIN 5
+      fi
+      choice 'RTS signal for SCC3' \
+         "None CONFIG_PORT_RTS3_NONE \
+          PB17 CONFIG_PORT_RTS3_B \
+          PC13 CONFIG_PORT_RTS3_C \
+          PD07 CONFIG_PORT_RTS3_D" None
+      if [ "$CONFIG_PORT_RTS3_B" = "y" ]; then
+        define_int CONFIG_UART_RTS_CONTROL_SCC3 2
+        define_int CONFIG_RTS3_PIN 17
+      fi
+      if [ "$CONFIG_PORT_RTS3_C" = "y" ]; then
+        define_int CONFIG_UART_RTS_CONTROL_SCC3 3
+        define_int CONFIG_RTS3_PIN 13
+      fi
+      if [ "$CONFIG_PORT_RTS3_D" = "y" ]; then
+        define_int CONFIG_UART_RTS_CONTROL_SCC3 4
+        define_int CONFIG_RTS3_PIN 7
+      fi
+      choice 'CD signal for SCC3' \
+         "None CONFIG_PORT_CD3_NONE \
+          PC06 CONFIG_PORT_CD3_8XX \
+          PC04 CONFIG_PORT_CD3_823E" None
+      if [ "$CONFIG_PORT_CD3_8XX" = "y" ]; then
+        define_int CONFIG_UART_CD_CONTROL_SCC3 2
+        define_int CONFIG_CD3_PIN 6
+      fi
+      if [ "$CONFIG_PORT_CD3_823E" = "y" ]; then
+        define_int CONFIG_UART_CD_CONTROL_SCC3 2
+        define_int CONFIG_CD3_PIN 4
+      fi
+      choice 'DTR signal port for SCC3' \
+         "None CONFIG_PORT_DTR3_NONE \
+          Port_A CONFIG_PORT_DTR3_A \
+          Port_B CONFIG_PORT_DTR3_B \
+          Port_C CONFIG_PORT_DTR3_C \
+          Port_D CONFIG_PORT_DTR3_D" None
+      if [ "$CONFIG_PORT_DTR3_A" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC3 1
+      fi
+      if [ "$CONFIG_PORT_DTR3_B" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC3 2
+      fi
+      if [ "$CONFIG_PORT_DTR3_C" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC3 3
+      fi
+      if [ "$CONFIG_PORT_DTR3_D" = "y" ]; then
+        define_int CONFIG_UART_DTR_CONTROL_SCC3 4
+      fi
+      if [ "$CONFIG_PORT_DTR3_NONE" != "y" ]; then
+        int 'DTR signal pin for SCC3' \
+            CONFIG_DTR3_PIN 13
+      fi
+      int 'MAXIDL value for SCC3' CONFIG_UART_MAXIDL_SCC3 1
+      int 'Number of Rx BD for SCC3' CONFIG_SCC3_UART_RX_BDNUM 4
+      int 'Size of the Rx Buffer for SCC3' CONFIG_SCC3_UART_RX_BDSIZE 32
+      int 'Number of Tx BD for SCC3' CONFIG_SCC3_UART_TX_BDNUM 4
+      int 'Size of the Tx Buffer for SCC3' CONFIG_SCC3_UART_TX_BDSIZE 32
+    fi
+  fi
+  bool 'Use SCC4 for UART'	CONFIG_SCC4_UART
+  if [ "$CONFIG_SCC4_UART" = "y" ]; then
+    choice 'CTS signal for SCC4' \
+       "None CONFIG_PORT_CTS4_NONE \
+        PC05 CONFIG_UART_CTS_CONTROL_SCC4" None
+    choice 'RTS signal for SCC4' \
+       "None CONFIG_PORT_RTS4_NONE \
+        PB16 CONFIG_PORT_RTS4_B \
+        PC12 CONFIG_PORT_RTS4_C \
+        PD06 CONFIG_PORT_RTS4_D" None
+    if [ "$CONFIG_PORT_RTS4_B" = "y" ]; then
+      define_int CONFIG_UART_RTS_CONTROL_SCC4 2
+      define_int CONFIG_RTS4_PIN 16
+    fi
+    if [ "$CONFIG_PORT_RTS4_C" = "y" ]; then
+      define_int CONFIG_UART_RTS_CONTROL_SCC4 3
+      define_int CONFIG_RTS4_PIN 12
+    fi
+    if [ "$CONFIG_PORT_RTS4_D" = "y" ]; then
+      define_int CONFIG_UART_RTS_CONTROL_SCC4 4
+      define_int CONFIG_RTS4_PIN 6
+    fi
+    choice 'CD signal for SCC4' \
+       "None CONFIG_PORT_CD4_NONE \
+        PC04 CONFIG_UART_CD_CONTROL_SCC4" None
+    choice 'DTR signal port for SCC4' \
+       "None CONFIG_PORT_DTR4_NONE \
+        Port_A CONFIG_PORT_DTR4_A \
+        Port_B CONFIG_PORT_DTR4_B \
+        Port_C CONFIG_PORT_DTR4_C \
+        Port_D CONFIG_PORT_DTR4_D" None
+    if [ "$CONFIG_PORT_DTR4_A" = "y" ]; then
+      define_int CONFIG_UART_DTR_CONTROL_SCC4 1
+    fi
+    if [ "$CONFIG_PORT_DTR4_B" = "y" ]; then
+      define_int CONFIG_UART_DTR_CONTROL_SCC4 2
+    fi
+    if [ "$CONFIG_PORT_DTR4_C" = "y" ]; then
+      define_int CONFIG_UART_DTR_CONTROL_SCC4 3
+    fi
+    if [ "$CONFIG_PORT_DTR4_D" = "y" ]; then
+      define_int CONFIG_UART_DTR_CONTROL_SCC4 4
+    fi
+    if [ "$CONFIG_PORT_DTR4_NONE" != "y" ]; then
+      int 'DTR signal pin for SCC4' \
+          CONFIG_DTR4_PIN 12
+    fi
+    int 'MAXIDL value for SCC4' CONFIG_UART_MAXIDL_SCC4 1
+    int 'Number of Rx BD for SCC4' CONFIG_SCC4_UART_RX_BDNUM 4
+    int 'Size of the Rx Buffer for SCC4' CONFIG_SCC4_UART_RX_BDSIZE 32
+    int 'Number of Tx BD for SCC4' CONFIG_SCC4_UART_TX_BDNUM 4
+    int 'Size of the Tx Buffer for SCC4' CONFIG_SCC4_UART_TX_BDSIZE 32
+  fi
+fi
+
+if [ "$CONFIG_SOUND" = "y" ]; then
+	bool 'Embedded Planet HIOX Audio' CONFIG_HTDMSOUND
+fi
+
+endmenu

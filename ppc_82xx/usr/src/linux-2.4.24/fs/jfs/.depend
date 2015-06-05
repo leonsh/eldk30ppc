@@ -1,0 +1,262 @@
+file.o: file.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_dmap.h \
+   jfs_txnmgr.h \
+   jfs_xattr.h \
+   jfs_debug.h
+inode.o: inode.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_dmap.h \
+   jfs_imap.h \
+   jfs_extent.h \
+   jfs_unicode.h \
+   jfs_debug.h
+jfs_debug.o: jfs_debug.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/ctype.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/proc_fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_debug.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/statistics.h)
+jfs_debug.h: \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/debug.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/statistics.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/kernel/asserts.h)
+	@touch jfs_debug.h
+jfs_dmap.o: jfs_dmap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_superblock.h \
+   jfs_dmap.h \
+   jfs_imap.h \
+   jfs_lock.h \
+   jfs_metapage.h \
+   jfs_superblock.h \
+   jfs_debug.h
+jfs_dmap.h: \
+   jfs_txnmgr.h
+	@touch jfs_dmap.h
+jfs_dtree.o: jfs_dtree.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_superblock.h \
+   jfs_filsys.h \
+   jfs_metapage.h \
+   jfs_dmap.h \
+   jfs_unicode.h \
+   jfs_debug.h
+jfs_dtree.h: \
+   jfs_btree.h
+	@touch jfs_dtree.h
+jfs_extent.o: jfs_extent.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_superblock.h \
+   jfs_dmap.h \
+   jfs_extent.h \
+   jfs_debug.h
+jfs_imap.o: jfs_imap.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/locks.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_dinode.h \
+   jfs_dmap.h \
+   jfs_imap.h \
+   jfs_metapage.h \
+   jfs_superblock.h \
+   jfs_debug.h
+jfs_imap.h: \
+   jfs_txnmgr.h
+	@touch jfs_imap.h
+jfs_incore.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/rwsem.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/bitops.h \
+   jfs_types.h \
+   jfs_xtree.h \
+   jfs_dtree.h
+	@touch jfs_incore.h
+jfs_inode.o: jfs_inode.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_imap.h \
+   jfs_dinode.h \
+   jfs_debug.h
+jfs_lock.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/spinlock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/sched.h
+	@touch jfs_lock.h
+jfs_logmgr.o: jfs_logmgr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/locks.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/interrupt.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/completion.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_metapage.h \
+   jfs_txnmgr.h \
+   jfs_debug.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/statistics.h)
+jfs_logmgr.h: \
+   jfs_filsys.h \
+   jfs_lock.h
+	@touch jfs_logmgr.h
+jfs_metapage.o: jfs_metapage.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/init.h \
+   jfs_incore.h \
+   jfs_superblock.h \
+   jfs_filsys.h \
+   jfs_metapage.h \
+   jfs_txnmgr.h \
+   jfs_debug.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/statistics.h)
+jfs_metapage.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/pagemap.h
+	@touch jfs_metapage.h
+jfs_mount.o: jfs_mount.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/locks.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_superblock.h \
+   jfs_dmap.h \
+   jfs_imap.h \
+   jfs_metapage.h \
+   jfs_debug.h
+jfs_txnmgr.o: jfs_txnmgr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/vmalloc.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/smp_lock.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/completion.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_metapage.h \
+   jfs_dinode.h \
+   jfs_imap.h \
+   jfs_dmap.h \
+   jfs_superblock.h \
+   jfs_debug.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/statistics.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/proc/fs.h) \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/debug.h)
+jfs_txnmgr.h: \
+   jfs_logmgr.h
+	@touch jfs_txnmgr.h
+jfs_types.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/types.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/nls.h
+	@touch jfs_types.h
+jfs_umount.o: jfs_umount.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_superblock.h \
+   jfs_dmap.h \
+   jfs_imap.h \
+   jfs_metapage.h \
+   jfs_debug.h
+jfs_unicode.o: jfs_unicode.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/slab.h \
+   jfs_types.h \
+   jfs_filsys.h \
+   jfs_unicode.h \
+   jfs_debug.h
+jfs_unicode.h: \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/byteorder.h \
+   jfs_types.h
+	@touch jfs_unicode.h
+jfs_uniupr.o: jfs_uniupr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_unicode.h
+jfs_xtree.o: jfs_xtree.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_metapage.h \
+   jfs_dmap.h \
+   jfs_dinode.h \
+   jfs_superblock.h \
+   jfs_debug.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/statistics.h)
+jfs_xtree.h: \
+   jfs_btree.h
+	@touch jfs_xtree.h
+namei.o: namei.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_superblock.h \
+   jfs_inode.h \
+   jfs_dinode.h \
+   jfs_dmap.h \
+   jfs_unicode.h \
+   jfs_metapage.h \
+   jfs_xattr.h \
+   jfs_debug.h
+resize.o: resize.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/locks.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_metapage.h \
+   jfs_dinode.h \
+   jfs_imap.h \
+   jfs_dmap.h \
+   jfs_superblock.h \
+   jfs_txnmgr.h \
+   jfs_debug.h
+super.o: super.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/module.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/blkdev.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/completion.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/asm/uaccess.h \
+   jfs_incore.h \
+   jfs_filsys.h \
+   jfs_metapage.h \
+   jfs_superblock.h \
+   jfs_dmap.h \
+   jfs_imap.h \
+   jfs_debug.h \
+   $(wildcard /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/config/jfs/debug.h)
+symlink.o: symlink.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   jfs_incore.h \
+   jfs_xattr.h
+xattr.o: xattr.c \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/fs.h \
+   /opt/eldk/ppc_82xx/usr/src/linux-2.4.24/include/linux/xattr.h \
+   jfs_incore.h \
+   jfs_superblock.h \
+   jfs_dmap.h \
+   jfs_debug.h \
+   jfs_dinode.h \
+   jfs_extent.h \
+   jfs_metapage.h \
+   jfs_xattr.h
+.PRECIOUS:	jfs_debug.h \
+	jfs_dmap.h \
+	jfs_dtree.h \
+	jfs_imap.h \
+	jfs_incore.h \
+	jfs_lock.h \
+	jfs_logmgr.h \
+	jfs_metapage.h \
+	jfs_txnmgr.h \
+	jfs_types.h \
+	jfs_unicode.h \
+	jfs_xtree.h \
+

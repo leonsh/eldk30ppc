@@ -1,0 +1,113 @@
+cpci405ide.o: cpci405ide.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/blkdev.h \
+   /home/jhan/linux-2.4.241q/include/linux/hdreg.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h
+mpc5xxx_ide.o: mpc5xxx_ide.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc5xxx.h \
+   mpc5xxx_ide.h \
+   /home/jhan/linux-2.4.241q/drivers/ide/ide_modes.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/mpc5xxx/mdma.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/mpc5xxx/udma.h)
+mpc5xxx_ide.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/mpc5xxx/mdma.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/mpc5xxx/udma.h)
+	@touch mpc5xxx_ide.h
+mpc5xxx_ide_iops.o: mpc5xxx_ide_iops.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc5xxx.h \
+   mpc5xxx_ide.h
+mpc8xx.o: mpc8xx.c \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/stddef.h \
+   /home/jhan/linux-2.4.241q/include/linux/unistd.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/user.h \
+   /home/jhan/linux-2.4.241q/include/linux/a.out.h \
+   /home/jhan/linux-2.4.241q/include/linux/tty.h \
+   /home/jhan/linux-2.4.241q/include/linux/major.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/blk.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/bootmem.h \
+   /home/jhan/linux-2.4.241q/include/asm/mpc8xx.h \
+   /home/jhan/linux-2.4.241q/include/asm/mmu.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/residual.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/pgtable.h \
+   /home/jhan/linux-2.4.241q/include/asm/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/8xx_immap.h \
+   /home/jhan/linux-2.4.241q/include/asm/machdep.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/drivers/ide/ide_modes.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ide/8xx/pccard.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ide/8xx/direct.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/tqm850l.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ide/ext/direct.h)
+pmac.o: pmac.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/linux/notifier.h \
+   /home/jhan/linux-2.4.241q/include/linux/reboot.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/asm/prom.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dbdma.h \
+   /home/jhan/linux-2.4.241q/include/asm/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/mediabay.h \
+   /home/jhan/linux-2.4.241q/include/asm/pci-bridge.h \
+   /home/jhan/linux-2.4.241q/include/asm/machdep.h \
+   /home/jhan/linux-2.4.241q/include/asm/pmac_feature.h \
+   /home/jhan/linux-2.4.241q/include/asm/sections.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/pmac/pbook.h) \
+   /home/jhan/linux-2.4.241q/include/linux/adb.h \
+   /home/jhan/linux-2.4.241q/include/linux/pmu.h \
+   /home/jhan/linux-2.4.241q/drivers/ide/ide_modes.h \
+   /home/jhan/linux-2.4.241q/drivers/ide/ide-timing.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma/pmac.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/ide/pmac/ata100first.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/blk/dev/idedma/pmac/auto.h)
+swarm.o: swarm.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/ide.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h
+.PRECIOUS:	mpc5xxx_ide.h \
+

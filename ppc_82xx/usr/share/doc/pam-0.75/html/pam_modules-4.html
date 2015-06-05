@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
+ <TITLE>The Linux-PAM Module Writers' Guide: Generic optional arguments</TITLE>
+ <LINK HREF="pam_modules-5.html" REL=next>
+ <LINK HREF="pam_modules-3.html" REL=previous>
+ <LINK HREF="pam_modules.html#toc4" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="pam_modules-5.html">Next</A>
+<A HREF="pam_modules-3.html">Previous</A>
+<A HREF="pam_modules.html#toc4">Contents</A>
+<HR>
+<H2><A NAME="s4">4.</A> <A HREF="pam_modules.html#toc4">Generic optional arguments</A></H2>
+
+<P>Here we list the generic arguments that all modules can expect to
+be passed. They are not mandatory, and their absence should be
+accepted without comment by the module.</P>
+
+<P>
+<DL>
+<DT><B><CODE>debug</CODE></B><DD><P>Use the <CODE>syslog(3)</CODE> call to log debugging information to the system
+log files.</P>
+
+<DT><B><CODE>no_warn</CODE></B><DD><P>Instruct module to not give warning messages to the application.</P>
+
+<DT><B><CODE>use_first_pass</CODE></B><DD><P>The module should not prompt the user for a password. Instead, it
+should obtain the previously typed password (by a call to
+<CODE>pam_get_item()</CODE> for the <CODE>PAM_AUTHTOK</CODE> item), and use that. If
+that doesn't work, then the user will not be authenticated. (This
+option is intended for <CODE>auth</CODE> and <CODE>passwd</CODE> modules only).</P>
+
+<DT><B><CODE>try_first_pass</CODE></B><DD><P>The module should attempt authentication with the previously typed
+password (by a call to <CODE>pam_get_item()</CODE> for the <CODE>PAM_AUTHTOK</CODE>
+item). If that doesn't work, then the user is prompted for a
+password. (This option is intended for <CODE>auth</CODE> modules only).</P>
+
+<DT><B><CODE>use_mapped_pass</CODE></B><DD><P><B>WARNING:</B> coding this functionality may cause the module writer to
+break <EM>local</EM> encryption laws. For example, in the U.S. there are
+restrictions on the export computer code that is capable of strong
+encryption.  It has not been established whether this option is
+affected by this law, but one might reasonably assume that it does
+until told otherwise.  For this reason, this option is not supported
+by any of the modules distributed with <B>Linux-PAM</B>.</P>
+<P>The intended function of this argument, however, is that the module
+should take the existing authentication token from a previously
+invoked module and use it as a key to retrieve the authentication
+token for this module. For example, the module might create a strong
+hash of the <CODE>PAM_AUTHTOK</CODE> item (established by a previously
+executed module). Then, with logical-exclusive-or, use the result as a
+<EM>key</EM> to safely store/retrieve the authentication token for this
+module in/from a local file <EM>etc</EM>. .</P>
+
+<DT><B><CODE>expose_account</CODE></B><DD>
+<P>In general the leakage of some information about user accounts is not
+a secure policy for modules to adopt. Sometimes information such as
+users names or home directories, or preferred shell, can be used to
+attack a user's account. In some circumstances, however, this sort of
+information is not deemed a threat: displaying a user's full name when
+asking them for a password in a secured environment could also be
+called being 'friendly'. The <CODE>expose_account</CODE> argument is a
+standard module argument to encourage a module to be less discrete
+about account information as it is deemed appropriate by the local
+administrator.</P>
+
+</DL>
+</P>
+
+<HR>
+<A HREF="pam_modules-5.html">Next</A>
+<A HREF="pam_modules-3.html">Previous</A>
+<A HREF="pam_modules.html#toc4">Contents</A>
+</BODY>
+</HTML>

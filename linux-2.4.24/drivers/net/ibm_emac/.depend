@@ -1,0 +1,86 @@
+ibm_emac.h: \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ibm/emac4.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/440gp.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/440gx.h)
+	@touch ibm_emac.h
+ibm_ocp_debug.o: ibm_ocp_debug.c \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   ibm_ocp_mal.h \
+   ibm_ocp_zmii.h \
+   ibm_ocp_enet.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/40x.h)
+ibm_ocp_enet.o: ibm_ocp_enet.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/string.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/linux/ptrace.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/ioport.h \
+   /home/jhan/linux-2.4.241q/include/linux/slab.h \
+   /home/jhan/linux-2.4.241q/include/linux/interrupt.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/pci.h \
+   /home/jhan/linux-2.4.241q/include/linux/ethtool.h \
+   /home/jhan/linux-2.4.241q/include/linux/mii.h \
+   /home/jhan/linux-2.4.241q/include/asm/processor.h \
+   /home/jhan/linux-2.4.241q/include/asm/bitops.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/dma.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/ocp.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/linux/crc32.h \
+   ibm_ocp_enet.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/405ep.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ibm/ocp/enet/gap.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ppchameleonevb.h)
+ibm_ocp_enet.h: \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/asm/ocp.h \
+   /home/jhan/linux-2.4.241q/include/asm/mmu.h \
+   ibm_emac.h \
+   ibm_ocp_phy.h \
+   ibm_ocp_zmii.h \
+   ibm_ocp_mal.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ibm/ocp/enet/tx/buff.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ibm/ocp/enet/rx/buff.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ibm/ocp/enet/skb/res.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/ibm/ocp/enet/error/msg.h)
+	@touch ibm_ocp_enet.h
+ibm_ocp_mal.o: ibm_ocp_mal.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/asm/io.h \
+   /home/jhan/linux-2.4.241q/include/asm/irq.h \
+   /home/jhan/linux-2.4.241q/include/asm/ocp.h \
+   ibm_ocp_mal.h
+ibm_ocp_mal.h: \
+   /home/jhan/linux-2.4.241q/include/linux/list.h
+	@touch ibm_ocp_mal.h
+ibm_ocp_phy.o: ibm_ocp_phy.c \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/kernel.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/etherdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/mii.h \
+   /home/jhan/linux-2.4.241q/include/linux/ethtool.h \
+   /home/jhan/linux-2.4.241q/include/linux/delay.h \
+   ibm_ocp_phy.h
+.PRECIOUS:	ibm_emac.h \
+	ibm_ocp_enet.h \
+	ibm_ocp_mal.h \
+

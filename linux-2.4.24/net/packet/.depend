@@ -1,0 +1,40 @@
+af_packet.o: af_packet.c \
+   /home/jhan/linux-2.4.241q/include/linux/types.h \
+   /home/jhan/linux-2.4.241q/include/linux/sched.h \
+   /home/jhan/linux-2.4.241q/include/linux/mm.h \
+   /home/jhan/linux-2.4.241q/include/linux/fcntl.h \
+   /home/jhan/linux-2.4.241q/include/linux/socket.h \
+   /home/jhan/linux-2.4.241q/include/linux/in.h \
+   /home/jhan/linux-2.4.241q/include/linux/inet.h \
+   /home/jhan/linux-2.4.241q/include/linux/netdevice.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_packet.h \
+   /home/jhan/linux-2.4.241q/include/linux/wireless.h \
+   /home/jhan/linux-2.4.241q/include/linux/kmod.h \
+   /home/jhan/linux-2.4.241q/include/net/ip.h \
+   /home/jhan/linux-2.4.241q/include/net/protocol.h \
+   /home/jhan/linux-2.4.241q/include/linux/skbuff.h \
+   /home/jhan/linux-2.4.241q/include/net/sock.h \
+   /home/jhan/linux-2.4.241q/include/linux/errno.h \
+   /home/jhan/linux-2.4.241q/include/linux/timer.h \
+   /home/jhan/linux-2.4.241q/include/asm/system.h \
+   /home/jhan/linux-2.4.241q/include/asm/uaccess.h \
+   /home/jhan/linux-2.4.241q/include/asm/ioctls.h \
+   /home/jhan/linux-2.4.241q/include/linux/proc_fs.h \
+   /home/jhan/linux-2.4.241q/include/linux/poll.h \
+   /home/jhan/linux-2.4.241q/include/linux/module.h \
+   /home/jhan/linux-2.4.241q/include/linux/init.h \
+   /home/jhan/linux-2.4.241q/include/linux/if_bridge.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/divert.h) \
+   /home/jhan/linux-2.4.241q/include/linux/divert.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/inet.h) \
+   /home/jhan/linux-2.4.241q/include/net/inet_common.h \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/dlci.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/packet/multicast.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/packet/mmap.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/sock/packet.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/filter.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/bridge/module.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/kmod.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/net/radio.h) \
+   $(wildcard /home/jhan/linux-2.4.241q/include/config/proc/fs.h)
